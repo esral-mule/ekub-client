@@ -2,6 +2,7 @@ import { Outlet, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { ModeToggle } from "../components/mode-toggle";
+import { LangToggle } from "../components/lang-toggle";
 import { Toaster } from "../components/ui/toaster";
 
 const Layout = () => {
@@ -30,6 +31,7 @@ const Layout = () => {
                 <p>logout</p>
               </NavLink>
               <ModeToggle />
+              <LangToggle/>
             </li>
           </ul>
         </nav>
