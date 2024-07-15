@@ -27,7 +27,7 @@ export function LangToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => handleChangeLanguage("")}>
+        <DropdownMenuItem onClick={() => handleChangeLanguage("en")}>
           En
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => handleChangeLanguage("tig")}>
