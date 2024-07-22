@@ -10,6 +10,7 @@ import Signin from "./pages/Signin";
 import Logout from "./pages/Logout";
 import { AnimatePresence } from "framer-motion";
 import CreateUser from "./pages/CreateUser";
+import ListEqubes from "./pages/ListEqubes";
 
 function App() {
   return (
@@ -28,9 +29,18 @@ function App() {
                       </ProtectedRoute>
                     }
                   />
+                                    <Route
+                    path="/home"
+                    element={
+                      <ProtectedRoute>
+                        <HomePage />
+                      </ProtectedRoute>
+                    }
+                  />
                   <Route path="/signin" element={<Signin />} />
                   <Route path="/signout" element={<Logout />} />
                   <Route path="/createuser" element={<CreateUser />} />
+                  <Route path="/equbes" element={<ListEqubes />} />
                 </Route>
               </Routes>
             </BrowserRouter>

@@ -4,6 +4,30 @@ import { useContext } from "react";
 import { ModeToggle } from "../components/mode-toggle";
 import { LangToggle } from "../components/lang-toggle";
 import { Toaster } from "../components/ui/toaster";
+import { Menu, Package2, Search } from "lucide-react";
+import { Button } from "../components/ui/button";
+
+import { CircleUser } from "lucide-react";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import { Input } from "@/components/ui/input";
 
 const Layout = () => {
   const { state } = useContext(AuthContext);
@@ -11,30 +35,130 @@ const Layout = () => {
   return (
     <>
       {state.isAuthenticated && (
-        <nav className="bg-slate-200 dark:bg-gray-800 p-3 mb-3">
-          <ul className="flex space-x-2 justify-between">
-            <div>
-              <li>
-                <NavLink to="/" className="px-2 hover:text-gray-400">
-                  Ekub
-                </NavLink>
-                <NavLink
-                  to="/createuser"
-                  className="px-2 hover:text-gray-400"
+        <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+          <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+            <NavLink
+              to="/"
+              className="flex items-center gap-2 text-lg font-semibold md:text-base"
+            >
+              <Package2 className="h-6 w-6" />
+              <span className="sr-only">Acme Inc</span>
+            </NavLink>
+            <NavLink
+              to="/home"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Dashboard
+            </NavLink>
+            <NavLink
+              to="/createuser"
+              className="text-muted-foreground transition-colors hover:text-foreground whitespace-nowrap"
+            >
+              Create User
+            </NavLink>
+            <NavLink
+              to="/equbes"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Equbes
+            </NavLink>
+          </nav>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button
+                variant="outline"
+                size="icon"
+                className="shrink-0 md:hidden"
+              >
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Toggle navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left">
+            <SheetHeader>
+          <SheetTitle>
+          <SheetClose asChild>
+                  <NavLink
+                    to="/"
+                    className="flex items-center gap-2 text-lg font-semibold"
+                  >
+                    <Package2 className="h-6 w-6" />
+                    <span className="sr-only">Acme Inc</span>
+                  </NavLink>
+                </SheetClose>
+          </SheetTitle>
+          <SheetDescription>
+            Make your life easy with equb
+          </SheetDescription>
+        </SheetHeader>
+              <nav className="grid gap-6 text-lg font-medium">
+
+
+                <SheetClose asChild>
+                  <NavLink to="/home" className="text-muted-foreground transition-colors hover:text-foreground">
+                    Dashboard
+                  </NavLink>
+                </SheetClose>
+                <SheetClose asChild>
+                  <NavLink
+                    to="/createuser"
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    Create User
+                  </NavLink>
+                </SheetClose>
+
+                <SheetClose asChild>
+                  <NavLink
+                    to="/equbes"
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    Equbes
+                  </NavLink>
+                </SheetClose>
+              </nav>
+            </SheetContent>
+          </Sheet>
+          <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
+            <form className="ml-auto flex-1 sm:flex-initial">
+              <div className="relative">
+                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Input
+                  type="search"
+                  placeholder="Search products..."
+                  className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
+                />
+              </div>
+            </form>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="secondary"
+                  size="icon"
+                  className="rounded-full"
                 >
-                  Create User
-                </NavLink>
-              </li>
-            </div>
-            <li className="flex items-center gap-3">
-              <NavLink to="/signout" className="px-2">
-                <p>logout</p>
-              </NavLink>
-              <ModeToggle />
-              <LangToggle/>
-            </li>
-          </ul>
-        </nav>
+                  <CircleUser className="h-5 w-5" />
+                  <span className="sr-only">Toggle user menu</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuItem>Support</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <NavLink to="/signout">
+                    <p>logout</p>
+                  </NavLink>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <ModeToggle />
+            <LangToggle />
+          </div>
+        </header>
       )}
 
       <Outlet />
