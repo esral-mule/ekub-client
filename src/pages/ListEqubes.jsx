@@ -18,7 +18,7 @@ import {
 import { Link } from "react-router-dom";
 
 
-export default function ListEqubes() {
+export default function ListEqubes({id}) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -70,7 +70,7 @@ export default function ListEqubes() {
             </CardContent>
             <CardFooter>
               <Button className="w-full">
-                <Link className="w-full" to="/equbdetail">Detail</Link>
+                <Link className="w-full" to={`/equbdetail/${equb._id}`}>Detail</Link>
               </Button>
             </CardFooter>
           </Card>

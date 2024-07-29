@@ -12,6 +12,7 @@ import { AnimatePresence } from "framer-motion";
 import CreateUser from "./pages/CreateUser";
 import ListEqubes from "./pages/ListEqubes";
 import EqubDetail from "./pages/EqubDetail";
+import UserDetail from "./pages/UserDetail";
 
 function App() {
   return (
@@ -42,7 +43,8 @@ function App() {
                   <Route path="/signout" element={<Logout />} />
                   <Route path="/createuser" element={<CreateUser />} />
                   <Route path="/equbes" element={<ListEqubes />} />
-                  <Route path="/equbdetail" element={<EqubDetail />} />
+                  <Route path="/equbdetail/:id" element={<EqubDetail />} />
+                  <Route path="/userdetail/:id" element={<UserDetail />} />
                 </Route>
               </Routes>
             </BrowserRouter>

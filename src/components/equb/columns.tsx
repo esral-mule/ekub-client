@@ -19,7 +19,7 @@ import { NavLink } from "react-router-dom"
 import BanAction from "./BanAction"
 
 
-export type Payment = {
+export type User = {
   _id: string,
         member: object,
         equbType: object,
@@ -30,7 +30,7 @@ export type Payment = {
 
 }
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<User>[] = [
   
   {
     accessorKey: "fullName",
@@ -86,7 +86,7 @@ export const columns: ColumnDef<Payment>[] = [
       )
     },
     cell: ({ row }) => {
-
+     
       return <div className="font-medium">{row.original.uniqueId.uniqueId}</div>
     },
   },
@@ -94,7 +94,7 @@ export const columns: ColumnDef<Payment>[] = [
     id: "actions",
     header:"Actions",
     cell: ({ row }) => {
-      const payment = row.original
+      const user = row.original
 
       return (
         <DropdownMenu>
@@ -107,21 +107,21 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment._id)}
+              onClick={() => navigator.clipboard.writeText(user._id)}
             >
-              Copy payment ID
+              Copy User ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
 
               <NavLink
-                to={`/housedetail/${payment._id}`}
+                to={`/userdetail/${user._id}`}
                 className="px-2 hover:text-gray-400"
               >
-                View House Detail
+                View User Detail
               </NavLink>
             </DropdownMenuItem>
-            <BanAction id={payment._id} isActive={payment.isActive}/>
+            <BanAction id={user._id} equbId={user.equbType}/>
           </DropdownMenuContent>
         </DropdownMenu>
       )

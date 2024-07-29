@@ -10,25 +10,26 @@ export default function BanAction(state) {
   let navigate = useNavigate();
   const { toast } = useToast()
   const handleBan = () => {
-    API.patch(`/users/${state.id}/`, {
-      isActive: !state.isActive
-    }).then(e => {
+    API.delete(`/member/${state.id}/`).then(data => {
+      console.log("state.id",state.id);
+      console.log(data);
+      
       toast({
-        title: "User ban",
-        description: "user baned successfuly",
+        title: "Member Delete",
+        description: "Member deleted successfuly",
       })
-      navigate(`/housedetail/${state.id}`)
+      navigate(`/equbdetail/${state.equbId}`)
 
     }).catch(e => {
       toast({
-        title: "User ban",
-        description: "user ban failed",
+        title: "Member Delete",
+        description: "Member Delete failed",
       })
     })
 
   }
 
   return (
-    <DropdownMenuItem onClick={handleBan} style={{ background: state.isActive ? "#d92929" : "#2fad53", color:"white" }}>{state.isActive ? <div>Ban House</div> : <div>unBan House</div>}</DropdownMenuItem>
+    <DropdownMenuItem onClick={handleBan} style={{ background: "#d92929" ,color:"white" }}>Delete User</DropdownMenuItem>
   )
 }
