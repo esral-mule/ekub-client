@@ -11,6 +11,7 @@ import Logout from "./pages/Logout";
 import { AnimatePresence } from "framer-motion";
 import CreateUser from "./pages/CreateUser";
 import ListEqubes from "./pages/ListEqubes";
+import EqubDetail from "./pages/EqubDetail";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
                   <Route path="/signout" element={<Logout />} />
                   <Route path="/createuser" element={<CreateUser />} />
                   <Route path="/equbes" element={<ListEqubes />} />
+                  <Route path="/equbdetail" element={<EqubDetail />} />
                 </Route>
               </Routes>
             </BrowserRouter>
