@@ -37,7 +37,7 @@ export default function ListEqubes({id}) {
   return (
     <div className="pt-2">
       {/* <h1>{t("coming.message")}</h1> */}
-      <div className="flex justify-center">
+      <div className="flex justify-center space-x-2">
       {isLoading && <div>loading</div>}
       {data &&
         data.map((equb) => (
