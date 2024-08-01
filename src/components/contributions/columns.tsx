@@ -3,21 +3,8 @@ import * as React from "react"
 import { ColumnDef } from "@tanstack/react-table"
 import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 import { Button } from "../ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu"
-import { Checkbox } from "../ui/checkbox"
-import { NavLink } from "react-router-dom"
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
 
-import BanAction from "./BanAction"
-
+import TogglePayment from "./TogglePayment"
 
 export type User = {
         _id: string,
@@ -28,7 +15,9 @@ export type User = {
         updatedAt: Date,
 
 }
-
+const handlePaymentStatusChange = (e)=>{
+  
+}
 export const columns: ColumnDef<User>[] = [
   
   {
@@ -68,9 +57,11 @@ export const columns: ColumnDef<User>[] = [
     header: () => <div>isPaid</div>,
     cell: ({ row }) => {
      
-      return <div className="font-medium">{row.original.isPaid.toString()}</div>
+      return <div className="diabled" style={{"color": !row.original.isPaid?"#b91c1c":"#166534"}}>
+        {row.original.isPaid.toString()}
+      </div>
     },
-  }
+  },
   // {
   //   accessorKey: "uniqueId",
   //   header: ({ column }) => {
@@ -90,41 +81,16 @@ export const columns: ColumnDef<User>[] = [
   //     return <div className="font-medium">{row.original.uniqueId.uniqueId}</div>
   //   },
   // },
-  // {
-  //   id: "actions",
-  //   header:"Actions",
-  //   cell: ({ row }) => {
-  //     const user = row.original
+  {
+    id: "actions",
+    header:"Actions",
+    cell: ({ row }) => {
+      const user = row.original
 
-  //     return (
-  //       <DropdownMenu>
-  //         <DropdownMenuTrigger asChild>
-  //           <Button variant="ghost" className="h-8 w-8 p-0">
-  //             <span className="sr-only">Open menu</span>
-  //             <MoreHorizontal className="h-4 w-4" />
-  //           </Button>
-  //         </DropdownMenuTrigger>
-  //         <DropdownMenuContent align="end">
-  //           <DropdownMenuLabel>Actions</DropdownMenuLabel>
-  //           <DropdownMenuItem
-  //             onClick={() => navigator.clipboard.writeText(user._id)}
-  //           >
-  //             Copy User ID
-  //           </DropdownMenuItem>
-  //           <DropdownMenuSeparator />
-  //           <DropdownMenuItem>
-
-  //             <NavLink
-  //               to={`/userdetail/${user._id}`}
-  //               className="px-2 hover:text-gray-400"
-  //             >
-  //               View User Detail
-  //             </NavLink>
-  //           </DropdownMenuItem>
-  //           <BanAction id={user._id} equbId={user.equbType}/>
-  //         </DropdownMenuContent>
-  //       </DropdownMenu>
-  //     )
-  //   },
-  // },
+     
+      return (
+          <TogglePayment id={row.original._id} status={row.original.isPaid}/>
+      )
+    },
+  },
 ]
