@@ -18,9 +18,7 @@ import {
     DropdownMenuContent,
     DropdownMenuTrigger,
 } from "../ui/dropdown-menu"
-import CreateUser from "../CreateUser"
-import SelectUser from "../SelectData"
-import AddMember from "../addMember"
+import SelectRound from "../../components/SelectRound"
 
 import {
     Table,
@@ -72,14 +70,6 @@ export function DataTable<TData, TValue>({
     return (
         <div>
             <div className="flex items-center py-4">
-                <Input
-                    placeholder="Filter house..."
-                    value={(table.getColumn("fullName")?.getFilterValue() as string) ?? ""}
-                    onChange={(event) =>
-                        table.getColumn("fullName")?.setFilterValue(event.target.value)
-                    }
-                    className="w-80 ml-5"
-                />
 
                 
                 <DropdownMenu>
