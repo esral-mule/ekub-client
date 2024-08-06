@@ -73,7 +73,6 @@ export default function EqubRounds() {
           setSelectedOption={setSelectedOption}
         />
       )}
-      {console.log("selectedOption",selectedOption)}
       {selectedOption && (
         <DemoPage contribution={selectedOption.contributions} />
       )}

@@ -5,7 +5,6 @@ import Layout from "./pages/Layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
-import React from "react";
 import Signin from "./pages/Signin";
 import Logout from "./pages/Logout";
 import { AnimatePresence } from "framer-motion";
