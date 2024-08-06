@@ -17,34 +17,38 @@ import { useToast } from "./ui/use-toast"
 export default function CreateUser() {
   const { toast } = useToast()
 
-    const [fullName,setFullName] = useState("")
-    const [phoneNumber,setPhoneNumber] = useState("")
-    const [username,setUsername] = useState("")
-    const [password,setPassword] = useState("")
-    const [isLoading,setIsLoading] = useState(false);
+  const [fullName, setFullName] = useState("")
+  const [phoneNumber, setPhoneNumber] = useState("")
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const [open, setOpen] = useState(false)
 
-    const handleSubmit = ()=>{
-        setIsLoading(true)
-      API.post("/member", {
-        fullName,
-        phoneNumber,
-        username,
-        password
-      }).then(()=>{
-        setIsLoading(false)
-        toast({
-            description: "User created Successfuly",
-          })
-      }).catch(()=>{
-        setIsLoading(false)
-        toast({
-            description: "User creat failed",
-          })
+  const handleSubmit = () => {
+    setIsLoading(true)
+    API.post("/member", {
+      fullName,
+      phoneNumber,
+      username,
+      password
     })
-        
-    }
+      .then(() => {
+        setIsLoading(false)
+        setOpen(false)
+        toast({
+          description: "User created successfully",
+        })
+      })
+      .catch((error) => {
+        setIsLoading(false)
+        toast({
+          description: error.response?.data?.message || "User creation failed",
+        })
+      })
+  }
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="outline">Create User</Button>
       </DialogTrigger>
@@ -57,57 +61,57 @@ export default function CreateUser() {
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
+            <Label htmlFor="fullName" className="text-right">
               Full Name
             </Label>
             <Input
               id="fullName"
-              vlaue={fullName}
+              value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               className="col-span-3"
             />
           </div>
 
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-            Phone Number
+            <Label htmlFor="phoneNumber" className="text-right">
+              Phone Number
             </Label>
             <Input
               id="phoneNumber"
-              display="none"
-              vlaue={phoneNumber}
+              value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
-              className="col-span-3 dis"
+              className="col-span-3"
             />
           </div>
 
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-            Username
+            <Label htmlFor="username" className="text-right">
+              Username
             </Label>
             <Input
               id="username"
-              vlaue={username}
+              value={username}
               onChange={(e) => setUsername(e.target.value)}
               className="col-span-3"
             />
           </div>
 
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
+            <Label htmlFor="password" className="text-right">
               Password
             </Label>
             <Input
               id="password"
-              vlaue={password}
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="col-span-3"
             />
           </div>
-
         </div>
         <DialogFooter>
-          <Button onClick={handleSubmit} type="submit" disable={isLoading}>Create</Button>
+          <Button onClick={handleSubmit} type="submit" disabled={isLoading}>
+            {isLoading ? "Creating..." : "Create"}
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

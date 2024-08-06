@@ -59,7 +59,7 @@ export default function Signin() {
       });
   };
   return (
-    <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
+    <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
       <Card>
         <CardHeader>
           <CardTitle>Signin</CardTitle>

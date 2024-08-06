@@ -26,7 +26,7 @@ export default function AddMember() {
   const [equbLevel, setEqubLevel] = useState("");
   const [uniqueId, setUniqueId] = useState("");
 
-  useEffect(() => {
+  const prepareData = ()=>{
     API.get("/member/").then((data) => {
       setUsers(
         data.data.data.map(({ fullName, _id }) => ({
@@ -36,25 +36,23 @@ export default function AddMember() {
       );
     });
 
-    API.get("/equb-level/").then((data) => {
+    API.get(`/equb-level/etype/${equbId}`).then((data) => {
       setEqubLevels(
-        data.data.data
-          .filter((i) => i.equbType._id === equbId)
-          .map(({ title, _id }) => ({ label: title, value: _id }))
+        data.data.data.map(({ title, _id }) => ({ label: title, value: _id }))
       );
     });
 
-    API.get("/uniqueid/").then((data) => {
+    API.get(`/uniqueid/etype/${equbId}`).then((data) => {
       setUniqueIds(
         data.data.data
-          .filter((i) => i.equbType._id === equbId)
           .map(({ uniqueId, _id }) => ({
             label: uniqueId.toString(),
             value: _id,
           }))
       );
     });
-  }, []);
+  }
+
 
   const handleSubmit = () => {
 
@@ -74,7 +72,7 @@ export default function AddMember() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Add Member</Button>
+        <Button onClick={prepareData} variant="outline">Add Member</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

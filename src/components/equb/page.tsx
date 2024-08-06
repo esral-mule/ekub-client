@@ -9,12 +9,11 @@ export default function DemoPage({ id }) {
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-
-        API.get("/membership/", {
+    useEffect(() => {        
+        API.get(`/membership/etype/${id}`, {
         })
             .then((data) => {
-                setData(data.data.data.filter(i => i.equbType._id === id));
+                setData(data.data.data);
                 setIsLoading(false);
             }).catch(err => {
                 setIsLoading(false);

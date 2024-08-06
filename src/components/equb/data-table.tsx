@@ -78,7 +78,7 @@ export function DataTable<TData, TValue>({
                     onChange={(event) =>
                         table.getColumn("fullName")?.setFilterValue(event.target.value)
                     }
-                    className="w-80 ml-5"
+                    className="w-96 hidden md:inline"
                 />
 
 

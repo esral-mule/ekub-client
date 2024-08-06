@@ -15,7 +15,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 export default function ListEqubes({id}) {
@@ -76,6 +76,13 @@ export default function ListEqubes({id}) {
           </Card>
           
         ))}
+      {data.length === 0 && !isLoading &&
+      
+      <div>
+      <p>You don't have any Equbes</p>
+      <Button>      <NavLink to={"/"}>Whould you like to create a new one</NavLink></Button>
+    </div>
+    }
       </div>
     </div>
   );
