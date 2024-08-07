@@ -5,11 +5,23 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
 
-export default function DemoPage({contribution}) {
-    
+export default function DemoPage({RoundId}) {
+    const [contributions, setContributions] = useState([]);
+
+    useEffect(()=>{
+        console.log("RoundId",RoundId);
+        
+        API.get(`/contribution/round/${RoundId}`)
+        .then((data)=>{
+            console.log("data",data);
+            
+            setContributions(data.data.data)
+        })
+        .catch()
+    },[RoundId])
     return (
         <div className="container py-10">
-            <DataTable columns={columns} data={contribution}/>
+            <DataTable columns={columns} data={contributions}/>
         </div>
     )
 }

@@ -80,10 +80,6 @@ export function DataTable<TData, TValue>({
                     }
                     className="w-96 hidden md:inline"
                 />
-
-
-                <CreateUser />
-                <AddMember/>
                 
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>

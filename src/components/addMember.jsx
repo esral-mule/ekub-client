@@ -8,13 +8,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
 import { Label } from "@/components/ui/label";
 import SelectData from "./SelectData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-
 import API from "../api/axios";
+import { PlusCircle } from "lucide-react";
+
 export default function AddMember() {
   let { id: equbId } = useParams();
 
@@ -26,36 +26,41 @@ export default function AddMember() {
   const [equbLevel, setEqubLevel] = useState("");
   const [uniqueId, setUniqueId] = useState("");
 
-  const prepareData = ()=>{
-    API.get("/member/").then((data) => {
-      setUsers(
-        data.data.data.map(({ fullName, _id }) => ({
-          label: fullName,
-          value: _id,
-        }))
-      );
-    });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userResponse = await API.get("/member/");
+        setUsers(
+          userResponse.data.data.map(({ fullName, _id }) => ({
+            label: fullName,
+            value: _id,
+          }))
+        );
 
-    API.get(`/equb-level/etype/${equbId}`).then((data) => {
-      setEqubLevels(
-        data.data.data.map(({ title, _id }) => ({ label: title, value: _id }))
-      );
-    });
+        const equbLevelResponse = await API.get(`/equb-level/etype/${equbId}`);
+        setEqubLevels(
+          equbLevelResponse.data.data.map(({ title, _id }) => ({
+            label: title,
+            value: _id,
+          }))
+        );
 
-    API.get(`/uniqueid/etype/${equbId}`).then((data) => {
-      setUniqueIds(
-        data.data.data
-          .map(({ uniqueId, _id }) => ({
+        const uniqueIdResponse = await API.get(`/uniqueid/etype/${equbId}`);
+        setUniqueIds(
+          uniqueIdResponse.data.data.map(({ uniqueId, _id }) => ({
             label: uniqueId.toString(),
             value: _id,
           }))
-      );
-    });
-  }
+        );
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
+    };
 
+    fetchData();
+  }, [equbId]);
 
   const handleSubmit = () => {
-
     API.post("membership", {
       member: user,
       equbType: equbId,
@@ -69,10 +74,13 @@ export default function AddMember() {
         console.log(err);
       });
   };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button onClick={prepareData} variant="outline">Add Member</Button>
+        <Button variant="outline">
+          Add Member
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -82,57 +90,46 @@ export default function AddMember() {
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
-          {/* <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
-          </div> */}
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
+            <Label htmlFor="user" className="text-right">
               Member
             </Label>
-            <SelectData data={users} name="User" action={setUser} />
+            <SelectData id="user" data={users} name="User" action={setUser} />
           </div>
-
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
+            <Label htmlFor="equbLevel" className="text-right">
               Equb level
             </Label>
             <SelectData
+              id="equbLevel"
               data={equbLevels}
-              name="equb level"
+              name="Equb Level"
               action={setEqubLevel}
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
+            <Label htmlFor="uniqueId" className="text-right">
               Unique Id
             </Label>
             <SelectData
+              id="uniqueId"
               data={uniqueIds}
-              name="unique id"
+              name="Unique Id"
               action={setUniqueId}
             />
           </div>
-
-          {/* <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Equb level
-            </Label>
-            <SelectUser />
-          </div>
-
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-            Unique Id
-            </Label>
-            <SelectUser />
-          </div> */}
         </div>
         <DialogFooter>
-          <Button onClick={handleSubmit} type="submit">
-            Add Member
+          <Button
+            size="sm"
+            className="h-8 gap-1"
+            onClick={handleSubmit}
+            type="submit"
+          >
+            <PlusCircle className="h-3.5 w-3.5" />
+            <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
+              Add Member
+            </span>
           </Button>
         </DialogFooter>
       </DialogContent>

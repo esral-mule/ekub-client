@@ -1,6 +1,5 @@
 import * as React from "react";
 import { CheckIcon, ChevronsUpDown } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,19 +16,28 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useEffect } from "react";
+
 // eslint-disable-next-line react/prop-types
-export default function SelectData({data, name,action}) {
+export default function SelectData({ data, name, action }) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
+  const [selectedValue, setSelectedValue] = React.useState("");
+  const [selectedLabel, setSelectedLabel] = React.useState("");
   const [search, setSearch] = React.useState("");
 
-  const filteredUsers = data.filter(element =>
+  const filteredData = data.filter((element) =>
     element.label.toLowerCase().includes(search.toLowerCase())
   );
-  
-  useEffect(()=>{
-      action(value)
-  },[value,action])
+
+  useEffect(() => {
+    action(selectedValue);
+  }, [selectedValue, action]);
+
+  const handleSelect = (value, label) => {
+    setSelectedValue(value);
+    setSelectedLabel(label);
+    setOpen(false);
+    setSearch("");
+  };
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -40,33 +48,31 @@ export default function SelectData({data, name,action}) {
           aria-expanded={open}
           className="w-[200px] justify-between"
         >
-          {value ? value : `Select ${name}...`}
+          {selectedLabel ? selectedLabel : `Select ${name}...`}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
           <CommandInput
-            placeholder="Search user..."
-            onChange={(input) => setSearch(input)}
+            placeholder="Search..."
+            onChange={(e) => setSearch(e.target.value)}
           />
           <CommandEmpty>No {`${name}`} found.</CommandEmpty>
           <CommandList>
             <CommandGroup>
-              {filteredUsers.map((element) => (
+              {filteredData.map((element) => (
                 <CommandItem
                   key={element.value}
-                  onSelect={() => {
-                    setValue(element.value);
-                    setOpen(false);
-                    setSearch("")
-                  }}
+                  onSelect={() => handleSelect(element.value, element.label)}
                 >
                   {element.label}
                   <CheckIcon
                     className={cn(
                       "ml-auto h-4 w-4",
-                      value === element.label ? "opacity-100" : "opacity-0"
+                      selectedValue === element.value
+                        ? "opacity-100"
+                        : "opacity-0"
                     )}
                   />
                 </CommandItem>

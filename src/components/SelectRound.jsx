@@ -12,10 +12,10 @@ import {
   export default function SelectRound({ options, selectedOption, setSelectedOption }) {
     return (
       <Select
-        value={selectedOption ? `${selectedOption.cycle} ${selectedOption.round}` : ""}
+        value={selectedOption ? `${selectedOption.round}` : ""}
         onValueChange={(value) => {
           const selected = options.find(
-            (option) => `${option.cycle} ${option.round}` === value
+            (option) => `${option.round}` === value
           );
           setSelectedOption(selected);
         }}
@@ -25,12 +25,12 @@ import {
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            <SelectLabel>Cycles and Rounds</SelectLabel>
+            <SelectLabel>Rounds</SelectLabel>
             {options.map((option) => (
               <SelectItem
-                key={`${option.cycle} ${option.round}`}
-                value={`${option.cycle} ${option.round}`}
-              >{`${option.cycle} ${option.round}`}</SelectItem>
+                key={`${option.round}`}
+                value={`${option.round}`}
+              >{`Round ${option.round}`}</SelectItem>
             ))}
           </SelectGroup>
         </SelectContent>
