@@ -13,6 +13,7 @@ import ListEqubes from "./pages/ListEqubes";
 import EqubDetail from "./pages/EqubDetail";
 import UserDetail from "./pages/UserDetail";
 import EqubRoundes from "./pages/EqubRoundes";
+import CreateEqub from "./pages/CreateEqub";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
                   <Route path="/signout" element={<Logout />} />
                   <Route path="/createuser" element={<CreateUser />} />
                   <Route path="/equbes" element={<ListEqubes />} />
+                  <Route path="/createeqube" element={<CreateEqub />} />
                   <Route path="/equbdetail/:id" element={<EqubDetail />} />
                   <Route path="/userdetail/:id" element={<UserDetail />} />
                   <Route path="/roundes/:id" element={<EqubRoundes />} />

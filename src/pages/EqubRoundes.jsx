@@ -6,7 +6,6 @@ import SelectRound from "../components/SelectRound";
 
 export default function EqubRounds() {
   const { id } = useParams();
-  const [contributions, setContributions] = useState([]);
   const [options, setOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -15,16 +14,8 @@ export default function EqubRounds() {
       try {
         const response = await API.get(`/round/etype/${id}`);
         const data = response.data.data;
-        console.log("data",data);
         setOptions(data)
 
-        // setContributions(groupedByRoundArray);
-        // setOptions(groupedByCycleArray);
-
-
-        // if (groupedByCycleArray.length > 0) {
-        //   setSelectedOption(groupedByCycleArray[0]);
-        // }
       } catch (error) {
         console.error("Error fetching contributions:", error);
       }

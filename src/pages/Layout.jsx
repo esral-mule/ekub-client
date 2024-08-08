@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { ModeToggle } from "../components/mode-toggle";
 import { LangToggle } from "../components/lang-toggle";
 import { Toaster } from "../components/ui/toaster";
-import { Package2 } from "lucide-react";
+import { Package2, PackagePlus, UserRoundPlus } from "lucide-react";
 import { Button } from "../components/ui/button";
 
 import { CircleUser } from "lucide-react";
@@ -68,18 +68,6 @@ const Layout = () => {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <NavLink
-                        to="/createuser"
-                        className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8"
-                      >
-                        <ShoppingCart className="h-5 w-5" />
-                        <span className="sr-only">Create User</span>
-                      </NavLink>
-                    </TooltipTrigger>
-                    <TooltipContent side="right">Create User</TooltipContent>
-                  </Tooltip>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <NavLink
                         to="/equbes"
                         className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                       >
@@ -92,15 +80,28 @@ const Layout = () => {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <NavLink
-                        to="#"
+                        to="/createeqube"
                         className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                       >
-                        <Users2 className="h-5 w-5" />
-                        <span className="sr-only">Customers</span>
+                        <PackagePlus className="h-5 w-5" />
+                        <span className="sr-only">Create Equb</span>
                       </NavLink>
                     </TooltipTrigger>
-                    <TooltipContent side="right">Customers</TooltipContent>
+                    <TooltipContent side="right">Create Equb</TooltipContent>
                   </Tooltip>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <NavLink
+                        to="/createuser"
+                        className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8"
+                      >
+                        <UserRoundPlus className="h-5 w-5" />
+                        <span className="sr-only">Create User</span>
+                      </NavLink>
+                    </TooltipTrigger>
+                    <TooltipContent side="right">Create User</TooltipContent>
+                  </Tooltip>
+
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <NavLink

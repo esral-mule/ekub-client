@@ -17,8 +17,7 @@ import {
 } from "@/components/ui/card";
 import { Link, NavLink } from "react-router-dom";
 
-
-export default function ListEqubes({id}) {
+export default function ListEqubes({ id }) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -35,54 +34,77 @@ export default function ListEqubes({id}) {
   }, []);
 
   return (
-    <div className="pt-2">
+    <div className="pt-2 flex flex-col">
       {/* <h1>{t("coming.message")}</h1> */}
+      <div className="self-end">
+        <Button>
+          <NavLink to={"/createeqube"}>Create New Equb</NavLink>
+        </Button>
+      </div>
       <div className="flex justify-center space-x-2">
-      {isLoading && <div>loading</div>}
-      {data &&
-        data.map((equb) => (
-          <Card key={equb._id} className={cn("w-[380px]")}>
-            <CardHeader>
-              <CardTitle>{equb.name}</CardTitle>
-              <CardDescription>{equb.period}</CardDescription>
-            </CardHeader>
-            <CardContent className="grid gap-4">
+        {isLoading && <div>loading</div>}
+        {data &&
+          data.map((equb) => (
+            <Card key={equb._id} className={cn("w-[380px]")}>
+              <CardHeader>
+                <CardTitle>{equb.name}</CardTitle>
+                <CardDescription>{equb.period}</CardDescription>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                <div className="mb-2 flex justify-center gap-5">
+                  <p className="text-sm font-medium leading-none">
+                    Cycle - {equb.cycle}
+                  </p>
+                  <p className="text-sm font-medium leading-none">
+                    Round - {equb.round}
+                  </p>
+                </div>
 
-              <div className="mb-2 flex justify-center gap-5">
-                <p className="text-sm font-medium leading-none">Cycle - {equb.cycle}</p>
-                <p className="text-sm font-medium leading-none">Round - {equb.round}</p>
-              </div>
+                <div className="mb-2">
+                  <p className="text-sm font-medium leading-none">
+                    Lottery-Day : {equb.lotteryDay}
+                  </p>
+                </div>
 
-              <div className="mb-2">
-                <p className="text-sm font-medium leading-none">Lottery-Day : {equb.lotteryDay}</p>
-              </div>
+                <div className="mb-2">
+                  <p className="text-sm font-medium leading-none">
+                    Max-UniqueIds : {equb.maxUniqueIds}
+                  </p>
+                </div>
 
-              <div className="mb-2">
-                <p className="text-sm font-medium leading-none">Max-UniqueIds : {equb.maxUniqueIds}</p>
-              </div>
-
-              <div className="mb-2">
-                <p className="text-sm font-medium leading-none">Contribution-Day : {equb.contributionDay}</p>
-              </div>
-              <div className="mb-2">
-                <p className="text-sm font-medium leading-none">Created-At : {new Date(equb.createdAt).getFullYear()} {new Date(equb.createdAt).getMonth()} {new Date(equb.createdAt).getDate()}</p>
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button className="w-full">
-                <Link className="w-full" to={`/equbdetail/${equb._id}`}>Detail</Link>
-              </Button>
-            </CardFooter>
-          </Card>
-          
-        ))}
-      {data.length === 0 && !isLoading &&
-      
-      <div>
-      <p>You don't have any Equbes</p>
-      <Button>      <NavLink to={"/"}>Whould you like to create a new one</NavLink></Button>
-    </div>
-    }
+                <div className="mb-2">
+                  <p className="text-sm font-medium leading-none">
+                    Contribution-Day : {equb.contributionDay}
+                  </p>
+                </div>
+                <div className="mb-2">
+                  <p className="text-sm font-medium leading-none">
+                    Created-At : {new Date(equb.createdAt).getFullYear()}{" "}
+                    {new Date(equb.createdAt).getMonth()}{" "}
+                    {new Date(equb.createdAt).getDate()}
+                  </p>
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button className="w-full">
+                  <Link className="w-full" to={`/equbdetail/${equb._id}`}>
+                    Detail
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        {data.length === 0 && !isLoading && (
+          <div>
+            <p>You don't have any Equbes</p>
+            <Button>
+              {" "}
+              <NavLink to={"/createeqube"}>
+                Whould you like to create a new one
+              </NavLink>
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
