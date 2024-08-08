@@ -9,12 +9,8 @@ export default function DemoPage({RoundId}) {
     const [contributions, setContributions] = useState([]);
 
     useEffect(()=>{
-        console.log("RoundId",RoundId);
-        
         API.get(`/contribution/round/${RoundId}`)
-        .then((data)=>{
-            console.log("data",data);
-            
+        .then((data)=>{            
             setContributions(data.data.data)
         })
         .catch()
