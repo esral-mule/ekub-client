@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API = axios.create({
   // TODO: replace URL value from env
-  baseURL: 'http://4.206.217.243:8080/api/v1'
+  baseURL: 'http://localhost:3000/api/v1'
 });
 
 // Request interceptor
