@@ -1,4 +1,4 @@
-import { columns } from "./columns"
+import { getColumns  } from "./columns"
 import { DataTable } from "./data-table"
 import API from "../../api/axios";
 import { useState, useEffect } from "react";
@@ -19,6 +19,9 @@ export default function DemoPage({ id }) {
                 setIsLoading(false);
             })
     }, [])
+
+    const columns = getColumns(setData);
+    
     return (
         <div className="container py-10">
             {isLoading ?

@@ -1,24 +1,31 @@
 import * as React from 'react'
-import {  DropdownMenuItem} from "../ui/dropdown-menu"
+import { DropdownMenuItem } from "../ui/dropdown-menu"
 
 
 import { useToast } from "../ui/use-toast";
 import API from "../../api/axios";
 import { useNavigate } from "react-router";
 
-export default function BanAction(state) {
+export default function BanAction({ id, equb, setData }) {
+  // console.log("state",state);
+
   let navigate = useNavigate();
   const { toast } = useToast()
   const handleBan = () => {
-    API.delete(`/member/${state.id}/`).then(data => {
-      console.log("state.id",state.id);
-      console.log(data);
-      
+    API.delete(`/membership/${id}/`).then(data => {
+
+      setData(prevData => prevData.filter(member => {
+        if (member._id == id) {
+          console.log("yeah");
+
+        }
+        return member._id !== id
+      }));
       toast({
         title: "Member Delete",
         description: "Member deleted successfuly",
       })
-      navigate(`/equbdetail/${state.equbId}`)
+      navigate(`/equbdetail/${equb._id}`)
 
     }).catch(e => {
       toast({
@@ -30,6 +37,6 @@ export default function BanAction(state) {
   }
 
   return (
-    <DropdownMenuItem onClick={handleBan} style={{ background: "#d92929" ,color:"white" }}>Delete User</DropdownMenuItem>
+    <DropdownMenuItem onClick={handleBan} style={{ background: "#d92929", color: "white" }}>Delete User</DropdownMenuItem>
   )
 }

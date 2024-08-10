@@ -30,7 +30,7 @@ export type User = {
 
 }
 
-export const columns: ColumnDef<User>[] = [
+export function getColumns(setData) {return [
   
   {
     accessorKey: "fullName",
@@ -106,11 +106,7 @@ export const columns: ColumnDef<User>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(user._id)}
-            >
-              Copy User ID
-            </DropdownMenuItem>
+
             <DropdownMenuSeparator />
             <DropdownMenuItem>
 
@@ -121,10 +117,11 @@ export const columns: ColumnDef<User>[] = [
                 View User Detail
               </NavLink>
             </DropdownMenuItem>
-            <BanAction id={user._id} equbId={user.equbType}/>
+            <BanAction id={user._id} equb={user.equbType} setData={setData} />
           </DropdownMenuContent>
         </DropdownMenu>
       )
     },
   },
 ]
+}
