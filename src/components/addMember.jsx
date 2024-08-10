@@ -78,7 +78,7 @@ export default function AddMember() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">
+        <Button className="self-end" variant="outline">
           Add Member
         </Button>
       </DialogTrigger>

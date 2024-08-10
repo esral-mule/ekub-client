@@ -40,6 +40,10 @@ import CreateUser from "../components/CreateUser";
 import AddMember from "../components/addMember";
 import EqubLevel from "../components/EqubLevel";
 import ActiveEqubRound from "./ActiveEqubRounde";
+import AllMembers from "../components/tabs/AllMembers";
+import Roundes from "../components/tabs/Roundes";
+import Active from "../components/tabs/Active";
+import EqubLevels from "../components/tabs/EqubLevels";
 export default function EqubDetail() {
   let { id } = useParams();
   return (
@@ -63,64 +67,12 @@ export default function EqubDetail() {
                 </span>
               </Button>
               <CreateUser />
-              <AddMember />
             </div>
           </div>
-          <TabsContent value="all">
-            <Card x-chunk="dashboard-06-chunk-0">
-              <CardHeader>
-                <CardTitle>Memeber list</CardTitle>
-                <CardDescription>All Equb member list</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <DemoPage id={id} />
-              </CardContent>
-              <CardFooter>
-                <div className="text-xs text-muted-foreground">
-                  Showing <strong>1-10</strong> of <strong>32</strong> products
-                </div>
-              </CardFooter>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="roundes">
-            <Card x-chunk="dashboard-06-chunk-0">
-              <CardHeader>
-                <CardTitle>Equb Rounds</CardTitle>
-                <CardDescription>Select Equb-round and Equb-cycle to see history</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <EqubRoundes />
-              </CardContent>
-              <CardFooter>
-                <div className="text-xs text-muted-foreground">
-                  Showing <strong>1-10</strong> of <strong>32</strong> products
-                </div>
-              </CardFooter>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="active">
-            <Card x-chunk="dashboard-06-chunk-0">
-              <CardHeader>
-                <CardTitle>Last Equb Round</CardTitle>
-                <CardDescription>Last Equb Round Payment History</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ActiveEqubRound/>
-              </CardContent>
-              <CardFooter>
-                <div className="text-xs text-muted-foreground">
-                  Showing <strong>1-10</strong> of <strong>32</strong> products
-                </div>
-              </CardFooter>
-            </Card>
-          </TabsContent>
-
-
-          <TabsContent value="equblevels">
-            <EqubLevel/>
-          </TabsContent>
+          <AllMembers/>
+          <Roundes/>
+          <Active/>
+          <EqubLevels/>
         </Tabs>
       </main>
       <div>

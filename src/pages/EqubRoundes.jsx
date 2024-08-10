@@ -13,7 +13,7 @@ export default function EqubRounds() {
     const fetchContributions = async () => {
       try {
         const response = await API.get(`/round/etype/${id}`);
-        const data = response.data.data;
+        const data = response.data.data;        
         setOptions(data)
 
       } catch (error) {

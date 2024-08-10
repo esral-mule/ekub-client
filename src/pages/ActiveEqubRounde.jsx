@@ -41,7 +41,7 @@ export default function ActiveEqubRound() {
       try {
         const response = await API.get(`/round/etype/${id}`);
         const data = response.data.data;
-        setSelectedOption(data[0]);
+        setSelectedOption(data[data.length - 1]);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching contributions:", error);

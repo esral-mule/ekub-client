@@ -5,14 +5,13 @@ import { useState, useEffect } from "react";
 
 
 export default function DemoPage({ id }) {
-
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {        
         API.get(`/membership/etype/${id}`, {
         })
-            .then((data) => {
+            .then((data) => {              
                 setData(data.data.data);
                 setIsLoading(false);
             }).catch(err => {
@@ -21,7 +20,7 @@ export default function DemoPage({ id }) {
     }, [])
 
     const columns = getColumns(setData);
-    
+
     return (
         <div className="container py-10">
             {isLoading ?
@@ -29,7 +28,8 @@ export default function DemoPage({ id }) {
                 <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
                     Loading
                 </h2> :
-                <DataTable columns={columns} data={data} setData={setData} equbid=""/>}
+                <DataTable columns={columns} data={data} setData={setData} equbid=""/>
+                }
         </div>
     )
 }

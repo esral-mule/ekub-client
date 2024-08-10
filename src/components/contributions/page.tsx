@@ -10,7 +10,7 @@ export default function DemoPage({RoundId}) {
 
     useEffect(()=>{
         API.get(`/contribution/round/${RoundId}`)
-        .then((data)=>{            
+        .then((data)=>{                     
             setContributions(data.data.data)
         })
         .catch()
