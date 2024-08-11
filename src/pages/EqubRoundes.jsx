@@ -13,9 +13,8 @@ export default function EqubRounds() {
     const fetchContributions = async () => {
       try {
         const response = await API.get(`/round/etype/${id}`);
-        const data = response.data.data;        
-        setOptions(data)
-
+        const data = response.data.data;
+        setOptions(data);
       } catch (error) {
         console.error("Error fetching contributions:", error);
       }
@@ -33,9 +32,7 @@ export default function EqubRounds() {
           setSelectedOption={setSelectedOption}
         />
       )}
-      {selectedOption && (
-        <DemoPage RoundId={selectedOption._id} />
-      )}
+      {selectedOption && <DemoPage RoundId={selectedOption._id} />}
     </div>
   );
 }

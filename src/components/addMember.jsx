@@ -15,7 +15,7 @@ import { useParams } from "react-router";
 import API from "../api/axios";
 import { PlusCircle } from "lucide-react";
 
-export default function AddMember() {
+export default function AddMember({ setData }) {
   let { id: equbId } = useParams();
 
   const [users, setUsers] = useState([]);
@@ -68,7 +68,15 @@ export default function AddMember() {
       uniqueId: uniqueId,
     })
       .then((data) => {
-        console.log(data);
+        return data.data.data;
+      })
+      .then((data) => {
+        API.get(`/membership/${data._id}`).then((resp) => {
+          let membership = resp.data.data;
+          setData((prev) => {
+            return [...prev, membership];
+          });
+        });
       })
       .catch((err) => {
         console.log(err);

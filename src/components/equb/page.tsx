@@ -1,24 +1,12 @@
-import { getColumns  } from "./columns"
+
 import { DataTable } from "./data-table"
-import API from "../../api/axios";
-import { useState, useEffect } from "react";
+import { getColumns  } from "./columns"
 
 
-export default function DemoPage({ id }) {
-    const [data, setData] = useState([])
-    const [isLoading, setIsLoading] = useState(true);
+export default function DemoPage({ data,isLoading ,setData}) {
 
-    useEffect(() => {        
-        API.get(`/membership/etype/${id}`, {
-        })
-            .then((data) => {              
-                setData(data.data.data);
-                setIsLoading(false);
-            }).catch(err => {
-                setIsLoading(false);
-            })
-    }, [])
 
+    
     const columns = getColumns(setData);
 
     return (
