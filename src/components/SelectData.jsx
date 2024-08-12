@@ -18,10 +18,8 @@ import {
 import { useEffect } from "react";
 
 // eslint-disable-next-line react/prop-types
-export default function SelectData({ data, name, action }) {
+export default function SelectData({ data, name, action,setSelectedValue, selectedValue, selectedLabel, setSelectedLabel}) {
   const [open, setOpen] = React.useState(false);
-  const [selectedValue, setSelectedValue] = React.useState("");
-  const [selectedLabel, setSelectedLabel] = React.useState("");
   const [search, setSearch] = React.useState("");
 
   const filteredData = data.filter((element) =>
@@ -46,7 +44,7 @@ export default function SelectData({ data, name, action }) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="col-span-2 justify-between"
         >
           {selectedLabel ? selectedLabel : `Select ${name}...`}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />

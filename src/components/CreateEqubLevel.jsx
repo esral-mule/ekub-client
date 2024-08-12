@@ -15,7 +15,9 @@ import API from "../api/axios";
 import { useToast } from "./ui/use-toast";
 import { useParams } from "react-router";
 
-export default function CreateEqubLevel() {
+export default function CreateEqubLevel({
+  setEqubLevel,setEqubLevels,setSelectedEqubLevelValue,setSelectedEqubLevelLabel
+}) {
   let { id } = useParams();
 
   const { toast } = useToast();
@@ -33,8 +35,17 @@ export default function CreateEqubLevel() {
       title,
       contribution,
     })
-      .then(() => {
+      .then((data) => {
         setIsLoading(false);
+        setEqubLevels(prev=>{
+          return [...prev,{
+            label: data.data.data.title,
+            value: data.data.data._id,
+          }]
+        })        
+        setEqubLevel(data.data.data._id)
+        setSelectedEqubLevelLabel(data.data.data.title)
+        setSelectedEqubLevelValue(data.data.data._id)
         setOpen(false);
         toast({
           description: "Equb level Added Successfully",
@@ -52,7 +63,7 @@ export default function CreateEqubLevel() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" className="self-end">
+        <Button variant="outline" className="self-end ml-2 text-[10px]">
           Add Equb Level
         </Button>
       </DialogTrigger>

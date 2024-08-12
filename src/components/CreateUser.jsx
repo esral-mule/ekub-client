@@ -14,7 +14,7 @@ import { useState } from "react"
 import API from "../api/axios"
 import { useToast } from "./ui/use-toast"
 
-export default function CreateUser() {
+export default function CreateUser({setUser ,setUsers, setSelectedUserValue,setSelectedUserLabel}) {
   const { toast } = useToast()
 
   const [fullName, setFullName] = useState("")
@@ -32,14 +32,25 @@ export default function CreateUser() {
       username,
       password
     })
-      .then(() => {
+      .then((data) => {
         setIsLoading(false)
+        setUsers(prev=>{
+          return [...prev,{
+            label: data.data.data.fullName,
+            value: data.data.data._id,
+          }]
+        })        
+        setUser(data.data.data._id)
+        setSelectedUserLabel(fullName)
+        setSelectedUserValue(data.data.data._id)
         setOpen(false)
         toast({
           description: "User created successfully",
         })
       })
       .catch((error) => {
+        console.log("error",error);
+        
         setIsLoading(false)
         toast({
           description: error.response?.data?.message || "User creation failed",
@@ -50,7 +61,7 @@ export default function CreateUser() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">Create User</Button>
+        <Button variant="outline" className="ml-2 text-[10px]">Create New User</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

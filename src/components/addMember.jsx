@@ -14,17 +14,26 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import API from "../api/axios";
 import { PlusCircle } from "lucide-react";
+import CreateUser from "./CreateUser";
+import CreateEqubLevel from "./CreateEqubLevel";
 
 export default function AddMember({ setData }) {
   let { id: equbId } = useParams();
-
-  const [users, setUsers] = useState([]);
-  const [equbLevels, setEqubLevels] = useState([]);
-  const [uniqueIds, setUniqueIds] = useState([]);
-
+  
   const [user, setUser] = useState("");
+  const [users, setUsers] = useState([]);
+  const [selectedUserValue, setSelectedUserValue] = useState("");
+  const [selectedUserLabel, setSelectedUserLabel] = useState("");
+  
   const [equbLevel, setEqubLevel] = useState("");
+  const [equbLevels, setEqubLevels] = useState([]);
+  const [selectedEqubLevelValue, setSelectedEqubLevelValue] = useState("");
+  const [selectedEqubLevelLabel, setSelectedEqubLevelLabel] = useState("");
+  
   const [uniqueId, setUniqueId] = useState("");
+  const [uniqueIds, setUniqueIds] = useState([]);
+  const [selectedUniqueIdValue, setSelectedUniqueIdValue] = useState("");
+  const [selectedUniqueIdLabel, setSelectedUniqueIdLabel] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -98,14 +107,28 @@ export default function AddMember({ setData }) {
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="user" className="text-right">
+          <div className="grid grid-cols-4 items-center">
+            <Label htmlFor="user" className="text-right pr-2">
               Member
             </Label>
-            <SelectData id="user" data={users} name="User" action={setUser} />
+            <SelectData
+              data={users}
+              name="User"
+              action={setUser}
+              setSelectedValue={setSelectedUserValue}
+              selectedValue={selectedUserValue}
+              selectedLabel={selectedUserLabel}
+              setSelectedLabel={setSelectedUserLabel}
+            />
+            <CreateUser
+              setUser={setUser}
+              setUsers={setUsers}
+              setSelectedUserValue = {setSelectedUserValue}
+              setSelectedUserLabel = {setSelectedUserLabel}
+            />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="equbLevel" className="text-right">
+          <div className="grid grid-cols-4 items-center">
+            <Label htmlFor="equbLevel" className="text-right pr-2">
               Equb level
             </Label>
             <SelectData
@@ -113,7 +136,18 @@ export default function AddMember({ setData }) {
               data={equbLevels}
               name="Equb Level"
               action={setEqubLevel}
+              setSelectedValue={setSelectedEqubLevelValue}
+              selectedValue={selectedEqubLevelValue}
+              selectedLabel={selectedEqubLevelLabel}
+              setSelectedLabel={setSelectedEqubLevelLabel}
             />
+            <CreateEqubLevel 
+            
+            setEqubLevel={setEqubLevel}
+            setEqubLevels={setEqubLevels}
+            setSelectedEqubLevelValue = {setSelectedEqubLevelValue}
+            setSelectedEqubLevelLabel = {setSelectedEqubLevelLabel}/>
+
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="uniqueId" className="text-right">
@@ -124,6 +158,10 @@ export default function AddMember({ setData }) {
               data={uniqueIds}
               name="Unique Id"
               action={setUniqueId}
+              setSelectedValue={setSelectedUniqueIdValue}
+              selectedValue={selectedUniqueIdValue}
+              selectedLabel={selectedUniqueIdLabel}
+              setSelectedLabel={setSelectedUniqueIdLabel}
             />
           </div>
         </div>
