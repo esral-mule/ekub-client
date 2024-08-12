@@ -34,14 +34,14 @@ export default function ListEqubes({ id }) {
   }, []);
 
   return (
-    <div className="pt-2 flex flex-col">
+    <div className="flex flex-col">
       {/* <h1>{t("coming.message")}</h1> */}
-      <div className="self-end">
-        <Button>
+      <div className="self-end my-2">
+        <Button >
           <NavLink to={"/createeqube"}>Create New Equb</NavLink>
         </Button>
       </div>
-      <div className="flex justify-center space-x-2">
+      <div className="flex flex-wrap justify-center space-x-2">
         {isLoading && <div>loading</div>}
         {data &&
           data.map((equb) => (
