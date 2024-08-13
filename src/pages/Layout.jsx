@@ -109,7 +109,7 @@ const Layout = () => {
                     <TooltipContent side="right">Analytics</TooltipContent>
                   </Tooltip>
                 </nav>
-                <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
+                {/* <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <NavLink
@@ -122,7 +122,7 @@ const Layout = () => {
                     </TooltipTrigger>
                     <TooltipContent side="right">Settings</TooltipContent>
                   </Tooltip>
-                </nav>
+                </nav> */}
               </TooltipProvider>
             </aside>
             <Sheet>
@@ -220,8 +220,21 @@ const Layout = () => {
           </header>
         )}
         <Outlet />
-        <Toaster />
+
+        <footer className="bg-white dark:bg-gray-800 ">
+          <div className="w-full mx-auto max-w-screen-xl p-4 flex items-center justify-center">
+            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+              © 2023{" "}
+              <a href="#" className="hover:underline">
+                Equb™
+              </a>
+              . All Rights Reserved.
+            </span>
+
+          </div>
+        </footer>
       </div>
+      <Toaster />
     </div>
   );
 };
