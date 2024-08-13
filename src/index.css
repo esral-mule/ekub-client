@@ -67,6 +67,6 @@
       @apply bg-background text-foreground;
     }
     a.active{
-      @apply text-black;
+      @apply bg-accent;
     }
   }

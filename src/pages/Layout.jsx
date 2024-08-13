@@ -1,4 +1,4 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { ModeToggle } from "../components/mode-toggle";
@@ -50,7 +50,7 @@ const Layout = () => {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <NavLink
-                        to="/home"
+                        to="/"
                         className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                       >
                         <Home className="h-5 w-5" />
@@ -63,7 +63,7 @@ const Layout = () => {
                     <TooltipTrigger asChild>
                       <NavLink
                         to="/equbes"
-                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                        className="flex h-9 w-9 items-center justify-center rounded-lg text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                       >
                         <Package className="h-5 w-5" />
                         <span className="sr-only">Equbes</span>
@@ -94,19 +94,6 @@ const Layout = () => {
                       </NavLink>
                     </TooltipTrigger>
                     <TooltipContent side="right">Create User</TooltipContent>
-                  </Tooltip>
-
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <NavLink
-                        to="#"
-                        className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                      >
-                        <LineChart className="h-5 w-5" />
-                        <span className="sr-only">Analytics</span>
-                      </NavLink>
-                    </TooltipTrigger>
-                    <TooltipContent side="right">Analytics</TooltipContent>
                   </Tooltip>
                 </nav>
                 {/* <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
@@ -181,13 +168,13 @@ const Layout = () => {
             </Sheet>
 
             <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-              <NavLink
-                to="/home"
+              <Link
+                to="/"
                 className="flex items-center gap-2 text-lg font-semibold md:text-base"
               >
                 <Package2 className="h-6 w-6" />
                 <span className="sr-only">Acme Inc</span>
-              </NavLink>
+              </Link>
               <div className="ml-auto flex-1 sm:flex-initial"></div>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -220,20 +207,20 @@ const Layout = () => {
           </header>
         )}
         <Outlet />
-
-        <footer className="bg-white dark:bg-gray-800 ">
+      </div>
+      {state.isAuthenticated && (
+        <footer>
           <div className="w-full mx-auto max-w-screen-xl p-4 flex items-center justify-center">
             <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-              © 2023{" "}
+              © 2024{" "}
               <a href="#" className="hover:underline">
                 Equb™
               </a>
               . All Rights Reserved.
             </span>
-
           </div>
         </footer>
-      </div>
+      )}
       <Toaster />
     </div>
   );

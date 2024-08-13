@@ -18,6 +18,7 @@ import {
 import { useEffect, useState } from "react";
 import API from "../api/axios";
 import { useNavigate } from "react-router";
+import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
 
 
 export default function ListEqubes() {
@@ -61,7 +62,7 @@ export default function ListEqubes() {
               <TableRow key={equb._id} onClick={()=>{
                 handleSelect(equb._id)
               }}>
-                <TableCell>{equb.name}</TableCell>
+                <TableCell>{capitalizeFirstLetter(equb.name)}</TableCell>
                 <TableCell className="text-center">
                   {equb.contribution}
                 </TableCell>
