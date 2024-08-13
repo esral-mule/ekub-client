@@ -18,7 +18,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetClose,
+} from "@/components/ui/sheet";
 
 import {
   Home,
@@ -120,49 +128,55 @@ const Layout = () => {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="sm:max-w-xs">
+                <SheetHeader>
+                  <SheetTitle></SheetTitle>
+                  <SheetDescription></SheetDescription>
+                </SheetHeader>
                 <nav className="grid gap-6 text-lg font-medium">
-                  <NavLink
-                    to="/home"
+                  <Link
+                    to="/"
                     className="flex items-center gap-2 text-lg font-semibold md:text-base"
                   >
                     <Package2 className="h-6 w-6" />
                     <span className="sr-only">Acme Inc</span>
-                  </NavLink>
-                  <NavLink
-                    to="/"
-                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                  >
-                    <Home className="h-5 w-5" />
-                    Dashboard
-                  </NavLink>
-                  <NavLink
-                    to="/equbes"
-                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                  >
-                    <ShoppingCart className="h-5 w-5" />
-                    Equbes
-                  </NavLink>
-                  <NavLink
-                    to="/createeqube"
-                    className="flex items-center gap-4 px-2.5 text-foreground"
-                  >
-                    <Package className="h-5 w-5" />
-                    Create Equb
-                  </NavLink>
-                  <NavLink
-                    to="/createuser"
-                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                  >
-                    <Users2 className="h-5 w-5" />
-                    Create User
-                  </NavLink>
-                  <NavLink
-                    href="#"
-                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                  >
-                    <LineChart className="h-5 w-5" />
-                    Settings
-                  </NavLink>
+                  </Link>
+                  <SheetClose asChild>
+                    <NavLink
+                      to="/"
+                      className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground rounded-sm"
+                    >
+                      <Home className="h-5 w-5" />
+                      Dashboard
+                    </NavLink>
+                  </SheetClose>
+
+                  <SheetClose asChild>
+                    <NavLink
+                      to="/equbes"
+                      className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground rounded-sm"
+                    >
+                      <ShoppingCart className="h-5 w-5" />
+                      Equbes
+                    </NavLink>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <NavLink
+                      to="/createeqube"
+                      className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground rounded-sm"
+                    >
+                      <Package className="h-5 w-5" />
+                      Create Equb
+                    </NavLink>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <NavLink
+                      to="/createuser"
+                      className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground rounded-sm"
+                    >
+                      <Users2 className="h-5 w-5" />
+                      Create User
+                    </NavLink>
+                  </SheetClose>
                 </nav>
               </SheetContent>
             </Sheet>
