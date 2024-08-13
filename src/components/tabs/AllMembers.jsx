@@ -38,7 +38,7 @@ export default function AllMembers() {
         <CardTitle>Memeber list</CardTitle>
         <CardDescription>All Equb member list</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-0 md:p-6">
         <DemoPage id={id} data={data} isLoading={isLoading} setData={setData}/>
       </CardContent>
       <CardFooter>

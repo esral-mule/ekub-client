@@ -225,9 +225,7 @@ const Layout = () => {
             </div>
           </header>
         )}
-        <main>
           <Outlet />
-        </main>
         <Toaster />
       </div>
     </div>

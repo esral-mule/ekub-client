@@ -4,6 +4,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from "@/components/ui/card";
 import "boxicons";
 
@@ -16,16 +17,19 @@ import { Button } from "../components/ui/button";
 import API from "../api/axios";
 import { AuthContext } from "../context/AuthContext";
 import { useToast } from "../components/ui/use-toast";
+import OpenEye from "../components/icons/OpenedEye";
+import ClosedEye from "../components/icons/ClosedEye";
+import OpenedEye from "../components/icons/OpenedEye";
 
 export default function Signin() {
-  const { toast } = useToast()
+  const { toast } = useToast();
   let navigate = useNavigate();
 
   const { login } = useContext(AuthContext);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [isLoading,setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -34,7 +38,7 @@ export default function Signin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsLoading(true)
+    setIsLoading(true);
     API.post("/users/login", {
       phoneNumber,
       password,
@@ -47,27 +51,32 @@ export default function Signin() {
         setError("");
         toast({
           description: "Logged in Successfuly",
-        })
-        setIsLoading(false)
+        });
+        setIsLoading(false);
         navigate("/");
       })
       .catch((err) => {
         setError(
           err.response?.data?.message || "Login failed. Please try again."
         );
-        setIsLoading(false)
+        setIsLoading(false);
       });
   };
   return (
-    <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
-      <Card>
+    <form onSubmit={handleSubmit} className="mx-auto">
+      <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle>Signin</CardTitle>
+          <CardTitle className="text-2xl">Signin</CardTitle>
+          <CardDescription>
+            Enter your phone number below to login to your account.
+          </CardDescription>
           {error && <div className="text-red-600 mb-[10px]">{error}</div>}
         </CardHeader>
-        <CardContent className="space-y-2">
-          <div className="space-y-1 text-left">
-            <Label htmlFor="phoneNumber">PhoneNumber</Label>
+        <CardContent className="grid gap-4">
+          <div className="grid gap-2">
+            <Label className="text-left" htmlFor="phoneNumber">
+              PhoneNumber
+            </Label>
             <Input
               id="phoneNumber"
               placeholder="PhoneNumber ..."
@@ -77,8 +86,10 @@ export default function Signin() {
           </div>
 
           <div className="space-y-1 text-left">
-            <Label htmlFor="password">Password</Label>
-            <div className="flex items-center">
+            <Label className="" htmlFor="password">
+              Password
+            </Label>
+            <div className="flex items-center relative">
               <Input
                 id="password"
                 type={passwordVisible ? "text" : "password"}
@@ -86,18 +97,21 @@ export default function Signin() {
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
               />
-              <box-icon
-              size="md"
-                name={`toggle-${passwordVisible ? "right" : "left"}`}
-                color="#854460"
-                type="solid"
-                onClick={togglePasswordVisibility}
-              ></box-icon>
+              <div
+                className="absolute top-3 right-2"
+                onClick={() => {
+                  togglePasswordVisibility();
+                }}
+              >
+                {passwordVisible ? <ClosedEye/> : <OpenedEye/>}
+              </div>
             </div>
           </div>
         </CardContent>
         <CardFooter>
-          <Button disabled={isLoading}> {isLoading?"loading":"Login"}</Button>
+          <Button disabled={isLoading} type="submit">
+            {isLoading ? "loading" : "Login"}
+          </Button>
         </CardFooter>
       </Card>
     </form>

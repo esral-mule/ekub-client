@@ -35,7 +35,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import CreateUser from "../components/CreateUser";
 import AddMember from "../components/addMember";
 import EqubLevel from "../components/EqubLevel";
@@ -47,15 +47,15 @@ import EqubLevels from "../components/tabs/EqubLevels";
 export default function EqubDetail() {
   let { id } = useParams();
   return (
-    <div>
-      <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
+
+      <main className="flex flex-1 flex-col py-4 md:gap-8 md:p-8">
         <Tabs defaultValue="all">
-          <div className="flex items-center">
+          <div className="flex flex-wrap items-center">
             <TabsList>
-              <TabsTrigger value="all">All Members</TabsTrigger>
+              <TabsTrigger value="all">Members</TabsTrigger>
               <TabsTrigger value="roundes">Roundes</TabsTrigger>
               <TabsTrigger value="active">Active</TabsTrigger>
-              <TabsTrigger value="equblevels" className="hidden sm:flex">
+              <TabsTrigger value="equblevels">
                 Equb Levels
               </TabsTrigger>
             </TabsList>
@@ -66,7 +66,6 @@ export default function EqubDetail() {
                   Export
                 </span>
               </Button>
-              <CreateUser />
             </div>
           </div>
           <AllMembers/>
@@ -75,14 +74,6 @@ export default function EqubDetail() {
           <EqubLevels/>
         </Tabs>
       </main>
-      <div>
-        <NavLink
-          to={`/roundes/${id}`}
-          className="text-muted-foreground transition-colors hover:text-foreground"
-        >
-          Roundes
-        </NavLink>
-      </div>
-    </div>
+
   );
 }
