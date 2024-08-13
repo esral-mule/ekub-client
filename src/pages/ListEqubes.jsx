@@ -1,12 +1,12 @@
-import { useTranslation } from "react-i18next";
-
-import API from "../api/axios";
-import { useState, useEffect } from "react";
-
-import { BellRing, Check } from "lucide-react";
-
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import {
   Card,
   CardContent,
@@ -15,97 +15,69 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import API from "../api/axios";
+import { useNavigate } from "react-router";
 
-export default function ListEqubes({ id }) {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
+export default function ListEqubes() {
+
+  let navigate = useNavigate();
+  const [equbs, setEqubs] = useState([]);
   useEffect(() => {
     API.get("/equb-type/", {})
       .then((data) => {
-        setData(data.data.data);
-        setIsLoading(false);
+        setEqubs(data.data.data);
       })
       .catch((err) => {
         console.log(err);
-        setIsLoading(false);
       });
   }, []);
 
+  const handleSelect = (id)=>{
+    navigate(`/equbdetail/${id}`);
+  }
   return (
-    <div className="flex flex-col">
-      {/* <h1>{t("coming.message")}</h1> */}
-      <div className="self-end my-2">
-        <Button >
-          <NavLink to={"/createeqube"}>Create New Equb</NavLink>
-        </Button>
-      </div>
-      <div className="flex flex-wrap justify-center space-x-2">
-        {isLoading && <div>loading</div>}
-        {data &&
-          data.map((equb) => (
-            <Card key={equb._id} className={cn("w-[380px]")}>
-              <CardHeader>
-                <CardTitle>{equb.name}</CardTitle>
-                <CardDescription>{equb.period}</CardDescription>
-              </CardHeader>
-              <CardContent className="grid gap-4">
-                <div className="mb-2 flex justify-center gap-5">
-                  <p className="text-sm font-medium leading-none">
-                    Cycle - {equb.cycle}
-                  </p>
-                  <p className="text-sm font-medium leading-none">
-                    Round - {equb.round}
-                  </p>
-                </div>
-
-                <div className="mb-2">
-                  <p className="text-sm font-medium leading-none">
-                    Lottery-Day : {equb.lotteryDay}
-                  </p>
-                </div>
-
-                <div className="mb-2">
-                  <p className="text-sm font-medium leading-none">
-                    Max-UniqueIds : {equb.maxUniqueIds}
-                  </p>
-                </div>
-
-                <div className="mb-2">
-                  <p className="text-sm font-medium leading-none">
-                    Contribution-Day : {equb.contributionDay}
-                  </p>
-                </div>
-                <div className="mb-2">
-                  <p className="text-sm font-medium leading-none">
-                    Created-At : {new Date(equb.createdAt).getFullYear()}{" "}
-                    {new Date(equb.createdAt).getMonth()}{" "}
-                    {new Date(equb.createdAt).getDate()}
-                  </p>
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Button className="w-full">
-                  <Link className="w-full" to={`/equbdetail/${equb._id}`}>
-                    Detail
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        {data.length === 0 && !isLoading && (
-          <div>
-            <p>You don't have any Equbes</p>
-            <Button>
-              {" "}
-              <NavLink to={"/createeqube"}>
-                Whould you like to create a new one
-              </NavLink>
-            </Button>
-          </div>
-        )}
-      </div>
-    </div>
+    <Card x-chunk="dashboard-06-chunk-0">
+      <CardHeader>
+        {/* <Button className="self-end">Add Equb Level</Button> */}
+        <CardTitle>List of Equbes</CardTitle>
+        <CardDescription>List of all Equb's of the house</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Table>
+          <TableCaption>A list of all your equbes.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="text-center">Name</TableHead>
+              <TableHead className="text-center">Contribution</TableHead>
+              <TableHead className="text-center">MaxUniqueIds</TableHead>
+              <TableHead className="text-center">LotteryDay</TableHead>
+              <TableHead className="text-center">ContributionDay</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {equbs.map((equb) => (
+              <TableRow key={equb._id} onClick={()=>{
+                handleSelect(equb._id)
+              }}>
+                <TableCell>{equb.name}</TableCell>
+                <TableCell className="text-center">
+                  {equb.contribution}
+                </TableCell>
+                <TableCell>{equb.maxUniqueIds}</TableCell>
+                <TableCell>{equb.lotteryDay}</TableCell>
+                <TableCell>{equb.contributionDay}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+      <CardFooter>
+        <div className="text-xs text-muted-foreground">
+          Showing {equbs.length} equbes
+        </div>
+      </CardFooter>
+    </Card>
   );
 }
