@@ -95,7 +95,7 @@ export default function AddMember({ setData }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="self-end" variant="outline">
+        <Button className="self-end print:hidden" variant="outline">
           Add Member
         </Button>
       </DialogTrigger>

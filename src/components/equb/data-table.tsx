@@ -78,12 +78,12 @@ export function DataTable<TData, TValue>({
                     onChange={(event) =>
                         table.getColumn("fullName")?.setFilterValue(event.target.value)
                     }
-                    className="w-96 hidden md:inline"
+                    className="w-96 hidden md:inline print:hidden"
                 />
                 
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button variant="outline" className="ml-auto">
+                        <Button variant="outline" className="ml-auto print:hidden">
                             Columns
                         </Button>
                     </DropdownMenuTrigger>
@@ -161,6 +161,7 @@ export function DataTable<TData, TValue>({
                     size="sm"
                     onClick={() => table.previousPage()}
                     disabled={!table.getCanPreviousPage()}
+                    className="print:hidden"
                 >
                     Previous
                 </Button>
@@ -169,6 +170,7 @@ export function DataTable<TData, TValue>({
                     size="sm"
                     onClick={() => table.nextPage()}
                     disabled={!table.getCanNextPage()}
+                    className="print:hidden"
                 >
                     Next
                 </Button>

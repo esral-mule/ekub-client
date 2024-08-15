@@ -42,7 +42,6 @@ export default function EqubLevel() {
       </CardHeader>
       <CardContent>
         <Table>
-          <TableCaption>A list of your recent invoices.</TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead className="text-center">Title</TableHead>
@@ -63,7 +62,7 @@ export default function EqubLevel() {
       </CardContent>
       <CardFooter>
         <div className="text-xs text-muted-foreground">
-          Showing <strong>1-10</strong> of <strong>32</strong> products
+          Showing {equblevels.length} Equb levels
         </div>
       </CardFooter>
     </Card>
