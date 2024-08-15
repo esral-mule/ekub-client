@@ -7,7 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "../components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import SelectData from "./SelectData";
 import { useState, useEffect } from "react";
@@ -17,7 +17,7 @@ import { PlusCircle } from "lucide-react";
 import CreateUser from "./CreateUser";
 import CreateEqubLevel from "./CreateEqubLevel";
 
-export default function AddMember({ setData }) {
+export default function AddMember({ setData ,setNewMembership}) {
   let { id: equbId } = useParams();
   
   const [user, setUser] = useState("");
@@ -35,6 +35,7 @@ export default function AddMember({ setData }) {
   const [selectedUniqueIdValue, setSelectedUniqueIdValue] = useState("");
   const [selectedUniqueIdLabel, setSelectedUniqueIdLabel] = useState("");
 
+  const [openModal, setOpenModal] = useState(false)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -77,6 +78,14 @@ export default function AddMember({ setData }) {
       uniqueId: uniqueId,
     })
       .then((data) => {
+        setOpenModal(false)
+        setNewMembership(data.data.data._id)        
+        setSelectedUserValue("")
+        setSelectedUserLabel("")
+        setSelectedEqubLevelValue("")
+        setSelectedEqubLevelLabel("")
+        setSelectedUniqueIdValue("")
+        setSelectedUniqueIdLabel("")
         return data.data.data;
       })
       .then((data) => {
@@ -93,9 +102,9 @@ export default function AddMember({ setData }) {
   };
 
   return (
-    <Dialog>
+    <Dialog open={openModal} onOpenChange={setOpenModal}>
       <DialogTrigger asChild>
-        <Button className="self-end print:hidden" variant="outline">
+        <Button onClick={()=>{setOpenModal(true)}} className="self-end print:hidden" variant="outline">
           Add Member
         </Button>
       </DialogTrigger>
