@@ -1,8 +1,7 @@
-import * as React from "react"
-
-import { ColumnDef } from "@tanstack/react-table"
-import { ArrowUpDown, MoreHorizontal } from "lucide-react"
-import { Button } from "../ui/button"
+import * as React from "react";
+import { ColumnDef } from "@tanstack/react-table";
+import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { Button } from "../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,31 +9,32 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu"
-import { Checkbox } from "../ui/checkbox"
-import { NavLink } from "react-router-dom"
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
-
-import BanAction from "./BanAction"
-
+} from "../ui/dropdown-menu";
+import { NavLink } from "react-router-dom";
+import BanAction from "./BanAction";
 
 export type User = {
-  _id: string,
-  member: object,
-  equbType: object,
-  equbLevel: object,
-  uniqueId: object,
-  createdAt: Date,
-  updatedAt: Date,
-
-}
+  _id: string;
+  member: {
+    fullName: string;
+    phoneNumber: string;
+  };
+  equbType: object;
+  equbLevel: {
+    title: string;
+  };
+  uniqueId: {
+    uniqueId: string;
+  };
+  createdAt: Date;
+  updatedAt: Date;
+};
 
 export function getColumns(setData) {
   return [
-
     {
-      accessorKey: "fullName",
+      accessorFn: (row) => row.member.fullName,
+      id: "fullName",
       header: ({ column }) => {
         return (
           <Button
@@ -45,35 +45,33 @@ export function getColumns(setData) {
             Full Name
             <ArrowUpDown className="ml-2 h-4 w-4" />
           </Button>
-        )
+        );
       },
       cell: ({ row }) => {
-        return <div className="font-medium">{row.original.member.fullName}</div>
-
-      }
+        return <div className="font-medium">{row.original.member.fullName}</div>;
+      },
     },
     {
-      accessorKey: "phoneNumber",
-      header: ({ }) => {
-        return (
-          <div>Phone Number</div>
-        )
+      accessorFn: (row) => row.member.phoneNumber,
+      id: "phoneNumber",
+      header: () => {
+        return <div>Phone Number</div>;
       },
       cell: ({ row }) => {
-        return <div className="font-medium">{row.original.member.phoneNumber}</div>
-
-      }
+        return <div className="font-medium">{row.original.member.phoneNumber}</div>;
+      },
     },
     {
-      accessorKey: "title",
+      accessorFn: (row) => row.equbLevel.title,
+      id: "title",
       header: () => <div>Level</div>,
       cell: ({ row }) => {
-
-        return <div className="font-medium">{row.original.equbLevel.title}</div>
+        return <div className="font-medium">{row.original.equbLevel.title}</div>;
       },
     },
     {
-      accessorKey: "uniqueId",
+      accessorFn: (row) => row.uniqueId.uniqueId,
+      id: "uniqueId",
       header: ({ column }) => {
         return (
           <Button
@@ -84,18 +82,17 @@ export function getColumns(setData) {
             Unique Id
             <ArrowUpDown className="ml-2 h-4 w-4" />
           </Button>
-        )
+        );
       },
       cell: ({ row }) => {
-
-        return <div className="font-medium">{row.original.uniqueId.uniqueId}</div>
+        return <div className="font-medium">{row.original.uniqueId.uniqueId}</div>;
       },
     },
     {
       id: "actions",
       header: "Actions",
       cell: ({ row }) => {
-        const user = row.original
+        const user = row.original;
 
         return (
           <DropdownMenu>
@@ -107,10 +104,8 @@ export function getColumns(setData) {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
-
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-
                 <NavLink
                   to={`/userdetail/${user._id}`}
                   className="px-2 hover:text-gray-400"
@@ -121,8 +116,8 @@ export function getColumns(setData) {
               <BanAction id={user._id} equb={user.equbType} setData={setData} />
             </DropdownMenuContent>
           </DropdownMenu>
-        )
+        );
       },
     },
-  ]
+  ];
 }
