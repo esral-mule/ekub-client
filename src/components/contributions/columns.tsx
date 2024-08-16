@@ -59,9 +59,10 @@ export const columns: ColumnDef<User>[] = [
 
       return <div className="flex justify-center" style={{ "color": !row.original.isPaid ? "#b91c1c" : "#166534" }}>
         {row.original.isPaid ?
-          <div>
+
+          <div className="flex justify-center gap-1">
             <CircleCheckBig className="mx-auto" size={20} />
-            <p>paid</p>
+            <p className="hidden sm:flex">Paid</p>
           </div>
           :
           <div className="flex justify-center gap-1">
