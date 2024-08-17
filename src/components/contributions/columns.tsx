@@ -18,7 +18,7 @@ export type User = {
   updatedAt: Date;
 };
 
-export const columns: ColumnDef<User>[] = [
+export const columns = (RoundId, setContributions): ColumnDef<User>[] => [
   {
     accessorFn: (row) => row.member.member.fullName,
     id: "fullName",
@@ -73,7 +73,7 @@ export const columns: ColumnDef<User>[] = [
     id: "actions",
     header: "Actions",
     cell: ({ row }) => {
-      return <TogglePayment id={row.original._id} status={row.original.isPaid} />;
+      return <TogglePayment id={row.original._id} status={row.original.isPaid} RoundId={RoundId} setContributions={setContributions} />;
     },
   },
 ];

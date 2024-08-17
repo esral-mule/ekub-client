@@ -6,25 +6,25 @@ import { useToast } from "../ui/use-toast";
 import API from "../../api/axios";
 import { useNavigate } from "react-router";
 
-export default function TogglePayment({id,status}) {
+export default function TogglePayment({ id, status, RoundId, setContributions }) {
   let navigate = useNavigate();
   const { toast } = useToast()
   const handlePaymentStatusChange = () => {
 
-    console.log("state",!status);
-    console.log("id",id);
-    
-    API.put(`/contribution/${id}/`,{
-              "isPaid": !status
+    API.put(`/contribution/${id}/`, {
+      "isPaid": !status
     }).then(data => {
-      console.log("state.id",id);
-      console.log(data);
-      
       toast({
         title: "Payment status Update",
         description: "Payment status Updated successfuly",
       })
 
+    }).then(() => {
+
+      API.get(`/contribution/round/${RoundId}`).then(data => {
+
+        setContributions(data.data.data)
+      })
     }).catch(e => {
       toast({
         title: "Payment status Update",
@@ -37,7 +37,7 @@ export default function TogglePayment({id,status}) {
   return (
 
     <Button onClick={handlePaymentStatusChange}>
-    Update
-  </Button>
+      Update
+    </Button>
   )
 }
