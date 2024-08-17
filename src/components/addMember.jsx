@@ -109,8 +109,8 @@ export default function AddMember({ setData, setNewMembership }) {
           onClick={() => {
             setOpenModal(true);
           }}
-          className="self-end print:hidden"
-          variant="outline"
+          className="ml-auto print:hidden bg-green-700 mr-1"
+
         >
           Add Member
         </Button>

@@ -3,7 +3,7 @@ import { DataTable } from "./data-table"
 import { getColumns  } from "./columns"
 
 
-export default function DemoPage({ data,isLoading ,setData}) {
+export default function DemoPage({ data,isLoading ,setData,setNewMembership}) {
 
 
     
@@ -16,7 +16,7 @@ export default function DemoPage({ data,isLoading ,setData}) {
                 <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
                     Loading
                 </h2> :
-                <DataTable columns={columns} data={data} setData={setData} equbid=""/>
+                <DataTable columns={columns} data={data} setData={setData} setNewMembership={setNewMembership}/>
                 }
         </div>
     )

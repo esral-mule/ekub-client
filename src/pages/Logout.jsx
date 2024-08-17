@@ -25,7 +25,7 @@ const Logout = () => {
   };
   return (
     <Transition>
-      <Card className="max-w-[350px] mx-auto">
+      <Card className="max-w-[350px] mx-auto mt-5">
         <CardHeader>
           <CardTitle>Logout</CardTitle>
           <CardDescription>Are you sure you want to logout?</CardDescription>

@@ -36,11 +36,14 @@ import { Input } from "../ui/input"
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
+    setData
 }
 
 export function DataTable<TData, TValue>({
     columns,
     data,
+    setData,
+    setNewMembership
 }: DataTableProps<TData, TValue>) {    
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -80,10 +83,12 @@ export function DataTable<TData, TValue>({
                     }
                     className="w-96 hidden md:inline print:hidden"
                 />
+
+
                 
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button variant="outline" className="ml-auto print:hidden">
+                        <Button variant="outline" className="print:hidden ml-1">
                             Columns
                         </Button>
                     </DropdownMenuTrigger>
@@ -109,6 +114,10 @@ export function DataTable<TData, TValue>({
                             })}
                     </DropdownMenuContent>
                 </DropdownMenu>
+                <AddMember
+            setData={setData}
+            setNewMembership={setNewMembership}
+          />
             </div>
             <div className="rounded-md border">
                 <Table>

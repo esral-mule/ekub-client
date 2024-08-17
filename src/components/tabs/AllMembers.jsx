@@ -35,10 +35,7 @@ export default function AllMembers() {
     <TabsContent value="all">
       <Card x-chunk="dashboard-06-chunk-0">
         <CardHeader>
-          <AddMember
-            setData={setData}
-            setNewMembership={setNewMembership}
-          />
+
           <CardTitle>Memeber list</CardTitle>
           <CardDescription>All Equb member list</CardDescription>
         </CardHeader>
@@ -48,6 +45,7 @@ export default function AllMembers() {
             data={data}
             isLoading={isLoading}
             setData={setData}
+            setNewMembership={setNewMembership}
           />
         </CardContent>
         <CardFooter>
