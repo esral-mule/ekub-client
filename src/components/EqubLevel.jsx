@@ -36,9 +36,9 @@ export default function EqubLevel() {
     <Card x-chunk="dashboard-06-chunk-0">
       <CardHeader>
         {/* <Button className="self-end">Add Equb Level</Button> */}
-        <CreateEqubLevel/>
         <CardTitle>Equb Levels</CardTitle>
         <CardDescription>List of all Equb levels</CardDescription>
+        <CreateEqubLevel/>
       </CardHeader>
       <CardContent>
         <Table>

@@ -63,7 +63,7 @@ export default function CreateEqubLevel({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" className="self-end ml-2 text-[10px] print:hidden">
+        <Button className="self-end print:hidden bg-green-700">
           Add Equb Level
         </Button>
       </DialogTrigger>
