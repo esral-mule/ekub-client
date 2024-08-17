@@ -16,26 +16,27 @@ import API from "../api/axios";
 import { PlusCircle } from "lucide-react";
 import CreateUser from "./CreateUser";
 import CreateEqubLevel from "./CreateEqubLevel";
+import UniqueIdDetail from "./UniqueIdDetail";
 
-export default function AddMember({ setData ,setNewMembership}) {
+export default function AddMember({ setData, setNewMembership }) {
   let { id: equbId } = useParams();
-  
+
   const [user, setUser] = useState("");
   const [users, setUsers] = useState([]);
   const [selectedUserValue, setSelectedUserValue] = useState("");
   const [selectedUserLabel, setSelectedUserLabel] = useState("");
-  
+
   const [equbLevel, setEqubLevel] = useState("");
   const [equbLevels, setEqubLevels] = useState([]);
   const [selectedEqubLevelValue, setSelectedEqubLevelValue] = useState("");
   const [selectedEqubLevelLabel, setSelectedEqubLevelLabel] = useState("");
-  
+
   const [uniqueId, setUniqueId] = useState("");
   const [uniqueIds, setUniqueIds] = useState([]);
   const [selectedUniqueIdValue, setSelectedUniqueIdValue] = useState("");
   const [selectedUniqueIdLabel, setSelectedUniqueIdLabel] = useState("");
 
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -78,14 +79,14 @@ export default function AddMember({ setData ,setNewMembership}) {
       uniqueId: uniqueId,
     })
       .then((data) => {
-        setOpenModal(false)
-        setNewMembership(data.data.data._id)        
-        setSelectedUserValue("")
-        setSelectedUserLabel("")
-        setSelectedEqubLevelValue("")
-        setSelectedEqubLevelLabel("")
-        setSelectedUniqueIdValue("")
-        setSelectedUniqueIdLabel("")
+        setOpenModal(false);
+        setNewMembership(data.data.data._id);
+        setSelectedUserValue("");
+        setSelectedUserLabel("");
+        setSelectedEqubLevelValue("");
+        setSelectedEqubLevelLabel("");
+        setSelectedUniqueIdValue("");
+        setSelectedUniqueIdLabel("");
         return data.data.data;
       })
       .then((data) => {
@@ -104,7 +105,13 @@ export default function AddMember({ setData ,setNewMembership}) {
   return (
     <Dialog open={openModal} onOpenChange={setOpenModal}>
       <DialogTrigger asChild>
-        <Button onClick={()=>{setOpenModal(true)}} className="self-end print:hidden" variant="outline">
+        <Button
+          onClick={() => {
+            setOpenModal(true);
+          }}
+          className="self-end print:hidden"
+          variant="outline"
+        >
           Add Member
         </Button>
       </DialogTrigger>
@@ -132,8 +139,8 @@ export default function AddMember({ setData ,setNewMembership}) {
             <CreateUser
               setUser={setUser}
               setUsers={setUsers}
-              setSelectedUserValue = {setSelectedUserValue}
-              setSelectedUserLabel = {setSelectedUserLabel}
+              setSelectedUserValue={setSelectedUserValue}
+              setSelectedUserLabel={setSelectedUserLabel}
             />
           </div>
           <div className="grid grid-cols-4 items-center">
@@ -150,13 +157,12 @@ export default function AddMember({ setData ,setNewMembership}) {
               selectedLabel={selectedEqubLevelLabel}
               setSelectedLabel={setSelectedEqubLevelLabel}
             />
-            <CreateEqubLevel 
-            
-            setEqubLevel={setEqubLevel}
-            setEqubLevels={setEqubLevels}
-            setSelectedEqubLevelValue = {setSelectedEqubLevelValue}
-            setSelectedEqubLevelLabel = {setSelectedEqubLevelLabel}/>
-
+            <CreateEqubLevel
+              setEqubLevel={setEqubLevel}
+              setEqubLevels={setEqubLevels}
+              setSelectedEqubLevelValue={setSelectedEqubLevelValue}
+              setSelectedEqubLevelLabel={setSelectedEqubLevelLabel}
+            />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="uniqueId" className="text-right">
@@ -173,6 +179,9 @@ export default function AddMember({ setData ,setNewMembership}) {
               setSelectedLabel={setSelectedUniqueIdLabel}
             />
           </div>
+          {selectedUniqueIdValue && <div>
+              <UniqueIdDetail uniqueID={selectedUniqueIdValue}/>
+          </div>}
         </div>
         <DialogFooter>
           <Button

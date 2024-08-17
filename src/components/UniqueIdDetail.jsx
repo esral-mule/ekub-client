@@ -1,0 +1,95 @@
+import React, { useEffect, useState } from "react";
+import API from "../api/axios";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./ui/table";
+import { Card } from "./ui/card";
+import { Loader2 } from "lucide-react";
+// Assume you have a Spinner component for loading state
+
+export default function UniqueIdDetail({ uniqueID }) {
+
+  const [uniqueIDDetail, setUniqueIdDetail] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const CalculateTotla = (members)=>{
+   
+    let sum = 0
+    for (let index = 0; index < members.length; index++) {
+        sum = members[index].equbLevel.contribution;
+        
+    }
+    return sum;
+  }
+
+  useEffect(() => {
+    setLoading(true);
+
+    API.get(`/uniqueid/${uniqueID}`)
+      .then((data) => {
+        
+        setUniqueIdDetail(data.data.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log("Error fetching unique ID details:", err);
+        setLoading(false);
+      });
+  }, [uniqueID]);
+
+  return (
+    <div>
+      {loading ? (
+        <div className="flex justify-center">
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+        </div>
+      ) : (
+        uniqueIDDetail && (
+          <Card>
+            {uniqueIDDetail.members.length > 0 ? (
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Full Name</TableHead>
+                    <TableHead>Level</TableHead>
+                    <TableHead className="text-right">Amount</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {uniqueIDDetail.members.map((detail) => (
+                    <TableRow key={detail._id}>
+                      <TableCell className="font-medium">
+                        {detail.member.fullName}
+                      </TableCell>
+                      <TableCell>{detail.equbLevel.title}</TableCell>
+                      <TableCell className="text-right">
+                        {detail.equbLevel.contribution}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+                <TableFooter>
+                  <TableRow>
+                    <TableCell colSpan={2}>Total</TableCell>
+                    <TableCell className="text-right">{CalculateTotla(uniqueIDDetail.members)}</TableCell>
+                  </TableRow>
+                </TableFooter>
+              </Table>
+            ) : (
+              <div>
+                No previos record with this unique is and you are good to go
+              </div>
+            )}
+          </Card>
+        )
+      )}
+    </div>
+  );
+}
