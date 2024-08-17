@@ -16,7 +16,11 @@ import { useToast } from "./ui/use-toast";
 import { useParams } from "react-router";
 
 export default function CreateEqubLevel({
-  setEqubLevel,setEqubLevels,setSelectedEqubLevelValue,setSelectedEqubLevelLabel
+  fromTab,
+  setEqubLevels,
+  setEqubLevel,
+  setSelectedEqubLevelValue,
+  setSelectedEqubLevelLabel,
 }) {
   let { id } = useParams();
 
@@ -37,19 +41,33 @@ export default function CreateEqubLevel({
     })
       .then((data) => {
         setIsLoading(false);
-        setEqubLevels(prev=>{
-          return [...prev,{
-            label: data.data.data.title,
-            value: data.data.data._id,
-          }]
-        })        
-        setEqubLevel(data.data.data._id)
-        setSelectedEqubLevelLabel(data.data.data.title)
-        setSelectedEqubLevelValue(data.data.data._id)
+        setEqubLevels((prev) => {
+          return [
+            ...prev,
+            {
+              label: data.data.data.title,
+              value: data.data.data._id,
+            },
+          ];
+        });
+        
+        if (!fromTab) {
+          setEqubLevel(data.data.data._id);
+          setSelectedEqubLevelLabel(data.data.data.title);
+          setSelectedEqubLevelValue(data.data.data._id);
+        }
         setOpen(false);
         toast({
           description: "Equb level Added Successfully",
         });
+      })
+      .then(() => {
+        if (fromTab) {
+          API.get(`/equb-level/etype/${id}`).then((data) => {
+            console.log("data = ", data);
+            setEqubLevels(data.data.data);
+          });
+        }
       })
       .catch((error) => {
         setIsLoading(false);

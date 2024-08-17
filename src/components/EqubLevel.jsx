@@ -38,7 +38,7 @@ export default function EqubLevel() {
         {/* <Button className="self-end">Add Equb Level</Button> */}
         <CardTitle>Equb Levels</CardTitle>
         <CardDescription>List of all Equb levels</CardDescription>
-        <CreateEqubLevel/>
+        <CreateEqubLevel fromTab={true}setEqubLevels={setEqubLevels}/>
       </CardHeader>
       <CardContent>
         <Table>
