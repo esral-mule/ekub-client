@@ -15,7 +15,7 @@ import {
   AlertDialogTrigger,
 } from "../components/ui/alert-dialog";
 import { useToast } from "../components/ui/use-toast";
-export default function ActiveEqubRound() {
+export default function ActiveEqubRound() {  
   const { id } = useParams();
   const [selectedOption, setSelectedOption] = useState(null);
   const [isLoading, setIsLoading] = useState(true);

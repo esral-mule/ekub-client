@@ -11,12 +11,12 @@ import {
   } from "../ui/alert-dialog";
 import { Button } from "../ui/button";
 
-export default function StartNewRound({handleStartRound}) {
+export default function UpdatePaymentStatus({handlePaymentStatusChange}) {
   return (
     <AlertDialog>
     <AlertDialogTrigger asChild>
-      <Button className="ml-auto print:hidden bg-red-500 text-white dark:text-black">
-        Start New Round
+      <Button>
+        Update
       </Button>
     </AlertDialogTrigger>
     <AlertDialogContent>
@@ -29,7 +29,7 @@ export default function StartNewRound({handleStartRound}) {
       </AlertDialogHeader>
       <AlertDialogFooter>
         <AlertDialogCancel>Cancel</AlertDialogCancel>
-        <AlertDialogAction onClick={handleStartRound}>Continue</AlertDialogAction>
+        <AlertDialogAction onClick={handlePaymentStatusChange}>Continue</AlertDialogAction>
       </AlertDialogFooter>
     </AlertDialogContent>
   </AlertDialog>

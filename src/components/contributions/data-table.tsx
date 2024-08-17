@@ -40,7 +40,7 @@ export function DataTable<TData, TValue>({
     columns,
     data,
     handleStartRound
-}: DataTableProps<TData, TValue>) {    
+}: DataTableProps<TData, TValue>) {
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
@@ -72,7 +72,7 @@ export function DataTable<TData, TValue>({
         <div>
             <div className="flex items-center py-4">
 
-                
+
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button variant="outline">
@@ -101,8 +101,8 @@ export function DataTable<TData, TValue>({
                             })}
                     </DropdownMenuContent>
                 </DropdownMenu>
-
-                <StartNewRound handleStartRound={handleStartRound}/>
+                {console.log("hello")                }
+                <StartNewRound handleStartRound={handleStartRound} />
             </div>
             <div className="rounded-md border">
                 <Table>

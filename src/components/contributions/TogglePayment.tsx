@@ -3,11 +3,11 @@ import { Button } from "../ui/button"
 
 
 import { useToast } from "../ui/use-toast";
+import UpdatePaymentStatus  from "../dialogs/UpdatePaymentStatus";
 import API from "../../api/axios";
 import { useNavigate } from "react-router";
 
 export default function TogglePayment({ id, status, RoundId, setContributions }) {
-  let navigate = useNavigate();
   const { toast } = useToast()
   const handlePaymentStatusChange = () => {
 
@@ -37,8 +37,6 @@ export default function TogglePayment({ id, status, RoundId, setContributions })
 
   return (
 
-    <Button onClick={handlePaymentStatusChange}>
-      Update
-    </Button>
+<UpdatePaymentStatus UpdatePaymentStatus={handlePaymentStatusChange}/>
   )
 }
