@@ -101,8 +101,7 @@ export function DataTable<TData, TValue>({
                             })}
                     </DropdownMenuContent>
                 </DropdownMenu>
-                {console.log("hello")                }
-                <StartNewRound handleStartRound={handleStartRound} />
+
             </div>
             <div className="rounded-md border">
                 <Table>
