@@ -18,7 +18,7 @@ export default function DemoPage({ RoundId, handleStartRound }) {
 
     return (
         <div className="container py-10">
-            <DataTable columns={columns(setContributions)} data={contributions} handleStartRound={handleStartRound} />
+            <DataTable columns={columns(RoundId,setContributions)} data={contributions} handleStartRound={handleStartRound} />
         </div>
     );
 }
