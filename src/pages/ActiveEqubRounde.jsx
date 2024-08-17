@@ -54,28 +54,8 @@ export default function ActiveEqubRound() {
 
   return (
     <div className="flex flex-col">
-      <AlertDialog>
-        <AlertDialogTrigger asChild>
-          <Button className="self-end" variant="outline">
-            Start New Round
-          </Button>
-        </AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-            <AlertDialogDescription>
-              You are about to start new round. please make sure if you have
-              closed other opend rounds.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleStartRound}>Continue</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
       {isLoading && <div>Loading</div>}
-      {selectedOption && <DemoPage RoundId={selectedOption._id} />}
+      {selectedOption && <DemoPage RoundId={selectedOption._id} handleStartRound={handleStartRound} />}
     </div>
   );
 }

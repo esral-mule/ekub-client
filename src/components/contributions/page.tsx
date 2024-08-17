@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
 
-export default function DemoPage({RoundId}) {
+export default function DemoPage({RoundId,handleStartRound}) {
     const [contributions, setContributions] = useState([]);
 
     useEffect(()=>{
@@ -17,7 +17,7 @@ export default function DemoPage({RoundId}) {
     },[RoundId])
     return (
         <div className="container py-10">
-            <DataTable columns={columns} data={contributions}/>
+            <DataTable columns={columns} data={contributions} handleStartRound={handleStartRound}/>
         </div>
     )
 }

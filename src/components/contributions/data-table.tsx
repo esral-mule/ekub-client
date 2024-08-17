@@ -30,7 +30,7 @@ import {
 } from "../ui/table"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
-
+import StartNewRound from "../dialogs/StartNewRound"
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
@@ -39,6 +39,7 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
     columns,
     data,
+    handleStartRound
 }: DataTableProps<TData, TValue>) {    
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -74,7 +75,7 @@ export function DataTable<TData, TValue>({
                 
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button variant="outline" className="ml-auto">
+                        <Button variant="outline">
                             Columns
                         </Button>
                     </DropdownMenuTrigger>
@@ -100,6 +101,8 @@ export function DataTable<TData, TValue>({
                             })}
                     </DropdownMenuContent>
                 </DropdownMenu>
+
+                <StartNewRound handleStartRound={handleStartRound}/>
             </div>
             <div className="rounded-md border">
                 <Table>
