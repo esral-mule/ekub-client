@@ -15,7 +15,7 @@ export default function updatePaymentStatus({ UpdatePaymentStatus }) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button className="ml-auto print:hidden bg-green-500 text-white dark:text-black">
+        <Button size="xs" className="ml-auto print:hidden bg-green-500 text-white dark:text-black">
           update
         </Button>
       </AlertDialogTrigger>

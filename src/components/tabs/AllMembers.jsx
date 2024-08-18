@@ -49,9 +49,12 @@ export default function AllMembers() {
           />
         </CardContent>
         <CardFooter>
-          <div className="text-xs text-muted-foreground">
-            Showing <strong>1-10</strong> of <strong>32</strong> products
+          {
+            data &&
+            <div className="text-xs text-muted-foreground">
+            Showing <strong>1-10</strong> of <strong>{data.length}</strong> memebers
           </div>
+          }
         </CardFooter>
       </Card>
 

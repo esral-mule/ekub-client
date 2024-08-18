@@ -22,7 +22,7 @@ export default function SelectRound({
         setSelectedOption(selected);
       }}
     >
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[180px] mb-3 ml-1">
         <SelectValue placeholder="Select a cycle and round" />
       </SelectTrigger>
       <SelectContent>

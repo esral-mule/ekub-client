@@ -47,7 +47,6 @@ export default function ListEqubes() {
       </CardHeader>
       <CardContent>
         <Table>
-          <TableCaption>A list of all your equbes.</TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead className="text-center">Name</TableHead>

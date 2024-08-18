@@ -16,14 +16,9 @@ export default function Roundes() {
         <CardTitle>Equb Rounds</CardTitle>
         <CardDescription>Select Equb-round and Equb-cycle to see history</CardDescription>
       </CardHeader>
-      <CardContent>
+
         <EqubRounds />
-      </CardContent>
-      <CardFooter>
-        <div className="text-xs text-muted-foreground">
-          Showing <strong>1-10</strong> of <strong>32</strong> products
-        </div>
-      </CardFooter>
+
     </Card>
   </TabsContent>
   )
