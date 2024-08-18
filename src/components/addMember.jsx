@@ -72,7 +72,7 @@ export default function AddMember({ setData, setNewMembership }) {
   }, [equbId]);
 
   const handleSubmit = () => {
-    API.post("membership", {
+    API.post("/membership", {
       member: user,
       equbType: equbId,
       equbLevel: equbLevel,

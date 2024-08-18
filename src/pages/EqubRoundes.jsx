@@ -25,7 +25,7 @@ export default function EqubRounds() {
 
   return (
     <div>
-      {options && (
+      {options.length > 0 && (
         <SelectRound
           options={options}
           selectedOption={selectedOption}

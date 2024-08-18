@@ -83,9 +83,9 @@ export default function UniqueIdDetail({ uniqueID }) {
                 </TableFooter>
               </Table>
             ) : (
-              <Card className="text-center">
-                No previos record with this unique ID and you are good to go
-              </Card>
+              <div className="text-center">
+                No Member is assigned to this UniqueId
+              </div>
             )}
           </Card>
         )

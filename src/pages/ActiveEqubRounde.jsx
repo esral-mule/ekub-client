@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import DemoPage from "../components/contributions/page";
 import StartNewRound from "../components/dialogs/StartNewRound";
 import { useToast } from "../components/ui/use-toast";
+import CloseActiveRound from "../components/dialogs/CloseActiveRound";
 export default function ActiveEqubRound() {
   const { id } = useParams();
   const [selectedOption, setSelectedOption] = useState(null);
@@ -14,13 +15,13 @@ export default function ActiveEqubRound() {
     API.post("/round/start", {
       equbType: id,
     })
-      .then((data)=>{        
-        setSelectedOption(data.data.data)
+      .then((data) => {
+        setSelectedOption(data.data.data);
         toast({
           title: "Start New Round",
           description: "Started New Round successfuly",
-        })
-        }   )
+        });
+      })
       .catch(
         toast({
           title: "Start New Round",
@@ -46,7 +47,10 @@ export default function ActiveEqubRound() {
 
   return (
     <div className="flex flex-col">
+      <div className="self-end">
+      <CloseActiveRound/>
       <StartNewRound handleStartRound={handleStartRound} />
+      </div>
       {isLoading && <div>Loading</div>}
       {selectedOption && (
         <DemoPage
