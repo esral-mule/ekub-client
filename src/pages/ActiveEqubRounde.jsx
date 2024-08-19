@@ -47,7 +47,7 @@ export default function ActiveEqubRound() {
 
   return (
     <div className="flex flex-col">
-      <div className="self-end">
+      <div className="self-end mr-1">
       <CloseActiveRound/>
       <StartNewRound handleStartRound={handleStartRound} />
       </div>

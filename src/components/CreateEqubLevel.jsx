@@ -50,7 +50,7 @@ export default function CreateEqubLevel({
             },
           ];
         });
-        
+
         if (!fromTab) {
           setEqubLevel(data.data.data._id);
           setSelectedEqubLevelLabel(data.data.data.title);
@@ -81,7 +81,16 @@ export default function CreateEqubLevel({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="self-end print:hidden bg-green-700">
+        {/* <Button className="self-end print:hidden bg-green-700">
+          Add Equb Level
+        </Button> */}
+
+        <Button
+          variant="outline"
+          className={`px-1 self-end print:hidden ml-2 text-[10px] text-wrap ${
+            fromTab === true ? "bg-green-600 px-2 text-[12px] hover:bg-green-700  text-gray-200 hover:text-gray-300" : ""
+          }`}
+        >
           Add Equb Level
         </Button>
       </DialogTrigger>

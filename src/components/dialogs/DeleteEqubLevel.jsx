@@ -87,16 +87,16 @@ export default function DeleteEqubLevel() {
           )}
         </div>
         <DialogFooter>
-        <Button
-            size="sm"
+          <Button
             className="h-8 gap-1 bg-green-600"
-            // onClick={handleSubmit}
+            onClick={() => {
+              setOpenModal(false);
+            }}
             type="submit"
           >
             <span>Cancel</span>
           </Button>
           <Button
-            size="sm"
             className="h-8 gap-1 bg-red-600"
             // onClick={handleSubmit}
             type="submit"
