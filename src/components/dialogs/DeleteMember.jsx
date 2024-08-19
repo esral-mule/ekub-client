@@ -13,28 +13,30 @@ import { useState } from "react";
 import API from "../../api/axios";
 import { useToast } from "../ui/use-toast";
 
-export default function DeleteMember({user,setData}) {
-  const { toast } = useToast()
+export default function DeleteMember({ user, setData }) {
+  const { toast } = useToast();
   const [openModal, setOpenModal] = useState(false);
 
   const handleBan = () => {
-    API.delete(`/membership/${user._id}/`).then(data => {
-
-      setData(prevData => prevData.filter(member => {
-        return member._id !== user._id
-      }));
-      toast({
-        title: "Member Delete",
-        description: "Member deleted successfuly",
+    API.delete(`/membership/${user._id}/`)
+      .then((data) => {
+        setData((prevData) =>
+          prevData.filter((member) => {
+            return member._id !== user._id;
+          })
+        );
+        toast({
+          title: "Member Delete",
+          description: "Member deleted successfuly",
+        });
       })
-    }).catch(e => {
-      toast({
-        title: "Member Delete",
-        description: "Member Delete failed",
-      })
-    })
-
-  }
+      .catch((e) => {
+        toast({
+          title: "Member Delete",
+          description: "Member Delete failed",
+        });
+      });
+  };
   return (
     <Dialog open={openModal} onOpenChange={setOpenModal}>
       <DialogTrigger asChild>
@@ -43,7 +45,7 @@ export default function DeleteMember({user,setData}) {
           onClick={() => {
             setOpenModal(true);
           }}
-          className="ml-auto print:hidden bg-green-700 mr-1 w-full"
+          className="dark:text-white dark:hover:bg-red-600 bg-red-500 hover:bg-red-600 text-gray-300 ml-auto print:hidden mb-[1px] mr-1 w-full"
         >
           Delete
         </Button>
@@ -62,8 +64,8 @@ export default function DeleteMember({user,setData}) {
           <Button
             size="sm"
             className="h-8 gap-1 bg-green-600"
-            onClick={()=>{
-                setOpenModal(false)
+            onClick={() => {
+              setOpenModal(false);
             }}
             type="submit"
           >

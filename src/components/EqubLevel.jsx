@@ -22,8 +22,6 @@ import CreateEqubLevel from "./CreateEqubLevel";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { MoreHorizontal } from "lucide-react";
 import { Button } from "./ui/button";
-import { NavLink } from "react-router-dom";
-import BanAction from "./equb/BanAction";
 import DeleteEqubLevel from "./dialogs/DeleteEqubLevel";
 // import DeleteEqubLevel from "./DeleteEqubLevel"
 export default function EqubLevel() {

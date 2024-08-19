@@ -4,13 +4,12 @@ import { Button } from "../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { NavLink } from "react-router-dom";
 import DeleteMember from "../dialogs/DeleteMember"
+import MemberDetail from "../dialogs/MemberDetail"
 
 export type User = {
   _id: string;
@@ -104,14 +103,7 @@ export function getColumns(setData) {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <NavLink
-                  to={`/userdetail/${user._id}`}
-                  className="px-2 hover:text-gray-400"
-                >
-                  View User Detail
-                </NavLink>
-              </DropdownMenuItem>
+              <MemberDetail user={user}/>
               <DeleteMember user={user}  setData={setData}/>
             </DropdownMenuContent>
           </DropdownMenu>
