@@ -1,5 +1,4 @@
 import * as React from "react";
-import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import { Button } from "../ui/button";
 import {
@@ -11,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { NavLink } from "react-router-dom";
-import BanAction from "./BanAction";
+import DeleteMember from "../dialogs/DeleteMember"
 
 export type User = {
   _id: string;
@@ -113,7 +112,7 @@ export function getColumns(setData) {
                   View User Detail
                 </NavLink>
               </DropdownMenuItem>
-              <BanAction id={user._id} equb={user.equbType} setData={setData} />
+              <DeleteMember user={user}  setData={setData}/>
             </DropdownMenuContent>
           </DropdownMenu>
         );
