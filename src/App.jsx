@@ -12,7 +12,6 @@ import CreateUser from "./pages/CreateUser";
 import ListEqubes from "./pages/ListEqubes";
 import EqubDetail from "./pages/EqubDetail";
 import UserDetail from "./pages/UserDetail";
-import EqubRoundes from "./pages/EqubRoundes";
 import CreateEqub from "./pages/CreateEqub";
 
 function App() {
@@ -47,7 +46,6 @@ function App() {
                   <Route path="/createeqube" element={<CreateEqub />} />
                   <Route path="/equbdetail/:id" element={<EqubDetail />} />
                   <Route path="/userdetail/:id" element={<UserDetail />} />
-                  <Route path="/roundes/:id" element={<EqubRoundes />} />
                 </Route>
               </Routes>
             </BrowserRouter>

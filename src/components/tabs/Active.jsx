@@ -1,13 +1,11 @@
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { TabsContent } from "@/components/ui/tabs";
-import ActiveEqubRound from "../../pages/ActiveEqubRounde";
+import ActiveEqubRound from "./content/ActiveEqubRounde";
 export default function Active() {
   return (
     <TabsContent value="active">

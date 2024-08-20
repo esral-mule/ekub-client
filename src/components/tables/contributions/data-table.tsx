@@ -17,8 +17,8 @@ import {
     DropdownMenuCheckboxItem,
     DropdownMenuContent,
     DropdownMenuTrigger,
-} from "../ui/dropdown-menu"
-import SelectRound from "../../components/SelectRound"
+} from "../../ui/dropdown-menu"
+import SelectRound from "../../../components/SelectRound"
 
 import {
     Table,
@@ -27,10 +27,10 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "../ui/table"
-import { Button } from "../ui/button"
-import { Input } from "../ui/input"
-import StartNewRound from "../dialogs/StartNewRound"
+} from "../../ui/table"
+import { Button } from "../../ui/button"
+import { Input } from "../../ui/input"
+import StartNewRound from "../../dialogs/StartNewRound"
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]

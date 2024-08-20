@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import API from "../api/axios";
+import API from "../../../api/axios";
 import { useParams } from "react-router";
-import DemoPage from "../components/contributions/page";
-import StartNewRound from "../components/dialogs/StartNewRound";
-import { useToast } from "../components/ui/use-toast";
-import CloseActiveRound from "../components/dialogs/CloseActiveRound";
+import DemoPage from "../../tables/contributions/page";
+import StartNewRound from "../../dialogs/StartNewRound";
+import { useToast } from "../../ui/use-toast";
+import CloseActiveRound from "../../dialogs/CloseActiveRound";
 export default function ActiveEqubRound() {
   const { id } = useParams();
   const [selectedOption, setSelectedOption] = useState(null);

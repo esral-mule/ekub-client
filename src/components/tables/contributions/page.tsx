@@ -1,8 +1,8 @@
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
-import API from "../../api/axios";
+import API from "../../../api/axios";
 import { useState, useEffect } from "react";
-import { CardContent, CardFooter } from "../ui/card";
+import { CardContent, CardFooter } from "../../ui/card";
 
 export default function DemoPage({ RoundId, handleStartRound }) {
     const [contributions, setContributions] = useState([]);

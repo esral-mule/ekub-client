@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, CircleCheckBig, CircleX } from "lucide-react";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import TogglePayment from "./TogglePayment";
 
 export type User = {

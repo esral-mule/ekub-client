@@ -1,13 +1,11 @@
 import {
     Card,
-    CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
-  } from "@/components/ui/card";
-import { TabsContent   } from "@/components/ui/tabs";
-import EqubRounds from "../../pages/EqubRoundes";
+  } from "../ui/card";
+import { TabsContent   } from "../ui/tabs";
+import EqubRounds from "./content/EqubRoundes";
 export default function Roundes() {
   return (
     <TabsContent value="roundes">
