@@ -7,16 +7,16 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "../components/ui/dialog";
+} from "../ui/dialog";
 import { Label } from "@/components/ui/label";
-import SelectData from "./SelectData";
+import SelectData from "../select/SelectData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import API from "../api/axios";
+import API from "../../api/axios";
 import { PlusCircle } from "lucide-react";
 import CreateUser from "./CreateUser";
-import CreateEqubLevel from "./dialogs/CreateEqubLevel";
-import UniqueIdDetail from "./UniqueIdDetail";
+import CreateEqubLevel from "./CreateEqubLevel";
+import UniqueIdDetail from "../tables/UniqueIdDetail";
 
 export default function AddMember({ setData, setNewMembership }) {
   let { id: equbId } = useParams();

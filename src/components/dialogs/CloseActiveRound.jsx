@@ -9,12 +9,12 @@ import {
   DialogTrigger,
 } from "../../components/ui/dialog";
 import { Label } from "../../components/ui/label";
-import SelectData from "../SelectData";
+import SelectData from "../select/SelectData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import API from "../../api/axios";
 import {  } from "lucide-react";
-import UniqueIdDetail from "../UniqueIdDetail";
+import UniqueIdDetail from "../tables/UniqueIdDetail";
 import Winner from "../icons/winner";
 
 export default function CloseActiveRound(setSelectedOption) {

@@ -11,8 +11,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
-import API from "../api/axios"
-import { useToast } from "./ui/use-toast"
+import API from "../../api/axios"
+import { useToast } from "../ui/use-toast"
 
 export default function CreateUser({setUser ,setUsers, setSelectedUserValue,setSelectedUserLabel}) {
   const { toast } = useToast()

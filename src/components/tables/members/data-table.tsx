@@ -18,8 +18,6 @@ import {
     DropdownMenuContent,
     DropdownMenuTrigger,
 } from "../../ui/dropdown-menu"
-import CreateUser from "../../CreateUser"
-import SelectUser from "../../SelectData"
 import AddMember from "../../dialogs/addMember"
 
 import {

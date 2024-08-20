@@ -7,10 +7,10 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "../components/ui/alert-dialog";
+} from "../ui/alert-dialog";
 
-import API from "../api/axios";
-import { useToast } from "../components/ui/use-toast";
+import API from "../../api/axios";
+import { useToast } from "../ui/use-toast";
 
 export default function ConfirmAddToActive({
   newMembership,

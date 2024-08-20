@@ -1,8 +1,8 @@
 import { Outlet, NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
-import { ModeToggle } from "../components/mode-toggle";
-import { LangToggle } from "../components/lang-toggle";
+import { ModeToggle } from "../components/toggle/mode-toggle";
+import { LangToggle } from "../components/toggle/lang-toggle";
 import { Toaster } from "../components/ui/toaster";
 import { Package2, PackagePlus, UserRoundPlus } from "lucide-react";
 import { Button } from "../components/ui/button";
@@ -28,15 +28,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 
-import {
-  Home,
-  LineChart,
-  Package,
-  PanelLeft,
-  Settings,
-  ShoppingCart,
-  Users2,
-} from "lucide-react";
+import { Home, Package, ShoppingCart, Users2 } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,

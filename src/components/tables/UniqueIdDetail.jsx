@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import API from "../api/axios";
+import API from "../../api/axios";
 import {
   Table,
   TableBody,
@@ -9,8 +9,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./ui/table";
-import { Card } from "./ui/card";
+} from "../ui/table";
+import { Card } from "../ui/card";
 import { Loader2 } from "lucide-react";
 // Assume you have a Spinner component for loading state
 

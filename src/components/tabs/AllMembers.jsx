@@ -7,12 +7,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { TabsContent } from "@/components/ui/tabs";
-import DemoPage from "../equb/page";
-import AddMember from "../addMember";
+import DemoPage from "../tables/members/page";
 import { useParams } from "react-router";
 import API from "../../api/axios";
 import { useState, useEffect } from "react";
-import ConfirmAddToActive from "../ConfirmAddToActive";
+import ConfirmAddToActive from "../dialogs/ConfirmAddToActive";
 
 export default function AllMembers() {
   let { id } = useParams();

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import API from "../../../api/axios";
 import { useParams } from "react-router";
 import DemoPage from "../../tables/contributions/page";
-import SelectRound from "../../SelectRound";
+import SelectRound from "../../select/SelectRound";
 
 export default function EqubRounds() {
   const { id } = useParams();
