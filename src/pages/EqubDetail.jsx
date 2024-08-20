@@ -1,50 +1,9 @@
-import { useParams } from "react-router";
-import DemoPage from "../components/equb/page";
-import { NavLink } from "react-router-dom";
-import EqubRoundes from "../pages/EqubRoundes";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "../components/ui/dropdown-menu";
-import {
-  Badge,
-  File,
-  ListFilter,
-  MoreHorizontal,
-  PlusCircle,
-} from "lucide-react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../components/ui/table";
+import { File } from "lucide-react";
+
 import { Button } from "../components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "../components/ui/tabs";
-import CreateUser from "../components/CreateUser";
-import AddMember from "../components/addMember";
-import EqubLevel from "../components/EqubLevel";
-import ActiveEqubRound from "./ActiveEqubRounde";
+
+import { Tabs, TabsList, TabsTrigger } from "../components/ui/tabs";
+
 import AllMembers from "../components/tabs/AllMembers";
 import Roundes from "../components/tabs/Roundes";
 import Active from "../components/tabs/Active";
@@ -53,7 +12,6 @@ import EqubLevels from "../components/tabs/EqubLevels";
 import { useReactToPrint } from "react-to-print";
 import { useRef } from "react";
 export default function EqubDetail() {
-
   const ref = useRef();
   const handlePrint = useReactToPrint({
     content: () => {

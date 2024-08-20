@@ -1,7 +1,6 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -14,15 +13,21 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "../../../components/ui/card";
 import { useEffect, useState } from "react";
-import API from "../api/axios";
+import API from "../../../api/axios";
 import { useParams } from "react-router";
-import CreateEqubLevel from "./CreateEqubLevel";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import CreateEqubLevel from "../../dialogs/CreateEqubLevel";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../../../components/ui/dropdown-menu";
 import { MoreHorizontal } from "lucide-react";
-import { Button } from "./ui/button";
-import DeleteEqubLevel from "./dialogs/DeleteEqubLevel";
+import { Button } from "../../../components/ui/button";
+import DeleteEqubLevel from "../../dialogs/DeleteEqubLevel";
 // import DeleteEqubLevel from "./DeleteEqubLevel"
 export default function EqubLevel() {
   let { id } = useParams();
@@ -63,19 +68,19 @@ export default function EqubLevel() {
                     {level.contribution}
                   </TableCell>
                   <TableCell>
-                  <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0">
-                <span className="sr-only">Open menu</span>
-                <MoreHorizontal className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DeleteEqubLevel/>
-            </DropdownMenuContent>
-          </DropdownMenu>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="ghost" className="h-8 w-8 p-0">
+                          <span className="sr-only">Open menu</span>
+                          <MoreHorizontal className="h-4 w-4" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DeleteEqubLevel />
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   </TableCell>
                 </TableRow>
               ))}

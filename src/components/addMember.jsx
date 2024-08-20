@@ -15,7 +15,7 @@ import { useParams } from "react-router";
 import API from "../api/axios";
 import { PlusCircle } from "lucide-react";
 import CreateUser from "./CreateUser";
-import CreateEqubLevel from "./CreateEqubLevel";
+import CreateEqubLevel from "./dialogs/CreateEqubLevel";
 import UniqueIdDetail from "./UniqueIdDetail";
 
 export default function AddMember({ setData, setNewMembership }) {
