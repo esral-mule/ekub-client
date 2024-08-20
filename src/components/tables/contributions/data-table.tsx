@@ -18,7 +18,7 @@ import {
     DropdownMenuContent,
     DropdownMenuTrigger,
 } from "../../ui/dropdown-menu"
-import SelectRound from "../../../components/SelectRound"
+import SelectRound from "../../select/SelectRound"
 
 import {
     Table,
