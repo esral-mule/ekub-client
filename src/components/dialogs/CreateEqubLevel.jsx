@@ -87,9 +87,9 @@ export default function CreateEqubLevel({
 
         <Button
         size='xs'
-          className={`px-1 self-end print:hidden ml-2 text-[10px] text-wrap bg-primary ${
+          className={`px-1 print:hidden ml-2 text-[10px] text-wrap bg-primary ${
             fromTab === true
-              ? "px-2 text-[12px]"
+              ? "px-2 text-[12px] self-end"
               : ""
           }`}
         >
