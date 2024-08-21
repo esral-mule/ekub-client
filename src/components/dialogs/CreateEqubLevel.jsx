@@ -88,20 +88,22 @@ export default function CreateEqubLevel({
         <Button
           variant="outline"
           className={`px-1 self-end print:hidden ml-2 text-[10px] text-wrap ${
-            fromTab === true ? "bg-green-600 px-2 text-[12px] hover:bg-green-700  text-gray-200 hover:text-gray-300" : ""
+            fromTab === true
+              ? "bg-green-600 px-2 text-[12px] hover:bg-green-700  text-gray-200 hover:text-gray-300"
+              : ""
           }`}
         >
           Add Equb Level
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
+        <DialogHeader className="mb-3">
           <DialogTitle className="text-center">Add Equb Level</DialogTitle>
           <DialogDescription className="text-center">
             Create and add new Equb Level
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
+        <div className="grid gap-4 py-4 mb-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="title" className="text-right">
               Title
@@ -126,7 +128,7 @@ export default function CreateEqubLevel({
             />
           </div>
         </div>
-        <DialogFooter>
+        <DialogFooter className="mb-4">
           <Button onClick={handleSubmit} type="submit" disabled={isLoading}>
             {isLoading ? "Creating..." : "Create"}
           </Button>
