@@ -14,7 +14,7 @@ export default function MemberDetail({ user }) {
       <DialogTrigger asChild>
         <Button
           size="xs"
-          className="dark:text-white dark:hover:bg-gray-900 bg-accent text-black hover:bg-gray-200 ml-auto print:hidden mb-[1px] w-full"
+          className="bg-primary ml-auto print:hidden mb-[1px] w-full"
         >
           Detail
         </Button>

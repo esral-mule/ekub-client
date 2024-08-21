@@ -16,7 +16,7 @@ export default function UpdatePaymentStatus({handleStartRound}) {
   return (
     <AlertDialog>
     <AlertDialogTrigger asChild>
-      <Button  size="xs" className="ml-auto print:hidden bg-red-500 text-white dark:text-black">
+      <Button  size="xs" className="ml-auto print:hidden bg-primary">
         Start New Round
       </Button>
     </AlertDialogTrigger>
@@ -29,7 +29,7 @@ export default function UpdatePaymentStatus({handleStartRound}) {
         </AlertDialogDescription>
       </AlertDialogHeader>
       <AlertDialogFooter>
-        <AlertDialogCancel>Cancel</AlertDialogCancel>
+        <AlertDialogCancel size="sm">Cancel</AlertDialogCancel>
         <AlertDialogAction onClick={handleStartRound}>Continue</AlertDialogAction>
       </AlertDialogFooter>
     </AlertDialogContent>

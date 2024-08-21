@@ -32,7 +32,7 @@ export default function DeleteEqubLevel() {
           onClick={() => {
             setOpenModal(true);
           }}
-          className="ml-auto print:hidden bg-green-700 mr-1 w-full"
+          className="ml-auto print:hidden mr-1 w-full bg-destructive"
         >
           Delete
         </Button>
@@ -88,7 +88,7 @@ export default function DeleteEqubLevel() {
         </div>
         <DialogFooter>
           <Button
-            className="h-8 gap-1 bg-green-600"
+            className="h-8 gap-1 bg-primary"
             onClick={() => {
               setOpenModal(false);
             }}
@@ -97,7 +97,7 @@ export default function DeleteEqubLevel() {
             <span>Cancel</span>
           </Button>
           <Button
-            className="h-8 gap-1 bg-red-600"
+            className="h-8 gap-1 bg-destructive"
             // onClick={handleSubmit}
             type="submit"
           >

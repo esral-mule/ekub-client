@@ -61,7 +61,7 @@ export default function CreateUser({setUser ,setUsers, setSelectedUserValue,setS
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" className="px-1 ml-2 text-[10px] text-wrap">Create New User</Button>
+        <Button size="xs" className="px-1 ml-2 text-[10px] text-wrap bg-primary">Create New User</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

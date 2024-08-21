@@ -101,8 +101,6 @@ export function getColumns(setData) {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuSeparator />
               <MemberDetail user={user}/>
               <DeleteMember user={user}  setData={setData}/>
             </DropdownMenuContent>

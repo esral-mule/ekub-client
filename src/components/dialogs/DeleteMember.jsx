@@ -45,7 +45,7 @@ export default function DeleteMember({ user, setData }) {
           onClick={() => {
             setOpenModal(true);
           }}
-          className="dark:text-white dark:hover:bg-red-600 bg-red-500 hover:bg-red-600 text-gray-300 ml-auto print:hidden mb-[1px] mr-1 w-full"
+          className="bg-destructive ml-auto print:hidden mb-[1px] mr-1 w-full"
         >
           Delete
         </Button>
@@ -63,7 +63,7 @@ export default function DeleteMember({ user, setData }) {
         <DialogFooter>
           <Button
             size="sm"
-            className="h-8 gap-1 bg-green-600"
+            className="h-8 gap-1 bg-primary"
             onClick={() => {
               setOpenModal(false);
             }}
@@ -73,7 +73,7 @@ export default function DeleteMember({ user, setData }) {
           </Button>
           <Button
             size="sm"
-            className="h-8 gap-1 bg-red-600"
+            className="h-8 gap-1 bg-destructive"
             onClick={handleBan}
             type="submit"
           >

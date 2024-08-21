@@ -86,10 +86,10 @@ export default function CreateEqubLevel({
         </Button> */}
 
         <Button
-          variant="outline"
-          className={`px-1 self-end print:hidden ml-2 text-[10px] text-wrap ${
+        size='xs'
+          className={`px-1 self-end print:hidden ml-2 text-[10px] text-wrap bg-primary ${
             fromTab === true
-              ? "bg-green-600 px-2 text-[12px] hover:bg-green-700  text-gray-200 hover:text-gray-300"
+              ? "px-2 text-[12px]"
               : ""
           }`}
         >

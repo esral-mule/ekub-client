@@ -71,7 +71,7 @@ export default function CloseActiveRound(setSelectedOption) {
           onClick={() => {
             setOpenModal(true);
           }}
-          className="ml-auto print:hidden bg-green-700 mr-1"
+          className="mr-1 print:hidden bg-primary"
 
         >
           Close Round

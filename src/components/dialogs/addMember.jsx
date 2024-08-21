@@ -109,7 +109,8 @@ export default function AddMember({ setData, setNewMembership }) {
           onClick={() => {
             setOpenModal(true);
           }}
-          className="ml-auto print:hidden bg-green-700 mr-1"
+          size="xs"
+          className="ml-auto print:hidden bg-primary mr-1"
 
         >
           Add Member

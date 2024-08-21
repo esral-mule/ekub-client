@@ -76,8 +76,6 @@ export default function EqubLevel() {
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
                         <DeleteEqubLevel />
                       </DropdownMenuContent>
                     </DropdownMenu>
