@@ -126,6 +126,8 @@ export default function CreateEqubLevel({
         </div>
         <DialogFooter className="mb-4">
           <Button onClick={handleSubmit} type="submit" disabled={isLoading}>
+            <CirclePlus size={fromTab ? 18 : 15} className="pr-1 pt-[1px]" />
+
             {isLoading ? "Creating..." : "Create"}
           </Button>
         </DialogFooter>

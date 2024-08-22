@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import API from "../../api/axios"
 import { useToast } from "../ui/use-toast"
-import { CirclePlus } from "lucide-react"
+import { CirclePlus, UserPlus } from "lucide-react"
 
 export default function CreateUser({setUser ,setUsers, setSelectedUserValue,setSelectedUserLabel}) {
   const { toast } = useToast()
@@ -63,7 +63,7 @@ export default function CreateUser({setUser ,setUsers, setSelectedUserValue,setS
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button size="xs" className="px-1 ml-2 text-[8px] text-wrap bg-primary">
-        <CirclePlus size={15} className="pr-1" />
+        <UserPlus size={15} className="pr-1"/>
           
           Create New User</Button>
       </DialogTrigger>
@@ -125,6 +125,7 @@ export default function CreateUser({setUser ,setUsers, setSelectedUserValue,setS
         </div>
         <DialogFooter>
           <Button onClick={handleSubmit} type="submit" disabled={isLoading}>
+            <UserPlus size={18} className="pr-1"/>
             {isLoading ? "Creating..." : "Create"}
           </Button>
         </DialogFooter>
