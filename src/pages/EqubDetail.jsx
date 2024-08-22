@@ -21,48 +21,46 @@ export default function EqubDetail() {
   });
   return (
     <Transition>
+      <main className="flex flex-1 flex-col py-4 md:gap-8 md:p-8">
+        <Tabs defaultValue="all">
+          <div className="flex flex-wrap items-center">
+            <TabsList>
+              <TabsTrigger value="all">Members</TabsTrigger>
+              <TabsTrigger value="roundes">Roundes</TabsTrigger>
+              <TabsTrigger value="active">Active</TabsTrigger>
+              <TabsTrigger value="equblevels">Equb Levels</TabsTrigger>
+            </TabsList>
+            <div className="ml-auto flex items-center gap-2">
+              <Button
+                size="sm"
+                variant="outline"
+                className="h-8 gap-1"
+                onClick={handlePrint}
+              >
+                <File className="h-3.5 w-3.5" />
+                <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
+                  Export
+                </span>
+              </Button>
+            </div>
+          </div>
+          <div ref={ref}>
+            <div>
+              <AllMembers />
+            </div>
+            <div>
+              <EqubLevels />
+            </div>
+            <div>
+              <Roundes />
+            </div>
 
-    <main className="flex flex-1 flex-col py-4 md:gap-8 md:p-8">
-      <Tabs defaultValue="all">
-        <div className="flex flex-wrap items-center">
-          <TabsList>
-            <TabsTrigger value="all">Members</TabsTrigger>
-            <TabsTrigger value="roundes">Roundes</TabsTrigger>
-            <TabsTrigger value="active">Active</TabsTrigger>
-            <TabsTrigger value="equblevels">Equb Levels</TabsTrigger>
-          </TabsList>
-          <div className="ml-auto flex items-center gap-2">
-            <Button
-              size="sm"
-              variant="outline"
-              className="h-8 gap-1"
-              onClick={handlePrint}
-            >
-              <File className="h-3.5 w-3.5" />
-              <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                Export
-              </span>
-            </Button>
+            <div>
+              <Active />
+            </div>
           </div>
-        </div>
-        <div ref={ref}>
-          <div>
-            <AllMembers />
-          </div>
-          <div>
-            <EqubLevels />
-          </div>
-          <div>
-            <Roundes />
-          </div>
-
-          <div>
-            <Active />
-          </div>
-        </div>
-      </Tabs>
-    </main>
+        </Tabs>
+      </main>
     </Transition>
-
   );
 }

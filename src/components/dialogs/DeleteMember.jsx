@@ -1,13 +1,13 @@
 import { Button } from "../ui/button";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/dialog";
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../../components/ui/alert-dialog";
 import { Trash2 } from "lucide-react";
 import { useState } from "react";
 import API from "../../api/axios";
@@ -38,8 +38,8 @@ export default function DeleteMember({ user, setData }) {
       });
   };
   return (
-    <Dialog open={openModal} onOpenChange={setOpenModal}>
-      <DialogTrigger asChild>
+    <AlertDialog open={openModal} onOpenChange={setOpenModal}>
+      <AlertDialogTrigger asChild>
         <Button
           size="xs"
           onClick={() => {
@@ -47,21 +47,21 @@ export default function DeleteMember({ user, setData }) {
           }}
           className="bg-destructive ml-auto print:hidden mb-[1px] mr-1 w-full"
         >
-          <Trash2 size={18} className="pr-1"/>
+          <Trash2 size={18} className="pr-1" />
           Delete
         </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle className="flex items-center">
+      </AlertDialogTrigger>
+      <AlertDialogContent className="sm:max-w-[425px]">
+        <AlertDialogHeader>
+          <AlertDialogTitle className="flex items-center">
             <p className="pl-1">Delete Member</p>
-          </DialogTitle>
-          <DialogDescription>
+          </AlertDialogTitle>
+          <AlertDialogDescription>
             Please make sure you want to delete{" "}
-          </DialogDescription>
-        </DialogHeader>
+          </AlertDialogDescription>
+        </AlertDialogHeader>
 
-        <DialogFooter>
+        <AlertDialogFooter>
           <Button
             size="sm"
             className="h-8 gap-1 bg-primary"
@@ -78,10 +78,12 @@ export default function DeleteMember({ user, setData }) {
             onClick={handleBan}
             type="submit"
           >
+            <Trash2 size={18} className="pr-1" />
+
             <span>Delete</span>
           </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }

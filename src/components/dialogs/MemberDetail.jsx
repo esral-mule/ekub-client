@@ -1,36 +1,39 @@
 import { User } from "lucide-react";
 
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/dialog";
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../../components/ui/alert-dialog";
 import { Button } from "../ui/button";
-
+import {useState} from 'react'
 export default function MemberDetail({ user }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Dialog>
-      <DialogTrigger asChild>
+    <AlertDialog open={open} onOpenChange={setOpen}>
+      <AlertDialogTrigger asChild>
         <Button
           size="xs"
           className="bg-primary ml-auto print:hidden mb-[1px] w-full"
         >
-          <User size={18} className="pr-1"/>
+          <User size={18} className="pr-1" />
           Detail
         </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] p-6 rounded-md shadow-lg">
-        <DialogHeader>
-          <DialogTitle className="text-lg font-semibold">
+      </AlertDialogTrigger>
+      <AlertDialogContent className="sm:max-w-[425px] p-6 rounded-md shadow-lg">
+        <AlertDialogHeader>
+          <AlertDialogTitle className="text-lg font-semibold">
             Member Detail
-          </DialogTitle>
-          <DialogDescription className="text-sm">
+          </AlertDialogTitle>
+          <AlertDialogDescription className="text-sm">
             Detailed information about the selected member.
-          </DialogDescription>
-        </DialogHeader>
+          </AlertDialogDescription>
+        </AlertDialogHeader>
         <div className="space-y-4 max-h-52 overflow-y-scroll">
           <div className="border-b pb-2 flex items-center flex-wrap gap-2">
             <p className="text-sm font-bold">Full Name:</p>
@@ -67,7 +70,12 @@ export default function MemberDetail({ user }) {
             </p>
           </div>
         </div>
-      </DialogContent>
-    </Dialog>
+      <AlertDialogFooter className="mb-4">
+        <Button size="xs" variant="secondary" onClick={() => setOpen(false)}>
+          Close
+        </Button>
+      </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }

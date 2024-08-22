@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/dialog";
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../../components/ui/alert-dialog";
 import { Label } from "@/components/ui/label";
 import SelectData from "../select/SelectData";
 import { useState, useEffect } from "react";
@@ -103,8 +103,8 @@ export default function AddMember({ setData, setNewMembership }) {
   };
 
   return (
-    <Dialog open={openModal} onOpenChange={setOpenModal}>
-      <DialogTrigger asChild>
+    <AlertDialog open={openModal} onOpenChange={setOpenModal}>
+      <AlertDialogTrigger asChild>
         <Button
           onClick={() => {
             setOpenModal(true);
@@ -115,14 +115,14 @@ export default function AddMember({ setData, setNewMembership }) {
           <PlusCircle className="h-3.5 w-3.5 pr-1" />
           Add Member
         </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Add Member</DialogTitle>
-          <DialogDescription>
+      </AlertDialogTrigger>
+      <AlertDialogContent className="sm:max-w-[425px]">
+        <AlertDialogHeader>
+          <AlertDialogTitle>Add Member</AlertDialogTitle>
+          <AlertDialogDescription>
             Fill all the required fields to add a member to equb
-          </DialogDescription>
-        </DialogHeader>
+          </AlertDialogDescription>
+        </AlertDialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center">
             <Label htmlFor="user" className="text-right pr-2">
@@ -186,7 +186,10 @@ export default function AddMember({ setData, setNewMembership }) {
             </div>
           )}
         </div>
-        <DialogFooter>
+        <AlertDialogFooter>
+        <Button size="xs" variant="secondary" onClick={() => setOpenModal(false)}>
+            Cancel
+          </Button>
           <Button
             size="sm"
             className="h-8 gap-1 max-w-40 ml-auto"
@@ -201,8 +204,8 @@ export default function AddMember({ setData, setNewMembership }) {
             <PlusCircle className="h-3.5 w-3.5" />
             <span className="not-sr-only sm:whitespace-nowrap">Add Member</span>
           </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }

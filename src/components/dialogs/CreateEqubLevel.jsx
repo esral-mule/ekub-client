@@ -1,13 +1,13 @@
 import { Button } from "../ui/button";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/dialog";
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../../components/ui/alert-dialog";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { useState } from "react";
@@ -80,8 +80,8 @@ export default function CreateEqubLevel({
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+    <AlertDialog open={open} onOpenChange={setOpen}>
+      <AlertDialogTrigger asChild>
         <Button
           size="xs"
           className={`px-1 print:hidden ml-2 text-[8px] text-wrap bg-primary ${
@@ -91,14 +91,16 @@ export default function CreateEqubLevel({
           <CirclePlus size={fromTab ? 18 : 15} className="pr-1" />
           Add Equb Level
         </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader className="mb-3">
-          <DialogTitle className="text-center">Add Equb Level</DialogTitle>
-          <DialogDescription className="text-center">
+      </AlertDialogTrigger>
+      <AlertDialogContent className="sm:max-w-[425px]">
+        <AlertDialogHeader className="mb-3">
+          <AlertDialogTitle className="text-center">
+            Add Equb Level
+          </AlertDialogTitle>
+          <AlertDialogDescription className="text-center">
             Create and add new Equb Level
-          </DialogDescription>
-        </DialogHeader>
+          </AlertDialogDescription>
+        </AlertDialogHeader>
         <div className="grid gap-4 py-4 mb-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="title" className="text-right">
@@ -124,14 +126,22 @@ export default function CreateEqubLevel({
             />
           </div>
         </div>
-        <DialogFooter className="mb-4">
-          <Button onClick={handleSubmit} type="submit" disabled={isLoading}>
+        <AlertDialogFooter className="mb-4">
+          <Button size="xs" variant="secondary" onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
+          <Button
+            size="xs"
+            onClick={handleSubmit}
+            type="submit"
+            disabled={isLoading || title=="" || contribution==""}
+          >
             <CirclePlus size={fromTab ? 18 : 15} className="pr-1 pt-[1px]" />
 
             {isLoading ? "Creating..." : "Create"}
           </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }

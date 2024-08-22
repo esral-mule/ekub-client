@@ -1,21 +1,22 @@
 import { Button } from "../../components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../../components/ui/dialog";
 import { Label } from "../../components/ui/label";
 import SelectData from "../select/SelectData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import API from "../../api/axios";
-import { Combine, Notebook, Paperclip } from "lucide-react";
+import { Notebook } from "lucide-react";
 import UniqueIdDetail from "../tables/UniqueIdDetail";
 import Winner from "../icons/winner";
+
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../../components/ui/alert-dialog";
 
 export default function CloseActiveRound({
   selectedOption,
@@ -27,6 +28,7 @@ export default function CloseActiveRound({
   const [uniqueIds, setUniqueIds] = useState([]);
   const [selectedUniqueIdValue, setSelectedUniqueIdValue] = useState("");
   const [selectedUniqueIdLabel, setSelectedUniqueIdLabel] = useState("");
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -71,8 +73,8 @@ export default function CloseActiveRound({
   };
 
   return (
-    <Dialog open={openModal} onOpenChange={setOpenModal}>
-      <DialogTrigger asChild>
+    <AlertDialog open={openModal} onOpenChange={setOpenModal}>
+      <AlertDialogTrigger asChild>
         <Button
           size="xs"
           onClick={() => {
@@ -83,14 +85,16 @@ export default function CloseActiveRound({
           <Notebook size={18} className="pr-1" />
           Close Round
         </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle className="flex items-center">
-            <Winner /> <p className="pl-1">Lottory day</p>
-          </DialogTitle>
-          <DialogDescription>Select winner unique Id</DialogDescription>
-        </DialogHeader>
+      </AlertDialogTrigger>
+      <AlertDialogContent className="sm:max-w-[425px]">
+        <AlertDialogHeader>
+          <AlertDialogTitle className="flex items-center">
+            <Winner /> <p className="pl-1">Lottery day</p>
+          </AlertDialogTitle>
+          <AlertDialogDescription>
+            Select winner unique Id
+          </AlertDialogDescription>
+        </AlertDialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="uniqueId" className="text-right">
@@ -113,17 +117,24 @@ export default function CloseActiveRound({
             </div>
           )}
         </div>
-        <DialogFooter>
+        <AlertDialogFooter>
           <Button
-            size="sm"
+            variant="secondary"
+            onClick={() => setOpenModal(false)}
+            className="h-8 gap-1"
+          >
+            Cancel
+          </Button>
+          <Button
             className="h-8 gap-1"
             onClick={handleSubmit}
             type="submit"
+            disabled={!selectedUniqueIdValue}
           >
             <span>Close round</span>
           </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }

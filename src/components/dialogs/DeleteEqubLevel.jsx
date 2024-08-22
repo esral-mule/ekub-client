@@ -1,14 +1,14 @@
 import { Loader2, Trash2 } from "lucide-react";
 import { Button } from "../ui/button";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/dialog";
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../../components/ui/alert-dialog";
 import { Card } from "../ui/card";
 import {
   Table,
@@ -77,8 +77,8 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
       });
   };
   return (
-    <Dialog open={openModal} onOpenChange={setOpenModal}>
-      <DialogTrigger asChild>
+    <AlertDialog open={openModal} onOpenChange={setOpenModal}>
+      <AlertDialogTrigger asChild>
         <Button
           size="xs"
           onClick={() => {
@@ -89,16 +89,16 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
           <Trash2 size={18} className="pr-1" />
           Delete
         </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle className="flex items-center">
+      </AlertDialogTrigger>
+      <AlertDialogContent className="sm:max-w-[425px]">
+        <AlertDialogHeader>
+          <AlertDialogTitle className="flex items-center">
             <p className="pl-1">Delete Equb level</p>
-          </DialogTitle>
-          <DialogDescription>
+          </AlertDialogTitle>
+          <AlertDialogDescription>
             Please make sure you want to delete{" "}
-          </DialogDescription>
-        </DialogHeader>
+          </AlertDialogDescription>
+        </AlertDialogHeader>
         <div>
           {loading ? (
             <div className="flex justify-center">
@@ -141,7 +141,7 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
             )
           )}
         </div>
-        <DialogFooter>
+        <AlertDialogFooter>
           <Button
             className="h-8 gap-1 bg-primary"
             onClick={() => {
@@ -158,8 +158,8 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
           >
             <span>Delete</span>
           </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }
