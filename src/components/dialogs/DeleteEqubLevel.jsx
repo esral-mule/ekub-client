@@ -36,18 +36,20 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
     API.get(`/round/etype/${id}`)
       .then((data) => {
         data = data.data.data;
-        let activeRound = data[data.length - 1];
-        return activeRound._id;
+        let activeRound = data.filter((round) => round.closed === false)[0];
+        return activeRound;
       })
-      .then((activeRoundid) => {
-        API.get(`/contribution/round/${activeRoundid}`).then((data) => {
-          setContributions(
-            data.data.data.filter((contribution) => {
-              return contribution.member.equbLevel._id === equbLevel;
-            })
-          );
-          setLoading(false);
-        });
+      .then((activeRound) => {
+        if (activeRound) {
+          API.get(`/contribution/round/${activeRound._id}`).then((data) => {
+            setContributions(
+              data.data.data.filter((contribution) => {
+                return contribution.member.equbLevel._id === equbLevel;
+              })
+            );
+            setLoading(false);
+          });
+        }
       })
       .catch(setLoading(false));
   }, []);
