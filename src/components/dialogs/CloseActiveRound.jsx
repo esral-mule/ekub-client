@@ -13,12 +13,15 @@ import SelectData from "../select/SelectData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import API from "../../api/axios";
-import {  } from "lucide-react";
+import {} from "lucide-react";
 import UniqueIdDetail from "../tables/UniqueIdDetail";
 import Winner from "../icons/winner";
 
-export default function CloseActiveRound(setSelectedOption) {
-  const { id:equbId } = useParams();
+export default function CloseActiveRound({
+  selectedOption,
+  setSelectedOption,
+}) {
+  const { id: equbId } = useParams();
   const [openModal, setOpenModal] = useState(false);
   const [uniqueId, setUniqueId] = useState("");
   const [uniqueIds, setUniqueIds] = useState([]);
@@ -34,7 +37,6 @@ export default function CloseActiveRound(setSelectedOption) {
             value: _id,
           }))
         );
-
       } catch (error) {
         console.error("Error fetching data", error);
       }
@@ -45,18 +47,23 @@ export default function CloseActiveRound(setSelectedOption) {
 
   const handleSubmit = () => {
     API.post("/beneficiary", {
-      uniqueId :selectedUniqueIdValue
+      uniqueId: selectedUniqueIdValue,
     })
       .then((data) => {
         setOpenModal(false);
 
         return data.data.data;
       })
+      .then(() => {
+        API.put(`/round/${selectedOption._id}`, {closed: true }).then(() => {
+          console.log("round closed");
+        });
+      })
       .then((data) => {
-        API.get(`/round/etype/${id}`).then((resp) => {
-          console.log("updated rounds",resp.data.data);
-          
-          // setSelectedOption(resp.data.data[data.length - 1])
+        API.get(`/round/etype/${equbId}`).then((resp) => {
+          console.log("updated rounds", resp.data.data);
+          setSelectedOption(resp.data.data)
+
         });
       })
       .catch((err) => {
@@ -67,22 +74,22 @@ export default function CloseActiveRound(setSelectedOption) {
   return (
     <Dialog open={openModal} onOpenChange={setOpenModal}>
       <DialogTrigger asChild>
-        <Button size="xs"
+        <Button
+          size="xs"
           onClick={() => {
             setOpenModal(true);
           }}
           className="mr-1 print:hidden bg-primary"
-
         >
           Close Round
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="flex items-center"><Winner/> <p className="pl-1">Lottory day</p></DialogTitle>
-          <DialogDescription>
-            Select winner unique Id
-          </DialogDescription>
+          <DialogTitle className="flex items-center">
+            <Winner /> <p className="pl-1">Lottory day</p>
+          </DialogTitle>
+          <DialogDescription>Select winner unique Id</DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
@@ -100,9 +107,11 @@ export default function CloseActiveRound(setSelectedOption) {
               setSelectedLabel={setSelectedUniqueIdLabel}
             />
           </div>
-          {selectedUniqueIdValue && <div>
-              <UniqueIdDetail uniqueID={selectedUniqueIdValue}/>
-          </div>}
+          {selectedUniqueIdValue && (
+            <div>
+              <UniqueIdDetail uniqueID={selectedUniqueIdValue} />
+            </div>
+          )}
         </div>
         <DialogFooter>
           <Button
@@ -111,10 +120,7 @@ export default function CloseActiveRound(setSelectedOption) {
             onClick={handleSubmit}
             type="submit"
           >
-
-            <span>
-              Close round
-            </span>
+            <span>Close round</span>
           </Button>
         </DialogFooter>
       </DialogContent>

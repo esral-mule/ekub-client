@@ -33,11 +33,12 @@ export default function ActiveEqubRound() {
     const fetchContributions = async () => {
       try {
         const response = await API.get(`/round/etype/${id}`);
-        const data = response.data.data;
-        setSelectedOption(data[data.length - 1]);
+        const data = response.data.data.filter(
+          (round) => round.closed === false
+        )[0];
+        setSelectedOption(data);
         setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching contributions:", error);
         setIsLoading(false);
       }
     };
@@ -48,8 +49,14 @@ export default function ActiveEqubRound() {
   return (
     <div className="flex flex-col">
       <div className="self-end mr-2 mb-2">
-        {selectedOption && <CloseActiveRound />}
-        <StartNewRound handleStartRound={handleStartRound} />
+        {selectedOption ? (
+          <CloseActiveRound
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
+          />
+        ) : (
+          <StartNewRound handleStartRound={handleStartRound} />
+        )}
       </div>
       {isLoading && <div>Loading</div>}
       {selectedOption && (
