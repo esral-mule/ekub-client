@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import API from "../../api/axios";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableFooter,
   TableHead,
@@ -15,26 +14,22 @@ import { Loader2 } from "lucide-react";
 // Assume you have a Spinner component for loading state
 
 export default function UniqueIdDetail({ uniqueID }) {
-
   const [uniqueIDDetail, setUniqueIdDetail] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const CalculateTotla = (members)=>{
-   
-    let sum = 0
+  const CalculateTotla = (members) => {
+    let sum = 0;
     for (let index = 0; index < members.length; index++) {
-        sum = members[index].equbLevel.contribution;
-        
+      sum = members[index].equbLevel.contribution;
     }
     return sum;
-  }
+  };
 
   useEffect(() => {
     setLoading(true);
 
     API.get(`/uniqueid/${uniqueID}`)
       .then((data) => {
-        
         setUniqueIdDetail(data.data.data);
         setLoading(false);
       })
@@ -78,7 +73,9 @@ export default function UniqueIdDetail({ uniqueID }) {
                 <TableFooter>
                   <TableRow>
                     <TableCell colSpan={2}>Total</TableCell>
-                    <TableCell className="text-right">{CalculateTotla(uniqueIDDetail.members)}</TableCell>
+                    <TableCell className="text-right">
+                      {CalculateTotla(uniqueIDDetail.members)}
+                    </TableCell>
                   </TableRow>
                 </TableFooter>
               </Table>
