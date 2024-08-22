@@ -83,14 +83,12 @@ export default function CreateEqubLevel({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button
-        size='xs'
-          className={`px-1 print:hidden ml-2 text-[10px] text-wrap bg-primary ${
-            fromTab === true
-              ? "px-2 text-[12px] self-end"
-              : ""
+          size="xs"
+          className={`px-1 print:hidden ml-2 text-[8px] text-wrap bg-primary ${
+            fromTab === true ? "px-2 text-[12px] self-end" : ""
           }`}
         >
-          <CirclePlus size={18} className="pr-1" />
+          <CirclePlus size={fromTab ? 18 : 15} className="pr-1" />
           Add Equb Level
         </Button>
       </DialogTrigger>
