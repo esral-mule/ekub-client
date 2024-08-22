@@ -13,7 +13,7 @@ import SelectData from "../select/SelectData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import API from "../../api/axios";
-import { Combine, Paperclip } from "lucide-react";
+import { Combine, Notebook, Paperclip } from "lucide-react";
 import UniqueIdDetail from "../tables/UniqueIdDetail";
 import Winner from "../icons/winner";
 
@@ -80,7 +80,7 @@ export default function CloseActiveRound({
           }}
           className="mr-1 print:hidden bg-primary"
         >
-          <Combine size={18} className="pr-1"/>
+          <Notebook size={18} className="pr-1"/>
           Close Round
         </Button>
       </DialogTrigger>

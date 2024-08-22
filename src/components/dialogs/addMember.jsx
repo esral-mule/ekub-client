@@ -111,9 +111,8 @@ export default function AddMember({ setData, setNewMembership }) {
           }}
           size="xs"
           className="ml-auto print:hidden bg-primary mr-1"
-
         >
-          <PlusCircle className="h-3.5 w-3.5 pr-1"/>
+          <PlusCircle className="h-3.5 w-3.5 pr-1" />
           Add Member
         </Button>
       </DialogTrigger>
@@ -181,9 +180,11 @@ export default function AddMember({ setData, setNewMembership }) {
               setSelectedLabel={setSelectedUniqueIdLabel}
             />
           </div>
-          {selectedUniqueIdValue && <div>
-              <UniqueIdDetail uniqueID={selectedUniqueIdValue}/>
-          </div>}
+          {selectedUniqueIdValue && (
+            <div>
+              <UniqueIdDetail uniqueID={selectedUniqueIdValue} />
+            </div>
+          )}
         </div>
         <DialogFooter>
           <Button
@@ -191,11 +192,14 @@ export default function AddMember({ setData, setNewMembership }) {
             className="h-8 gap-1 max-w-40 ml-auto"
             onClick={handleSubmit}
             type="submit"
+            disabled={
+              (selectedEqubLevelValue == "") ||
+              (selectedUniqueIdValue == "") ||
+              (selectedUserValue == "")
+            }
           >
             <PlusCircle className="h-3.5 w-3.5" />
-            <span className="not-sr-only sm:whitespace-nowrap">
-              Add Member
-            </span>
+            <span className="not-sr-only sm:whitespace-nowrap">Add Member</span>
           </Button>
         </DialogFooter>
       </DialogContent>

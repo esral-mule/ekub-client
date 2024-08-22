@@ -106,7 +106,7 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
             </div>
           ) : (
             contributions && (
-              <Card>
+              <Card className="max-h-[calc(100vh-30rem)] overflow-y-scroll">
                 {contributions.length > 0 ? (
                   <Table>
                     <TableHeader>
