@@ -18,12 +18,62 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import API from "../../api/axios";
+import { useToast } from "../ui/use-toast";
+import { useParams } from "react-router";
 
-export default function DeleteEqubLevel() {
-  const [members, setMembers] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
+  let { id } = useParams();
+
+  const [contributions, setContributions] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    setLoading(true);
+    API.get(`/round/etype/${id}`)
+      .then((data) => {
+        data = data.data.data;
+        let activeRound = data[data.length - 1];
+        return activeRound._id;
+      })
+      .then((activeRoundid) => {
+        API.get(`/contribution/round/${activeRoundid}`).then((data) => {
+          setContributions(
+            data.data.data.filter((contribution) => {
+              return contribution.member.equbLevel._id === equbLevel;
+            })
+          );
+          setLoading(false);
+        });
+      })
+      .catch(setLoading(false));
+  }, []);
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    API.delete(`/equb-level/${equbLevel}`)
+      .then(() => {
+        toast({
+          title: "Delete Equb level",
+          description: "Deleted Equb level successfuly",
+        });
+        setOpenModal(false);
+      })
+      .then(() => {
+        API.get(`/equb-level/etype/${id}`).then((data) => {
+          setEqubLevels(data.data.data);
+        });
+      })
+      .catch(() => {
+        toast({
+          title: "Delete Equb level",
+          description: "Delete Equb level Failed",
+        });
+      });
+  };
   return (
     <Dialog open={openModal} onOpenChange={setOpenModal}>
       <DialogTrigger asChild>
@@ -52,9 +102,9 @@ export default function DeleteEqubLevel() {
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             </div>
           ) : (
-            members && (
+            contributions && (
               <Card>
-                {members.length > 0 ? (
+                {contributions.length > 0 ? (
                   <Table>
                     <TableHeader>
                       <TableRow>
@@ -64,14 +114,16 @@ export default function DeleteEqubLevel() {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {members.map((detail) => (
-                        <TableRow key={detail._id}>
+                      {contributions.map((contribution) => (
+                        <TableRow key={contribution._id}>
                           <TableCell className="font-medium">
-                            {detail.member.fullName}
+                            {contribution.member.member.fullName}
                           </TableCell>
-                          <TableCell>{detail.equbLevel.title}</TableCell>
+                          <TableCell>
+                            {contribution.member.equbLevel.title}
+                          </TableCell>
                           <TableCell className="text-right">
-                            {detail.equbLevel.contribution}
+                            {contribution.member.equbLevel.contribution}
                           </TableCell>
                         </TableRow>
                       ))}
@@ -98,7 +150,7 @@ export default function DeleteEqubLevel() {
           </Button>
           <Button
             className="h-8 gap-1 bg-destructive"
-            // onClick={handleSubmit}
+            onClick={handleDelete}
             type="submit"
           >
             <span>Delete</span>

@@ -11,6 +11,9 @@ export type User = {
       fullName: string;
       phoneNumber: string;
     };
+    equbLevel:{
+      contribution:number;
+    }
   };
   isPaid: boolean;
   round: object;
@@ -48,6 +51,18 @@ export const columns = (RoundId, setContributions): ColumnDef<User>[] => [
       return <div className="font-medium">{row.original.member.member.phoneNumber}</div>;
     },
   },
+
+  {
+    accessorFn: (row) => row.member.equbLevel.contribution,
+    id: "contribution",
+    header: () => {
+      return <div>Contribution</div>;
+    },
+    cell: ({ row }) => {
+      return <div className="font-medium">{row.original.member.equbLevel.contribution}</div>;
+    },
+  },
+
   {
     accessorKey: "isPaid",
     header: () => <div>Status</div>,

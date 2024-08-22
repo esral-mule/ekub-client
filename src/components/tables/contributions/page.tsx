@@ -10,6 +10,8 @@ export default function DemoPage({ RoundId, handleStartRound }) {
     useEffect(() => {
         API.get(`/contribution/round/${RoundId}`)
             .then((data) => {
+                console.log("data",data);
+                
                 setContributions(data.data.data);
             })
             .catch((err) => {

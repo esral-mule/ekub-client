@@ -21,8 +21,6 @@ import CreateEqubLevel from "../../dialogs/CreateEqubLevel";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../../../components/ui/dropdown-menu";
 import { MoreHorizontal } from "lucide-react";
@@ -42,6 +40,8 @@ export default function EqubLevel() {
         console.log(err);
       });
   }, []);
+  console.log("equb-levels",equblevels);
+  
   return (
     <Card x-chunk="dashboard-06-chunk-0">
       <CardHeader>
@@ -76,7 +76,7 @@ export default function EqubLevel() {
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DeleteEqubLevel />
+                        <DeleteEqubLevel equbLevel={level._id} setEqubLevels={setEqubLevels}/>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </TableCell>
