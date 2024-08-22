@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -7,65 +7,73 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useState } from "react"
-import API from "../../api/axios"
-import { useToast } from "../ui/use-toast"
-import { CirclePlus, UserPlus } from "lucide-react"
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useState } from "react";
+import API from "../../api/axios";
+import { useToast } from "../ui/use-toast";
+import { CirclePlus, UserPlus } from "lucide-react";
 
-export default function CreateUser({setUser ,setUsers, setSelectedUserValue,setSelectedUserLabel}) {
-  const { toast } = useToast()
+export default function CreateUser({
+  setUser,
+  setUsers,
+  setSelectedUserValue,
+  setSelectedUserLabel,
+}) {
+  const { toast } = useToast();
 
-  const [fullName, setFullName] = useState("")
-  const [phoneNumber, setPhoneNumber] = useState("")
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [fullName, setFullName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleSubmit = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     API.post("/member", {
       fullName,
       phoneNumber,
       username,
-      password
+      password,
     })
       .then((data) => {
-        setIsLoading(false)
-        setUsers(prev=>{
-          return [...prev,{
-            label: data.data.data.fullName,
-            value: data.data.data._id,
-          }]
-        })        
-        setUser(data.data.data._id)
-        setSelectedUserLabel(fullName)
-        setSelectedUserValue(data.data.data._id)
-        setOpen(false)
+        setIsLoading(false);
+        setUsers((prev) => {
+          return [
+            ...prev,
+            {
+              label: data.data.data.fullName,
+              value: data.data.data._id,
+            },
+          ];
+        });
+        setUser(data.data.data._id);
+        setSelectedUserLabel(fullName);
+        setSelectedUserValue(data.data.data._id);
+        setOpen(false);
         toast({
           description: "User created successfully",
-        })
+        });
       })
       .catch((error) => {
-        console.log("error",error);
-        
-        setIsLoading(false)
+        console.log("error", error);
+
+        setIsLoading(false);
         toast({
           description: error.response?.data?.message || "User creation failed",
-        })
-      })
-  }
+        });
+      });
+  };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button size="xs" className="px-1 ml-2 text-[8px] text-wrap bg-primary">
-        <UserPlus size={15} className="pr-1"/>
-          
-          Create New User</Button>
+          <UserPlus size={15} className="pr-1" />
+          Create New User
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -125,11 +133,11 @@ export default function CreateUser({setUser ,setUsers, setSelectedUserValue,setS
         </div>
         <DialogFooter>
           <Button onClick={handleSubmit} type="submit" disabled={isLoading}>
-            <UserPlus size={18} className="pr-1"/>
+            <UserPlus size={18} className="pr-1" />
             {isLoading ? "Creating..." : "Create"}
           </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

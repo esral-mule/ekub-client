@@ -40,8 +40,8 @@ export default function EqubLevel() {
         console.log(err);
       });
   }, []);
-  console.log("equb-levels",equblevels);
-  
+  console.log("equb-levels", equblevels);
+
   return (
     <Card x-chunk="dashboard-06-chunk-0">
       <CardHeader>
@@ -76,7 +76,10 @@ export default function EqubLevel() {
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DeleteEqubLevel equbLevel={level._id} setEqubLevels={setEqubLevels}/>
+                        <DeleteEqubLevel
+                          equbLevel={level._id}
+                          setEqubLevels={setEqubLevels}
+                        />
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </TableCell>

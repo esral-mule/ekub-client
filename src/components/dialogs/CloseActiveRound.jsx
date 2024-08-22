@@ -80,7 +80,7 @@ export default function CloseActiveRound({
           }}
           className="mr-1 print:hidden bg-primary"
         >
-          <Notebook size={18} className="pr-1"/>
+          <Notebook size={18} className="pr-1" />
           Close Round
         </Button>
       </DialogTrigger>

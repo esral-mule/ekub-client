@@ -193,9 +193,9 @@ export default function AddMember({ setData, setNewMembership }) {
             onClick={handleSubmit}
             type="submit"
             disabled={
-              (selectedEqubLevelValue == "") ||
-              (selectedUniqueIdValue == "") ||
-              (selectedUserValue == "")
+              selectedEqubLevelValue == "" ||
+              selectedUniqueIdValue == "" ||
+              selectedUserValue == ""
             }
           >
             <PlusCircle className="h-3.5 w-3.5" />
