@@ -11,6 +11,7 @@ import EqubLevels from "../components/tabs/EqubLevels";
 
 import { useReactToPrint } from "react-to-print";
 import { useRef } from "react";
+import Transition from "../components/Transition";
 export default function EqubDetail() {
   const ref = useRef();
   const handlePrint = useReactToPrint({
@@ -19,6 +20,8 @@ export default function EqubDetail() {
     },
   });
   return (
+    <Transition>
+
     <main className="flex flex-1 flex-col py-4 md:gap-8 md:p-8">
       <Tabs defaultValue="all">
         <div className="flex flex-wrap items-center">
@@ -59,5 +62,7 @@ export default function EqubDetail() {
         </div>
       </Tabs>
     </main>
+    </Transition>
+
   );
 }

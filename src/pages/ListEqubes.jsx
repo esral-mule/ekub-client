@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import API from "../api/axios";
 import { useNavigate } from "react-router";
 import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
+import Transition from "../components/Transition";
 
 
 export default function ListEqubes() {
@@ -39,6 +40,8 @@ export default function ListEqubes() {
     navigate(`/equbdetail/${id}`);
   }
   return (
+    <Transition>
+
     <Card x-chunk="dashboard-06-chunk-0">
       <CardHeader>
         {/* <Button className="self-end">Add Equb Level</Button> */}
@@ -79,5 +82,7 @@ export default function ListEqubes() {
         </div>
       </CardFooter>
     </Card>
+    </Transition>
+
   );
 }

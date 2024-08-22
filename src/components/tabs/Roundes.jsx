@@ -12,7 +12,7 @@ export default function Roundes() {
     <Card x-chunk="dashboard-06-chunk-0">
       <CardHeader>
         <CardTitle>Equb Rounds</CardTitle>
-        <CardDescription>Select Equb-round and Equb-cycle to see history</CardDescription>
+        <CardDescription>Select Equb-round to see history</CardDescription>
       </CardHeader>
 
         <EqubRounds />
