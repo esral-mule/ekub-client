@@ -113,6 +113,7 @@ export default function AddMember({ setData, setNewMembership }) {
           className="ml-auto print:hidden bg-primary mr-1"
 
         >
+          <PlusCircle className="h-3.5 w-3.5 pr-1"/>
           Add Member
         </Button>
       </DialogTrigger>

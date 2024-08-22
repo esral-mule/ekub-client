@@ -1,3 +1,5 @@
+import { SquarePen } from "lucide-react";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -16,6 +18,8 @@ export default function updatePaymentStatus({ UpdatePaymentStatus }) {
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button size="xs" className="ml-auto print:hidden bg-primary">
+
+        <SquarePen size={18} className="pr-1"/>
           update
         </Button>
       </AlertDialogTrigger>

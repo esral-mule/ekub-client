@@ -1,3 +1,5 @@
+import { User } from "lucide-react";
+
 import {
   Dialog,
   DialogContent,
@@ -16,6 +18,7 @@ export default function MemberDetail({ user }) {
           size="xs"
           className="bg-primary ml-auto print:hidden mb-[1px] w-full"
         >
+          <User size={18} className="pr-1"/>
           Detail
         </Button>
       </DialogTrigger>

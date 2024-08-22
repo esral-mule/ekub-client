@@ -1,4 +1,4 @@
-import { Loader2 } from "lucide-react";
+import { Loader2, Trash2 } from "lucide-react";
 import { Button } from "../ui/button";
 import {
   Dialog,
@@ -86,6 +86,7 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
           }}
           className="ml-auto print:hidden mr-1 w-full bg-destructive"
         >
+          <Trash2 size={18} className="pr-1" />
           Delete
         </Button>
       </DialogTrigger>

@@ -8,7 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
-
+import { Trash2 } from "lucide-react";
 import { useState } from "react";
 import API from "../../api/axios";
 import { useToast } from "../ui/use-toast";
@@ -47,6 +47,7 @@ export default function DeleteMember({ user, setData }) {
           }}
           className="bg-destructive ml-auto print:hidden mb-[1px] mr-1 w-full"
         >
+          <Trash2 size={18} className="pr-1"/>
           Delete
         </Button>
       </DialogTrigger>

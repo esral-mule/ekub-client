@@ -14,6 +14,7 @@ import { useState } from "react";
 import API from "../../api/axios";
 import { useToast } from "../ui/use-toast";
 import { useParams } from "react-router";
+import { CirclePlus } from "lucide-react";
 
 export default function CreateEqubLevel({
   fromTab,
@@ -81,10 +82,6 @@ export default function CreateEqubLevel({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        {/* <Button className="self-end print:hidden bg-green-700">
-          Add Equb Level
-        </Button> */}
-
         <Button
         size='xs'
           className={`px-1 print:hidden ml-2 text-[10px] text-wrap bg-primary ${
@@ -93,6 +90,7 @@ export default function CreateEqubLevel({
               : ""
           }`}
         >
+          <CirclePlus size={18} className="pr-1" />
           Add Equb Level
         </Button>
       </DialogTrigger>

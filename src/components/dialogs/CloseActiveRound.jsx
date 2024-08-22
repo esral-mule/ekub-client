@@ -13,7 +13,7 @@ import SelectData from "../select/SelectData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import API from "../../api/axios";
-import {} from "lucide-react";
+import { Combine, Paperclip } from "lucide-react";
 import UniqueIdDetail from "../tables/UniqueIdDetail";
 import Winner from "../icons/winner";
 
@@ -55,15 +55,14 @@ export default function CloseActiveRound({
         return data.data.data;
       })
       .then(() => {
-        API.put(`/round/${selectedOption._id}`, {closed: true }).then(() => {
+        API.put(`/round/${selectedOption._id}`, { closed: true }).then(() => {
           console.log("round closed");
         });
       })
       .then((data) => {
         API.get(`/round/etype/${equbId}`).then((resp) => {
           console.log("updated rounds", resp.data.data);
-          setSelectedOption(resp.data.data)
-
+          setSelectedOption(resp.data.data);
         });
       })
       .catch((err) => {
@@ -81,6 +80,7 @@ export default function CloseActiveRound({
           }}
           className="mr-1 print:hidden bg-primary"
         >
+          <Combine size={18} className="pr-1"/>
           Close Round
         </Button>
       </DialogTrigger>
