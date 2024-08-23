@@ -1,5 +1,11 @@
 {
-    "coming":{
-        "message":"Coming soon"
+    "coming": {
+        "message": "Coming soon"
+    },
+    "logout": {
+        "title": "Logout",
+        "des": "Are you sure you want to logout?",
+        "confirm": "Yes, Logout",
+        "declain": "Cancel"
     }
 }

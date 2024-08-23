@@ -11,8 +11,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Transition from "../components/Transition";
+import { useTranslation } from "react-i18next";
 
 const Logout = () => {
+  const { t, i18n } = useTranslation("global");
   const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -27,15 +29,15 @@ const Logout = () => {
     <Transition>
       <Card className="max-w-[350px] mx-auto mt-5">
         <CardHeader>
-          <CardTitle>Logout</CardTitle>
-          <CardDescription>Are you sure you want to logout?</CardDescription>
+          <CardTitle>{t('logout.title')}</CardTitle>
+          <CardDescription>{t("logout.des")}</CardDescription>
         </CardHeader>
 
         <CardFooter className="flex justify-between">
           <Button variant="destructive" onClick={handleLogout}>
-            Yes, Logout
+            {t("logout.confirm")}
           </Button>
-          <Button onClick={handleCancel}>Cancel</Button>
+          <Button onClick={handleCancel}>{t("logout.declain")}</Button>
         </CardFooter>
       </Card>
     </Transition>

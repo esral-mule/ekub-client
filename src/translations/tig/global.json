@@ -1,5 +1,11 @@
 {
-    "coming":{
-        "message":"ኣብ ቀረባ እዋን"
+    "coming": {
+        "message": "ኣብ ቀረባ እዋን"
+    },
+    "logout": {
+        "title": "ንምውፃእ",
+        "des": "ክወፁ ከምዝደልዩ ርግፀኛ ድዮም?",
+        "confirm": "እወ ክወፅእ",
+        "declain": "ኣይ መልሰኒ"
     }
 }

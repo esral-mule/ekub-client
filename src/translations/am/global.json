@@ -1,5 +1,11 @@
 {
-    "coming":{
-        "message":"በቅርብ ቀን"
+    "coming": {
+        "message": "በቅርብ ቀን"
+    },
+    "logout": {
+        "title": "ለመውጣት",
+        "des": "ለመውጣት እርግጠኛ ኖት?",
+        "confirm": "ኣዎ ልውጣ",
+        "declain": "ኣይ መልሰኝ"
     }
 }

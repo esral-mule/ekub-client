@@ -17,7 +17,6 @@ import { Button } from "../components/ui/button";
 import API from "../api/axios";
 import { AuthContext } from "../context/AuthContext";
 import { useToast } from "../components/ui/use-toast";
-import OpenEye from "../components/icons/OpenedEye";
 import ClosedEye from "../components/icons/ClosedEye";
 import OpenedEye from "../components/icons/OpenedEye";
 
