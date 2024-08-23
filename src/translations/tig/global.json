@@ -34,5 +34,22 @@
             "contributionDay": "ዝእከበሉ መዓልቲ",
             "numberOfequbes": "ዕቁባት"
         }
+    },
+    "createeqube": {
+        "title": "ሓዱሽ ዕቁብ መዝግብ",
+        "equbName": "ዕቁብ ስም",
+        "contribution": "ክፍሊት መጠን",
+        "maxUniqueIds": "በዝሒ ዕፃ",
+        "lotteryDay": "ዕፃ ዝወድቀሉ መዓልቲ",
+        "contributionDay": "ዝእከበሉ መዓልቲ",
+        "create": "ዕቁብ መዝግብ",
+        "loading": "ኣብ ምምዝጋብ",
+        "placeHolder": {
+            "equbName": "ዕቁብ ስም የእትው",
+            "contribution": "ክፍሊት መጠን የእትው",
+            "maxUniqueIds": "በዝሒ ዕፃ የእትው",
+            "lotteryDay": "ዕፃ ዝወድቀሉ መዓልቲ የእትው",
+            "contributionDay": "ዝእከበሉ መዓልቲ የእትው"
+        }
     }
 }

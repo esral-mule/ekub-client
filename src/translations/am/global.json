@@ -24,7 +24,7 @@
         }
     },
     "ListEqubes": {
-        "title": "የ ዕቁቦች ዝርዝር",
+        "title": "የዕቁቦች ዝርዝር",
         "des": "የቤቱ ሙሉ የዕቁቦች ዝርዝር",
         "table": {
             "name": "ስም",
@@ -33,6 +33,23 @@
             "lotteryDay": "ዕጣ የሚወጣበት ቀን",
             "contributionDay": "ክፍያ መሰብሰብያ ቅን",
             "numberOfequbes": "ዕቁቦች"
+        }
+    },
+    "createeqube": {
+        "title": "ኣዲስ ዕቁብ መዝግብ",
+        "equbName": "የዕቁብ ስም",
+        "contribution": "የክፍያ መጠን",
+        "maxUniqueIds": "የዕጣ ብዛት",
+        "lotteryDay": "ዕጣ የሚወጣበት ቀን",
+        "contributionDay": "ክፍያ መሰብሰብያ ቀን",
+        "create": "ዕቁብ መዝግብ",
+        "loading": "በመመዝገብ ላይ",
+        "placeHolder": {
+            "equbName": "ዕቁብ ስም ያስገቡ",
+            "contribution": "የክፍያ መጠን ያስገቡ",
+            "maxUniqueIds": "የዕጣ ብዛት ያስገቡ",
+            "lotteryDay": "ዕጣ የሚወጣበት ቀን ያስገቡ",
+            "contributionDay": "ክፍያ መሰብሰብያ ቀን ያስገቡ"
         }
     }
 }

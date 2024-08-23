@@ -15,7 +15,7 @@
         "phoneNumber": "Phone Number",
         "password": "Password",
         "createEquber": "Create Equber",
-        "loading": "loading",
+        "loading": "Loading",
         "placeHolder": {
             "fullName": "Full Name ...",
             "username": "Username ...",
@@ -34,6 +34,23 @@
             "lotteryDay": "LotteryDay",
             "contributionDay": "ContributionDay",
             "numberOfequbes": "Equbes"
+        }
+    },
+    "createeqube": {
+        "title": "Add New Equb To House",
+        "equbName": "Equb Name",
+        "contributionDay": "Contribution Day",
+        "lotteryDay": "Lottery Day",
+        "contribution": "Contribution",
+        "maxUniqueIds": "Total UniqueIds",
+        "create": "Create Equb",
+        "loading": "Loading",
+        "placeHolder": {
+            "equbName": "Equb Name ...",
+            "contributionDay": "Contribution Day ...",
+            "lotteryDay": "Lottery Day ...",
+            "contribution": "Contribution ...",
+            "maxUniqueIds": "Total UniqueIds ..."
         }
     }
 }

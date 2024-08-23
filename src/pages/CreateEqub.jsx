@@ -16,36 +16,39 @@ import API from "../api/axios";
 import { useNavigate } from "react-router";
 import Transition from "../components/Transition";
 import { useToast } from "../components/ui/use-toast";
+import { useTranslation } from "react-i18next";
 
 const CreateEqub = () => {
+  const { t, i18n } = useTranslation("global");
+
   let navigate = useNavigate();
-  const { toast } = useToast()
+  const { toast } = useToast();
   const [name, setName] = useState("");
-  const [contributionDay,setContributionDay] = useState("");
+  const [contributionDay, setContributionDay] = useState("");
   const [lotteryDay, setLotteryDay] = useState("");
   const [contribution, setContribution] = useState("");
   const [maxUniqueIds, setMaxUniqueIds] = useState("");
 
   const [errors, setErrors] = useState({});
-  const [isLoading,setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsLoading(true)
+    setIsLoading(true);
     API.post("/equb-type/", {
       name,
       contributionDay,
       lotteryDay,
       contribution,
-      maxUniqueIds
+      maxUniqueIds,
     })
       .then(() => {
         setErrors({});
         toast({
           title: "Equb Create ",
           description: "Equb Created successfuly",
-        })
-        setIsLoading(false)
+        });
+        setIsLoading(false);
         navigate("/equbes");
       })
       .catch((err) => {
@@ -57,7 +60,7 @@ const CreateEqub = () => {
           tempErrors[error.field] = error.messages;
         });
         setErrors({ ...tempErrors, global });
-        setIsLoading(false)
+        setIsLoading(false);
       });
   };
 
@@ -66,7 +69,7 @@ const CreateEqub = () => {
       <form className="max-w-lg mx-auto mt-5" onSubmit={handleSubmit}>
         <Card>
           <CardHeader>
-            <CardTitle>Add New Equb To House</CardTitle>
+            <CardTitle>{t("createeqube.title")}</CardTitle>
           </CardHeader>
           {errors.global && (
             <div className="text-red-600 mb-[10px]">{errors.global}</div>
@@ -76,10 +79,10 @@ const CreateEqub = () => {
               {errors.name && (
                 <div className="text-red-600 mb-[10px]">{errors.name}</div>
               )}
-              <Label htmlFor="name">Equb-Name</Label>
+              <Label htmlFor="name">{t("createeqube.equbName")}</Label>
               <Input
                 id="name"
-                placeholder="Equb Name ..."
+                placeholder={t("createeqube.placeHolder.equbName")}
                 onChange={(e) => setName(e.target.value)}
                 value={name}
               />
@@ -87,26 +90,31 @@ const CreateEqub = () => {
 
             <div className="space-y-1 text-left">
               {errors.contributionDay && (
-                <div className="text-red-600 mb-[10px]">{errors.contributionDay}</div>
+                <div className="text-red-600 mb-[10px]">
+                  {errors.contributionDay}
+                </div>
               )}
-              <Label htmlFor="contributionDay">Contribution Day</Label>
+              <Label htmlFor="contributionDay">
+                {t("createeqube.contributionDay")}
+              </Label>
               <Input
                 id="contributionDay"
-                placeholder="ContributionDay ..."
+                placeholder={t("createeqube.placeHolder.contributionDay")}
                 onChange={(e) => setContributionDay(e.target.value)}
                 value={contributionDay}
               />
             </div>
 
-
             <div className="space-y-1 text-left">
               {errors.lotteryDay && (
-                <div className="text-red-600 mb-[10px]">{errors.lotteryDay}</div>
+                <div className="text-red-600 mb-[10px]">
+                  {errors.lotteryDay}
+                </div>
               )}
-              <Label htmlFor="lotteryDay">Lottery Day</Label>
+              <Label htmlFor="lotteryDay">{t("createeqube.lotteryDay")}</Label>
               <Input
                 id="lotteryDay"
-                placeholder="LotteryDay ..."
+                placeholder={t("createeqube.placeHolder.lotteryDay")}
                 onChange={(e) => setLotteryDay(e.target.value)}
                 value={lotteryDay}
               />
@@ -114,12 +122,16 @@ const CreateEqub = () => {
 
             <div className="space-y-1 text-left">
               {errors.contribution && (
-                <div className="text-red-600 mb-[10px]">{errors.contribution}</div>
+                <div className="text-red-600 mb-[10px]">
+                  {errors.contribution}
+                </div>
               )}
-              <Label htmlFor="contribution">Contribution</Label>
+              <Label htmlFor="contribution">
+                {t("createeqube.contribution")}
+              </Label>
               <Input
                 id="contribution"
-                placeholder="Contribution ..."
+                placeholder={t("createeqube.placeHolder.contribution")}
                 onChange={(e) => setContribution(e.target.value)}
                 value={contribution}
               />
@@ -127,20 +139,25 @@ const CreateEqub = () => {
 
             <div className="space-y-1 text-left">
               {errors.maxUniqueIds && (
-                <div className="text-red-600 mb-[10px]">{errors.maxUniqueIds}</div>
+                <div className="text-red-600 mb-[10px]">
+                  {errors.maxUniqueIds}
+                </div>
               )}
-              <Label htmlFor="maxUniqueIds">Maximum UniqueIds</Label>
+              <Label htmlFor="maxUniqueIds">
+                {t("createeqube.maxUniqueIds")}
+              </Label>
               <Input
                 id="maxUniqueIds"
-                placeholder="maxUniqueIds ..."
+                placeholder={t("createeqube.placeHolder.maxUniqueIds")}
                 onChange={(e) => setMaxUniqueIds(e.target.value)}
                 value={maxUniqueIds}
               />
             </div>
-
           </CardContent>
           <CardFooter>
-            <Button disabled={isLoading}> {isLoading?"loading":"Create Equber"}</Button>
+            <Button disabled={isLoading}>
+              {isLoading ? t("createeqube.loading") : t("createeqube.create")}
+            </Button>
           </CardFooter>
         </Card>
       </form>
