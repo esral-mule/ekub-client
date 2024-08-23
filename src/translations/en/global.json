@@ -15,13 +15,25 @@
         "phoneNumber": "Phone Number",
         "password": "Password",
         "createEquber": "Create Equber",
-        "loading":"loading",
+        "loading": "loading",
         "placeHolder": {
             "fullName": "Full Name ...",
             "username": "Username ...",
             "phoneNumber": "Phone Number ...",
             "password": "Your Password",
             "createEquber": "Create Equber"
+        }
+    },
+    "ListEqubes": {
+        "title": "List of Equbes",
+        "des": "List of all Equb's of the house",
+        "table": {
+            "name": "Name",
+            "contribution": "Amount",
+            "maxUniqueIds": "UniqueIds",
+            "lotteryDay": "LotteryDay",
+            "contributionDay": "ContributionDay",
+            "numberOfequbes": "Equbes"
         }
     }
 }

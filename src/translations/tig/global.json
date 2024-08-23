@@ -22,5 +22,17 @@
             "phoneNumber": "ስልኪ ቁፅሪ የእትው",
             "password": "ናይ ሚስጥር ቃልቃሎም የእትው"
         }
+    },
+    "ListEqubes": {
+        "title": "ናይ ዕቁባት ዝርዝር",
+        "des": "ናይዚ ገዛ ሙሉእ ናይ ዕቁባት ዝርዝር",
+        "table": {
+            "name": "ስም",
+            "contribution": "ክፍሊት መጠን",
+            "maxUniqueIds": "በዝሒ ዕፃ",
+            "lotteryDay": "ዕፃ ዝወድቀሉ መዓልቲ",
+            "contributionDay": "ዝእከበሉ መዓልቲ",
+            "numberOfequbes": "ዕቁባት"
+        }
     }
 }

@@ -15,12 +15,24 @@
         "phoneNumber": "ስልክ ቁጥር",
         "password": "የሚስጥር ቃል",
         "createEquber": "ዕቁብተኛ መዝግብ",
-        "loading":"በመመዝገብ ላይ",
+        "loading": "በመመዝገብ ላይ",
         "placeHolder": {
             "fullName": "ሙሉ ስም ያስገቡ",
             "username": "ልዩ መለያ ስም ያስገቡ",
             "phoneNumber": "ስልክ ቁጥር ያስገቡ",
             "password": "የሚስጥር ቃል ያስገቡ"
+        }
+    },
+    "ListEqubes": {
+        "title": "የ ዕቁቦች ዝርዝር",
+        "des": "የቤቱ ሙሉ የዕቁቦች ዝርዝር",
+        "table": {
+            "name": "ስም",
+            "contribution": "የክፍያ መጠን",
+            "maxUniqueIds": "የዕጣ ብዛት",
+            "lotteryDay": "ዕጣ የሚወጣበት ቀን",
+            "contributionDay": "ክፍያ መሰብሰብያ ቅን",
+            "numberOfequbes": "ዕቁቦች"
         }
     }
 }

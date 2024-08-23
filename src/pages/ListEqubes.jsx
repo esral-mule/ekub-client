@@ -20,10 +20,11 @@ import API from "../api/axios";
 import { useNavigate } from "react-router";
 import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
 import Transition from "../components/Transition";
+import { useTranslation } from "react-i18next";
 
 
 export default function ListEqubes() {
-
+  const { t, i18n } = useTranslation("global");
   let navigate = useNavigate();
   const [equbs, setEqubs] = useState([]);
   useEffect(() => {
@@ -45,18 +46,18 @@ export default function ListEqubes() {
     <Card x-chunk="dashboard-06-chunk-0">
       <CardHeader>
         {/* <Button className="self-end">Add Equb Level</Button> */}
-        <CardTitle>List of Equbes</CardTitle>
-        <CardDescription>List of all Equb's of the house</CardDescription>
+        <CardTitle>{t('ListEqubes.title')}</CardTitle>
+        <CardDescription>{t('ListEqubes.des')}</CardDescription>
       </CardHeader>
       <CardContent>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="text-center">Name</TableHead>
-              <TableHead className="text-center">Contribution</TableHead>
-              <TableHead className="text-center">MaxUniqueIds</TableHead>
-              <TableHead className="text-center">LotteryDay</TableHead>
-              <TableHead className="text-center">ContributionDay</TableHead>
+              <TableHead className="text-center">{t('ListEqubes.table.name')}</TableHead>
+              <TableHead className="text-center">{t('ListEqubes.table.contribution')}</TableHead>
+              <TableHead className="text-center">{t('ListEqubes.table.maxUniqueIds')}</TableHead>
+              <TableHead className="text-center">{t('ListEqubes.table.lotteryDay')}</TableHead>
+              <TableHead className="text-center">{t('ListEqubes.table.contributionDay')}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -78,7 +79,7 @@ export default function ListEqubes() {
       </CardContent>
       <CardFooter>
         <div className="text-xs text-muted-foreground">
-          Showing {equbs.length} equbes
+           {equbs.length} {t('ListEqubes.table.numberOfequbes')}
         </div>
       </CardFooter>
     </Card>
