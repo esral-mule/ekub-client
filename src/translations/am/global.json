@@ -7,5 +7,20 @@
         "des": "ለመውጣት እርግጠኛ ኖት?",
         "confirm": "ኣዎ ልውጣ",
         "declain": "ኣይ መልሰኝ"
+    },
+    "creatUser": {
+        "title": "ዕቁብተኛ ይመዝግቡ",
+        "fullName": "ሙሉ ስም",
+        "username": "ልዩ መለያ ስም",
+        "phoneNumber": "ስልክ ቁጥር",
+        "password": "የሚስጥር ቃል",
+        "createEquber": "ዕቁብተኛ መዝግብ",
+        "loading":"በመመዝገብ ላይ",
+        "placeHolder": {
+            "fullName": "ሙሉ ስም ያስገቡ",
+            "username": "ልዩ መለያ ስም ያስገቡ",
+            "phoneNumber": "ስልክ ቁጥር ያስገቡ",
+            "password": "የሚስጥር ቃል ያስገቡ"
+        }
     }
 }

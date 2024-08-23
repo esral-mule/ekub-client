@@ -16,10 +16,12 @@ import API from "../api/axios";
 import { useNavigate } from "react-router";
 import Transition from "../components/Transition";
 import { useToast } from "../components/ui/use-toast";
+import { useTranslation } from "react-i18next";
 
 const CreateUser = () => {
   let navigate = useNavigate();
   const { toast } = useToast()
+  const { t, i18n } = useTranslation("global");
   const [fullName, setFullName] = useState("");
   const [username, setUsername] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -67,7 +69,7 @@ const CreateUser = () => {
       <form className="max-w-lg mx-auto mt-5" onSubmit={handleSubmit}>
         <Card>
           <CardHeader>
-            <CardTitle>Create User</CardTitle>
+            <CardTitle>{t("creatUser.title")}</CardTitle>
           </CardHeader>
           {errors.global && (
             <div className="text-red-600 mb-[10px]">{errors.global}</div>
@@ -77,10 +79,10 @@ const CreateUser = () => {
               {errors.fullName && (
                 <div className="text-red-600 mb-[10px]">{errors.fullName}</div>
               )}
-              <Label htmlFor="fullName">Full-Name</Label>
+              <Label htmlFor="fullName">{t("creatUser.fullName")}</Label>
               <Input
                 id="fullName"
-                placeholder="FullName ..."
+                placeholder={t("creatUser.placeHolder.fullName")}
                 onChange={(e) => setFullName(e.target.value)}
                 value={fullName}
               />
@@ -90,10 +92,10 @@ const CreateUser = () => {
               {errors.username && (
                 <div className="text-red-600 mb-[10px]">{errors.username}</div>
               )}
-              <Label htmlFor="username">Username</Label>
+              <Label htmlFor="username">{t("creatUser.username")}</Label>
               <Input
                 id="username"
-                placeholder="Username ..."
+                placeholder={t("creatUser.placeHolder.username")}
                 onChange={(e) => setUsername(e.target.value)}
                 value={username}
               />
@@ -104,10 +106,10 @@ const CreateUser = () => {
                   {errors.phoneNumber}
                 </div>
               )}
-              <Label htmlFor="phonenumber">Phone-Number</Label>
+              <Label htmlFor="phonenumber">{t("creatUser.phoneNumber")}</Label>
               <Input
                 id="phonenumber"
-                placeholder="PhoneNumber ..."
+                placeholder={t("creatUser.placeHolder.phoneNumber")}
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 value={phoneNumber}
               />
@@ -117,12 +119,12 @@ const CreateUser = () => {
               {errors.password && (
                 <div className="text-red-600 mb-[10px]">{errors.password}</div>
               )}
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">{t("creatUser.password")}</Label>
               <div className="flex items-center">
                 <Input
                   id="password"
                   type={passwordVisible ? "text" : "password"}
-                  placeholder="Your password ..."
+                  placeholder={t("creatUser.placeHolder.password")}
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                 />
@@ -137,7 +139,7 @@ const CreateUser = () => {
             </div>
           </CardContent>
           <CardFooter>
-            <Button disabled={isLoading}> {isLoading?"loading":"Create Equber"}</Button>
+            <Button disabled={isLoading}> {isLoading? t("creatUser.loading"):t("creatUser.createEquber")}</Button>
           </CardFooter>
         </Card>
       </form>

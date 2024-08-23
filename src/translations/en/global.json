@@ -7,5 +7,21 @@
         "des": "Are you sure you want to logout?",
         "confirm": "Yes, Logout",
         "declain": "Cancel"
+    },
+    "creatUser": {
+        "title": "Create Equber",
+        "fullName": "Full Name",
+        "username": "Username",
+        "phoneNumber": "Phone Number",
+        "password": "Password",
+        "createEquber": "Create Equber",
+        "loading":"loading",
+        "placeHolder": {
+            "fullName": "Full Name ...",
+            "username": "Username ...",
+            "phoneNumber": "Phone Number ...",
+            "password": "Your Password",
+            "createEquber": "Create Equber"
+        }
     }
 }

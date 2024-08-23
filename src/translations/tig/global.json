@@ -7,5 +7,20 @@
         "des": "ክወፁ ከምዝደልዩ ርግፀኛ ድዮም?",
         "confirm": "እወ ክወፅእ",
         "declain": "ኣይ መልሰኒ"
+    },
+    "creatUser": {
+        "title": "ዕቁብተኛ ይመዝግቡ",
+        "fullName": "ምሉእ ሽም",
+        "username": "ፍሉይ መለለይ ሽም",
+        "phoneNumber": "ስልኪ ቁፅሪ",
+        "password": "ናይ ሚስጥር ቃል",
+        "createEquber": "ዕቁብተኛ መዝግብ",
+        "loading": "ኣብ ምምዝጋብ",
+        "placeHolder": {
+            "fullName": "ምሉእ ሽም የእትው",
+            "username": "ፍሉይ መለለይ ሽም የእትው",
+            "phoneNumber": "ስልኪ ቁፅሪ የእትው",
+            "password": "ናይ ሚስጥር ቃልቃሎም የእትው"
+        }
     }
 }
