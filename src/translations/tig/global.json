@@ -94,7 +94,7 @@
         "phoneNumber": "ስልኪ ቁፅሪ",
         "username": "ፍሉይ መለለይ ሽም",
         "equbType": "ዕቁብ ሽም",
-        "equbLevel:": "ዕቁብ ደረጃ",
+        "equbLevel": "ዕቁብ ደረጃ",
         "uniqueId": "ዕፃ ቁፅሪ",
         "close": "መልሰኒ"
     },
@@ -104,5 +104,18 @@
         "des":"እዚ ኣባል ካብ ዕቁብ መዝገብ ንምጥፋእ የረጋግፁ",
         "close":"ኣይ መልሰኒ",
         "confirm":"እወ ኣጥፍእ"
+    },
+    "addMember":{
+        "name": "ኣባል መዝግብ",
+        "title":"ኣባል ዕቁብ መዝግብ",
+        "des":"ኩሎም ኣገደስቲ ሓበሬታት ብምምላእ ኣባል ዕቁብ ይመዝግቡ",
+        "member":"ኣባል",
+        "equbLevel": "ዕቁብ ደረጃ",
+        "uniqueId": "ዕፃ ቁፅሪ",
+        "close": "መልሰኒ",
+        "confirm": "ኣባል ዕቁብ መዝግብ",
+        "selectUser":"ተጠቃሚ ይምረፁ",
+        "selectEqubLevel":"ዕቁብ ደረጃ ይምረፁ",
+        "SelectUniqueId":"ዕፃ ቁፅሪ ይምረፁ"
     }
 }

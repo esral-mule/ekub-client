@@ -114,24 +114,24 @@ export default function AddMember({ setData, setNewMembership }) {
           className="ml-auto print:hidden bg-primary mr-1"
         >
           <PlusCircle className="h-3.5 w-3.5 pr-1" />
-          {t("tabs.members.addMember")}
+          {t("addMember.name")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent className="sm:max-w-[425px]">
         <AlertDialogHeader>
-          <AlertDialogTitle>Add Member</AlertDialogTitle>
+          <AlertDialogTitle>{t("addMember.title")}</AlertDialogTitle>
           <AlertDialogDescription>
-            Fill all the required fields to add a member to equb
+          {t("addMember.des")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center">
             <Label htmlFor="user" className="text-right pr-2">
-              Member
+            {t("addMember.member")}
             </Label>
             <SelectData
               data={users}
-              name="User"
+              name={t("addMember.selectUser")}
               action={setUser}
               setSelectedValue={setSelectedUserValue}
               selectedValue={selectedUserValue}
@@ -147,12 +147,12 @@ export default function AddMember({ setData, setNewMembership }) {
           </div>
           <div className="grid grid-cols-4 items-center">
             <Label htmlFor="equbLevel" className="text-right pr-2">
-              Equb level
+            {t("addMember.equbLevel")} 
             </Label>
             <SelectData
               id="equbLevel"
               data={equbLevels}
-              name="Equb Level"
+              name={t("addMember.selectEqubLevel")}
               action={setEqubLevel}
               setSelectedValue={setSelectedEqubLevelValue}
               selectedValue={selectedEqubLevelValue}
@@ -168,12 +168,12 @@ export default function AddMember({ setData, setNewMembership }) {
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="uniqueId" className="text-right">
-              Unique Id
+            {t("addMember.uniqueId")}
             </Label>
             <SelectData
               id="uniqueId"
               data={uniqueIds}
-              name="Unique Id"
+              name={t("addMember.SelectUniqueId")}
               action={setUniqueId}
               setSelectedValue={setSelectedUniqueIdValue}
               selectedValue={selectedUniqueIdValue}
@@ -189,7 +189,7 @@ export default function AddMember({ setData, setNewMembership }) {
         </div>
         <AlertDialogFooter>
         <Button size="xs" variant="secondary" onClick={() => setOpenModal(false)}>
-            Cancel
+        {t("addMember.close")}
           </Button>
           <Button
             size="sm"
@@ -203,7 +203,7 @@ export default function AddMember({ setData, setNewMembership }) {
             }
           >
             <PlusCircle className="h-3.5 w-3.5" />
-            <span className="not-sr-only sm:whitespace-nowrap">Add Member</span>
+            <span className="not-sr-only sm:whitespace-nowrap">{t("addMember.confirm")}</span>
           </Button>
         </AlertDialogFooter>
       </AlertDialogContent>

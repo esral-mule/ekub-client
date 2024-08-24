@@ -46,7 +46,7 @@ export default function SelectData({ data, name, action,setSelectedValue, select
           aria-expanded={open}
           className="col-span-2 justify-between"
         >
-          {selectedLabel ? selectedLabel : `Select ${name}`}
+          {selectedLabel ? selectedLabel : name}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>

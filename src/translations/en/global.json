@@ -61,8 +61,7 @@
             "print": "print",
             "loading": "ዝርዝር በማዘጋጀት ላይ",
             "searchPlaceHolder": "Search member...",
-            "columns": "Columns",
-            "addMember": "Add Member"
+            "columns": "Columns"
         },
         "roundes": {
             "tabTitle": "History"
@@ -87,23 +86,36 @@
         "memebers": "Memebers",
         "of": "of"
     },
-    "memberDetail":{
-        "detail":"Detail",
-        "title":"Member Detail",
-        "des":"Detailed information about the selected member.",
-        "fullName":"Full Name:",
-        "phoneNumber":"Phone Number:",
-        "username":"Username:",
-        "equbType":"Equb Type:",
-        "equbLevel:":"Equb Level:",
-        "uniqueId":"Unique ID:",
-        "close":"Close"
-        },
-        "memberDelete":{
-            "delete":"Delete",
-            "title":"Delete Member",
-            "des":"Please make sure you want to delete",
-            "close":"Cancel",
-            "confirm":"Delete"
-        }
+    "memberDetail": {
+        "detail": "Detail",
+        "title": "Member Detail",
+        "des": "Detailed information about the selected member.",
+        "fullName": "Full Name:",
+        "phoneNumber": "Phone Number:",
+        "username": "Username:",
+        "equbType": "Equb Type:",
+        "equbLevel:": "Equb Level:",
+        "uniqueId": "Unique ID:",
+        "close": "Close"
+    },
+    "memberDelete": {
+        "delete": "Delete",
+        "title": "Delete Member",
+        "des": "Please make sure you want to delete",
+        "close": "Cancel",
+        "confirm": "Delete"
+    },
+    "addMember":{
+        "name": "Add Member",
+        "title":"Add Member",
+        "des":"Fill all the required fields to add a member to equb",
+        "member":"Member",
+        "equbLevel":"Equb Level",
+        "uniqueId":"Unique Id",
+        "close": "Cancel",
+        "confirm": "Add Member",
+        "selectUser":"Select User",
+        "selectEqubLevel":"Select EqubLevel",
+        "SelectUniqueId":"Select UniqueId"
+    }
 }
