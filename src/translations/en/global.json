@@ -105,17 +105,28 @@
         "close": "Cancel",
         "confirm": "Delete"
     },
-    "addMember":{
+    "addMember": {
         "name": "Add Member",
-        "title":"Add Member",
-        "des":"Fill all the required fields to add a member to equb",
-        "member":"Member",
-        "equbLevel":"Equb Level",
-        "uniqueId":"Unique Id",
+        "title": "Add Member",
+        "des": "Fill all the required fields to add a member to equb",
+        "member": "Member",
+        "equbLevel": "Equb Level",
+        "uniqueId": "Unique Id",
         "close": "Cancel",
         "confirm": "Add Member",
-        "selectUser":"Select User",
-        "selectEqubLevel":"Select EqubLevel",
-        "SelectUniqueId":"Select UniqueId"
+        "selectUser": "Select User",
+        "selectEqubLevel": "Select EqubLevel",
+        "SelectUniqueId": "Select UniqueId"
+    },
+    "creatNewUser": {
+        "name": "Create New User",
+        "title": "Create User",
+        "des": "Add Equb User",
+        "fullName": "Full Name",
+        "phoneNumber": "Phone Number",
+        "username": "Username",
+        "password": "Password",
+        "loading": "Creating...",
+        "confirm": "Create"
     }
 }

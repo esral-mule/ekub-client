@@ -90,7 +90,7 @@
         "detail": "ዝርዝር",
         "title": "ናይ ኣባል ዝርዝር",
         "des": "ናይ ኣባል ዝርዝር ሓበሬታ",
-        "fullName": "ሽም:",
+        "fullName": "ሽም",
         "phoneNumber": "ስልኪ ቁፅሪ",
         "username": "ፍሉይ መለለይ ሽም",
         "equbType": "ዕቁብ ሽም",
@@ -117,5 +117,16 @@
         "selectUser":"ተጠቃሚ ይምረፁ",
         "selectEqubLevel":"ዕቁብ ደረጃ ይምረፁ",
         "SelectUniqueId":"ዕፃ ቁፅሪ ይምረፁ"
+    },
+    "creatNewUser": {
+        "name": "ተጠቃሚ መዝግብ",
+        "title": "ተጠቃሚ መዝግብ",
+        "des": "ሓዱሽ ተጠቃሚ መዝግብ",
+        "fullName": "ሽም",
+        "phoneNumber": "ስልኪ ቁፅሪ",
+        "username": "ፍሉይ መለለይ ሽም",
+        "password": "ናይ ሚስጥር ቃል",
+        "loading": "ኣብ ምምዝጋብ",
+        "confirm": "መዝግብ"
     }
 }

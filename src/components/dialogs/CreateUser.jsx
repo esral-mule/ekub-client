@@ -14,6 +14,7 @@ import { useState } from "react";
 import API from "../../api/axios";
 import { useToast } from "../ui/use-toast";
 import { CirclePlus, UserPlus } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function CreateUser({
   setUser,
@@ -22,6 +23,7 @@ export default function CreateUser({
   setSelectedUserLabel,
 }) {
   const { toast } = useToast();
+  const { t, i18n } = useTranslation("global");   
 
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -72,20 +74,22 @@ export default function CreateUser({
       <DialogTrigger asChild>
         <Button size="xs" className="px-1 ml-2 text-[8px] text-wrap bg-primary">
           <UserPlus size={15} className="pr-1" />
-          Create New User
+          {t("creatNewUser.name")}
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="text-center">Create User</DialogTitle>
+          <DialogTitle className="text-center">          {t("creatNewUser.title")}
+          </DialogTitle>
           <DialogDescription className="text-center">
-            Add Equb User
+          {t("creatNewUser.des")}
+
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="fullName" className="text-right">
-              Full Name
+            {t("creatNewUser.fullName")}
             </Label>
             <Input
               id="fullName"
@@ -97,7 +101,7 @@ export default function CreateUser({
 
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="phoneNumber" className="text-right">
-              Phone Number
+            {t("creatNewUser.phoneNumber")}
             </Label>
             <Input
               id="phoneNumber"
@@ -109,7 +113,7 @@ export default function CreateUser({
 
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="username" className="text-right">
-              Username
+            {t("creatNewUser.username")}
             </Label>
             <Input
               id="username"
@@ -121,7 +125,7 @@ export default function CreateUser({
 
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="password" className="text-right">
-              Password
+            {t("creatNewUser.password")}
             </Label>
             <Input
               id="password"
@@ -134,7 +138,7 @@ export default function CreateUser({
         <DialogFooter>
           <Button onClick={handleSubmit} type="submit" disabled={isLoading}>
             <UserPlus size={18} className="pr-1" />
-            {isLoading ? "Creating..." : "Create"}
+            {isLoading ? t("creatNewUser.loading") : t("creatNewUser.confirm")}
           </Button>
         </DialogFooter>
       </DialogContent>
