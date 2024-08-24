@@ -98,5 +98,12 @@
         "equbLevel:":"Equb Level:",
         "uniqueId":"Unique ID:",
         "close":"Close"
+        },
+        "memberDelete":{
+            "delete":"Delete",
+            "title":"Delete Member",
+            "des":"Please make sure you want to delete",
+            "close":"Cancel",
+            "confirm":"Delete"
         }
 }

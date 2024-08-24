@@ -97,5 +97,12 @@
         "equbLevel:": "የዕቁብ ደረጃ",
         "uniqueId": "ዕጣ ቁጥር",
         "close": "መልሰኝ"
+    },
+    "memberDelete":{
+        "delete":"ኣጥፋ",
+        "title":"ኣባል ኣጥፋ",
+        "des":"ይህ ኣባል ከዚህ ዕቁብ መዝገብ ለማጥፋት ያረጋግጡ",
+        "close":"ኣይ መልሰኝ",
+        "confirm":"እዎ ኣጥፋ"
     }
 }

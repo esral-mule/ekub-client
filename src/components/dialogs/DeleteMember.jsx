@@ -12,8 +12,12 @@ import { Trash2 } from "lucide-react";
 import { useState } from "react";
 import API from "../../api/axios";
 import { useToast } from "../ui/use-toast";
+import { useTranslation } from "react-i18next";
+
 
 export default function DeleteMember({ user, setData }) {
+  const { t, i18n } = useTranslation("global");
+
   const { toast } = useToast();
   const [openModal, setOpenModal] = useState(false);
 
@@ -48,16 +52,16 @@ export default function DeleteMember({ user, setData }) {
           className="bg-destructive ml-auto print:hidden mb-[1px] mr-1 w-full"
         >
           <Trash2 size={18} className="pr-1" />
-          Delete
+          {t("memberDelete.delete")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent className="sm:max-w-[425px]">
         <AlertDialogHeader>
           <AlertDialogTitle className="flex items-center">
-            <p className="pl-1">Delete Member</p>
+            <p className="pl-1">{t("memberDelete.title")} </p>
           </AlertDialogTitle>
           <AlertDialogDescription>
-            Please make sure you want to delete{" "}
+          {t("memberDelete.des")}
           </AlertDialogDescription>
         </AlertDialogHeader>
 
@@ -70,7 +74,7 @@ export default function DeleteMember({ user, setData }) {
             }}
             type="submit"
           >
-            <span>Cancel</span>
+            <span>{t("memberDelete.close")}</span>
           </Button>
           <Button
             size="sm"
@@ -80,7 +84,7 @@ export default function DeleteMember({ user, setData }) {
           >
             <Trash2 size={18} className="pr-1" />
 
-            <span>Delete</span>
+            <span>{t("memberDelete.confirm")}</span>
           </Button>
         </AlertDialogFooter>
       </AlertDialogContent>
