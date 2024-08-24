@@ -128,5 +128,15 @@
         "password": "Password",
         "loading": "Creating...",
         "confirm": "Create"
+    },
+    "addEqubLevel": {
+        "name": "Add Equb Level",
+        "title": "Add Equb Level",
+        "des": "Create and add new Equb Level",
+        "lable": "Title",
+        "contribution": "Contribution",
+        "cancel": "Cancel",
+        "loading": "Creating...",
+        "confirm": "Create"
     }
 }

@@ -15,6 +15,7 @@ import API from "../../api/axios";
 import { useToast } from "../ui/use-toast";
 import { useParams } from "react-router";
 import { CirclePlus } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function CreateEqubLevel({
   fromTab,
@@ -24,6 +25,7 @@ export default function CreateEqubLevel({
   setSelectedEqubLevelLabel,
 }) {
   let { id } = useParams();
+  const { t, i18n } = useTranslation("global");   
 
   const { toast } = useToast();
 
@@ -89,22 +91,22 @@ export default function CreateEqubLevel({
           }`}
         >
           <CirclePlus size={fromTab ? 18 : 15} className="pr-1" />
-          Add Equb Level
+          {t("addEqubLevel.name")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent className="sm:max-w-[425px]">
         <AlertDialogHeader className="mb-3">
           <AlertDialogTitle className="text-center">
-            Add Equb Level
+          {t("addEqubLevel.title")}
           </AlertDialogTitle>
           <AlertDialogDescription className="text-center">
-            Create and add new Equb Level
+          {t("addEqubLevel.des")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <div className="grid gap-4 py-4 mb-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="title" className="text-right">
-              Title
+            {t("addEqubLevel.lable")}
             </Label>
             <Input
               id="title"
@@ -116,7 +118,7 @@ export default function CreateEqubLevel({
 
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="contribution" className="text-right">
-              Contribution
+            {t("addEqubLevel.contribution")}
             </Label>
             <Input
               id="contribution"
@@ -128,7 +130,7 @@ export default function CreateEqubLevel({
         </div>
         <AlertDialogFooter className="mb-4">
           <Button size="xs" variant="secondary" onClick={() => setOpen(false)}>
-            Cancel
+          {t("addEqubLevel.cancel")}
           </Button>
           <Button
             size="xs"
@@ -138,7 +140,7 @@ export default function CreateEqubLevel({
           >
             <CirclePlus size={fromTab ? 18 : 15} className="pr-1 pt-[1px]" />
 
-            {isLoading ? "Creating..." : "Create"}
+            {isLoading ? t("addEqubLevel.loading") : t("addEqubLevel.confirm")}
           </Button>
         </AlertDialogFooter>
       </AlertDialogContent>

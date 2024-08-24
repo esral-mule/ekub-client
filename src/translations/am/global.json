@@ -128,5 +128,15 @@
         "password": "የሚስጥር ቃል",
         "loading": "በመመዝገብ ላይ",
         "confirm": "መዝግብ"
+    },
+    "addEqubLevel": {
+        "name": "ኣዲስ ደረጃ",
+        "title": "ኣዲስ ደረጃ",
+        "des": "ኣዲስ ደረጃ ጨምር",
+        "lable": "ስም",
+        "contribution": "የብር ብዛት",
+        "cancel": "መልሰኒ",
+        "loading": "በመመዝገብ ላይ",
+        "confirm": "መዝግብ"
     }
 }

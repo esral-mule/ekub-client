@@ -98,25 +98,25 @@
         "uniqueId": "ዕፃ ቁፅሪ",
         "close": "መልሰኒ"
     },
-    "memberDelete":{
-        "delete":"ኣጥፍእ",
-        "title":"ኣባል ኣጥፍእ",
-        "des":"እዚ ኣባል ካብ ዕቁብ መዝገብ ንምጥፋእ የረጋግፁ",
-        "close":"ኣይ መልሰኒ",
-        "confirm":"እወ ኣጥፍእ"
+    "memberDelete": {
+        "delete": "ኣጥፍእ",
+        "title": "ኣባል ኣጥፍእ",
+        "des": "እዚ ኣባል ካብ ዕቁብ መዝገብ ንምጥፋእ የረጋግፁ",
+        "close": "ኣይ መልሰኒ",
+        "confirm": "እወ ኣጥፍእ"
     },
-    "addMember":{
+    "addMember": {
         "name": "ኣባል መዝግብ",
-        "title":"ኣባል ዕቁብ መዝግብ",
-        "des":"ኩሎም ኣገደስቲ ሓበሬታት ብምምላእ ኣባል ዕቁብ ይመዝግቡ",
-        "member":"ኣባል",
+        "title": "ኣባል ዕቁብ መዝግብ",
+        "des": "ኩሎም ኣገደስቲ ሓበሬታት ብምምላእ ኣባል ዕቁብ ይመዝግቡ",
+        "member": "ኣባል",
         "equbLevel": "ዕቁብ ደረጃ",
         "uniqueId": "ዕፃ ቁፅሪ",
         "close": "መልሰኒ",
         "confirm": "ኣባል ዕቁብ መዝግብ",
-        "selectUser":"ተጠቃሚ ይምረፁ",
-        "selectEqubLevel":"ዕቁብ ደረጃ ይምረፁ",
-        "SelectUniqueId":"ዕፃ ቁፅሪ ይምረፁ"
+        "selectUser": "ተጠቃሚ ይምረፁ",
+        "selectEqubLevel": "ዕቁብ ደረጃ ይምረፁ",
+        "SelectUniqueId": "ዕፃ ቁፅሪ ይምረፁ"
     },
     "creatNewUser": {
         "name": "ተጠቃሚ መዝግብ",
@@ -126,6 +126,16 @@
         "phoneNumber": "ስልኪ ቁፅሪ",
         "username": "ፍሉይ መለለይ ሽም",
         "password": "ናይ ሚስጥር ቃል",
+        "loading": "ኣብ ምምዝጋብ",
+        "confirm": "መዝግብ"
+    },
+    "addEqubLevel": {
+        "name": "ሓዱሽ ደረጃ",
+        "title": "ሓዱሽ ደረጃ",
+        "des": "ሓዱሽ ደረጃ ወስኽ",
+        "lable": "ሽም",
+        "contribution": "በዝሒ ብር",
+        "cancel": "መልሰኒ",
         "loading": "ኣብ ምምዝጋብ",
         "confirm": "መዝግብ"
     }
