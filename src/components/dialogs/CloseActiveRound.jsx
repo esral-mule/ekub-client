@@ -106,7 +106,7 @@ export default function CloseActiveRound({
             <SelectData
               id="uniqueId"
               data={uniqueIds}
-              name="Unique Id"
+              name={t("closeActiveRound.searchPlaceHolder")}
               action={setUniqueId}
               setSelectedValue={setSelectedUniqueIdValue}
               selectedValue={selectedUniqueIdValue}

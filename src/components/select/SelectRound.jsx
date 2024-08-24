@@ -7,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useTranslation } from "react-i18next";
 
 // eslint-disable-next-line react/prop-types
 export default function SelectRound({
@@ -14,6 +15,9 @@ export default function SelectRound({
   selectedOption,
   setSelectedOption,
 }) {
+
+  const { t, i18n } = useTranslation("global");
+
   return (
     <Select
       value={selectedOption ? `${selectedOption.round}` : ""}
@@ -23,11 +27,11 @@ export default function SelectRound({
       }}
     >
       <SelectTrigger className="w-[180px] mb-3 ml-1">
-        <SelectValue placeholder="Select a cycle and round" />
+        <SelectValue placeholder={t("selectRound.placeholder")}/>
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Rounds</SelectLabel>
+          <SelectLabel>{t("selectRound.roundes")}</SelectLabel>
           {options.map((option) => (
             <SelectItem key={option._id} value={`${option.round}`}>
               {`Round ${option.round}`}

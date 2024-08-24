@@ -193,6 +193,7 @@
         "name":"Close Round",
         "title":"Lottery day",
         "des":"Select winner unique Id",
+        "searchPlaceHolder":"Unique Id",
         "uniqueId":"Unique Id",
         "cancel":"Cancel",
         "confirm":"Close round"
@@ -203,5 +204,13 @@
         "des":"You are about to start new round. please make sure if you have closed other opend rounds.",
         "cancel":"Cancel",
         "confirm":"Continue"   
+    },
+    "roundes":{
+        "title":"Equb Rounds",
+        "des":"Select Equb-round to see history"
+    },
+    "selectRound":{
+        "placeholder":"Select round",
+        "roundes":"Rounds"
     }
 }

@@ -68,8 +68,8 @@
         },
         "active": {
             "tabTitle": "በመካሄድ ላይ ያለ",
-            "title":"በመካሄድ ላይ ያለ ዙር",
-            "des":"በመካሄድ ላይ ያለ የዕቁቡ ዙር"
+            "title": "በመካሄድ ላይ ያለ ዙር",
+            "des": "በመካሄድ ላይ ያለ የዕቁቡ ዙር"
         },
         "equbLevel": {
             "tabTitle": "ደረጃዎች"
@@ -156,52 +156,60 @@
         "actions": "ድርጊቶች",
         "equbLevels": "የዕቁብ ደረጃዎች"
     },
-    "deleteEqubLevel":{
-        "delete":"ኣጥፋ",
-        "title":"ዕቁብ ደረጃ ኣጥፋ",
-        "des":"ይህ የዕቁብ ደረጃ ለማጥፋት ያረጋግጡ",
-        "fullName":"ስም",
-        "level":"ደረጃ",
-        "amount":"የብር ብዛት",
-        "noMember":"ይህ እጣ ቁጥር ኣልተያዘም",
-        "cancel":"መልሰኝ"
+    "deleteEqubLevel": {
+        "delete": "ኣጥፋ",
+        "title": "ዕቁብ ደረጃ ኣጥፋ",
+        "des": "ይህ የዕቁብ ደረጃ ለማጥፋት ያረጋግጡ",
+        "fullName": "ስም",
+        "level": "ደረጃ",
+        "amount": "የብር ብዛት",
+        "noMember": "ይህ እጣ ቁጥር ኣልተያዘም",
+        "cancel": "መልሰኝ"
     },
     "contributionTable": {
         "columns": "አምዶች",
-        "noresult":"ውጤት የለም",
-        "pre":"ቀዳሚ",
-        "next":"ቀጣይ",
-        "fullName":"ስም",
-        "phoneNumber":"ስልክ ቁጥር",
-        "contribution":"የብር ብዛት",
-        "status":"የክፍያ ሁኔታ",
-        "actions":"ድርጊቶች",
-        "of":"ከ",
-        "contributions":"የክፍያ መዝገቦች",
-        "paid":"ተከፍሏል",
-        "unpaid":"ኣልተከፈለም"
-
+        "noresult": "ውጤት የለም",
+        "pre": "ቀዳሚ",
+        "next": "ቀጣይ",
+        "fullName": "ስም",
+        "phoneNumber": "ስልክ ቁጥር",
+        "contribution": "የብር ብዛት",
+        "status": "የክፍያ ሁኔታ",
+        "actions": "ድርጊቶች",
+        "of": "ከ",
+        "contributions": "የክፍያ መዝገቦች",
+        "paid": "ተከፍሏል",
+        "unpaid": "ኣልተከፈለም"
     },
-    "updatePayment":{
-        "name":"ቀይር",
-        "title":"የክፍያ ሁነት መቀየር",
-        "des":"የክፍያ ሁነት ለመቀየር እርግጠኛ ኖት?",
-        "cancel":"መልሰኝ",
-        "confirm":"የክፍያ ሁነት ቀይር"
+    "updatePayment": {
+        "name": "ቀይር",
+        "title": "የክፍያ ሁነት መቀየር",
+        "des": "የክፍያ ሁነት ለመቀየር እርግጠኛ ኖት?",
+        "cancel": "መልሰኝ",
+        "confirm": "የክፍያ ሁነት ቀይር"
     },
-    "closeActiveRound":{
-        "name":"ዙር ዝጋ",
-        "title":"ዕጣ የመውጫ ቀን",
-        "des":"የኣሸናፊ ዕጣ ቁጥር ያስገቡ",
-        "uniqueId":"ዕጣ ቁጥር",
-        "cancel":"መልሰኝ",
-        "confirm":"ዙር ዝጋ"
+    "closeActiveRound": {
+        "name": "ዙር ዝጋ",
+        "title": "ዕጣ የመውጫ ቀን",
+        "des": "የኣሸናፊ ዕጣ ቁጥር ያስገቡ",
+        "searchPlaceHolder":"ዕጣ ቁጥር ይምረጡ",
+        "uniqueId": "ዕጣ ቁጥር",
+        "cancel": "መልሰኝ",
+        "confirm": "ዙር ዝጋ"
     },
-    "startRound":{
-        "name":"ኣዲስ ዙር ጀምር",
-        "title":"ኣዲስ ዙር ጀምር",
-        "des":"ኣዲስ ዙር ለመጀመር እርግጠኛ ኖት?",
-        "cancel":"መልሰኝ",
-        "confirm":"ኣዲስ ዙር ጀምር"   
+    "startRound": {
+        "name": "ኣዲስ ዙር ጀምር",
+        "title": "ኣዲስ ዙር ጀምር",
+        "des": "ኣዲስ ዙር ለመጀመር እርግጠኛ ኖት?",
+        "cancel": "መልሰኝ",
+        "confirm": "ኣዲስ ዙር ጀምር"
+    },
+    "roundes": {
+        "title": "የዕቁቡ ዙሮች",
+        "des": "ከተዘረዘሩት የዕቁቡ ዙሮች ኣንዱን ይምረጡ"
+    },
+    "selectRound":{
+        "placeholder":"ዙር ይምረጡ",
+        "roundes":"ዙሮች"
     }
 }
