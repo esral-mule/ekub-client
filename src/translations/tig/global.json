@@ -67,7 +67,9 @@
             "tabTitle": "ታሪክ"
         },
         "active": {
-            "tabTitle": "ኣብ ከይዲ ዘሎ ዙር"
+            "tabTitle": "ኣብ ከይዲ ዘሎ",
+            "title": "ኣብ ከይዲ ዘሎ ዙር",
+            "des": "ኣብ ከይዲ ዘሎ ናይዚ ዕቁብ ዙር"
         },
         "equbLevel": {
             "tabTitle": "ደረጃታት"
@@ -154,14 +156,52 @@
         "actions": "ተግባራት",
         "equbLevels": "ዕቁብ ደረጃታት"
     },
-    "deleteEqubLevel":{
-        "delete":"ኣጥፍእ",
-        "title":"ዕቁብ ደረጃ ኣጥፍእ",
-        "des":"እዚ ዕቁብ ደረጃ ንምጥፋእ የረጋግፁ",
+    "deleteEqubLevel": {
+        "delete": "ኣጥፍእ",
+        "title": "ዕቁብ ደረጃ ኣጥፍእ",
+        "des": "እዚ ዕቁብ ደረጃ ንምጥፋእ የረጋግፁ",
+        "fullName": "ሽም",
+        "level": "ደረጃ",
+        "amount": "በዝሒ ብር",
+        "noMember": "እዚ ዕፃ ቁፅሪ ኣይተትሓዘን",
+        "cancel": "መልሰኒ"
+    },
+    "contributionTable": {
+        "columns": "ሪጋ",
+        "noresult":"ውፅኢት የለን",
+        "pre":"ሕሉፍ",
+        "next":"ቀፃሊ",
         "fullName":"ሽም",
-        "level":"ደረጃ",
-        "amount":"በዝሒ ብር",
-        "noMember":"እዚ ዕፃ ቁፅሪ ኣይተትሓዘን",
-        "cancel":"መልሰኒ"
+        "phoneNumber":"ስልኪ ቁፅሪ",
+        "contribution":"በዝሒ ብር",
+        "status":"ክፍሊት ኩነት",
+        "actions":"ተግባራት",
+        "of":"ካብ",
+        "contributions":"መዝገባት ክፍሊት",
+        "paid":"ተኸፊሉ",
+        "unpaid":"ኣይተኸፈለን"
+
+    },
+    "updatePayment":{
+        "name":"ቀይር",
+        "title":"ክፍሊት ኩነት ምቅያር",
+        "des":"ክፍሊት ኩነት ንምቅያር ርግፀኛ ድዮም?",
+        "cancel":"መልሰኒ",
+        "confirm":"ክፍሊት ኩነት ቀይር"
+    },
+    "closeActiveRound":{
+        "name":"ዙር ዛዝም",
+        "title":"ዕፃ ዝወድቀሉ መዓልቲ",
+        "des":"ተዓዋታይ ዕፃ ቁፅሪ ይምረፁ",
+        "uniqueId":"ዕፃ ቁፅሪ",
+        "cancel":"መልሰኒ",
+        "confirm":"ዙር ዛዝም"
+    },
+    "startRound":{
+        "name":"ሓዱሽ ዙር ጀምር",
+        "title":"ሓዱሽ ዙር ጀምር",
+        "des":"ሓዱሽ ዙር ንምጅማር ርግፀኛ ድዮም?",
+        "cancel":"መልሰኒ",
+        "confirm":"ሓዱሽ ዙር ጀምር"   
     }
 }

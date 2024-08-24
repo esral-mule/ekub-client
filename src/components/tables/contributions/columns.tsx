@@ -21,10 +21,10 @@ export type User = {
   updatedAt: Date;
 };
 
-export const columns = (RoundId, setContributions): ColumnDef<User>[] => [
+export const columns = (RoundId, setContributions,t): ColumnDef<User>[] => [
   {
     accessorFn: (row) => row.member.member.fullName,
-    id: "fullName",
+    id: t("contributionTable.fullName"),
     header: ({ column }) => {
       return (
         <Button
@@ -32,7 +32,7 @@ export const columns = (RoundId, setContributions): ColumnDef<User>[] => [
           className="text-right"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Full Name
+          {t("contributionTable.fullName")}
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -43,9 +43,9 @@ export const columns = (RoundId, setContributions): ColumnDef<User>[] => [
   },
   {
     accessorFn: (row) => row.member.member.phoneNumber,
-    id: "phoneNumber",
+    id: t("contributionTable.phoneNumber"),
     header: () => {
-      return <div>Phone Number</div>;
+      return <div>{t("contributionTable.phoneNumber")}</div>;
     },
     cell: ({ row }) => {
       return <div className="font-medium">{row.original.member.member.phoneNumber}</div>;
@@ -54,9 +54,9 @@ export const columns = (RoundId, setContributions): ColumnDef<User>[] => [
 
   {
     accessorFn: (row) => row.member.equbLevel.contribution,
-    id: "contribution",
+    id: t("contributionTable.contribution"),
     header: () => {
-      return <div>Contribution</div>;
+      return <div>{t("contributionTable.contribution")}</div>;
     },
     cell: ({ row }) => {
       return <div className="font-medium">{row.original.member.equbLevel.contribution}</div>;
@@ -65,19 +65,20 @@ export const columns = (RoundId, setContributions): ColumnDef<User>[] => [
 
   {
     accessorKey: "isPaid",
-    header: () => <div>Status</div>,
+    id:t("contributionTable.status"),
+    header: () => <div>{t("contributionTable.status")}</div>,
     cell: ({ row }) => {
       return (
         <div className="flex justify-center" style={{ color: !row.original.isPaid ? "#b91c1c" : "#166534" }}>
           {row.original.isPaid ? (
             <div className="flex justify-center gap-1">
               <CircleCheckBig className="mx-auto" size={20} />
-              <p className="hidden sm:flex">Paid</p>
+              <p className="hidden sm:flex">{t("contributionTable.paid")}</p>
             </div>
           ) : (
             <div className="flex justify-center gap-1">
               <CircleX size={20} />
-              <p className="hidden sm:flex">Unpaid</p>
+              <p className="hidden sm:flex">{t("contributionTable.unpaid")}</p>
             </div>
           )}
         </div>
@@ -85,8 +86,8 @@ export const columns = (RoundId, setContributions): ColumnDef<User>[] => [
     },
   },
   {
-    id: "actions",
-    header: "Actions",
+    id: t("contributionTable.actions"),
+    header: t("contributionTable.actions"),
     cell: ({ row }) => {
       return <TogglePayment id={row.original._id} status={row.original.isPaid} RoundId={RoundId} setContributions={setContributions} />;
     },

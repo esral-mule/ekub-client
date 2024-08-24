@@ -12,28 +12,30 @@ import {
   AlertDialogTrigger,
 } from "../ui/alert-dialog";
 import { Button } from "../ui/button";
+import { useTranslation } from "react-i18next";
 
 export default function updatePaymentStatus({ UpdatePaymentStatus }) {
+  const { t, i18n } = useTranslation("global");
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button size="xs" className="ml-auto print:hidden bg-primary">
 
         <SquarePen size={18} className="pr-1"/>
-          update
+          {t("updatePayment.name")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle>{t("updatePayment.title")}</AlertDialogTitle>
           <AlertDialogDescription>
-            you are updating payment status
+          {t("updatePayment.des")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>{t("updatePayment.cancel")}</AlertDialogCancel>
           <AlertDialogAction onClick={UpdatePaymentStatus}>
-            Continue
+          {t("updatePayment.confirm")}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

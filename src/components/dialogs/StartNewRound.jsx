@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
     AlertDialog,
     AlertDialogAction,
@@ -12,25 +13,25 @@ import {
 import { Button } from "../ui/button";
 
 export default function UpdatePaymentStatus({handleStartRound}) {
+  const { t, i18n } = useTranslation("global");
   
   return (
     <AlertDialog>
     <AlertDialogTrigger asChild>
       <Button  size="xs" className="ml-auto print:hidden bg-primary">
-        Start New Round
+      {t("startRound.name")}
       </Button>
     </AlertDialogTrigger>
     <AlertDialogContent>
       <AlertDialogHeader>
-        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+        <AlertDialogTitle>{t("startRound.title")}</AlertDialogTitle>
         <AlertDialogDescription>
-          You are about to start new round. please make sure if you have
-          closed other opend rounds.
+        {t("startRound.des")}
         </AlertDialogDescription>
       </AlertDialogHeader>
       <AlertDialogFooter>
-        <AlertDialogCancel size="sm">Cancel</AlertDialogCancel>
-        <AlertDialogAction onClick={handleStartRound}>Continue</AlertDialogAction>
+        <AlertDialogCancel size="sm">{t("startRound.cancel")}</AlertDialogCancel>
+        <AlertDialogAction onClick={handleStartRound}>{t("startRound.confirm")}</AlertDialogAction>
       </AlertDialogFooter>
     </AlertDialogContent>
   </AlertDialog>

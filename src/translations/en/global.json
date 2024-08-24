@@ -67,7 +67,9 @@
             "tabTitle": "History"
         },
         "active": {
-            "tabTitle": "Active"
+            "tabTitle": "Active",
+            "title":"Ongoing Equb Round",
+            "des":"Ongoing Equb Round Payment History"
         },
         "equbLevel": {
             "tabTitle": "Levels"
@@ -163,5 +165,43 @@
         "amount":"Amount",
         "noMember":"No Member is assigned to this UniqueId",
         "cancel":"Cancel"
+    },
+    "contributionTable": {
+        "columns": "Columns",
+        "noresult":"No results",
+        "pre":"Previous",
+        "next":"Next",
+        "fullName":"Full Name",
+        "phoneNumber":"Phone Number",
+        "contribution":"Contribution",
+        "status":"Status",
+        "actions":"Actions",
+        "of":"Of",
+        "contributions":"Contributions",
+        "paid":"Paid",
+        "unpaid":"Unpaid"
+
+    },
+    "updatePayment":{
+        "name":"Update",
+        "title":"Are you absolutely sure?",
+        "des":"you are updating payment status",
+        "cancel":"Cancel",
+        "confirm":"Continue"
+    },
+    "closeActiveRound":{
+        "name":"Close Round",
+        "title":"Lottery day",
+        "des":"Select winner unique Id",
+        "uniqueId":"Unique Id",
+        "cancel":"Cancel",
+        "confirm":"Close round"
+    },
+    "startRound":{
+        "name":"Start New Round",
+        "title":"Are you absolutely sure?",
+        "des":"You are about to start new round. please make sure if you have closed other opend rounds.",
+        "cancel":"Cancel",
+        "confirm":"Continue"   
     }
 }

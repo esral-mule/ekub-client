@@ -31,6 +31,7 @@ import {
 import { Button } from "../../ui/button"
 import { Input } from "../../ui/input"
 import StartNewRound from "../../dialogs/StartNewRound"
+import { useTranslation } from "react-i18next"
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
@@ -41,6 +42,8 @@ export function DataTable<TData, TValue>({
     data,
     handleStartRound
 }: DataTableProps<TData, TValue>) {
+  const { t, i18n } = useTranslation("global");
+
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
@@ -76,7 +79,7 @@ export function DataTable<TData, TValue>({
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button variant="outline" className="print:hidden">
-                            Columns
+                            {t("contributionTable.columns")}
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">

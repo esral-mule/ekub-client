@@ -17,12 +17,15 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "../../components/ui/alert-dialog";
+import { useTranslation } from "react-i18next";
 
 export default function CloseActiveRound({
   selectedOption,
   setSelectedOption,
 }) {
   const { id: equbId } = useParams();
+  const { t, i18n } = useTranslation("global");
+
   const [openModal, setOpenModal] = useState(false);
   const [uniqueId, setUniqueId] = useState("");
   const [uniqueIds, setUniqueIds] = useState([]);
@@ -83,22 +86,22 @@ export default function CloseActiveRound({
           className="mr-1 print:hidden bg-primary"
         >
           <Notebook size={18} className="pr-1" />
-          Close Round
+          {t("closeActiveRound.name")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent className="sm:max-w-[425px]">
         <AlertDialogHeader>
           <AlertDialogTitle className="flex items-center">
-            <Winner /> <p className="pl-1">Lottery day</p>
+            <Winner /> <p className="pl-1">{t("closeActiveRound.title")}</p>
           </AlertDialogTitle>
           <AlertDialogDescription>
-            Select winner unique Id
+          {t("closeActiveRound.des")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="uniqueId" className="text-right">
-              Unique Id
+            {t("closeActiveRound.uniqueId")}
             </Label>
             <SelectData
               id="uniqueId"
@@ -123,7 +126,7 @@ export default function CloseActiveRound({
             onClick={() => setOpenModal(false)}
             className="h-8 gap-1"
           >
-            Cancel
+            {t("closeActiveRound.cancel")}
           </Button>
           <Button
             className="h-8 gap-1"
@@ -131,7 +134,7 @@ export default function CloseActiveRound({
             type="submit"
             disabled={!selectedUniqueIdValue}
           >
-            <span>Close round</span>
+            <span>{t("closeActiveRound.confirm")}</span>
           </Button>
         </AlertDialogFooter>
       </AlertDialogContent>
