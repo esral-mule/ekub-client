@@ -22,10 +22,11 @@ import { useEffect, useState } from "react";
 import API from "../../api/axios";
 import { useToast } from "../ui/use-toast";
 import { useParams } from "react-router";
+import { useTranslation } from "react-i18next";
 
 export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
   let { id } = useParams();
-
+  const { t, i18n } = useTranslation("global");
   const [contributions, setContributions] = useState(null);
   const [loading, setLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
@@ -87,16 +88,16 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
           className="ml-auto print:hidden mr-1 w-full bg-destructive"
         >
           <Trash2 size={18} className="pr-1" />
-          Delete
+          {t("deleteEqubLevel.delete")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent className="sm:max-w-[425px]">
         <AlertDialogHeader>
           <AlertDialogTitle className="flex items-center">
-            <p className="pl-1">Delete Equb level</p>
+            <p className="pl-1">{t("deleteEqubLevel.title")}</p>
           </AlertDialogTitle>
           <AlertDialogDescription>
-            Please make sure you want to delete{" "}
+          {t("deleteEqubLevel.des")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <div>
@@ -111,9 +112,9 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
                   <Table>
                     <TableHeader>
                       <TableRow>
-                        <TableHead>Full Name</TableHead>
-                        <TableHead>Level</TableHead>
-                        <TableHead className="text-right">Amount</TableHead>
+                        <TableHead>{t("deleteEqubLevel.fullName")}</TableHead>
+                        <TableHead>{t("deleteEqubLevel.level")}</TableHead>
+                        <TableHead className="text-right">{t("deleteEqubLevel.amount")}</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -134,7 +135,7 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
                   </Table>
                 ) : (
                   <div className="text-center">
-                    No Member is assigned to this UniqueId
+                    {t("deleteEqubLevel.noMember")}
                   </div>
                 )}
               </Card>
@@ -149,14 +150,14 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
             }}
             type="submit"
           >
-            <span>Cancel</span>
+            <span>{t("deleteEqubLevel.cancel")}</span>
           </Button>
           <Button
             className="h-8 gap-1 bg-destructive"
             onClick={handleDelete}
             type="submit"
           >
-            <span>Delete</span>
+            <span>{t("deleteEqubLevel.delete")}</span>
           </Button>
         </AlertDialogFooter>
       </AlertDialogContent>

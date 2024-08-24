@@ -26,10 +26,12 @@ import {
 import { MoreHorizontal } from "lucide-react";
 import { Button } from "../../../components/ui/button";
 import DeleteEqubLevel from "../../dialogs/DeleteEqubLevel";
+import { useTranslation } from "react-i18next";
 // import DeleteEqubLevel from "./DeleteEqubLevel"
 export default function EqubLevel() {
+  
   let { id } = useParams();
-
+  const { t, i18n } = useTranslation("global");
   const [equblevels, setEqubLevels] = useState([]);
   useEffect(() => {
     API.get(`/equb-level/etype/${id}`)
@@ -40,14 +42,12 @@ export default function EqubLevel() {
         console.log(err);
       });
   }, []);
-  console.log("equb-levels", equblevels);
 
   return (
     <Card x-chunk="dashboard-06-chunk-0">
       <CardHeader>
-        {/* <Button className="self-end">Add Equb Level</Button> */}
-        <CardTitle>Equb Levels</CardTitle>
-        <CardDescription>List of all Equb levels</CardDescription>
+        <CardTitle>{t("equbLevels.title")}</CardTitle>
+        <CardDescription>{t("equbLevels.des")}</CardDescription>
         <CreateEqubLevel fromTab={true} setEqubLevels={setEqubLevels} />
       </CardHeader>
       <CardContent>
@@ -55,9 +55,9 @@ export default function EqubLevel() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="text-center">Title</TableHead>
-                <TableHead className="text-center">Contribution</TableHead>
-                <TableHead className="text-center">Actions</TableHead>
+                <TableHead className="text-center">{t("equbLevels.levelTitle")}</TableHead>
+                <TableHead className="text-center">{t("equbLevels.contribution")}</TableHead>
+                <TableHead className="text-center">{t("equbLevels.actions")}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -91,7 +91,7 @@ export default function EqubLevel() {
       </CardContent>
       <CardFooter>
         <div className="text-xs text-muted-foreground">
-          Showing {equblevels.length} Equb levels
+          {equblevels.length} {t("equbLevels.equbLevels")}
         </div>
       </CardFooter>
     </Card>

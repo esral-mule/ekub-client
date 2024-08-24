@@ -139,11 +139,29 @@
         "loading": "Creating...",
         "confirm": "Create"
     },
-    "uniqueIdDetail":{
+    "uniqueIdDetail": {
+        "fullName": "Full Name",
+        "level": "Level",
+        "amount": "Amount",
+        "total": "Total",
+        "noMember": "No Member is assigned to this UniqueId"
+    },
+    "equbLevels": {
+        "title": "Equb Levels",
+        "des": "List of all Equb levels",
+        "levelTitle": "Title",
+        "contribution": "Contribution",
+        "actions": "Actions",
+        "equbLevels": "Equb Levels"
+    },
+    "deleteEqubLevel":{
+        "delete":"Delete",
+        "title":"Delete Equb level",
+        "des":"Please make sure you want to delete",
         "fullName":"Full Name",
         "level":"Level",
         "amount":"Amount",
-        "total":"Total",
-        "noMember":"No Member is assigned to this UniqueId"
+        "noMember":"No Member is assigned to this UniqueId",
+        "cancel":"Cancel"
     }
 }

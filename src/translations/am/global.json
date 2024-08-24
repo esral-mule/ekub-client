@@ -135,15 +135,33 @@
         "des": "ኣዲስ ደረጃ ጨምር",
         "lable": "ስም",
         "contribution": "የብር ብዛት",
-        "cancel": "መልሰኒ",
+        "cancel": "መልሰኝ",
         "loading": "በመመዝገብ ላይ",
         "confirm": "መዝግብ"
     },
-    "uniqueIdDetail":{
+    "uniqueIdDetail": {
+        "fullName": "ስም",
+        "level": "ደረጃ",
+        "amount": "የብር ብዛት",
+        "total": "ኣጠቃላይ የብር ብዛት",
+        "noMember": "ይህ እጣ ቁጥር ኣልተያዘም"
+    },
+    "equbLevels": {
+        "title": "የዕቁብ ደረጃዎች",
+        "des": "ሁሉም የዚህ ዕቁብ ደረጃዎች",
+        "levelTitle": "ደረጃ",
+        "contribution": "የብር ብዛት",
+        "actions": "ድርጊቶች",
+        "equbLevels": "የዕቁብ ደረጃዎች"
+    },
+    "deleteEqubLevel":{
+        "delete":"ኣጥፋ",
+        "title":"ዕቁብ ደረጃ ኣጥፋ",
+        "des":"ይህ የዕቁብ ደረጃ ለማጥፋት ያረጋግጡ",
         "fullName":"ስም",
         "level":"ደረጃ",
         "amount":"የብር ብዛት",
-        "total":"ኣጠቃላይ የብር ብዛት",
-        "noMember":"ይህ እጣ ቁጥር ኣልተያዘም"
+        "noMember":"ይህ እጣ ቁጥር ኣልተያዘም",
+        "cancel":"መልሰኝ"
     }
 }

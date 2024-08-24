@@ -139,11 +139,29 @@
         "loading": "ኣብ ምምዝጋብ",
         "confirm": "መዝግብ"
     },
-    "uniqueIdDetail":{
+    "uniqueIdDetail": {
+        "fullName": "ሽም",
+        "level": "ደረጃ",
+        "amount": "በዝሒ ብር",
+        "total": "ጠቕላላ በዝሒ ብር",
+        "noMember": "እዚ ዕፃ ቁፅሪ ኣይተትሓዘን"
+    },
+    "equbLevels": {
+        "title": "ናይ ዕቁብ ደረጃታት",
+        "des": "ኩሎም ናይዚ ዕቁብ ደረጃታት",
+        "levelTitle": "ደረጃ",
+        "contribution": "በዝሒ ብር",
+        "actions": "ተግባራት",
+        "equbLevels": "ዕቁብ ደረጃታት"
+    },
+    "deleteEqubLevel":{
+        "delete":"ኣጥፍእ",
+        "title":"ዕቁብ ደረጃ ኣጥፍእ",
+        "des":"እዚ ዕቁብ ደረጃ ንምጥፋእ የረጋግፁ",
         "fullName":"ሽም",
         "level":"ደረጃ",
-        "amount":"ኣጠቃላይ የብር ብዛት",
-        "total":"ጠቕላላ በዝሒ ብር",
-        "noMember":"እዚ ዕፃ ቁፅሪ ኣይተትሓዘን"
+        "amount":"በዝሒ ብር",
+        "noMember":"እዚ ዕፃ ቁፅሪ ኣይተትሓዘን",
+        "cancel":"መልሰኒ"
     }
 }
