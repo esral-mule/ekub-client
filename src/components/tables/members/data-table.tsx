@@ -43,8 +43,8 @@ export function DataTable<TData, TValue>({
     data,
     setData,
     setNewMembership
-}: DataTableProps<TData, TValue>) {   
-    const { t, i18n } = useTranslation("global");   
+}: DataTableProps<TData, TValue>) {
+    const { t, i18n } = useTranslation("global");
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
@@ -77,19 +77,19 @@ export function DataTable<TData, TValue>({
             <div className="flex items-center py-4">
                 <Input
                     placeholder={t("tabs.members.searchPlaceHolder")}
-                    value={(table.getColumn("fullName")?.getFilterValue() as string) ?? ""}
+                    value={(table.getColumn(t("membersTable.fullName"))?.getFilterValue() as string) ?? ""}
                     onChange={(event) =>
-                        table.getColumn("fullName")?.setFilterValue(event.target.value)
+                        table.getColumn(t("membersTable.fullName"))?.setFilterValue(event.target.value)
                     }
                     className="w-96 hidden md:inline print:hidden"
                 />
 
 
-                
+
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button variant="outline" className="print:hidden ml-1">
-                        {t("tabs.members.columns")}
+                            {t("tabs.members.columns")}
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
@@ -98,7 +98,7 @@ export function DataTable<TData, TValue>({
                             .filter(
                                 (column) => column.getCanHide()
                             )
-                            .map((column) => {                                
+                            .map((column) => {
                                 return (
                                     <DropdownMenuCheckboxItem
                                         key={column.id}
@@ -108,8 +108,8 @@ export function DataTable<TData, TValue>({
                                             column.toggleVisibility(!!value)
                                         }
                                     >
-                                        
-                                        
+
+
                                         {column.id}
                                     </DropdownMenuCheckboxItem>
                                 )
@@ -117,9 +117,9 @@ export function DataTable<TData, TValue>({
                     </DropdownMenuContent>
                 </DropdownMenu>
                 <AddMember
-            setData={setData}
-            setNewMembership={setNewMembership}
-          />
+                    setData={setData}
+                    setNewMembership={setNewMembership}
+                />
             </div>
             <div className="rounded-md border">
                 <Table>

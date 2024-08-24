@@ -28,9 +28,9 @@ export default function EqubDetail() {
           <div className="flex flex-wrap items-center">
             <TabsList>
               <TabsTrigger value="all">{t("tabs.members.tabTitle")}</TabsTrigger>
-              <TabsTrigger value="roundes">{t("tabs.roundes.tabTitle")}</TabsTrigger>
-              <TabsTrigger value="active">{t("tabs.active.tabTitle")}</TabsTrigger>
               <TabsTrigger value="equblevels">{t("tabs.equbLevel.tabTitle")}</TabsTrigger>
+              <TabsTrigger value="active">{t("tabs.active.tabTitle")}</TabsTrigger>
+              <TabsTrigger value="roundes">{t("tabs.roundes.tabTitle")}</TabsTrigger>
             </TabsList>
             <div className="ml-auto flex items-center gap-2">
               <Button
