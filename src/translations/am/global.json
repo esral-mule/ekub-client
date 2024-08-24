@@ -51,5 +51,39 @@
             "lotteryDay": "ዕጣ የሚወጣበት ቀን ያስገቡ",
             "contributionDay": "ክፍያ መሰብሰብያ ቀን ያስገቡ"
         }
+    },
+    "tabs": {
+        "members": {
+            "tabTitle": "ኣባሎች",
+            "title": "የኣባሎች ዝርዝር",
+            "des": "ሙሉ የኣባሎች ዝርዝር",
+            "print": "አትም",
+            "loading": "loading",
+            "searchPlaceHolder": "ኣባል ፈልግ...",
+            "columns": "አምዶች",
+            "addMember": "ኣባል መዝግብ"
+        },
+        "roundes": {
+            "tabTitle": "ታሪክ"
+        },
+        "active": {
+            "tabTitle": "በመካሄድ ላይ ያለ ዙር"
+        },
+        "equbLevel": {
+            "tabTitle": "ደረጃዎች"
+        }
+    },
+    "membersTable": {
+        "fullName": "ስም",
+        "phoneNumber": "ስልክ ቁጥር",
+        "level": "ደረጃ",
+        "uniqueId": "ዕጣ ቁጥር",
+        "actions": "ድርጊቶች",
+        "detail": "ዝርዝር",
+        "delete": "ሰርዝ",
+        "previous": "ቀዳሚ",
+        "next": "ቀጥሎ",
+        "memebers": "ኣባሎች",
+        "of": "ከ"
     }
 }

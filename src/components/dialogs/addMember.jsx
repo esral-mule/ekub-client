@@ -17,10 +17,11 @@ import { PlusCircle } from "lucide-react";
 import CreateUser from "./CreateUser";
 import CreateEqubLevel from "./CreateEqubLevel";
 import UniqueIdDetail from "../tables/UniqueIdDetail";
+import { useTranslation } from "react-i18next"
 
 export default function AddMember({ setData, setNewMembership }) {
   let { id: equbId } = useParams();
-
+  const { t, i18n } = useTranslation("global");   
   const [user, setUser] = useState("");
   const [users, setUsers] = useState([]);
   const [selectedUserValue, setSelectedUserValue] = useState("");
@@ -113,7 +114,7 @@ export default function AddMember({ setData, setNewMembership }) {
           className="ml-auto print:hidden bg-primary mr-1"
         >
           <PlusCircle className="h-3.5 w-3.5 pr-1" />
-          Add Member
+          {t("tabs.members.addMember")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent className="sm:max-w-[425px]">

@@ -51,5 +51,39 @@
             "lotteryDay": "ዕፃ ዝወድቀሉ መዓልቲ የእትው",
             "contributionDay": "ዝእከበሉ መዓልቲ የእትው"
         }
+    },
+    "tabs": {
+        "members": {
+            "tabTitle": "ኣባላት",
+            "title": "ናይ ኣባላት ዝርዝር",
+            "des": "ምሉእ ናይ ኣባላት ዝርዝር",
+            "print": "ሕትመት",
+            "loading": "ዝርዝር ኣብ ምዝግጃው",
+            "searchPlaceHolder": "ኣባል ኣልሽ...",
+            "columns": "ሪጋ",
+            "addMember": "ኣባል መዝግብ"
+        },
+        "roundes": {
+            "tabTitle": "ታሪክ"
+        },
+        "active": {
+            "tabTitle": "ኣብ ከይዲ ዘሎ ዙር"
+        },
+        "equbLevel": {
+            "tabTitle": "ደረጃታት"
+        }
+    },
+    "membersTable": {
+        "fullName": "ሽም",
+        "phoneNumber": "ስልኪ ቁፅሪ",
+        "level": "ደረጃ",
+        "uniqueId": "ዕፃ ቁፅሪ",
+        "actions": "ተግባራት",
+        "detail": "ዝርዝር",
+        "delete": "ደምስስ",
+        "previous": "ሕሉፍ",
+        "next": "ቀፃሊ",
+        "memebers": "ኣባላት",
+        "of": "ካብ"
     }
 }

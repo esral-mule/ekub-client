@@ -4,12 +4,11 @@ import { Button } from "../../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../../ui/dropdown-menu";
 import DeleteMember from "../../dialogs/DeleteMember"
 import MemberDetail from "../../dialogs/MemberDetail"
+import { useTranslation } from "react-i18next";
 
 export type User = {
   _id: string;
@@ -28,11 +27,12 @@ export type User = {
   updatedAt: Date;
 };
 
-export function getColumns(setData) {
+export function getColumns(setData, t) {
+
   return [
     {
       accessorFn: (row) => row.member.fullName,
-      id: "fullName",
+      id: t("membersTable.fullName"),
       header: ({ column }) => {
         return (
           <Button
@@ -40,7 +40,8 @@ export function getColumns(setData) {
             className="text-right"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
-            Full Name
+
+            {t("membersTable.fullName")}
             <ArrowUpDown className="ml-2 h-4 w-4" />
           </Button>
         );
@@ -51,9 +52,11 @@ export function getColumns(setData) {
     },
     {
       accessorFn: (row) => row.member.phoneNumber,
-      id: "phoneNumber",
+      id: t("membersTable.phoneNumber"),
       header: () => {
-        return <div>Phone Number</div>;
+        return <div>
+          {t("membersTable.phoneNumber")}
+        </div>;
       },
       cell: ({ row }) => {
         return <div className="font-medium">{row.original.member.phoneNumber}</div>;
@@ -61,15 +64,15 @@ export function getColumns(setData) {
     },
     {
       accessorFn: (row) => row.equbLevel.title,
-      id: "title",
-      header: () => <div>Level</div>,
+      id: t("membersTable.level"),
+      header: () => <div>{t("membersTable.level")}</div>,
       cell: ({ row }) => {
         return <div className="font-medium">{row.original.equbLevel.title}</div>;
       },
     },
     {
       accessorFn: (row) => row.uniqueId.uniqueId,
-      id: "uniqueId",
+      id: t("membersTable.uniqueId"),
       header: ({ column }) => {
         return (
           <Button
@@ -77,7 +80,7 @@ export function getColumns(setData) {
             className="text-right"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
-            Unique Id
+            {t("membersTable.uniqueId")}
             <ArrowUpDown className="ml-2 h-4 w-4" />
           </Button>
         );
@@ -87,8 +90,8 @@ export function getColumns(setData) {
       },
     },
     {
-      id: "actions",
-      header: "Actions",
+      id: t("membersTable.actions"),
+      header: t("membersTable.actions"),
       cell: ({ row }) => {
         const user = row.original;
 
@@ -101,8 +104,8 @@ export function getColumns(setData) {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <MemberDetail user={user}/>
-              <DeleteMember user={user}  setData={setData}/>
+              <MemberDetail user={user} />
+              <DeleteMember user={user} setData={setData} />
             </DropdownMenuContent>
           </DropdownMenu>
         );

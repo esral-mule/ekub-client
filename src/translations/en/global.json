@@ -52,5 +52,39 @@
             "contribution": "Contribution ...",
             "maxUniqueIds": "Total UniqueIds ..."
         }
+    },
+    "tabs": {
+        "members": {
+            "tabTitle": "Members",
+            "title": "Memeber list",
+            "des": "All Equb member list",
+            "print": "print",
+            "loading": "ዝርዝር በማዘጋጀት ላይ",
+            "searchPlaceHolder": "Search member...",
+            "columns": "Columns",
+            "addMember": "Add Member"
+        },
+        "roundes": {
+            "tabTitle": "History"
+        },
+        "active": {
+            "tabTitle": "Active"
+        },
+        "equbLevel": {
+            "tabTitle": "Levels"
+        }
+    },
+    "membersTable": {
+        "fullName": "Full Name",
+        "phoneNumber": "Phone Number",
+        "level": "Level",
+        "uniqueId": "UniqueId",
+        "actions": "Actions",
+        "detail": "Detail",
+        "delete": "Delete",
+        "previous": "Previous",
+        "next": "Next",
+        "memebers": "Memebers",
+        "of": "of"
     }
 }

@@ -12,7 +12,9 @@ import EqubLevels from "../components/tabs/EqubLevels";
 import { useReactToPrint } from "react-to-print";
 import { useRef } from "react";
 import Transition from "../components/Transition";
+import { useTranslation } from "react-i18next";
 export default function EqubDetail() {
+  const { t, i18n } = useTranslation("global");
   const ref = useRef();
   const handlePrint = useReactToPrint({
     content: () => {
@@ -25,10 +27,10 @@ export default function EqubDetail() {
         <Tabs defaultValue="all">
           <div className="flex flex-wrap items-center">
             <TabsList>
-              <TabsTrigger value="all">Members</TabsTrigger>
-              <TabsTrigger value="roundes">Roundes</TabsTrigger>
-              <TabsTrigger value="active">Active</TabsTrigger>
-              <TabsTrigger value="equblevels">Equb Levels</TabsTrigger>
+              <TabsTrigger value="all">{t("tabs.members.tabTitle")}</TabsTrigger>
+              <TabsTrigger value="roundes">{t("tabs.roundes.tabTitle")}</TabsTrigger>
+              <TabsTrigger value="active">{t("tabs.active.tabTitle")}</TabsTrigger>
+              <TabsTrigger value="equblevels">{t("tabs.equbLevel.tabTitle")}</TabsTrigger>
             </TabsList>
             <div className="ml-auto flex items-center gap-2">
               <Button
@@ -39,7 +41,7 @@ export default function EqubDetail() {
               >
                 <File className="h-3.5 w-3.5" />
                 <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                  Export
+                  {t("tabs.members.print")}
                 </span>
               </Button>
             </div>

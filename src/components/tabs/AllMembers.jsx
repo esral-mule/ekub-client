@@ -12,9 +12,11 @@ import { useParams } from "react-router";
 import API from "../../api/axios";
 import { useState, useEffect } from "react";
 import ConfirmAddToActive from "../dialogs/ConfirmAddToActive";
+import { useTranslation } from "react-i18next";
 
 export default function AllMembers() {
   let { id } = useParams();
+  const { t, i18n } = useTranslation("global");
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [newMembership, setNewMembership] = useState(false);
@@ -35,8 +37,8 @@ export default function AllMembers() {
       <Card x-chunk="dashboard-06-chunk-0">
         <CardHeader>
 
-          <CardTitle>Memeber list</CardTitle>
-          <CardDescription>All Equb member list</CardDescription>
+          <CardTitle>{t("tabs.members.title")}</CardTitle>
+          <CardDescription>{t("tabs.members.des")}</CardDescription>
         </CardHeader>
         <CardContent className="p-0 md:p-6">
           <DemoPage
@@ -51,7 +53,7 @@ export default function AllMembers() {
           {
             data &&
             <div className="text-xs text-muted-foreground">
-            Showing <strong>1-10</strong> of <strong>{data.length}</strong> memebers
+            <strong>1-10</strong> {t("tabs.members.of")} <strong>{data.length}</strong> {t("tabs.members.memebers")}
           </div>
           }
         </CardFooter>
