@@ -10,8 +10,12 @@ import {
   AlertDialogTrigger,
 } from "../../components/ui/alert-dialog";
 import { Button } from "../ui/button";
-import {useState} from 'react'
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
 export default function MemberDetail({ user }) {
+  const { t, i18n } = useTranslation("global");
+
   const [open, setOpen] = useState(false);
 
   return (
@@ -22,41 +26,44 @@ export default function MemberDetail({ user }) {
           className="bg-primary ml-auto print:hidden mb-[1px] w-full"
         >
           <User size={18} className="pr-1" />
-          Detail
+          {t("memberDetail.detail")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent className="sm:max-w-[425px] p-6 rounded-md shadow-lg">
         <AlertDialogHeader>
           <AlertDialogTitle className="text-lg font-semibold">
-            Member Detail
+            {t("memberDetail.title")}
           </AlertDialogTitle>
           <AlertDialogDescription className="text-sm">
-            Detailed information about the selected member.
+            {t("memberDetail.des")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <div className="space-y-4 max-h-52 overflow-y-scroll">
           <div className="border-b pb-2 flex items-center flex-wrap gap-2">
-            <p className="text-sm font-bold">Full Name:</p>
+            <p className="text-sm font-bold"> {t("memberDetail.fullName")}</p>
             <p className="text-md">{user.member.fullName}</p>
           </div>
           <div className="border-b pb-2 flex items-center flex-wrap gap-2">
-            <p className="text-sm font-bold ">Phone Number:</p>
+            <p className="text-sm font-bold ">
+              {" "}
+              {t("memberDetail.phoneNumber")}
+            </p>
             <p className="text-md ">{user.member.phoneNumber}</p>
           </div>
           <div className="border-b pb-2 flex items-center flex-wrap gap-2">
-            <p className="text-sm font-bold ">Username:</p>
+            <p className="text-sm font-bold "> {t("memberDetail.username")}</p>
             <p className="text-md ">{user.member.username}</p>
           </div>
           <div className="border-b pb-2 flex items-center flex-wrap gap-2">
-            <p className="text-sm font-bold ">Equb Type:</p>
+            <p className="text-sm font-bold "> {t("memberDetail.equbType")}</p>
             <p className="text-md ">{user.equbType.name}</p>
           </div>
           <div className="border-b pb-2 flex items-center flex-wrap gap-2">
-            <p className="text-sm font-bold ">Equb Level:</p>
+            <p className="text-sm font-bold "> {t("memberDetail.equbLevel")}</p>
             <p className="text-md ">{user.equbLevel.title}</p>
           </div>
           <div className="border-b pb-2 flex items-center flex-wrap gap-2">
-            <p className="text-sm font-bold ">Unique ID:</p>
+            <p className="text-sm font-bold "> {t("memberDetail.uniqueId")}</p>
             <p className="text-md ">{user.uniqueId.uniqueId}</p>
           </div>
           <div className="flex items-center flex-wrap gap-2">
@@ -70,11 +77,11 @@ export default function MemberDetail({ user }) {
             </p>
           </div>
         </div>
-      <AlertDialogFooter className="mb-4">
-        <Button size="xs" variant="secondary" onClick={() => setOpen(false)}>
-          Close
-        </Button>
-      </AlertDialogFooter>
+        <AlertDialogFooter className="mb-4">
+          <Button size="xs" variant="secondary" onClick={() => setOpen(false)}>
+            {t("memberDetail.close")}
+          </Button>
+        </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
   );

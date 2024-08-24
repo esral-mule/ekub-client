@@ -85,5 +85,17 @@
         "next": "ቀፃሊ",
         "memebers": "ኣባላት",
         "of": "ካብ"
+    },
+    "memberDetail": {
+        "detail": "ዝርዝር",
+        "title": "ናይ ኣባል ዝርዝር",
+        "des": "ናይ ኣባል ዝርዝር ሓበሬታ",
+        "fullName": "ሽም:",
+        "phoneNumber": "ስልኪ ቁፅሪ",
+        "username": "ፍሉይ መለለይ ሽም",
+        "equbType": "ዕቁብ ሽም",
+        "equbLevel:": "ዕቁብ ደረጃ",
+        "uniqueId": "ዕፃ ቁፅሪ",
+        "close": "መልሰኒ"
     }
 }

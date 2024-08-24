@@ -85,5 +85,17 @@
         "next": "ቀጥሎ",
         "memebers": "ኣባሎች",
         "of": "ከ"
+    },
+    "memberDetail": {
+        "detail": "ዝርዝር",
+        "title": "የኣባል ዝርዝር",
+        "des": "የኣባል ዝርዝር መረጃ",
+        "fullName": "ስም:",
+        "phoneNumber": "ስልክ ቁጥር",
+        "username": "ልዩ መለያ ስም",
+        "equbType": "የዕቁብ ስም",
+        "equbLevel:": "የዕቁብ ደረጃ",
+        "uniqueId": "ዕጣ ቁጥር",
+        "close": "መልሰኝ"
     }
 }
