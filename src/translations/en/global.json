@@ -138,5 +138,12 @@
         "cancel": "Cancel",
         "loading": "Creating...",
         "confirm": "Create"
+    },
+    "uniqueIdDetail":{
+        "fullName":"Full Name",
+        "level":"Level",
+        "amount":"Amount",
+        "total":"Total",
+        "noMember":"No Member is assigned to this UniqueId"
     }
 }

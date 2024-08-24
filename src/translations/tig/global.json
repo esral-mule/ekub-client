@@ -138,5 +138,12 @@
         "cancel": "መልሰኒ",
         "loading": "ኣብ ምምዝጋብ",
         "confirm": "መዝግብ"
+    },
+    "uniqueIdDetail":{
+        "fullName":"ሽም",
+        "level":"ደረጃ",
+        "amount":"ኣጠቃላይ የብር ብዛት",
+        "total":"ጠቕላላ በዝሒ ብር",
+        "noMember":"እዚ ዕፃ ቁፅሪ ኣይተትሓዘን"
     }
 }

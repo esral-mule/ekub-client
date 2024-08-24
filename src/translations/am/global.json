@@ -122,7 +122,7 @@
         "name": "ተጠቃሚ መዝግብ",
         "title": "ተጠቃሚ መዝግብ",
         "des": "ኣዲስ ተጠቃሚ መዝግብ",
-        "fullName": "ስም:",
+        "fullName": "ስም",
         "phoneNumber": "ስልክ ቁጥር",
         "username": "ልዩ መለያ ስም",
         "password": "የሚስጥር ቃል",
@@ -138,5 +138,12 @@
         "cancel": "መልሰኒ",
         "loading": "በመመዝገብ ላይ",
         "confirm": "መዝግብ"
+    },
+    "uniqueIdDetail":{
+        "fullName":"ስም",
+        "level":"ደረጃ",
+        "amount":"የብር ብዛት",
+        "total":"ኣጠቃላይ የብር ብዛት",
+        "noMember":"ይህ እጣ ቁጥር ኣልተያዘም"
     }
 }

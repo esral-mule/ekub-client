@@ -11,9 +11,12 @@ import {
 } from "../ui/table";
 import { Card } from "../ui/card";
 import { Loader2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 // Assume you have a Spinner component for loading state
 
 export default function UniqueIdDetail({ uniqueID }) {
+  const { t, i18n } = useTranslation("global");   
+
   const [uniqueIDDetail, setUniqueIdDetail] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -52,9 +55,9 @@ export default function UniqueIdDetail({ uniqueID }) {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Full Name</TableHead>
-                    <TableHead>Level</TableHead>
-                    <TableHead className="text-right">Amount</TableHead>
+                    <TableHead>{t("uniqueIdDetail.fullName")}</TableHead>
+                    <TableHead>{t("uniqueIdDetail.level")}</TableHead>
+                    <TableHead className="text-right">{t("uniqueIdDetail.amount")}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -72,7 +75,7 @@ export default function UniqueIdDetail({ uniqueID }) {
                 </TableBody>
                 <TableFooter>
                   <TableRow>
-                    <TableCell colSpan={2}>Total</TableCell>
+                    <TableCell colSpan={2}>{t("uniqueIdDetail.total")}</TableCell>
                     <TableCell className="text-right">
                       {CalculateTotla(uniqueIDDetail.members)}
                     </TableCell>
@@ -81,7 +84,7 @@ export default function UniqueIdDetail({ uniqueID }) {
               </Table>
             ) : (
               <div className="text-center">
-                No Member is assigned to this UniqueId
+                {t("uniqueIdDetail.noMember")}
               </div>
             )}
           </Card>
