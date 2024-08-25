@@ -36,8 +36,10 @@ import {
   TooltipProvider,
 } from "@/components/ui/tooltip";
 import HamburgerMenu from "../components/icons/HamburgerMenu";
+import { useTranslation } from "react-i18next";
 const Layout = () => {
   const { state } = useContext(AuthContext);
+  const { t, i18n } = useTranslation("global");
 
   return (
     <div className="flex min-h-screen w-full flex-col  ">
@@ -54,10 +56,10 @@ const Layout = () => {
                         className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                       >
                         <Home className="h-5 w-5" />
-                        <span className="sr-only">Dashboard</span>
+                        <span className="sr-only">{t("layout.dashboard")}</span>
                       </NavLink>
                     </TooltipTrigger>
-                    <TooltipContent side="right">Dashboard</TooltipContent>
+                    <TooltipContent side="right">{t("layout.dashboard")}</TooltipContent>
                   </Tooltip>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -66,10 +68,10 @@ const Layout = () => {
                         className="flex h-9 w-9 items-center justify-center rounded-lg text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                       >
                         <Package className="h-5 w-5" />
-                        <span className="sr-only">Equbes</span>
+                        <span className="sr-only">{t("layout.equbs")}</span>
                       </NavLink>
                     </TooltipTrigger>
-                    <TooltipContent side="right">Equbes</TooltipContent>
+                    <TooltipContent side="right">{t("layout.equbs")}</TooltipContent>
                   </Tooltip>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -78,10 +80,10 @@ const Layout = () => {
                         className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                       >
                         <PackagePlus className="h-5 w-5" />
-                        <span className="sr-only">Create Equb</span>
+                        <span className="sr-only">{t("layout.createequb")}</span>
                       </NavLink>
                     </TooltipTrigger>
-                    <TooltipContent side="right">Create Equb</TooltipContent>
+                    <TooltipContent side="right">{t("layout.createequb")}</TooltipContent>
                   </Tooltip>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -90,10 +92,10 @@ const Layout = () => {
                         className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8"
                       >
                         <UserRoundPlus className="h-5 w-5" />
-                        <span className="sr-only">Create User</span>
+                        <span className="sr-only">{t("layout.createUser")}</span>
                       </NavLink>
                     </TooltipTrigger>
-                    <TooltipContent side="right">Create User</TooltipContent>
+                    <TooltipContent side="right">{t("layout.createUser")}</TooltipContent>
                   </Tooltip>
                 </nav>
                 {/* <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
@@ -130,7 +132,7 @@ const Layout = () => {
                     className="flex items-center gap-2 text-lg font-semibold md:text-base"
                   >
                     <Package2 className="h-6 w-6" />
-                    <span className="sr-only">Acme Inc</span>
+                    <span className="sr-only">{t("layout.logoName")}</span>
                   </Link>
                   <SheetClose asChild>
                     <NavLink
@@ -138,7 +140,7 @@ const Layout = () => {
                       className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground rounded-sm"
                     >
                       <Home className="h-5 w-5" />
-                      Dashboard
+                      {t("layout.dashboard")}
                     </NavLink>
                   </SheetClose>
 
@@ -148,7 +150,7 @@ const Layout = () => {
                       className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground rounded-sm"
                     >
                       <ShoppingCart className="h-5 w-5" />
-                      Equbes
+                      {t("layout.equbs")}
                     </NavLink>
                   </SheetClose>
                   <SheetClose asChild>
@@ -157,7 +159,7 @@ const Layout = () => {
                       className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground rounded-sm"
                     >
                       <Package className="h-5 w-5" />
-                      Create Equb
+                      {t("layout.createequb")}
                     </NavLink>
                   </SheetClose>
                   <SheetClose asChild>
@@ -166,7 +168,7 @@ const Layout = () => {
                       className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground rounded-sm"
                     >
                       <Users2 className="h-5 w-5" />
-                      Create User
+                      {t("layout.createUser")}
                     </NavLink>
                   </SheetClose>
                 </nav>
@@ -179,7 +181,7 @@ const Layout = () => {
                 className="flex items-center gap-2 text-lg font-semibold md:text-base"
               >
                 <Package2 className="h-6 w-6" />
-                <span className="sr-only">Acme Inc</span>
+                <span className="sr-only">{t("layout.logoName")}</span>
               </Link>
               <div className="ml-auto flex-1 sm:flex-initial"></div>
               <DropdownMenu>
@@ -194,14 +196,14 @@ const Layout = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuLabel>{t("layout.myAccount")}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>Settings</DropdownMenuItem>
-                  <DropdownMenuItem>Support</DropdownMenuItem>
+                  <DropdownMenuItem>{t("layout.setting")}</DropdownMenuItem>
+                  <DropdownMenuItem>{t("layout.support")}</DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
                     <NavLink to="/signout">
-                      <p>logout</p>
+                      <p>{t("layout.logout")}</p>
                     </NavLink>
                   </DropdownMenuItem>
                 </DropdownMenuContent>

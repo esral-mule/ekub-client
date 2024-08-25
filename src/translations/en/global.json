@@ -2,6 +2,17 @@
     "coming": {
         "message": "Coming soon"
     },
+    "layout":{
+        "logoName":"Equb",
+        "dashboard":"Dashboard",
+        "equbs":"Equbs",
+        "createequb":"Create Equb",
+        "createUser":"Create User",
+        "setting":"Settings",
+        "myAccount":"My Account",
+        "support":"Support",
+        "logout":"Logout"
+    },
     "logout": {
         "title": "Logout",
         "des": "Are you sure you want to logout?",
@@ -211,6 +222,7 @@
     },
     "selectRound":{
         "placeholder":"Select round",
-        "roundes":"Rounds"
+        "roundes":"Rounds",
+        "round":"Round"
     }
 }

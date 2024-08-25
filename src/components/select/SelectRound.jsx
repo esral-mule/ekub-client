@@ -34,7 +34,7 @@ export default function SelectRound({
           <SelectLabel>{t("selectRound.roundes")}</SelectLabel>
           {options.map((option) => (
             <SelectItem key={option._id} value={`${option.round}`}>
-              {`Round ${option.round}`}
+              {`${t("selectRound.round")} ${option.round}`}
             </SelectItem>
           ))}
         </SelectGroup>

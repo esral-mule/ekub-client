@@ -2,6 +2,17 @@
     "coming": {
         "message": "ኣብ ቀረባ እዋን"
     },
+    "layout":{
+        "logoName":"ዕቁብ",
+        "dashboard":"ዳሽቦርድ",
+        "equbs":"ዕቁባት",
+        "createequb":"ሓዱሽ ዕቑብ ይመዝግቡ",
+        "createUser":"ሓዱሽ ተጠቃሚ ይመዝግቡ",
+        "setting":"መስተኻኸሊ",
+        "myAccount":"ናተይ ኣካውንት",
+        "support":"ሓገዝ",
+        "logout":"ንምውፃእ"
+    },
     "logout": {
         "title": "ንምውፃእ",
         "des": "ክወፁ ከምዝደልዩ ርግፀኛ ድዮም?",
@@ -211,6 +222,8 @@
     },
     "selectRound":{
         "placeholder":"ዙር ይምረፁ",
-        "roundes":"ዙራት"
+        "roundes":"ዙራት",
+        "round":"ዙር"
+
     }
 }
