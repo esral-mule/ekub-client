@@ -139,7 +139,7 @@ const CreateUser = () => {
             </div>
           </CardContent>
           <CardFooter>
-            <Button disabled={isLoading}> {isLoading? t("creatUser.loading"):t("creatUser.createEquber")}</Button>
+            <Button disabled={isLoading || fullName==""|| username == ""||phoneNumber=="" || password==""}> {isLoading? t("creatUser.loading"):t("creatUser.createEquber")}</Button>
           </CardFooter>
         </Card>
       </form>

@@ -140,7 +140,13 @@
         "username": "Username",
         "password": "Password",
         "loading": "Creating...",
-        "confirm": "Create"
+        "confirm": "Create",
+        "placeholders": {
+            "fullName": "Full Name...",
+            "phoneNumber": "Phone Number...",
+            "username": "Username...",
+            "password": "Password..."
+        }
     },
     "addEqubLevel": {
         "name": "Add Equb Level",

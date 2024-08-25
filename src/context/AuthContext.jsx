@@ -1,5 +1,5 @@
 import { createContext, useReducer } from 'react';
-
+import { setLogoutFunction } from '../api/axios';
 const AuthContext = createContext();
 
 const initialState = {
@@ -44,6 +44,7 @@ const AuthProvider = ({ children }) => {
     window.location.href = '/signin';
   };
 
+  setLogoutFunction(logout);
   return (
     <AuthContext.Provider value={{ state, login, logout }}>
       {children}

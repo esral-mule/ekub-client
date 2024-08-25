@@ -1,6 +1,10 @@
-import { useContext } from 'react';
-import { AuthContext } from '../context/AuthContext'; 
 import axios from 'axios';
+let logoutFunction = null;
+
+// Function to set the logout function from AuthContext
+export const setLogoutFunction = (logout) => {
+  logoutFunction = logout;
+};
 
 const API = axios.create({
   // TODO: replace URL value from env
@@ -34,11 +38,8 @@ API.interceptors.response.use(
   (error) => {
     // Handle errors here
     if (error.response && error.response.status === 401) {
-      // Token has expired, trigger logout
-      const { logout } = useContext(AuthContext); // Get the logout method from the AuthContext
-
-      if (logout) {
-        logout(); // Log the user out if the token is expired
+      if (logoutFunction) {
+        logoutFunction(); // Trigger the logout function when token is expired
       }
 
       // Optionally, redirect the user to the sign-in page

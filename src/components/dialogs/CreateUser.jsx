@@ -93,6 +93,7 @@ export default function CreateUser({
             </Label>
             <Input
               id="fullName"
+              placeholder={t("creatNewUser.placeholders.fullName")}
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               className="col-span-3"
@@ -105,6 +106,7 @@ export default function CreateUser({
             </Label>
             <Input
               id="phoneNumber"
+              placeholder={t("creatNewUser.placeholders.phoneNumber")}
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               className="col-span-3"
@@ -117,6 +119,7 @@ export default function CreateUser({
             </Label>
             <Input
               id="username"
+              placeholder={t("creatNewUser.placeholders.username")}
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               className="col-span-3"
@@ -129,6 +132,7 @@ export default function CreateUser({
             </Label>
             <Input
               id="password"
+              placeholder={t("creatNewUser.placeholders.password")}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="col-span-3"

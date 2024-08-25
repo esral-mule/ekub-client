@@ -155,7 +155,7 @@ const CreateEqub = () => {
             </div>
           </CardContent>
           <CardFooter>
-            <Button disabled={isLoading}>
+            <Button disabled={isLoading || name==""||contributionDay==""|| lotteryDay==""|| contribution==""|| maxUniqueIds==""}>
               {isLoading ? t("createeqube.loading") : t("createeqube.create")}
             </Button>
           </CardFooter>

@@ -2,16 +2,16 @@
     "coming": {
         "message": "በቅርብ ቀን"
     },
-    "layout":{
-        "logoName":"ዕቁብ",
-        "dashboard":"ዳሽቦርድ",
-        "equbs":"ዕቁቦች",
-        "createequb":"ኣዲስ ዕቁብ ይመዝግቡ",
-        "createUser":"ኣዲስ ተጠቃሚ ይመዝግቡ",
-        "setting":"ማስተካከያ",
-        "myAccount":"የኔ ኣካውንት",
-        "support":"እርዳታ",
-        "logout":"ለመውጣት"
+    "layout": {
+        "logoName": "ዕቁብ",
+        "dashboard": "ዳሽቦርድ",
+        "equbs": "ዕቁቦች",
+        "createequb": "ኣዲስ ዕቁብ ይመዝግቡ",
+        "createUser": "ኣዲስ ተጠቃሚ ይመዝግቡ",
+        "setting": "ማስተካከያ",
+        "myAccount": "የኔ ኣካውንት",
+        "support": "እርዳታ",
+        "logout": "ለመውጣት"
     },
     "logout": {
         "title": "ለመውጣት",
@@ -140,7 +140,13 @@
         "username": "ልዩ መለያ ስም",
         "password": "የሚስጥር ቃል",
         "loading": "በመመዝገብ ላይ",
-        "confirm": "መዝግብ"
+        "confirm": "መዝግብ",
+        "placeholders": {
+            "fullName": "ስም ያስገቡ",
+            "phoneNumber": "ስልክ ቁጥር ያስገቡ",
+            "username": "ልዩ መለያ ስም ያስገቡ",
+            "password": "የሚስጥር ቃል ያስገቡ"
+        }
     },
     "addEqubLevel": {
         "name": "ኣዲስ ደረጃ",
@@ -203,7 +209,7 @@
         "name": "ዙር ዝጋ",
         "title": "ዕጣ የመውጫ ቀን",
         "des": "የኣሸናፊ ዕጣ ቁጥር ያስገቡ",
-        "searchPlaceHolder":"ዕጣ ቁጥር ይምረጡ",
+        "searchPlaceHolder": "ዕጣ ቁጥር ይምረጡ",
         "uniqueId": "ዕጣ ቁጥር",
         "cancel": "መልሰኝ",
         "confirm": "ዙር ዝጋ"
@@ -219,9 +225,9 @@
         "title": "የዕቁቡ ዙሮች",
         "des": "ከተዘረዘሩት የዕቁቡ ዙሮች ኣንዱን ይምረጡ"
     },
-    "selectRound":{
-        "placeholder":"ዙር ይምረጡ",
-        "roundes":"ዙሮች",
-        "round":"ዙር"
+    "selectRound": {
+        "placeholder": "ዙር ይምረጡ",
+        "roundes": "ዙሮች",
+        "round": "ዙር"
     }
 }

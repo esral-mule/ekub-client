@@ -2,16 +2,16 @@
     "coming": {
         "message": "ኣብ ቀረባ እዋን"
     },
-    "layout":{
-        "logoName":"ዕቁብ",
-        "dashboard":"ዳሽቦርድ",
-        "equbs":"ዕቁባት",
-        "createequb":"ሓዱሽ ዕቑብ ይመዝግቡ",
-        "createUser":"ሓዱሽ ተጠቃሚ ይመዝግቡ",
-        "setting":"መስተኻኸሊ",
-        "myAccount":"ናተይ ኣካውንት",
-        "support":"ሓገዝ",
-        "logout":"ንምውፃእ"
+    "layout": {
+        "logoName": "ዕቁብ",
+        "dashboard": "ዳሽቦርድ",
+        "equbs": "ዕቁባት",
+        "createequb": "ሓዱሽ ዕቑብ ይመዝግቡ",
+        "createUser": "ሓዱሽ ተጠቃሚ ይመዝግቡ",
+        "setting": "መስተኻኸሊ",
+        "myAccount": "ናተይ ኣካውንት",
+        "support": "ሓገዝ",
+        "logout": "ንምውፃእ"
     },
     "logout": {
         "title": "ንምውፃእ",
@@ -140,7 +140,13 @@
         "username": "ፍሉይ መለለይ ሽም",
         "password": "ናይ ሚስጥር ቃል",
         "loading": "ኣብ ምምዝጋብ",
-        "confirm": "መዝግብ"
+        "confirm": "መዝግብ",
+        "placeholders": {
+            "fullName": "ሽም የእትው",
+            "phoneNumber": "ስልኪ ቁፅሪ የእትው",
+            "username": "ፍሉይ መለለይ ሽም የእትው",
+            "password": "ናይ ሚስጥር ቃል የእትው"
+        }
     },
     "addEqubLevel": {
         "name": "ሓዱሽ ደረጃ",
@@ -179,51 +185,49 @@
     },
     "contributionTable": {
         "columns": "ሪጋ",
-        "noresult":"ውፅኢት የለን",
-        "pre":"ሕሉፍ",
-        "next":"ቀፃሊ",
-        "fullName":"ሽም",
-        "phoneNumber":"ስልኪ ቁፅሪ",
-        "contribution":"በዝሒ ብር",
-        "status":"ክፍሊት ኩነት",
-        "actions":"ተግባራት",
-        "of":"ካብ",
-        "contributions":"መዝገባት ክፍሊት",
-        "paid":"ተኸፊሉ",
-        "unpaid":"ኣይተኸፈለን"
-
+        "noresult": "ውፅኢት የለን",
+        "pre": "ሕሉፍ",
+        "next": "ቀፃሊ",
+        "fullName": "ሽም",
+        "phoneNumber": "ስልኪ ቁፅሪ",
+        "contribution": "በዝሒ ብር",
+        "status": "ክፍሊት ኩነት",
+        "actions": "ተግባራት",
+        "of": "ካብ",
+        "contributions": "መዝገባት ክፍሊት",
+        "paid": "ተኸፊሉ",
+        "unpaid": "ኣይተኸፈለን"
     },
-    "updatePayment":{
-        "name":"ቀይር",
-        "title":"ክፍሊት ኩነት ምቅያር",
-        "des":"ክፍሊት ኩነት ንምቅያር ርግፀኛ ድዮም?",
-        "cancel":"መልሰኒ",
-        "confirm":"ክፍሊት ኩነት ቀይር"
+    "updatePayment": {
+        "name": "ቀይር",
+        "title": "ክፍሊት ኩነት ምቅያር",
+        "des": "ክፍሊት ኩነት ንምቅያር ርግፀኛ ድዮም?",
+        "cancel": "መልሰኒ",
+        "confirm": "ክፍሊት ኩነት ቀይር"
     },
-    "closeActiveRound":{
-        "name":"ዙር ዛዝም",
-        "title":"ዕፃ ዝወድቀሉ መዓልቲ",
-        "des":"ተዓዋታይ ዕፃ ቁፅሪ ይምረፁ",
-        "searchPlaceHolder":"ዕፃ ቁፅሪ ይምረፁ",
-        "uniqueId":"ዕፃ ቁፅሪ",
-        "cancel":"መልሰኒ",
-        "confirm":"ዙር ዛዝም"
+    "closeActiveRound": {
+        "name": "ዙር ዛዝም",
+        "title": "ዕፃ ዝወድቀሉ መዓልቲ",
+        "des": "ተዓዋታይ ዕፃ ቁፅሪ ይምረፁ",
+        "searchPlaceHolder": "ዕፃ ቁፅሪ ይምረፁ",
+        "uniqueId": "ዕፃ ቁፅሪ",
+        "cancel": "መልሰኒ",
+        "confirm": "ዙር ዛዝም"
     },
-    "startRound":{
-        "name":"ሓዱሽ ዙር ጀምር",
-        "title":"ሓዱሽ ዙር ጀምር",
-        "des":"ሓዱሽ ዙር ንምጅማር ርግፀኛ ድዮም?",
-        "cancel":"መልሰኒ",
-        "confirm":"ሓዱሽ ዙር ጀምር"   
+    "startRound": {
+        "name": "ሓዱሽ ዙር ጀምር",
+        "title": "ሓዱሽ ዙር ጀምር",
+        "des": "ሓዱሽ ዙር ንምጅማር ርግፀኛ ድዮም?",
+        "cancel": "መልሰኒ",
+        "confirm": "ሓዱሽ ዙር ጀምር"
     },
-    "roundes":{
-        "title":"ናይዚ ዕቁብ ዙራት",
-        "des":"ካብቶም ተዘርዚሮም ዘለዉ ዙራት ሓደ ይምረፁ"
+    "roundes": {
+        "title": "ናይዚ ዕቁብ ዙራት",
+        "des": "ካብቶም ተዘርዚሮም ዘለዉ ዙራት ሓደ ይምረፁ"
     },
-    "selectRound":{
-        "placeholder":"ዙር ይምረፁ",
-        "roundes":"ዙራት",
-        "round":"ዙር"
-
+    "selectRound": {
+        "placeholder": "ዙር ይምረፁ",
+        "roundes": "ዙራት",
+        "round": "ዙር"
     }
 }
