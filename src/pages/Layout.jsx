@@ -59,7 +59,9 @@ const Layout = () => {
                         <span className="sr-only">{t("layout.dashboard")}</span>
                       </NavLink>
                     </TooltipTrigger>
-                    <TooltipContent side="right">{t("layout.dashboard")}</TooltipContent>
+                    <TooltipContent side="right">
+                      {t("layout.dashboard")}
+                    </TooltipContent>
                   </Tooltip>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -71,7 +73,9 @@ const Layout = () => {
                         <span className="sr-only">{t("layout.equbs")}</span>
                       </NavLink>
                     </TooltipTrigger>
-                    <TooltipContent side="right">{t("layout.equbs")}</TooltipContent>
+                    <TooltipContent side="right">
+                      {t("layout.equbs")}
+                    </TooltipContent>
                   </Tooltip>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -80,10 +84,14 @@ const Layout = () => {
                         className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                       >
                         <PackagePlus className="h-5 w-5" />
-                        <span className="sr-only">{t("layout.createequb")}</span>
+                        <span className="sr-only">
+                          {t("layout.createequb")}
+                        </span>
                       </NavLink>
                     </TooltipTrigger>
-                    <TooltipContent side="right">{t("layout.createequb")}</TooltipContent>
+                    <TooltipContent side="right">
+                      {t("layout.createequb")}
+                    </TooltipContent>
                   </Tooltip>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -92,10 +100,14 @@ const Layout = () => {
                         className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8"
                       >
                         <UserRoundPlus className="h-5 w-5" />
-                        <span className="sr-only">{t("layout.createUser")}</span>
+                        <span className="sr-only">
+                          {t("layout.createUser")}
+                        </span>
                       </NavLink>
                     </TooltipTrigger>
-                    <TooltipContent side="right">{t("layout.createUser")}</TooltipContent>
+                    <TooltipContent side="right">
+                      {t("layout.createUser")}
+                    </TooltipContent>
                   </Tooltip>
                 </nav>
                 {/* <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
@@ -198,13 +210,21 @@ const Layout = () => {
                 <DropdownMenuContent align="end">
                   <DropdownMenuLabel>{t("layout.myAccount")}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>{t("layout.setting")}</DropdownMenuItem>
-                  <DropdownMenuItem>{t("layout.support")}</DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/settings">
+                      <p>{t("layout.setting")}</p>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/support">
+                      <p>{t("layout.support")}</p>
+                    </Link>
+                  </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <NavLink to="/signout">
+                    <Link to="/signout">
                       <p>{t("layout.logout")}</p>
-                    </NavLink>
+                    </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

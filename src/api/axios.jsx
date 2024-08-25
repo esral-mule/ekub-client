@@ -1,8 +1,10 @@
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext'; 
 import axios from 'axios';
 
 const API = axios.create({
   // TODO: replace URL value from env
-  baseURL: 'http://localhost:3000/api/v1'
+  baseURL: 'http://localhost:3000/api/v1',
 });
 
 // Request interceptor
@@ -32,7 +34,15 @@ API.interceptors.response.use(
   (error) => {
     // Handle errors here
     if (error.response && error.response.status === 401) {
-      // Handle unauthorized error, for example, redirect to login
+      // Token has expired, trigger logout
+      const { logout } = useContext(AuthContext); // Get the logout method from the AuthContext
+
+      if (logout) {
+        logout(); // Log the user out if the token is expired
+      }
+
+      // Optionally, redirect the user to the sign-in page
+      window.location.href = '/signin';
     }
     return Promise.reject(error);
   }

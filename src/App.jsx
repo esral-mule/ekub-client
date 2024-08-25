@@ -13,6 +13,9 @@ import ListEqubes from "./pages/ListEqubes";
 import EqubDetail from "./pages/EqubDetail";
 import UserDetail from "./pages/UserDetail";
 import CreateEqub from "./pages/CreateEqub";
+import Settings from "./pages/Settings";
+import Support from "./pages/Support";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -46,6 +49,10 @@ function App() {
                   <Route path="/createeqube" element={<CreateEqub />} />
                   <Route path="/equbdetail/:id" element={<EqubDetail />} />
                   <Route path="/userdetail/:id" element={<UserDetail />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/support" element={<Support/>} />
+                  <Route path="*" element={<NotFound/>} />
+
                 </Route>
               </Routes>
             </BrowserRouter>
