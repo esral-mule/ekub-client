@@ -13,15 +13,17 @@ import API from "../../api/axios";
 import { useState, useEffect } from "react";
 import ConfirmAddToActive from "../dialogs/ConfirmAddToActive";
 import { useTranslation } from "react-i18next";
+import { Loader2 } from "lucide-react";
 
 export default function AllMembers() {
   let { id } = useParams();
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [newMembership, setNewMembership] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true)
     API.get(`/membership/etype/${id}`, {})
       .then((data) => {
         setData(data.data.data);
@@ -36,32 +38,35 @@ export default function AllMembers() {
     <TabsContent value="all">
       <Card x-chunk="dashboard-06-chunk-0">
         <CardHeader>
-
           <CardTitle>{t("tabs.members.title")}</CardTitle>
           <CardDescription>{t("tabs.members.des")}</CardDescription>
         </CardHeader>
         <CardContent className="p-0 md:p-6">
-          <DemoPage
-            id={id}
-            data={data}
-            isLoading={isLoading}
-            setData={setData}
-            setNewMembership={setNewMembership}
-          />
+          {isLoading ? (
+            <Loader2 className="mx-auto h-4 w-4 animate-spin" />
+          ) : (
+            <DemoPage
+              id={id}
+              data={data}
+              isLoading={isLoading}
+              setData={setData}
+              setNewMembership={setNewMembership}
+            />
+          )}
         </CardContent>
         <CardFooter>
-          {
-            data &&
+          {data && (
             <div className="text-xs text-muted-foreground">
-            <strong>1-10</strong> {t("tabs.members.of")} <strong>{data.length}</strong> {t("tabs.members.memebers")}
-          </div>
-          }
+              <strong>1-10</strong> {t("tabs.members.of")}{" "}
+              <strong>{data.length}</strong> {t("tabs.members.memebers")}
+            </div>
+          )}
         </CardFooter>
       </Card>
 
       {newMembership && (
         <ConfirmAddToActive
-        newMembership={newMembership}
+          newMembership={newMembership}
           setNewMembership={setNewMembership}
         />
       )}
