@@ -95,13 +95,13 @@ export default function CloseActiveRound({
             <Winner /> <p className="pl-1">{t("closeActiveRound.title")}</p>
           </AlertDialogTitle>
           <AlertDialogDescription>
-          {t("closeActiveRound.des")}
+            {t("closeActiveRound.des")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="uniqueId" className="text-right">
-            {t("closeActiveRound.uniqueId")}
+              {t("closeActiveRound.uniqueId")}
             </Label>
             <SelectData
               id="uniqueId"
@@ -121,21 +121,22 @@ export default function CloseActiveRound({
           )}
         </div>
         <AlertDialogFooter>
-          <Button
-            variant="secondary"
-            onClick={() => setOpenModal(false)}
-            className="h-8 gap-1"
-          >
-            {t("closeActiveRound.cancel")}
-          </Button>
-          <Button
-            className="h-8 gap-1"
-            onClick={handleSubmit}
-            type="submit"
-            disabled={!selectedUniqueIdValue}
-          >
-            <span>{t("closeActiveRound.confirm")}</span>
-          </Button>
+          <div className="flex gap-x-1 justify-end">
+            <Button
+              onClick={() => setOpenModal(false)}
+              className="h-8 gap-1"
+            >
+              {t("closeActiveRound.cancel")}
+            </Button>
+            <Button
+              className="h-8 gap-1 bg-destructive"
+              onClick={handleSubmit}
+              type="submit"
+              disabled={!selectedUniqueIdValue}
+            >
+              <span>{t("closeActiveRound.confirm")}</span>
+            </Button>
+          </div>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

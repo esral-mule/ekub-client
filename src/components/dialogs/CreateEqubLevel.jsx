@@ -25,7 +25,7 @@ export default function CreateEqubLevel({
   setSelectedEqubLevelLabel,
 }) {
   let { id } = useParams();
-  const { t, i18n } = useTranslation("global");   
+  const { t, i18n } = useTranslation("global");
 
   const { toast } = useToast();
 
@@ -97,16 +97,16 @@ export default function CreateEqubLevel({
       <AlertDialogContent className="sm:max-w-[425px]">
         <AlertDialogHeader className="mb-3">
           <AlertDialogTitle className="text-center">
-          {t("addEqubLevel.title")}
+            {t("addEqubLevel.title")}
           </AlertDialogTitle>
           <AlertDialogDescription className="text-center">
-          {t("addEqubLevel.des")}
+            {t("addEqubLevel.des")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <div className="grid gap-4 py-4 mb-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="title" className="text-right">
-            {t("addEqubLevel.lable")}
+              {t("addEqubLevel.lable")}
             </Label>
             <Input
               id="title"
@@ -118,7 +118,7 @@ export default function CreateEqubLevel({
 
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="contribution" className="text-right">
-            {t("addEqubLevel.contribution")}
+              {t("addEqubLevel.contribution")}
             </Label>
             <Input
               id="contribution"
@@ -129,19 +129,26 @@ export default function CreateEqubLevel({
           </div>
         </div>
         <AlertDialogFooter className="mb-4">
-          <Button size="xs" variant="secondary" onClick={() => setOpen(false)}>
-          {t("addEqubLevel.cancel")}
-          </Button>
-          <Button
-            size="xs"
-            onClick={handleSubmit}
-            type="submit"
-            disabled={isLoading || title=="" || contribution==""}
-          >
-            <CirclePlus size={fromTab ? 18 : 15} className="pr-1 pt-[1px]" />
+          <div className="flex gap-x-1 justify-end">
+            <Button
+              size="xs"
+              onClick={() => setOpen(false)}
+            >
+              {t("addEqubLevel.cancel")}
+            </Button>
+            <Button
+              size="xs"
+              onClick={handleSubmit}
+              type="submit"
+              disabled={isLoading || title == "" || contribution == ""}
+            >
+              <CirclePlus size={fromTab ? 18 : 15} className="pr-1 pt-[1px]" />
 
-            {isLoading ? t("addEqubLevel.loading") : t("addEqubLevel.confirm")}
-          </Button>
+              {isLoading
+                ? t("addEqubLevel.loading")
+                : t("addEqubLevel.confirm")}
+            </Button>
+          </div>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

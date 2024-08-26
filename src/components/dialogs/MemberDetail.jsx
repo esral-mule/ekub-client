@@ -78,7 +78,7 @@ export default function MemberDetail({ user }) {
           </div>
         </div>
         <AlertDialogFooter className="mb-4">
-          <Button size="xs" variant="secondary" onClick={() => setOpen(false)}>
+          <Button size="xs" onClick={() => setOpen(false)}>
             {t("memberDetail.close")}
           </Button>
         </AlertDialogFooter>

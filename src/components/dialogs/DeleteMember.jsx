@@ -66,6 +66,7 @@ export default function DeleteMember({ user, setData }) {
         </AlertDialogHeader>
 
         <AlertDialogFooter>
+          <div className="flex gap-x-1 justify-end">
           <Button
             size="sm"
             className="h-8 gap-1 bg-primary"
@@ -86,6 +87,7 @@ export default function DeleteMember({ user, setData }) {
 
             <span>{t("memberDelete.confirm")}</span>
           </Button>
+          </div>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

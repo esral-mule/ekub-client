@@ -20,7 +20,7 @@ export default function ConfirmAddToActive({
 
   const handleSubmit = (addToAcive) => {
     if (addToAcive) {
-      API.post("/add-to-round", {
+      API.post("/round/add-to-round", {
         member: newMembership
       })
         .then((res) => {
