@@ -46,10 +46,11 @@ export default function DeleteMember({ user, setData }) {
       <AlertDialogTrigger asChild>
         <Button
           size="xs"
+          variant="destructive"
           onClick={() => {
             setOpenModal(true);
           }}
-          className="bg-destructive ml-auto print:hidden mb-[1px] mr-1 w-full"
+          className="ml-auto print:hidden mb-[1px] mr-1 w-full"
         >
           <Trash2 size={18} className="pr-1" />
           {t("memberDelete.delete")}
@@ -79,7 +80,8 @@ export default function DeleteMember({ user, setData }) {
           </Button>
           <Button
             size="sm"
-            className="h-8 gap-1 bg-destructive"
+            variant="destructive"
+            className="h-8 gap-1"
             onClick={handleBan}
             type="submit"
           >

@@ -82,10 +82,11 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
       <AlertDialogTrigger asChild>
         <Button
           size="xs"
+          variant="destructive"
           onClick={() => {
             setOpenModal(true);
           }}
-          className="ml-auto print:hidden mr-1 w-full bg-destructive"
+          className="ml-auto print:hidden mr-1 w-full"
         >
           <Trash2 size={18} className="pr-1" />
           {t("deleteEqubLevel.delete")}
@@ -97,7 +98,7 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
             <p className="pl-1">{t("deleteEqubLevel.title")}</p>
           </AlertDialogTitle>
           <AlertDialogDescription>
-          {t("deleteEqubLevel.des")}
+            {t("deleteEqubLevel.des")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <div>
@@ -114,7 +115,9 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
                       <TableRow>
                         <TableHead>{t("deleteEqubLevel.fullName")}</TableHead>
                         <TableHead>{t("deleteEqubLevel.level")}</TableHead>
-                        <TableHead className="text-right">{t("deleteEqubLevel.amount")}</TableHead>
+                        <TableHead className="text-right">
+                          {t("deleteEqubLevel.amount")}
+                        </TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -153,7 +156,8 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
             <span>{t("deleteEqubLevel.cancel")}</span>
           </Button>
           <Button
-            className="h-8 gap-1 bg-destructive"
+            variant="destructive"
+            className="h-8 gap-1"
             onClick={handleDelete}
             type="submit"
           >
