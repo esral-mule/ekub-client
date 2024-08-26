@@ -21,69 +21,90 @@ import { useNavigate } from "react-router";
 import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
 import Transition from "../components/Transition";
 import { useTranslation } from "react-i18next";
-
+import { Loader2 } from "lucide-react";
 
 export default function ListEqubes() {
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   let navigate = useNavigate();
   const [equbs, setEqubs] = useState([]);
+  const [ isLoading, setIsLoading]  = useState(false);
   useEffect(() => {
+    setIsLoading(true);
     API.get("/equb-type/", {})
       .then((data) => {
+        setIsLoading(false);
         setEqubs(data.data.data);
       })
       .catch((err) => {
+        setIsLoading(false);
         console.log(err);
       });
   }, []);
 
-  const handleSelect = (id)=>{
+  const handleSelect = (id) => {
     navigate(`/equbdetail/${id}`);
-  }
+  };
   return (
     <Transition>
-
-    <Card x-chunk="dashboard-06-chunk-0">
-      <CardHeader>
-        {/* <Button className="self-end">Add Equb Level</Button> */}
-        <CardTitle>{t('ListEqubes.title')}</CardTitle>
-        <CardDescription>{t('ListEqubes.des')}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="text-center">{t('ListEqubes.table.name')}</TableHead>
-              <TableHead className="text-center">{t('ListEqubes.table.contribution')}</TableHead>
-              <TableHead className="text-center">{t('ListEqubes.table.maxUniqueIds')}</TableHead>
-              <TableHead className="text-center">{t('ListEqubes.table.lotteryDay')}</TableHead>
-              <TableHead className="text-center">{t('ListEqubes.table.contributionDay')}</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {equbs.map((equb) => (
-              <TableRow key={equb._id} onClick={()=>{
-                handleSelect(equb._id)
-              }}>
-                <TableCell>{capitalizeFirstLetter(equb.name)}</TableCell>
-                <TableCell className="text-center">
-                  {equb.contribution}
-                </TableCell>
-                <TableCell>{equb.maxUniqueIds}</TableCell>
-                <TableCell>{equb.lotteryDay}</TableCell>
-                <TableCell>{equb.contributionDay}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </CardContent>
-      <CardFooter>
-        <div className="text-xs text-muted-foreground">
-           {equbs.length} {t('ListEqubes.table.numberOfequbes')}
-        </div>
-      </CardFooter>
-    </Card>
+      <Card x-chunk="dashboard-06-chunk-0">
+        <CardHeader>
+          {/* <Button className="self-end">Add Equb Level</Button> */}
+          <CardTitle>{t("ListEqubes.title")}</CardTitle>
+          <CardDescription>{t("ListEqubes.des")}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          {isLoading ? (
+            <Loader2 className="mx-auto h-4 w-4 animate-spin" />
+          ) : (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="text-center">
+                    {t("ListEqubes.table.name")}
+                  </TableHead>
+                  <TableHead className="text-center">
+                    {t("ListEqubes.table.contribution")}
+                  </TableHead>
+                  <TableHead className="text-center">
+                    {t("ListEqubes.table.maxUniqueIds")}
+                  </TableHead>
+                  <TableHead className="text-center">
+                    {t("ListEqubes.table.lotteryDay")}
+                  </TableHead>
+                  <TableHead className="text-center">
+                    {t("ListEqubes.table.contributionDay")}
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {equbs.map((equb) => (
+                  <TableRow
+                    key={equb._id}
+                    onClick={() => {
+                      handleSelect(equb._id);
+                    }}
+                  >
+                    <TableCell>{capitalizeFirstLetter(equb.name)}</TableCell>
+                    <TableCell className="text-center">
+                      {equb.contribution}
+                    </TableCell>
+                    <TableCell>{equb.maxUniqueIds}</TableCell>
+                    <TableCell>{equb.lotteryDay}</TableCell>
+                    <TableCell>{equb.contributionDay}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
+        </CardContent>
+        <CardFooter>
+          {equbs && (
+            <div className="text-xs text-muted-foreground">
+              {equbs.length} {t("ListEqubes.table.numberOfequbes")}
+            </div>
+          )}
+        </CardFooter>
+      </Card>
     </Transition>
-
   );
 }
