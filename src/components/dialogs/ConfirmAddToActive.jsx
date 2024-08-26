@@ -21,7 +21,7 @@ export default function ConfirmAddToActive({
   const handleSubmit = (addToAcive) => {
     if (addToAcive) {
       API.post("/round/add-to-round", {
-        member: newMembership
+        member: newMembership,
       })
         .then((res) => {
           console.log("res", res);
@@ -54,20 +54,22 @@ export default function ConfirmAddToActive({
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogAction
-            onClick={() => {
-              handleSubmit(false);
-            }}
-          >
-            Cancel
-          </AlertDialogAction>
-          <AlertDialogAction
-            onClick={() => {
-              handleSubmit(true);
-            }}
-          >
-            Add
-          </AlertDialogAction>
+          <div className="flex gap-x-1 justify-end">
+            <AlertDialogAction
+              onClick={() => {
+                handleSubmit(false);
+              }}
+            >
+              Cancel
+            </AlertDialogAction>
+            <AlertDialogAction
+              onClick={() => {
+                handleSubmit(true);
+              }}
+            >
+              Add
+            </AlertDialogAction>
+          </div>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

@@ -23,22 +23,25 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "../../../components/ui/dropdown-menu";
-import { MoreHorizontal } from "lucide-react";
+import { Loader2, MoreHorizontal } from "lucide-react";
 import { Button } from "../../../components/ui/button";
 import DeleteEqubLevel from "../../dialogs/DeleteEqubLevel";
 import { useTranslation } from "react-i18next";
 // import DeleteEqubLevel from "./DeleteEqubLevel"
 export default function EqubLevel() {
-  
   let { id } = useParams();
   const { t, i18n } = useTranslation("global");
+  const [isLoading, setIsLoading] = useState(false);
   const [equblevels, setEqubLevels] = useState([]);
   useEffect(() => {
+    setIsLoading(true);
     API.get(`/equb-level/etype/${id}`)
       .then((data) => {
+        setIsLoading(false);
         setEqubLevels(data.data.data);
       })
       .catch((err) => {
+        setIsLoading(false);
         console.log(err);
       });
   }, []);
@@ -51,48 +54,60 @@ export default function EqubLevel() {
         <CreateEqubLevel fromTab={true} setEqubLevels={setEqubLevels} />
       </CardHeader>
       <CardContent>
-        <Card>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="text-center">{t("equbLevels.levelTitle")}</TableHead>
-                <TableHead className="text-center">{t("equbLevels.contribution")}</TableHead>
-                <TableHead className="text-center">{t("equbLevels.actions")}</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {equblevels.map((level) => (
-                <TableRow key={level._id}>
-                  <TableCell>{level.title}</TableCell>
-                  <TableCell className="text-center">
-                    {level.contribution}
-                  </TableCell>
-                  <TableCell>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="h-8 w-8 p-0">
-                          <span className="sr-only">Open menu</span>
-                          <MoreHorizontal className="h-4 w-4" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DeleteEqubLevel
-                          equbLevel={level._id}
-                          setEqubLevels={setEqubLevels}
-                        />
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </TableCell>
+        {isLoading ? (
+          <Loader2 className="mx-auto h-4 w-4 animate-spin" />
+        ) : (
+          <Card>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="text-center">
+                    {t("equbLevels.levelTitle")}
+                  </TableHead>
+                  <TableHead className="text-center">
+                    {t("equbLevels.contribution")}
+                  </TableHead>
+                  <TableHead className="text-center">
+                    {t("equbLevels.actions")}
+                  </TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </Card>
+              </TableHeader>
+              <TableBody>
+                {equblevels.map((level) => (
+                  <TableRow key={level._id}>
+                    <TableCell>{level.title}</TableCell>
+                    <TableCell className="text-center">
+                      {level.contribution}
+                    </TableCell>
+                    <TableCell>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button variant="ghost" className="h-8 w-8 p-0">
+                            <span className="sr-only">Open menu</span>
+                            <MoreHorizontal className="h-4 w-4" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DeleteEqubLevel
+                            equbLevel={level._id}
+                            setEqubLevels={setEqubLevels}
+                          />
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Card>
+        )}
       </CardContent>
       <CardFooter>
-        <div className="text-xs text-muted-foreground">
-          {equblevels.length} {t("equbLevels.equbLevels")}
-        </div>
+        {equblevels && (
+          <div className="text-xs text-muted-foreground">
+            {equblevels.length} {t("equbLevels.equbLevels")}
+          </div>
+        )}
       </CardFooter>
     </Card>
   );

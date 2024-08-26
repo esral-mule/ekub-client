@@ -5,6 +5,7 @@ import DemoPage from "../../tables/contributions/page";
 import StartNewRound from "../../dialogs/StartNewRound";
 import { useToast } from "../../ui/use-toast";
 import CloseActiveRound from "../../dialogs/CloseActiveRound";
+import { Loader2 } from "lucide-react";
 export default function ActiveEqubRound() {
   const { id } = useParams();
   const [selectedOption, setSelectedOption] = useState(null);
@@ -58,7 +59,11 @@ export default function ActiveEqubRound() {
           <StartNewRound handleStartRound={handleStartRound} />
         )}
       </div>
-      {isLoading && <div>Loading</div>}
+      {isLoading && <div>
+        
+        <Loader2 className="mx-auto h-4 w-4 animate-spin" />
+        
+        </div>}
       {selectedOption && (
         <DemoPage
           RoundId={selectedOption._id}
