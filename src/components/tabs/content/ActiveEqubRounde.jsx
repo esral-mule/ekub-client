@@ -50,20 +50,21 @@ export default function ActiveEqubRound() {
   return (
     <div className="flex flex-col">
       <div className="self-end mr-2 mb-2">
-        {selectedOption ? (
-          <CloseActiveRound
-            selectedOption={selectedOption}
-            setSelectedOption={setSelectedOption}
-          />
-        ) : (
-          <StartNewRound handleStartRound={handleStartRound} />
-        )}
+        {!isLoading && 
+          (selectedOption ? (
+            <CloseActiveRound
+              selectedOption={selectedOption}
+              setSelectedOption={setSelectedOption}
+            />
+          ) : (
+            <StartNewRound handleStartRound={handleStartRound} />
+          ))}
       </div>
-      {isLoading && <div>
-        
-        <Loader2 className="mx-auto h-4 w-4 animate-spin" />
-        
-        </div>}
+      {isLoading && (
+        <div>
+          <Loader2 className="mx-auto h-4 w-4 animate-spin" />
+        </div>
+      )}
       {selectedOption && (
         <DemoPage
           RoundId={selectedOption._id}

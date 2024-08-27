@@ -27,7 +27,7 @@ export default function DemoPage({ RoundId, handleStartRound }) {
         <div>
 
             <CardContent>
-                <div className="container py-10">
+                <div className="py-10">
                     {
                         isLoading ?
                             <Loader2 className="mx-auto h-4 w-4 animate-spin" /> :

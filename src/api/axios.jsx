@@ -30,8 +30,6 @@ API.interceptors.request.use(
 // Response interceptor
 API.interceptors.response.use(
   (response) => {
-    console.log("response.data", response.data);
-
     // Handle the response data here
     if (response.data && response.data.data.errors) {
       return Promise.reject({
