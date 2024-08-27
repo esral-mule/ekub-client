@@ -23,13 +23,15 @@ export default function CreateUser({
   setSelectedUserLabel,
 }) {
   const { toast } = useToast();
-  const { t, i18n } = useTranslation("global");   
+  const { t, i18n } = useTranslation("global");
 
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+
   const [open, setOpen] = useState(false);
 
   const handleSubmit = () => {
@@ -59,12 +61,23 @@ export default function CreateUser({
           description: "User created successfully",
         });
       })
-      .catch((error) => {
-        console.log("error", error);
+      .catch((err) => {
+        const responseErrors = err.response?.data?.data?.errors || [];
 
+        const global =
+          err.response?.data?.code === 500 ? "Validation Error" : "";
+        let tempErrors = {};
+        Object.entries(responseErrors).forEach(([field, error]) => {
+          let errorMessage = error.message;
+          if (errorMessage.startsWith("Path")) {
+            errorMessage = errorMessage.replace(/^Path\s*/, "");
+          }
+          tempErrors[field] = errorMessage;
+        });
+        setErrors({ ...tempErrors, global });
         setIsLoading(false);
         toast({
-          description: error.response?.data?.message || "User creation failed",
+          description: err.response?.data?.message || "User creation failed",
         });
       });
   };
@@ -79,63 +92,64 @@ export default function CreateUser({
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="text-center">          {t("creatNewUser.title")}
+          <DialogTitle className="text-center">
+            {" "}
+            {t("creatNewUser.title")}
           </DialogTitle>
           <DialogDescription className="text-center">
-          {t("creatNewUser.des")}
-
+            {t("creatNewUser.des")}
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="fullName" className="text-right">
-            {t("creatNewUser.fullName")}
+              {t("creatNewUser.fullName")}
             </Label>
             <Input
               id="fullName"
               placeholder={t("creatNewUser.placeholders.fullName")}
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className="col-span-3"
+              className={`col-span-3 ${errors.fullName ? "outline outline-red-700":"" }`}
             />
           </div>
 
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="phoneNumber" className="text-right">
-            {t("creatNewUser.phoneNumber")}
+              {t("creatNewUser.phoneNumber")}
             </Label>
             <Input
               id="phoneNumber"
               placeholder={t("creatNewUser.placeholders.phoneNumber")}
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
-              className="col-span-3"
+              className={`col-span-3 ${errors.phoneNumber ? "outline outline-red-700":"" }`}
             />
           </div>
 
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="username" className="text-right">
-            {t("creatNewUser.username")}
+              {t("creatNewUser.username")}
             </Label>
             <Input
               id="username"
               placeholder={t("creatNewUser.placeholders.username")}
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="col-span-3"
+              className={`col-span-3 ${errors.username ? "outline outline-red-700":"" }`}
             />
           </div>
 
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="password" className="text-right">
-            {t("creatNewUser.password")}
+              {t("creatNewUser.password")}
             </Label>
             <Input
               id="password"
               placeholder={t("creatNewUser.placeholders.password")}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="col-span-3"
+              className={`col-span-3 ${errors.password ? "outline outline-red-700":"" }`}
             />
           </div>
         </div>

@@ -52,15 +52,20 @@ const CreateUser = () => {
         navigate("/");
       })
       .catch((err) => {
-        const responseErrors = err.response?.data?.errors || [];
+        const responseErrors = err.response?.data?.data?.errors || [];
+
         const global =
           err.response?.data?.code === 500 ? "Validation Error" : "";
         let tempErrors = {};
-        responseErrors.forEach((error) => {
-          tempErrors[error.field] = error.messages;
+        Object.entries(responseErrors).forEach(([field, error]) => {
+          let errorMessage = error.message;
+          if (errorMessage.startsWith("Path")) {
+            errorMessage = errorMessage.replace(/^Path\s*/, "");
+          }
+          tempErrors[field] = errorMessage;
         });
         setErrors({ ...tempErrors, global });
-        setIsLoading(false)
+        setIsLoading(false);
       });
   };
 

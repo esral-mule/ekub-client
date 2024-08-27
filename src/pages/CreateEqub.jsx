@@ -42,7 +42,9 @@ const CreateEqub = () => {
       contribution,
       maxUniqueIds,
     })
-      .then(() => {
+      .then((res) => {
+        console.log("res", res);
+
         setErrors({});
         toast({
           title: "Equb Create ",
@@ -52,12 +54,19 @@ const CreateEqub = () => {
         navigate("/equbes");
       })
       .catch((err) => {
-        const responseErrors = err.response?.data?.errors || [];
+        console.log("err", err);
+
+        const responseErrors = err.response?.data?.data?.errors || [];
+
         const global =
           err.response?.data?.code === 500 ? "Validation Error" : "";
         let tempErrors = {};
-        responseErrors.forEach((error) => {
-          tempErrors[error.field] = error.messages;
+        Object.entries(responseErrors).forEach(([field, error]) => {
+          let errorMessage = error.message;
+          if (errorMessage.startsWith("Path")) {
+            errorMessage = errorMessage.replace(/^Path\s*/, "");
+          }
+          tempErrors[field] = errorMessage;
         });
         setErrors({ ...tempErrors, global });
         setIsLoading(false);

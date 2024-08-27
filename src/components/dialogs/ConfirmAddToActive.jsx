@@ -24,14 +24,12 @@ export default function ConfirmAddToActive({
         member: newMembership,
       })
         .then((res) => {
-          console.log("res", res);
 
           toast({
             description: "user added to active round",
           });
         })
         .catch((err) => {
-          console.log("err", err);
 
           toast({
             description: "user added to active round failed",

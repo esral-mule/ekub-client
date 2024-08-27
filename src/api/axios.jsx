@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 let logoutFunction = null;
 
 // Function to set the logout function from AuthContext
@@ -8,7 +8,7 @@ export const setLogoutFunction = (logout) => {
 
 const API = axios.create({
   // TODO: replace URL value from env
-  baseURL: 'https://ekub-backend-pws7.onrender.com/api/v1',
+  baseURL: "https://ekub-backend-pws7.onrender.com/api/v1",
 });
 
 // Request interceptor
@@ -16,7 +16,7 @@ API.interceptors.request.use(
   (config) => {
     // Add any custom configurations here
     // For example, adding an Authorization header
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
       config.headers.Authorization = `Bearer ${accessToken}`;
     }
@@ -27,12 +27,20 @@ API.interceptors.request.use(
   }
 );
 
-
-
 // Response interceptor
 API.interceptors.response.use(
   (response) => {
+    console.log("response.data", response.data);
+
     // Handle the response data here
+    if (response.data && response.data.data.errors) {
+      return Promise.reject({
+        response: {
+          status: 403,
+          data: response.data,
+        },
+      });
+    }
     return response;
   },
   (error) => {
@@ -43,7 +51,7 @@ API.interceptors.response.use(
       }
 
       // Optionally, redirect the user to the sign-in page
-      window.location.href = '/signin';
+      window.location.href = "/signin";
     }
     return Promise.reject(error);
   }
