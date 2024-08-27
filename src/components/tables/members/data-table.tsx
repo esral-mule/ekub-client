@@ -42,7 +42,8 @@ export function DataTable<TData, TValue>({
     columns,
     data,
     setData,
-    setNewMembership
+    setNewMembership,
+    setActiveRound
 }: DataTableProps<TData, TValue>) {
     const { t, i18n } = useTranslation("global");
     const [sorting, setSorting] = React.useState<SortingState>([])
@@ -119,6 +120,7 @@ export function DataTable<TData, TValue>({
                 <AddMember
                     setData={setData}
                     setNewMembership={setNewMembership}
+                    setActiveRound={setActiveRound}
                 />
             </div>
             <div className="rounded-md border">

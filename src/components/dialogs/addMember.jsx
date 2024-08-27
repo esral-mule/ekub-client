@@ -19,7 +19,7 @@ import CreateEqubLevel from "./CreateEqubLevel";
 import UniqueIdDetail from "../tables/UniqueIdDetail";
 import { useTranslation } from "react-i18next";
 
-export default function AddMember({ setData, setNewMembership }) {
+export default function AddMember({ setData, setNewMembership,setActiveRound }) {
   let { id: equbId } = useParams();
   const { t, i18n } = useTranslation("global");
   const [user, setUser] = useState("");
@@ -89,6 +89,13 @@ export default function AddMember({ setData, setNewMembership }) {
         setSelectedUniqueIdValue("");
         setSelectedUniqueIdLabel("");
         return data.data.data;
+      })
+      .then(data=>{
+        API.get(`/round/etype/${equbId}`).then(res=>{
+          let round = res.data.data.find(round => round.closed == false);
+          setActiveRound(round)
+        })
+        return data;
       })
       .then((data) => {
         API.get(`/membership/${data._id}`).then((resp) => {

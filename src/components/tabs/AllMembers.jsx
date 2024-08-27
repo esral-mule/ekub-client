@@ -21,6 +21,7 @@ export default function AllMembers() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [newMembership, setNewMembership] = useState(false);
+  const [activeRound, setActiveRound] = useState(null);
 
   useEffect(() => {
     setIsLoading(true)
@@ -51,6 +52,7 @@ export default function AllMembers() {
               isLoading={isLoading}
               setData={setData}
               setNewMembership={setNewMembership}
+              setActiveRound={setActiveRound}
             />
           )}
         </CardContent>
@@ -64,7 +66,7 @@ export default function AllMembers() {
         </CardFooter>
       </Card>
 
-      {newMembership && (
+      {newMembership && activeRound && (
         <ConfirmAddToActive
           newMembership={newMembership}
           setNewMembership={setNewMembership}
