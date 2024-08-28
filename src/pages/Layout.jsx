@@ -37,6 +37,7 @@ import {
 } from "@/components/ui/tooltip";
 import HamburgerMenu from "../components/icons/HamburgerMenu";
 import { useTranslation } from "react-i18next";
+import Logo from "../components/Logo";
 const Layout = () => {
   const { state } = useContext(AuthContext);
   const { t, i18n } = useTranslation("global");
@@ -143,7 +144,7 @@ const Layout = () => {
                     to="/"
                     className="flex items-center gap-2 text-lg font-semibold md:text-base"
                   >
-                    <Package2 className="h-6 w-6" />
+                    <Logo className="h-6 w-6" />
                     <span className="sr-only">{t("layout.logoName")}</span>
                   </Link>
                   <SheetClose asChild>
@@ -192,7 +193,7 @@ const Layout = () => {
                 to="/"
                 className="flex items-center gap-2 text-lg font-semibold md:text-base"
               >
-                <Package2 className="h-6 w-6" />
+                <Logo/>
                 <span className="sr-only">{t("layout.logoName")}</span>
               </Link>
               <div className="ml-auto flex-1 sm:flex-initial"></div>
