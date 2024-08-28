@@ -20,8 +20,7 @@ export default function updatePaymentStatus({ UpdatePaymentStatus }) {
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button size="xs" className="ml-auto print:hidden bg-primary">
-
-        <SquarePen size={18} className="pr-1"/>
+          <SquarePen size={18} className="pr-1" />
           {t("updatePayment.name")}
         </Button>
       </AlertDialogTrigger>
@@ -29,14 +28,16 @@ export default function updatePaymentStatus({ UpdatePaymentStatus }) {
         <AlertDialogHeader>
           <AlertDialogTitle>{t("updatePayment.title")}</AlertDialogTitle>
           <AlertDialogDescription>
-          {t("updatePayment.des")}
+            {t("updatePayment.des")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>{t("updatePayment.cancel")}</AlertDialogCancel>
-          <AlertDialogAction onClick={UpdatePaymentStatus}>
-          {t("updatePayment.confirm")}
-          </AlertDialogAction>
+          <div className="flex gap-x-1 justify-end items-end">
+            <AlertDialogCancel>{t("updatePayment.cancel")}</AlertDialogCancel>
+            <AlertDialogAction onClick={UpdatePaymentStatus}>
+              {t("updatePayment.confirm")}
+            </AlertDialogAction>
+          </div>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

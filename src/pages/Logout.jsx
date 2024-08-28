@@ -34,10 +34,10 @@ const Logout = () => {
         </CardHeader>
 
         <CardFooter className="flex justify-between">
+          <Button onClick={handleCancel}>{t("logout.declain")}</Button>
           <Button variant="destructive" onClick={handleLogout}>
             {t("logout.confirm")}
           </Button>
-          <Button onClick={handleCancel}>{t("logout.declain")}</Button>
         </CardFooter>
       </Card>
     </Transition>

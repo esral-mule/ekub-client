@@ -1,20 +1,12 @@
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import API from "../../api/axios";
 import { useToast } from "../ui/use-toast";
-import { CirclePlus, UserPlus } from "lucide-react";
+import { UserPlus } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { AlertDialog, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "../ui/alert-dialog";
 
 export default function CreateUser({
   setUser,
@@ -83,23 +75,23 @@ export default function CreateUser({
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+    <AlertDialog open={open} onOpenChange={setOpen}>
+      <AlertDialogTrigger asChild>
         <Button size="xs" className="px-1 ml-2 text-[8px] text-wrap bg-primary">
-          <UserPlus size={15} className="pr-1" />
+          <UserPlus size={18} className="pr-1" />
           {t("creatNewUser.name")}
         </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle className="text-center">
+      </AlertDialogTrigger>
+      <AlertDialogContent className="sm:max-w-[425px]">
+        <AlertDialogHeader>
+          <AlertDialogTitle className="text-center">
             {" "}
             {t("creatNewUser.title")}
-          </DialogTitle>
-          <DialogDescription className="text-center">
+          </AlertDialogTitle>
+          <AlertDialogDescription className="text-center">
             {t("creatNewUser.des")}
-          </DialogDescription>
-        </DialogHeader>
+          </AlertDialogDescription>
+        </AlertDialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="fullName" className="text-right">
@@ -153,13 +145,13 @@ export default function CreateUser({
             />
           </div>
         </div>
-        <DialogFooter>
+        <AlertDialogFooter>
           <Button onClick={handleSubmit} type="submit" disabled={isLoading}>
             <UserPlus size={18} className="pr-1" />
             {isLoading ? t("creatNewUser.loading") : t("creatNewUser.confirm")}
           </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }

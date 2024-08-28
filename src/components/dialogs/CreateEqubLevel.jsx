@@ -90,7 +90,7 @@ export default function CreateEqubLevel({
             fromTab === true ? "px-2 text-[12px] self-end" : ""
           }`}
         >
-          <CirclePlus size={fromTab ? 18 : 15} className="pr-1" />
+          <CirclePlus size={18 } className="pr-1" />
           {t("addEqubLevel.name")}
         </Button>
       </AlertDialogTrigger>
