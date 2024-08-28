@@ -60,7 +60,7 @@ export default function AllMembers() {
           {data && (
             <div className="text-xs text-muted-foreground">
               <strong>1-10</strong> {t("tabs.members.of")}{" "}
-              <strong>{data.length}</strong> {t("tabs.members.memebers")}
+              <strong>{data.length}</strong> {t("tabs.members.members")}
             </div>
           )}
         </CardFooter>

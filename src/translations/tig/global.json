@@ -72,7 +72,9 @@
             "loading": "ዝርዝር ኣብ ምዝግጃው",
             "searchPlaceHolder": "ኣባል ኣልሽ...",
             "columns": "ሪጋ",
-            "addMember": "ኣባል መዝግብ"
+            "addMember": "ኣባል መዝግብ",
+            "of": "ካብ",
+            "members":"ዕቁብ ኣባላት"
         },
         "roundes": {
             "tabTitle": "ታሪክ"

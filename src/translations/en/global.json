@@ -70,9 +70,11 @@
             "title": "Memeber list",
             "des": "All Equb member list",
             "print": "print",
-            "loading": "ዝርዝር በማዘጋጀት ላይ",
+            "loading": "loading",
             "searchPlaceHolder": "Search member...",
-            "columns": "Columns"
+            "columns": "Columns",
+            "of":"of",
+            "members":"Members"
         },
         "roundes": {
             "tabTitle": "History"

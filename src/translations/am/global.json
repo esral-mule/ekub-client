@@ -72,7 +72,9 @@
             "loading": "loading",
             "searchPlaceHolder": "ኣባል ፈልግ...",
             "columns": "አምዶች",
-            "addMember": "ኣባል መዝግብ"
+            "addMember": "ኣባል መዝግብ",
+            "of": "ከ",
+            "members":"የዕቁብ ኣባሎች"
         },
         "roundes": {
             "tabTitle": "ታሪክ"
