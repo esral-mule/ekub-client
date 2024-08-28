@@ -28,7 +28,7 @@ export default function UpdatePaymentStatus({ handleStartRound }) {
           <AlertDialogDescription>{t("startRound.des")}</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <div className="flex gap-x-1 justify-end">
+          <div className="flex gap-x-1 justify-end items-end">
             <AlertDialogCancel size="sm">
               {t("startRound.cancel")}
             </AlertDialogCancel>
