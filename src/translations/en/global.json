@@ -230,5 +230,12 @@
         "placeholder":"Select round",
         "roundes":"Rounds",
         "round":"Round"
+    },
+    "deleteEqub":{
+        "name":"Delete",
+        "title":"Delete Equb",
+        "des":"Please make sure you want to delete",
+        "cancel":"Cancel",
+        "confirm":"Delete"   
     }
 }

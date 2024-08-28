@@ -229,5 +229,12 @@
         "placeholder": "ዙር ይምረጡ",
         "roundes": "ዙሮች",
         "round": "ዙር"
+    },
+    "deleteEqub":{
+        "name":"ኣጥፋ",
+        "title":"ዕቁብ ኣጥፋ",
+        "des":"ይህ ዕቁብ ለማጥፋት ያረጋግጡ",
+        "cancel":"ኣይ መልሰኝ",
+        "confirm":"እዎ ኣጥፋ"   
     }
 }

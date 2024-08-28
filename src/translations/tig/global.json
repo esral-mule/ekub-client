@@ -229,5 +229,12 @@
         "placeholder": "ዙር ይምረፁ",
         "roundes": "ዙራት",
         "round": "ዙር"
+    },
+    "deleteEqub":{
+        "name":"ኣጥፍእ",
+        "title":"ዕቁብ  ኣጥፍእ",
+        "des":"እዚ ዕቁብ ንምጥፋእ የረጋግፁ",
+        "cancel":"መልሰኒ",
+        "confirm":"ኣጥፍእ"   
     }
 }

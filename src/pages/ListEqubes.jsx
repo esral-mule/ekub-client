@@ -1,7 +1,6 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -21,14 +20,23 @@ import { useNavigate } from "react-router";
 import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
 import Transition from "../components/Transition";
 import { useTranslation } from "react-i18next";
-import { Loader2 } from "lucide-react";
+import { Loader2, MoreHorizontal } from "lucide-react";
+import { Button } from "../components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../components/ui/dropdown-menu";
+import DeleteEqub from "../components/dialogs/DeleteEqub";
 
 export default function ListEqubes() {
   const { t } = useTranslation("global");
   let navigate = useNavigate();
   const [equbs, setEqubs] = useState([]);
-  const [ isLoading, setIsLoading]  = useState(false);
-  useEffect(() => {
+  const [isLoading, setIsLoading] = useState(false);
+
+ const getEqubs = ()=>{
     setIsLoading(true);
     API.get("/equb-type/", {})
       .then((data) => {
@@ -39,16 +47,30 @@ export default function ListEqubes() {
         setIsLoading(false);
         console.log(err);
       });
+  }
+  useEffect(() => {
+    getEqubs()
   }, []);
 
   const handleSelect = (id) => {
     navigate(`/equbdetail/${id}`);
   };
+
+  const handleActionClick = (event, action, equb) => {
+    event.stopPropagation(); // Prevent the row's onClick from firing
+    if (action === "view") {
+      console.log("Viewing equb:", equb);
+      // Add view logic
+    } else if (action === "delete") {
+      console.log("Deleting equb:", equb);
+      // Add delete logic
+    }
+  };
+
   return (
     <Transition>
       <Card x-chunk="dashboard-06-chunk-0">
         <CardHeader>
-          {/* <Button className="self-end">Add Equb Level</Button> */}
           <CardTitle>{t("ListEqubes.title")}</CardTitle>
           <CardDescription>{t("ListEqubes.des")}</CardDescription>
         </CardHeader>
@@ -74,6 +96,7 @@ export default function ListEqubes() {
                   <TableHead className="text-center">
                     {t("ListEqubes.table.contributionDay")}
                   </TableHead>
+                  <TableHead className="text-center">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -91,6 +114,23 @@ export default function ListEqubes() {
                     <TableCell>{equb.maxUniqueIds}</TableCell>
                     <TableCell>{equb.lotteryDay}</TableCell>
                     <TableCell>{equb.contributionDay}</TableCell>
+                    <TableCell>
+                      {/* Add Action dropdown */}
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button variant="ghost" className="h-8 w-8 p-0">
+                            <span className="sr-only">Open menu</span>
+                            <MoreHorizontal className="h-4 w-4" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem>
+                            <DeleteEqub equb={equb} getEqubs={getEqubs}/>
+                          </DropdownMenuItem>
+
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
