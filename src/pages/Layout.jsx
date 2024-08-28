@@ -211,18 +211,18 @@ const Layout = () => {
                   <DropdownMenuLabel>{t("layout.myAccount")}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <Link to="/settings">
+                    <Link to="/settings" className="w-full">
                       <p>{t("layout.setting")}</p>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link to="/support">
+                    <Link to="/support" className="w-full">
                       <p>{t("layout.support")}</p>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <Link to="/signout">
+                    <Link to="/signout" className="w-full">
                       <p>{t("layout.logout")}</p>
                     </Link>
                   </DropdownMenuItem>
