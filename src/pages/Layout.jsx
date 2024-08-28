@@ -37,7 +37,7 @@ import {
 } from "@/components/ui/tooltip";
 import HamburgerMenu from "../components/icons/HamburgerMenu";
 import { useTranslation } from "react-i18next";
-import Logo from "../components/Logo";
+import Logo from "../components/icons/Logo";
 const Layout = () => {
   const { state } = useContext(AuthContext);
   const { t, i18n } = useTranslation("global");
