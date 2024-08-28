@@ -146,23 +146,25 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
           )}
         </div>
         <AlertDialogFooter>
-          <Button
-            className="h-8 gap-1 bg-primary"
-            onClick={() => {
-              setOpenModal(false);
-            }}
-            type="submit"
-          >
-            <span>{t("deleteEqubLevel.cancel")}</span>
-          </Button>
-          <Button
-            variant="destructive"
-            className="h-8 gap-1"
-            onClick={handleDelete}
-            type="submit"
-          >
-            <span>{t("deleteEqubLevel.delete")}</span>
-          </Button>
+          <div className="flex gap-x-1 justify-end">
+            <Button
+              className="h-8 bg-primary"
+              onClick={() => {
+                setOpenModal(false);
+              }}
+              type="submit"
+            >
+              <span>{t("deleteEqubLevel.cancel")}</span>
+            </Button>
+            <Button
+              variant="destructive"
+              className="h-8"
+              onClick={handleDelete}
+              type="submit"
+            >
+              <span>{t("deleteEqubLevel.delete")}</span>
+            </Button>
+          </div>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

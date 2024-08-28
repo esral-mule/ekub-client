@@ -24,7 +24,7 @@ import { useToast } from "../ui/use-toast";
 import { useParams } from "react-router";
 import { useTranslation } from "react-i18next";
 
-export default function DeleteEqub({ equb ,getEqubs}) {
+export default function DeleteEqub({ equb, getEqubs }) {
   const { t, i18n } = useTranslation("global");
   const [openModal, setOpenModal] = useState(false);
   const { toast } = useToast();
@@ -32,7 +32,7 @@ export default function DeleteEqub({ equb ,getEqubs}) {
   const handleDelete = () => {
     API.delete(`/equb-type/${equb._id}`)
       .then(() => {
-        getEqubs()
+        getEqubs();
         toast({
           title: "Delete Equb",
           description: "Deleted Equb successfuly",
@@ -69,33 +69,33 @@ export default function DeleteEqub({ equb ,getEqubs}) {
           <AlertDialogTitle className="flex items-center">
             <p className="pl-1">{t("deleteEqub.title")}</p>
           </AlertDialogTitle>
-          <AlertDialogDescription>
-            {t("deleteEqub.des")}
-          </AlertDialogDescription>
+          <AlertDialogDescription>{t("deleteEqub.des")}</AlertDialogDescription>
         </AlertDialogHeader>
 
         <AlertDialogFooter>
-          <Button
-            className="h-8 gap-1 bg-primary"
-            onClick={(event) => {
-              event.stopPropagation();
-              setOpenModal(false);
-            }}
-            type="submit"
-          >
-            <span>{t("deleteEqub.cancel")}</span>
-          </Button>
-          <Button
-            variant="destructive"
-            className="h-8 gap-1"
-            type="submit"
-            onClick={(event) => {
-              event.stopPropagation();
-              handleDelete();
-            }}
-          >
-            <span>{t("deleteEqub.confirm")}</span>
-          </Button>
+          <div className="flex gap-x-1 justify-end">
+            <Button
+              className="h-8 gap-1 bg-primary"
+              onClick={(event) => {
+                event.stopPropagation();
+                setOpenModal(false);
+              }}
+              type="submit"
+            >
+              <span>{t("deleteEqub.cancel")}</span>
+            </Button>
+            <Button
+              variant="destructive"
+              className="h-8 gap-1"
+              type="submit"
+              onClick={(event) => {
+                event.stopPropagation();
+                handleDelete();
+              }}
+            >
+              <span>{t("deleteEqub.confirm")}</span>
+            </Button>
+          </div>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
