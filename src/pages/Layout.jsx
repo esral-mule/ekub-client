@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { ModeToggle } from "../components/toggle/mode-toggle";
 import { LangToggle } from "../components/toggle/lang-toggle";
 import { Toaster } from "../components/ui/toaster";
-import { Package2, PackagePlus, UserRoundPlus } from "lucide-react";
+import {  PackagePlus, UserRoundPlus } from "lucide-react";
 import { Button } from "../components/ui/button";
 
 import { CircleUser } from "lucide-react";
@@ -28,7 +28,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 
-import { Home, Package, ShoppingCart, Users2 } from "lucide-react";
+import { Home, Package} from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -40,7 +40,7 @@ import { useTranslation } from "react-i18next";
 import Logo from "../components/icons/Logo";
 const Layout = () => {
   const { state } = useContext(AuthContext);
-  const { t, i18n } = useTranslation("global");
+  const { t} = useTranslation("global");
 
   return (
     <div className="flex min-h-screen w-full flex-col  ">
@@ -162,7 +162,7 @@ const Layout = () => {
                       to="/equbes"
                       className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground rounded-sm"
                     >
-                      <ShoppingCart className="h-5 w-5" />
+                      <Package className="h-5 w-5" />
                       {t("layout.equbs")}
                     </NavLink>
                   </SheetClose>
@@ -171,7 +171,7 @@ const Layout = () => {
                       to="/createeqube"
                       className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground rounded-sm"
                     >
-                      <Package className="h-5 w-5" />
+                      <PackagePlus className="h-5 w-5" />
                       {t("layout.createequb")}
                     </NavLink>
                   </SheetClose>
@@ -180,7 +180,7 @@ const Layout = () => {
                       to="/createuser"
                       className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground rounded-sm"
                     >
-                      <Users2 className="h-5 w-5" />
+                      <UserRoundPlus className="h-5 w-5" />
                       {t("layout.createUser")}
                     </NavLink>
                   </SheetClose>

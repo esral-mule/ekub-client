@@ -13,7 +13,7 @@ import {
 import { Button } from "../ui/button";
 
 export default function UpdatePaymentStatus({ handleStartRound }) {
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
 
   return (
     <AlertDialog>
@@ -29,9 +29,7 @@ export default function UpdatePaymentStatus({ handleStartRound }) {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <div className="flex gap-x-1 justify-end items-end">
-            <AlertDialogCancel size="sm">
-              {t("startRound.cancel")}
-            </AlertDialogCancel>
+            <AlertDialogCancel>{t("startRound.cancel")}</AlertDialogCancel>
             <AlertDialogAction onClick={handleStartRound}>
               {t("startRound.confirm")}
             </AlertDialogAction>
