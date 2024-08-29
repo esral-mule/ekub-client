@@ -21,7 +21,7 @@ import { useTranslation } from "react-i18next";
 const CreateUser = () => {
   let navigate = useNavigate();
   const { toast } = useToast()
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   const [fullName, setFullName] = useState("");
   const [username, setUsername] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");

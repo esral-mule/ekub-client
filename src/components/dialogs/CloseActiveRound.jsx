@@ -18,19 +18,21 @@ import {
   AlertDialogTrigger,
 } from "../../components/ui/alert-dialog";
 import { useTranslation } from "react-i18next";
+import { useToast } from "../ui/use-toast";
 
 export default function CloseActiveRound({
   selectedOption,
   setSelectedOption,
 }) {
   const { id: equbId } = useParams();
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
 
   const [openModal, setOpenModal] = useState(false);
   const [uniqueId, setUniqueId] = useState("");
   const [uniqueIds, setUniqueIds] = useState([]);
   const [selectedUniqueIdValue, setSelectedUniqueIdValue] = useState("");
   const [selectedUniqueIdLabel, setSelectedUniqueIdLabel] = useState("");
+  const { toast } = useToast();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +45,7 @@ export default function CloseActiveRound({
           }))
         );
       } catch (error) {
-        console.error("Error fetching data", error);
+        console.error("Error fetching data");
       }
     };
 
@@ -60,18 +62,20 @@ export default function CloseActiveRound({
         return data.data.data;
       })
       .then(() => {
-        API.put(`/round/${selectedOption._id}`, { closed: true }).then(() => {
-          console.log("round closed");
+        API.put(`/round/${selectedOption._id}`, { closed: true }).then(
+          () => {}
+        );
+      })
+      .then(() => {
+        setSelectedOption(null);
+        toast({
+          description: "Round closed successfuly",
         });
       })
-      .then((data) => {
-        API.get(`/round/etype/${equbId}`).then((resp) => {
-          console.log("updated rounds", resp.data.data);
-          setSelectedOption(resp.data.data);
+      .catch(() => {
+        toast({
+          description: "Round close failed",
         });
-      })
-      .catch((err) => {
-        console.log(err);
       });
   };
 
@@ -122,10 +126,7 @@ export default function CloseActiveRound({
         </div>
         <AlertDialogFooter>
           <div className="flex gap-x-1 justify-end">
-            <Button
-              onClick={() => setOpenModal(false)}
-              className="h-8 gap-1"
-            >
+            <Button onClick={() => setOpenModal(false)} className="h-8 gap-1">
               {t("closeActiveRound.cancel")}
             </Button>
             <Button

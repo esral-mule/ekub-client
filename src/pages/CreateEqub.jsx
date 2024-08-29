@@ -19,7 +19,7 @@ import { useToast } from "../components/ui/use-toast";
 import { useTranslation } from "react-i18next";
 
 const CreateEqub = () => {
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
 
   let navigate = useNavigate();
   const { toast } = useToast();
@@ -42,9 +42,7 @@ const CreateEqub = () => {
       contribution,
       maxUniqueIds,
     })
-      .then((res) => {
-        console.log("res", res);
-
+      .then(() => {
         setErrors({});
         toast({
           title: "Equb Create ",
@@ -54,8 +52,6 @@ const CreateEqub = () => {
         navigate("/equbes");
       })
       .catch((err) => {
-        console.log("err", err);
-
         const responseErrors = err.response?.data?.data?.errors || [];
 
         const global =
@@ -164,7 +160,16 @@ const CreateEqub = () => {
             </div>
           </CardContent>
           <CardFooter>
-            <Button disabled={isLoading || name==""||contributionDay==""|| lotteryDay==""|| contribution==""|| maxUniqueIds==""}>
+            <Button
+              disabled={
+                isLoading ||
+                name == "" ||
+                contributionDay == "" ||
+                lotteryDay == "" ||
+                contribution == "" ||
+                maxUniqueIds == ""
+              }
+            >
               {isLoading ? t("createeqube.loading") : t("createeqube.create")}
             </Button>
           </CardFooter>
