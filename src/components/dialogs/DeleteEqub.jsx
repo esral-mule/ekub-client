@@ -13,6 +13,7 @@ import {
 import API from "../../api/axios";
 import { useToast } from "../ui/use-toast";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 
 export default function DeleteEqub({ equb, getEqubs }) {
   const { t } = useTranslation("global");
