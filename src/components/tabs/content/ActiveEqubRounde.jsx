@@ -61,7 +61,7 @@ export default function ActiveEqubRound() {
           ))}
       </div>
       {isLoading && (
-        <div>
+        <div className="my-5">
           <Loader2 className="mx-auto h-4 w-4 animate-spin" />
         </div>
       )}

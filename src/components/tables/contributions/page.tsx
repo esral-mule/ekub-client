@@ -30,7 +30,10 @@ export default function DemoPage({ RoundId, handleStartRound }) {
                 <div className="py-10">
                     {
                         isLoading ?
-                            <Loader2 className="mx-auto h-4 w-4 animate-spin" /> :
+                            <div className="my-5">
+                                <Loader2 className="mx-auto h-4 w-4 animate-spin" />
+                            </div>
+                            :
 
 
                             <DataTable columns={columns(RoundId, setContributions, t)} data={contributions} handleStartRound={handleStartRound} />
