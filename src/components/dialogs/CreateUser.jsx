@@ -15,7 +15,7 @@ export default function CreateUser({
   setSelectedUserLabel,
 }) {
   const { toast } = useToast();
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
 
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");

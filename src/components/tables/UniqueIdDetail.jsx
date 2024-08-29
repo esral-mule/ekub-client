@@ -15,7 +15,7 @@ import { useTranslation } from "react-i18next";
 // Assume you have a Spinner component for loading state
 
 export default function UniqueIdDetail({ uniqueID }) {
-  const { t, i18n } = useTranslation("global");   
+  const { t } = useTranslation("global");   
 
   const [uniqueIDDetail, setUniqueIdDetail] = useState(null);
   const [loading, setLoading] = useState(true);

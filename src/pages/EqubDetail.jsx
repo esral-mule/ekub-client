@@ -14,7 +14,7 @@ import { useRef } from "react";
 import Transition from "../components/Transition";
 import { useTranslation } from "react-i18next";
 export default function EqubDetail() {
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   const ref = useRef();
   const handlePrint = useReactToPrint({
     content: () => {

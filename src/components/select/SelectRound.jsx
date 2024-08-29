@@ -16,7 +16,7 @@ export default function SelectRound({
   setSelectedOption,
 }) {
 
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
 
   return (
     <Select

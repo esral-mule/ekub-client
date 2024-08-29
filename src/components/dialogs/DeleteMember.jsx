@@ -16,14 +16,14 @@ import { useTranslation } from "react-i18next";
 
 
 export default function DeleteMember({ user, setData }) {
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
 
   const { toast } = useToast();
   const [openModal, setOpenModal] = useState(false);
 
   const handleBan = () => {
     API.delete(`/membership/${user._id}/`)
-      .then((data) => {
+      .then(() => {
         setData((prevData) =>
           prevData.filter((member) => {
             return member._id !== user._id;

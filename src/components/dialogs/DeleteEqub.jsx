@@ -1,4 +1,4 @@
-import { Loader2, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { Button } from "../ui/button";
 import {
   AlertDialog,
@@ -9,23 +9,13 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "../ui/alert-dialog";
-import { Card } from "../ui/card";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../ui/table";
-import { useEffect, useState } from "react";
+
 import API from "../../api/axios";
 import { useToast } from "../ui/use-toast";
-import { useParams } from "react-router";
 import { useTranslation } from "react-i18next";
 
 export default function DeleteEqub({ equb, getEqubs }) {
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   const [openModal, setOpenModal] = useState(false);
   const { toast } = useToast();
 

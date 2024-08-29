@@ -14,7 +14,7 @@ import Transition from "../components/Transition";
 import { useTranslation } from "react-i18next";
 
 const Logout = () => {
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
 

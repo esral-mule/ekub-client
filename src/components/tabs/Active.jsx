@@ -8,7 +8,7 @@ import { TabsContent } from "@/components/ui/tabs";
 import ActiveEqubRound from "./content/ActiveEqubRounde";
 import { useTranslation } from "react-i18next";
 export default function Active() {
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   return (
     <TabsContent value="active">
       <Card x-chunk="dashboard-06-chunk-0">

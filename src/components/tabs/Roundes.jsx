@@ -3,7 +3,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { TabsContent } from "../ui/tabs";
 import EqubRounds from "./content/EqubRoundes";
 export default function Roundes() {
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
 
   return (
     <TabsContent value="roundes">

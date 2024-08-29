@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { Loader2 } from "lucide-react";
 
 export default function DemoPage({ RoundId, handleStartRound }) {
-    const { t, i18n } = useTranslation("global");
+    const { t } = useTranslation("global");
     const [contributions, setContributions] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 

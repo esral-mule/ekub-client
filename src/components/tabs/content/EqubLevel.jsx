@@ -30,7 +30,7 @@ import { useTranslation } from "react-i18next";
 // import DeleteEqubLevel from "./DeleteEqubLevel"
 export default function EqubLevel() {
   let { id } = useParams();
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   const [isLoading, setIsLoading] = useState(false);
   const [equblevels, setEqubLevels] = useState([]);
   useEffect(() => {

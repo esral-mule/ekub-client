@@ -15,7 +15,7 @@ import { Button } from "../ui/button";
 import { useTranslation } from "react-i18next";
 
 export default function updatePaymentStatus({ UpdatePaymentStatus }) {
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>

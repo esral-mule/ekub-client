@@ -17,7 +17,7 @@ import { useTranslation } from "react-i18next";
 export default function Support() {
   const form = useRef();
   const { toast } = useToast();
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
 
   const [formData, setFormData] = useState({
     from_name: "",

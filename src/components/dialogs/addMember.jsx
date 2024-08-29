@@ -21,7 +21,7 @@ import { useTranslation } from "react-i18next";
 
 export default function AddMember({ setData, setNewMembership,setActiveRound }) {
   let { id: equbId } = useParams();
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   const [user, setUser] = useState("");
   const [users, setUsers] = useState([]);
   const [selectedUserValue, setSelectedUserValue] = useState("");

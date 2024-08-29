@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 export default function DemoPage({ data,isLoading ,setData,setNewMembership,setActiveRound}) {
 
-    const { t, i18n } = useTranslation("global");   
+    const { t } = useTranslation("global");   
     const columns = getColumns(setData,t);
 
     return (

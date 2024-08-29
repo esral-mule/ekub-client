@@ -14,7 +14,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 export default function MemberDetail({ user }) {
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
 
   const [open, setOpen] = useState(false);
 

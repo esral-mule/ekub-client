@@ -45,7 +45,7 @@ export function DataTable<TData, TValue>({
     setNewMembership,
     setActiveRound
 }: DataTableProps<TData, TValue>) {
-    const { t, i18n } = useTranslation("global");
+    const { t } = useTranslation("global");
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
