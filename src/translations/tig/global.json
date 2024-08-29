@@ -238,5 +238,19 @@
         "des":"እዚ ዕቁብ ንምጥፋእ የረጋግፁ",
         "cancel":"መልሰኒ",
         "confirm":"ኣጥፍእ"   
+    },
+    "support":{
+        "nameReq":"ሽም የእትው",
+        "emilReq":"ኢሜል የእትው",
+        "emailInvalid":"ዝሰርሕ ኢሜይል የእትው",
+        "messageReq":"መልእኽቲ የእትው",
+        "name":"ሽም",
+        "email":"ኢሜል",
+        "message":"መልእኽቲ",
+        "loading":"ኣብ ምላኽ",
+        "btnName":"ኢሜል ለኣኽ",
+        "toastTitle":"ኢሜል",
+        "toastSuccess":"መልእኽቶም ተቀቢልና የቐንየልና",
+        "toastError":"መልዕክትዎ አልደረሰም"
     }
 }

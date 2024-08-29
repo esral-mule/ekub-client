@@ -238,5 +238,19 @@
         "des":"ይህ ዕቁብ ለማጥፋት ያረጋግጡ",
         "cancel":"ኣይ መልሰኝ",
         "confirm":"እዎ ኣጥፋ"   
+    },
+    "support":{
+        "nameReq":"ስም ያስገቡ",
+        "emilReq":"ኢሜል ያስገቡ",
+        "emailInvalid":"የሚሰራ ኢሜይል ያስገቡ",
+        "messageReq":"መልእክት ያስገቡ",
+        "name":"ስም",
+        "email":"ኢሜል",
+        "message":"መልእክት",
+        "loading":"በመላክ ላይ",
+        "btnName":"ኢሜል ላክ",
+        "toastTitle":"ኢሜል",
+        "toastSuccess":"መልዕክትዎን ተቀብለናል እናመሰግናለን",
+        "toastError":"መልዕክትዎ አልደረሰም"
     }
 }

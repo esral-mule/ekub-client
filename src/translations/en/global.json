@@ -239,5 +239,19 @@
         "des":"Please make sure you want to delete",
         "cancel":"Cancel",
         "confirm":"Delete"   
+    },
+    "support":{
+        "nameReq":"Name is required",
+        "emilReq":"Email is required",
+        "emailInvalid":"Email address is invalid",
+        "messageReq":"Message is required",
+        "name":"Name",
+        "email":"Email",
+        "message":"Message",
+        "loading":"Loading",
+        "btnName":"Send email",
+        "toastTitle":"Email",
+        "toastSuccess":"We have received your message",
+        "toastError":"Email send failed"
     }
 }
