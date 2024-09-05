@@ -56,17 +56,6 @@ export default function ListEqubes() {
     navigate(`/equbdetail/${id}`);
   };
 
-  const handleActionClick = (event, action, equb) => {
-    event.stopPropagation(); // Prevent the row's onClick from firing
-    if (action === "view") {
-      console.log("Viewing equb:", equb);
-      // Add view logic
-    } else if (action === "delete") {
-      console.log("Deleting equb:", equb);
-      // Add delete logic
-    }
-  };
-
   return (
     <Transition>
       <Card x-chunk="dashboard-06-chunk-0">

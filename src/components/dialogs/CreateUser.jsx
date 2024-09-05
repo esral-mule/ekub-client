@@ -6,7 +6,15 @@ import API from "../../api/axios";
 import { useToast } from "../ui/use-toast";
 import { UserPlus } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { AlertDialog, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "../ui/alert-dialog";
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../ui/alert-dialog";
 
 export default function CreateUser({
   setUser,
@@ -54,6 +62,8 @@ export default function CreateUser({
         });
       })
       .catch((err) => {
+        console.log(err);
+
         const responseErrors = err.response?.data?.data?.errors || [];
 
         const global =
@@ -102,7 +112,9 @@ export default function CreateUser({
               placeholder={t("creatNewUser.placeholders.fullName")}
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className={`col-span-3 ${errors.fullName ? "outline outline-red-700":"" }`}
+              className={`col-span-3 ${
+                errors.fullName ? "outline outline-red-700" : ""
+              }`}
             />
           </div>
 
@@ -115,7 +127,9 @@ export default function CreateUser({
               placeholder={t("creatNewUser.placeholders.phoneNumber")}
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
-              className={`col-span-3 ${errors.phoneNumber ? "outline outline-red-700":"" }`}
+              className={`col-span-3 ${
+                errors.phoneNumber ? "outline outline-red-700" : ""
+              }`}
             />
           </div>
 
@@ -128,7 +142,9 @@ export default function CreateUser({
               placeholder={t("creatNewUser.placeholders.username")}
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className={`col-span-3 ${errors.username ? "outline outline-red-700":"" }`}
+              className={`col-span-3 ${
+                errors.username ? "outline outline-red-700" : ""
+              }`}
             />
           </div>
 
@@ -141,15 +157,40 @@ export default function CreateUser({
               placeholder={t("creatNewUser.placeholders.password")}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className={`col-span-3 ${errors.password ? "outline outline-red-700":"" }`}
+              className={`col-span-3 ${
+                errors.password ? "outline outline-red-700" : ""
+              }`}
             />
           </div>
         </div>
         <AlertDialogFooter>
-          <Button onClick={handleSubmit} type="submit" disabled={isLoading}>
-            <UserPlus size={18} className="pr-1" />
-            {isLoading ? t("creatNewUser.loading") : t("creatNewUser.confirm")}
-          </Button>
+          <div className="flex gap-x-1 justify-end">
+            <Button
+              size="xs"
+              disabled={isLoading}
+              onClick={() => setOpen(false)}
+            >
+              {t("addMember.close")}
+            </Button>
+            <Button
+              size="xs"
+              onClick={handleSubmit}
+              type="submit"
+              disabled={
+                isLoading ||
+                fullName === "" ||
+                phoneNumber === "" ||
+                username === "" ||
+                password === ""
+              }
+            >
+              <UserPlus size={18} className="pr-1" />
+
+              {isLoading
+                ? t("creatNewUser.loading")
+                : t("creatNewUser.confirm")}
+            </Button>
+          </div>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

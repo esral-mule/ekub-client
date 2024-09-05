@@ -18,8 +18,6 @@ export default function TogglePayment({ id, status, RoundId, setContributions })
     }).then(() => {
 
       API.get(`/contribution/round/${RoundId}`).then(data => {
-        console.log(data);
-        
         setContributions(data.data.data)
       })
     }).catch(e => {
