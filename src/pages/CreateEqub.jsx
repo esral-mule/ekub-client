@@ -24,8 +24,6 @@ const CreateEqub = () => {
   let navigate = useNavigate();
   const { toast } = useToast();
   const [name, setName] = useState("");
-  const [contributionDay, setContributionDay] = useState("");
-  const [lotteryDay, setLotteryDay] = useState("");
   const [contribution, setContribution] = useState("");
   const [maxUniqueIds, setMaxUniqueIds] = useState("");
 
@@ -37,8 +35,6 @@ const CreateEqub = () => {
     setIsLoading(true);
     API.post("/equb-type/", {
       name,
-      contributionDay,
-      lotteryDay,
       contribution,
       maxUniqueIds,
     })
@@ -94,38 +90,6 @@ const CreateEqub = () => {
             </div>
 
             <div className="space-y-1 text-left">
-              {errors.contributionDay && (
-                <div className="text-red-600 mb-[10px]">
-                  {errors.contributionDay}
-                </div>
-              )}
-              <Label htmlFor="contributionDay">
-                {t("createeqube.contributionDay")}
-              </Label>
-              <Input
-                id="contributionDay"
-                placeholder={t("createeqube.placeHolder.contributionDay")}
-                onChange={(e) => setContributionDay(e.target.value)}
-                value={contributionDay}
-              />
-            </div>
-
-            <div className="space-y-1 text-left">
-              {errors.lotteryDay && (
-                <div className="text-red-600 mb-[10px]">
-                  {errors.lotteryDay}
-                </div>
-              )}
-              <Label htmlFor="lotteryDay">{t("createeqube.lotteryDay")}</Label>
-              <Input
-                id="lotteryDay"
-                placeholder={t("createeqube.placeHolder.lotteryDay")}
-                onChange={(e) => setLotteryDay(e.target.value)}
-                value={lotteryDay}
-              />
-            </div>
-
-            <div className="space-y-1 text-left">
               {errors.contribution && (
                 <div className="text-red-600 mb-[10px]">
                   {errors.contribution}
@@ -164,10 +128,8 @@ const CreateEqub = () => {
               disabled={
                 isLoading ||
                 name == "" ||
-                contributionDay == "" ||
-                lotteryDay == "" ||
                 contribution == "" ||
-                maxUniqueIds == ""
+                maxUniqueIds == "wew"
               }
             >
               {isLoading ? t("createeqube.loading") : t("createeqube.create")}
