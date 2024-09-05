@@ -19,7 +19,7 @@ import CreateEqubLevel from "./CreateEqubLevel";
 import UniqueIdDetail from "../tables/UniqueIdDetail";
 import { useTranslation } from "react-i18next";
 
-export default function AddMember({ setData, setNewMembership,setActiveRound }) {
+export default function AddMember({ getMembers, setNewMembership,setActiveRound }) {
   let { id: equbId } = useParams();
   const { t } = useTranslation("global");
   const [user, setUser] = useState("");
@@ -97,13 +97,8 @@ export default function AddMember({ setData, setNewMembership,setActiveRound }) 
         })
         return data;
       })
-      .then((data) => {
-        API.get(`/membership/${data._id}`).then((resp) => {
-          let membership = resp.data.data;
-          setData((prev) => {
-            return [...prev, membership];
-          });
-        });
+      .then(() => {
+        getMembers()
       })
       .catch((err) => {
         console.log(err);

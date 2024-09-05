@@ -18,21 +18,24 @@ import { Loader2 } from "lucide-react";
 export default function AllMembers() {
   let { id } = useParams();
   const { t } = useTranslation("global");
-  const [data, setData] = useState([]);
+  const [members, setMembers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [newMembership, setNewMembership] = useState(false);
   const [activeRound, setActiveRound] = useState(null);
 
-  useEffect(() => {
+  const getMembers = ()=>{
     setIsLoading(true)
     API.get(`/membership/etype/${id}`, {})
       .then((data) => {
-        setData(data.data.data);
+        setMembers(data.data.data);
         setIsLoading(false);
       })
-      .catch((err) => {
+      .catch(() => {
         setIsLoading(false);
       });
+  }
+  useEffect(() => {
+    getMembers()
   }, []);
 
   return (
@@ -48,19 +51,19 @@ export default function AllMembers() {
           ) : (
             <DemoPage
               id={id}
-              data={data}
+              members={members}
               isLoading={isLoading}
-              setData={setData}
+              getMembers={getMembers}
               setNewMembership={setNewMembership}
               setActiveRound={setActiveRound}
             />
           )}
         </CardContent>
         <CardFooter>
-          {data && (
+          {members && (
             <div className="text-xs text-muted-foreground">
               <strong>1-10</strong> {t("tabs.members.of")}{" "}
-              <strong>{data.length}</strong> {t("tabs.members.members")}
+              <strong>{members.length}</strong> {t("tabs.members.members")}
             </div>
           )}
         </CardFooter>

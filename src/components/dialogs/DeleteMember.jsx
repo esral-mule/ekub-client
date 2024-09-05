@@ -15,7 +15,7 @@ import { useToast } from "../ui/use-toast";
 import { useTranslation } from "react-i18next";
 
 
-export default function DeleteMember({ user, setData }) {
+export default function DeleteMember({ user, getMembers }) {
   const { t } = useTranslation("global");
 
   const { toast } = useToast();
@@ -24,11 +24,7 @@ export default function DeleteMember({ user, setData }) {
   const handleBan = () => {
     API.delete(`/membership/${user._id}/`)
       .then(() => {
-        setData((prevData) =>
-          prevData.filter((member) => {
-            return member._id !== user._id;
-          })
-        );
+        getMembers()
         toast({
           title: "Member Delete",
           description: "Member deleted successfuly",

@@ -35,13 +35,13 @@ import { useTranslation } from "react-i18next"
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
-    setData
+    getMembers
 }
 
 export function DataTable<TData, TValue>({
     columns,
     data,
-    setData,
+    getMembers,
     setNewMembership,
     setActiveRound
 }: DataTableProps<TData, TValue>) {
@@ -118,7 +118,7 @@ export function DataTable<TData, TValue>({
                     </DropdownMenuContent>
                 </DropdownMenu>
                 <AddMember
-                    setData={setData}
+                    getMembers={getMembers}
                     setNewMembership={setNewMembership}
                     setActiveRound={setActiveRound}
                 />

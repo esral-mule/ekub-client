@@ -27,7 +27,7 @@ export type User = {
   updatedAt: Date;
 };
 
-export function getColumns(setData, t) {
+export function getColumns(getMembers, t) {
 
   return [
     {
@@ -105,7 +105,7 @@ export function getColumns(setData, t) {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <MemberDetail user={user} />
-              <DeleteMember user={user} setData={setData} />
+              <DeleteMember user={user} getMembers={getMembers} />
             </DropdownMenuContent>
           </DropdownMenu>
         );
