@@ -15,10 +15,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useEffect } from "react";
 
 // eslint-disable-next-line react/prop-types
-export default function SelectData({ data, name, action,setSelectedValue, selectedValue, selectedLabel, setSelectedLabel}) {
+export default function SelectUniqueId({ data, name, setUniqueId,uniqueId}) {
   const [open, setOpen] = React.useState(false);
   const [search, setSearch] = React.useState("");
 
@@ -26,13 +25,12 @@ export default function SelectData({ data, name, action,setSelectedValue, select
     element.label.toLowerCase().includes(search.toLowerCase())
   );
 
-  useEffect(() => {
-    action(selectedValue);
-  }, [selectedValue, action]);
+  // useEffect(() => {
+  //   action(selectedValue);
+  // }, [selectedValue, action]);
 
-  const handleSelect = (value, label) => {
-    setSelectedValue(value);
-    setSelectedLabel(label);
+  const handleSelect = (value) => {
+    setUniqueId(value);
     setOpen(false);
     setSearch("");
   };
@@ -46,7 +44,7 @@ export default function SelectData({ data, name, action,setSelectedValue, select
           aria-expanded={open}
           className="col-span-2 justify-between"
         >
-          {selectedLabel ? selectedLabel : name}
+          {uniqueId ? uniqueId.label : name}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -62,13 +60,13 @@ export default function SelectData({ data, name, action,setSelectedValue, select
               {filteredData.map((element) => (
                 <CommandItem
                   key={element.value}
-                  onSelect={() => handleSelect(element.value, element.label)}
+                  onSelect={() => handleSelect(element)}
                 >
                   {element.label}
                   <CheckIcon
                     className={cn(
                       "ml-auto h-4 w-4",
-                      selectedValue === element.value
+                      uniqueId.value === element.value
                         ? "opacity-100"
                         : "opacity-0"
                     )}

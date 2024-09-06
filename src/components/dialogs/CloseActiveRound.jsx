@@ -1,6 +1,5 @@
 import { Button } from "../../components/ui/button";
 import { Label } from "../../components/ui/label";
-import SelectData from "../select/SelectData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import API from "../../api/axios";
@@ -19,6 +18,7 @@ import {
 } from "../../components/ui/alert-dialog";
 import { useTranslation } from "react-i18next";
 import { useToast } from "../ui/use-toast";
+import SelectUniqueId from "../select/SelectUniqueId";
 
 export default function CloseActiveRound({
   selectedOption,
@@ -30,8 +30,7 @@ export default function CloseActiveRound({
   const [openModal, setOpenModal] = useState(false);
   const [uniqueId, setUniqueId] = useState("");
   const [uniqueIds, setUniqueIds] = useState([]);
-  const [selectedUniqueIdValue, setSelectedUniqueIdValue] = useState("");
-  const [selectedUniqueIdLabel, setSelectedUniqueIdLabel] = useState("");
+
   const { toast } = useToast();
 
   useEffect(() => {
@@ -54,7 +53,7 @@ export default function CloseActiveRound({
 
   const handleSubmit = () => {
     API.post("/beneficiary", {
-      uniqueId: selectedUniqueIdValue,
+      uniqueId: uniqueId.value,
     })
       .then((data) => {
         setOpenModal(false);
@@ -107,20 +106,16 @@ export default function CloseActiveRound({
             <Label htmlFor="uniqueId" className="text-right">
               {t("closeActiveRound.uniqueId")}
             </Label>
-            <SelectData
-              id="uniqueId"
+            <SelectUniqueId
               data={uniqueIds}
               name={t("closeActiveRound.searchPlaceHolder")}
-              action={setUniqueId}
-              setSelectedValue={setSelectedUniqueIdValue}
-              selectedValue={selectedUniqueIdValue}
-              selectedLabel={selectedUniqueIdLabel}
-              setSelectedLabel={setSelectedUniqueIdLabel}
+              setUniqueId={setUniqueId}
+              uniqueId={uniqueId}
             />
           </div>
-          {selectedUniqueIdValue && (
+          {uniqueId && (
             <div>
-              <UniqueIdDetail uniqueID={selectedUniqueIdValue} />
+              <UniqueIdDetail uniqueID={uniqueId.value} />
             </div>
           )}
         </div>
@@ -133,7 +128,7 @@ export default function CloseActiveRound({
               className="h-8 gap-1 bg-destructive"
               onClick={handleSubmit}
               type="submit"
-              disabled={!selectedUniqueIdValue}
+              disabled={!uniqueId}
             >
               <span>{t("closeActiveRound.confirm")}</span>
             </Button>

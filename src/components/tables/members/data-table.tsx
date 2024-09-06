@@ -35,7 +35,9 @@ import { useTranslation } from "react-i18next"
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
-    getMembers
+    getMembers,
+    setNewMembership,
+    getActiveRound
 }
 
 export function DataTable<TData, TValue>({
@@ -43,7 +45,7 @@ export function DataTable<TData, TValue>({
     data,
     getMembers,
     setNewMembership,
-    setActiveRound
+    getActiveRound
 }: DataTableProps<TData, TValue>) {
     const { t } = useTranslation("global");
     const [sorting, setSorting] = React.useState<SortingState>([])
@@ -120,7 +122,7 @@ export function DataTable<TData, TValue>({
                 <AddMember
                     getMembers={getMembers}
                     setNewMembership={setNewMembership}
-                    setActiveRound={setActiveRound}
+                    getActiveRound={getActiveRound}
                 />
             </div>
             <div className="rounded-md border">

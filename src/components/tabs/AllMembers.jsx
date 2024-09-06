@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { TabsContent } from "@/components/ui/tabs";
-import DemoPage from "../tables/members/page";
+import Page from "../tables/members/page";
 import { useParams } from "react-router";
 import API from "../../api/axios";
 import { useState, useEffect } from "react";
@@ -23,8 +23,14 @@ export default function AllMembers() {
   const [newMembership, setNewMembership] = useState(false);
   const [activeRound, setActiveRound] = useState(null);
 
-  const getMembers = ()=>{
-    setIsLoading(true)
+  const getActiveRound = async () => {
+    API.get(`/round/etype/${id}`).then((res) => {
+      let round = res.data.data.find((round) => round.closed == false);
+      setActiveRound(round);
+    });
+  };
+  const getMembers = () => {
+    setIsLoading(true);
     API.get(`/membership/etype/${id}`, {})
       .then((data) => {
         setMembers(data.data.data);
@@ -33,9 +39,9 @@ export default function AllMembers() {
       .catch(() => {
         setIsLoading(false);
       });
-  }
+  };
   useEffect(() => {
-    getMembers()
+    getMembers();
   }, []);
 
   return (
@@ -49,13 +55,13 @@ export default function AllMembers() {
           {isLoading ? (
             <Loader2 className="mx-auto h-4 w-4 animate-spin" />
           ) : (
-            <DemoPage
+            <Page
               id={id}
               members={members}
               isLoading={isLoading}
               getMembers={getMembers}
               setNewMembership={setNewMembership}
-              setActiveRound={setActiveRound}
+              getActiveRound={getActiveRound}
             />
           )}
         </CardContent>

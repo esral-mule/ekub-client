@@ -18,9 +18,6 @@ import {
 
 export default function CreateUser({
   setUser,
-  setUsers,
-  setSelectedUserValue,
-  setSelectedUserLabel,
 }) {
   const { toast } = useToast();
   const { t } = useTranslation("global");
@@ -44,18 +41,8 @@ export default function CreateUser({
     })
       .then((data) => {
         setIsLoading(false);
-        setUsers((prev) => {
-          return [
-            ...prev,
-            {
-              label: data.data.data.fullName,
-              value: data.data.data._id,
-            },
-          ];
-        });
-        setUser(data.data.data._id);
-        setSelectedUserLabel(fullName);
-        setSelectedUserValue(data.data.data._id);
+        setUser(data.data.data);
+
         setOpen(false);
         toast({
           description: "User created successfully",

@@ -9,7 +9,9 @@ import {
   AlertDialogTrigger,
 } from "../../components/ui/alert-dialog";
 import { Label } from "@/components/ui/label";
-import SelectData from "../select/SelectData";
+import SelectEqubLevel from "../select/SelectEqubLevel";
+import SelectUser from "../select/SelectUser";
+import SelectUniqueId from "../select/SelectUniqueId";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import API from "../../api/axios";
@@ -19,51 +21,47 @@ import CreateEqubLevel from "./CreateEqubLevel";
 import UniqueIdDetail from "../tables/UniqueIdDetail";
 import { useTranslation } from "react-i18next";
 
-export default function AddMember({ getMembers, setNewMembership,setActiveRound }) {
+export default function AddMember({
+  getMembers,
+  setNewMembership,
+  getActiveRound,
+}) {
   let { id: equbId } = useParams();
   const { t } = useTranslation("global");
   const [user, setUser] = useState("");
-  const [users, setUsers] = useState([]);
-  const [selectedUserValue, setSelectedUserValue] = useState("");
-  const [selectedUserLabel, setSelectedUserLabel] = useState("");
 
   const [equbLevel, setEqubLevel] = useState("");
   const [equbLevels, setEqubLevels] = useState([]);
-  const [selectedEqubLevelValue, setSelectedEqubLevelValue] = useState("");
-  const [selectedEqubLevelLabel, setSelectedEqubLevelLabel] = useState("");
 
   const [uniqueId, setUniqueId] = useState("");
   const [uniqueIds, setUniqueIds] = useState([]);
-  const [selectedUniqueIdValue, setSelectedUniqueIdValue] = useState("");
-  const [selectedUniqueIdLabel, setSelectedUniqueIdLabel] = useState("");
 
   const [openModal, setOpenModal] = useState(false);
+
+  const getEqubLevels = async () => {
+    const equbLevelResponse = await API.get(`/equb-level/etype/${equbId}`);
+    setEqubLevels(
+      equbLevelResponse.data.data.map(({ title, _id }) => ({
+        label: title,
+        value: _id,
+      }))
+    );
+  };
+  const getUniqeIds = async () => {
+    const uniqueIdResponse = await API.get(`/uniqueid/etype/${equbId}`);
+    setUniqueIds(
+      uniqueIdResponse.data.data.map(({ uniqueId, _id }) => ({
+        label: uniqueId.toString(),
+        value: _id,
+      }))
+    );
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userResponse = await API.get("/member/");
-        setUsers(
-          userResponse.data.data.map(({ fullName, _id }) => ({
-            label: fullName,
-            value: _id,
-          }))
-        );
-
-        const equbLevelResponse = await API.get(`/equb-level/etype/${equbId}`);
-        setEqubLevels(
-          equbLevelResponse.data.data.map(({ title, _id }) => ({
-            label: title,
-            value: _id,
-          }))
-        );
-
-        const uniqueIdResponse = await API.get(`/uniqueid/etype/${equbId}`);
-        setUniqueIds(
-          uniqueIdResponse.data.data.map(({ uniqueId, _id }) => ({
-            label: uniqueId.toString(),
-            value: _id,
-          }))
-        );
+        await getEqubLevels();
+        await getUniqeIds();
       } catch (error) {
         console.error("Error fetching data", error);
       }
@@ -74,31 +72,24 @@ export default function AddMember({ getMembers, setNewMembership,setActiveRound 
 
   const handleSubmit = () => {
     API.post("/membership", {
-      member: user,
+      member: user._id,
       equbType: equbId,
-      equbLevel: equbLevel,
-      uniqueId: uniqueId,
+      equbLevel: equbLevel.value,
+      uniqueId: uniqueId.value,
     })
       .then((data) => {
         setOpenModal(false);
         setNewMembership(data.data.data._id);
-        setSelectedUserValue("");
-        setSelectedUserLabel("");
-        setSelectedEqubLevelValue("");
-        setSelectedEqubLevelLabel("");
-        setSelectedUniqueIdValue("");
-        setSelectedUniqueIdLabel("");
+        setUser("");
+        setEqubLevel("");
+        setUniqueId("");
         return data.data.data;
       })
-      .then(data=>{
-        API.get(`/round/etype/${equbId}`).then(res=>{
-          let round = res.data.data.find(round => round.closed == false);
-          setActiveRound(round)
-        })
-        return data;
+      .then(() => {
+        getActiveRound();
       })
       .then(() => {
-        getMembers()
+        getMembers();
       })
       .catch((err) => {
         console.log(err);
@@ -129,61 +120,38 @@ export default function AddMember({ getMembers, setNewMembership,setActiveRound 
             <Label htmlFor="user" className="text-right pr-2">
               {t("addMember.member")}
             </Label>
-            <SelectData
-              data={users}
-              name={t("addMember.selectUser")}
-              action={setUser}
-              setSelectedValue={setSelectedUserValue}
-              selectedValue={selectedUserValue}
-              selectedLabel={selectedUserLabel}
-              setSelectedLabel={setSelectedUserLabel}
-            />
-            <CreateUser
-              setUser={setUser}
-              setUsers={setUsers}
-              setSelectedUserValue={setSelectedUserValue}
-              setSelectedUserLabel={setSelectedUserLabel}
-            />
+            <SelectUser action={setUser} user={user} />
+            <CreateUser setUser={setUser} />
           </div>
           <div className="grid grid-cols-4 items-center">
             <Label htmlFor="equbLevel" className="text-right pr-2">
               {t("addMember.equbLevel")}
             </Label>
-            <SelectData
-              id="equbLevel"
+            <SelectEqubLevel
               data={equbLevels}
               name={t("addMember.selectEqubLevel")}
-              action={setEqubLevel}
-              setSelectedValue={setSelectedEqubLevelValue}
-              selectedValue={selectedEqubLevelValue}
-              selectedLabel={selectedEqubLevelLabel}
-              setSelectedLabel={setSelectedEqubLevelLabel}
+              setEqubLevel={setEqubLevel}
+              equbLevel={equbLevel}
             />
             <CreateEqubLevel
               setEqubLevel={setEqubLevel}
-              setEqubLevels={setEqubLevels}
-              setSelectedEqubLevelValue={setSelectedEqubLevelValue}
-              setSelectedEqubLevelLabel={setSelectedEqubLevelLabel}
+              getEqubLevels={getEqubLevels}
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="uniqueId" className="text-right">
               {t("addMember.uniqueId")}
             </Label>
-            <SelectData
-              id="uniqueId"
+            <SelectUniqueId
               data={uniqueIds}
               name={t("addMember.SelectUniqueId")}
-              action={setUniqueId}
-              setSelectedValue={setSelectedUniqueIdValue}
-              selectedValue={selectedUniqueIdValue}
-              selectedLabel={selectedUniqueIdLabel}
-              setSelectedLabel={setSelectedUniqueIdLabel}
+              setUniqueId={setUniqueId}
+              uniqueId={uniqueId}
             />
           </div>
-          {selectedUniqueIdValue && (
+          {uniqueId && (
             <div>
-              <UniqueIdDetail uniqueID={selectedUniqueIdValue} />
+              <UniqueIdDetail uniqueID={uniqueId.value} />
             </div>
           )}
         </div>
@@ -197,11 +165,7 @@ export default function AddMember({ getMembers, setNewMembership,setActiveRound 
               className="h-8 gap-1 max-w-40"
               onClick={handleSubmit}
               type="submit"
-              disabled={
-                selectedEqubLevelValue == "" ||
-                selectedUniqueIdValue == "" ||
-                selectedUserValue == ""
-              }
+              disabled={!user || !equbLevel || !uniqueId}
             >
               <PlusCircle className="h-3.5 w-3.5" />
               <span className="not-sr-only sm:whitespace-nowrap">

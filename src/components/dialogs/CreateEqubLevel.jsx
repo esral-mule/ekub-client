@@ -19,13 +19,11 @@ import { useTranslation } from "react-i18next";
 
 export default function CreateEqubLevel({
   fromTab,
-  setEqubLevels,
   setEqubLevel,
-  setSelectedEqubLevelValue,
-  setSelectedEqubLevelLabel,
+  getEqubLevels,
 }) {
   let { id } = useParams();
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
 
   const { toast } = useToast();
 
@@ -44,33 +42,18 @@ export default function CreateEqubLevel({
     })
       .then((data) => {
         setIsLoading(false);
-        setEqubLevels((prev) => {
-          return [
-            ...prev,
-            {
-              label: data.data.data.title,
-              value: data.data.data._id,
-            },
-          ];
-        });
+        setOpen(false);
 
         if (!fromTab) {
-          setEqubLevel(data.data.data._id);
-          setSelectedEqubLevelLabel(data.data.data.title);
-          setSelectedEqubLevelValue(data.data.data._id);
+          setEqubLevel({
+            label: data.data.data.title,
+            value: data.data.data._id,
+          });
         }
-        setOpen(false);
         toast({
           description: "Equb level Added Successfully",
         });
-      })
-      .then(() => {
-        if (fromTab) {
-          API.get(`/equb-level/etype/${id}`).then((data) => {
-            console.log("data = ", data);
-            setEqubLevels(data.data.data);
-          });
-        }
+        getEqubLevels();
       })
       .catch((error) => {
         setIsLoading(false);
@@ -90,7 +73,7 @@ export default function CreateEqubLevel({
             fromTab === true ? "px-2 text-[12px] self-end" : ""
           }`}
         >
-          <CirclePlus size={18 } className="pr-1" />
+          <CirclePlus size={18} className="pr-1" />
           {t("addEqubLevel.name")}
         </Button>
       </AlertDialogTrigger>
@@ -130,10 +113,7 @@ export default function CreateEqubLevel({
         </div>
         <AlertDialogFooter className="mb-4">
           <div className="flex gap-x-1 justify-end">
-            <Button
-              size="xs"
-              onClick={() => setOpen(false)}
-            >
+            <Button size="xs" onClick={() => setOpen(false)}>
               {t("addEqubLevel.cancel")}
             </Button>
             <Button

@@ -1,6 +1,5 @@
 import * as React from "react";
 import { CheckIcon, ChevronsUpDown } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,16 +16,24 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-export default function SelectUser(data) {
-  const users = data.users;
-
+// eslint-disable-next-line react/prop-types
+export default function SelectEqubLevel({ data, name, setEqubLevel,equbLevel}) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
   const [search, setSearch] = React.useState("");
 
-  const filteredUsers = users.filter(user =>
-    user.label.toLowerCase().includes(search.toLowerCase())
+  const filteredData = data.filter((element) =>
+    element.label.toLowerCase().includes(search.toLowerCase())
   );
+
+  // useEffect(() => {
+  //   action(selectedValue);
+  // }, [selectedValue, action]);
+
+  const handleSelect = (value) => {
+    setEqubLevel(value);
+    setOpen(false);
+    setSearch("");
+  };
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -35,35 +42,33 @@ export default function SelectUser(data) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="col-span-2 justify-between"
         >
-          {value ? value : "Select user..."}
+          {equbLevel ? equbLevel.label : name}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
           <CommandInput
-            placeholder="Search user..."
-            onValueChange={(input) => setSearch(input)}
+            placeholder="Search..."
+            onChange={(e) => setSearch(e.target.value)}
           />
-          <CommandEmpty>No User found.</CommandEmpty>
+          <CommandEmpty>No {`${name}`} found.</CommandEmpty>
           <CommandList>
             <CommandGroup>
-              {filteredUsers.map((user) => (
+              {filteredData.map((element) => (
                 <CommandItem
-                  key={user.value}
-                  onSelect={() => {
-                    setValue(user.label);
-                    setOpen(false);
-                    setSearch("")
-                  }}
+                  key={element.value}
+                  onSelect={() => handleSelect(element)}
                 >
-                  {user.label}
+                  {element.label}
                   <CheckIcon
                     className={cn(
                       "ml-auto h-4 w-4",
-                      value === user.label ? "opacity-100" : "opacity-0"
+                      equbLevel.value === element.value
+                        ? "opacity-100"
+                        : "opacity-0"
                     )}
                   />
                 </CommandItem>
