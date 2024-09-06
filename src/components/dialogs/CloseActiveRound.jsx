@@ -30,7 +30,7 @@ export default function CloseActiveRound({
   const [openModal, setOpenModal] = useState(false);
   const [uniqueId, setUniqueId] = useState("");
   const [uniqueIds, setUniqueIds] = useState([]);
-
+  const [isLoading,setIsLoading] = useState(false)
   const { toast } = useToast();
 
   useEffect(() => {
@@ -52,10 +52,12 @@ export default function CloseActiveRound({
   }, []);
 
   const handleSubmit = () => {
+    setIsLoading(true)
     API.post("/beneficiary", {
       uniqueId: uniqueId.value,
     })
       .then((data) => {
+        setIsLoading(false)
         setOpenModal(false);
 
         return data.data.data;
@@ -72,6 +74,7 @@ export default function CloseActiveRound({
         });
       })
       .catch(() => {
+        setIsLoading(false)
         toast({
           description: "Round close failed",
         });
@@ -121,14 +124,15 @@ export default function CloseActiveRound({
         </div>
         <AlertDialogFooter>
           <div className="flex gap-x-1 justify-end">
-            <Button onClick={() => setOpenModal(false)} className="h-8 gap-1">
+            <Button disabled={isLoading} onClick={() => setOpenModal(false)} className="h-8 gap-1">
               {t("closeActiveRound.cancel")}
             </Button>
             <Button
-              className="h-8 gap-1 bg-destructive"
+              className="h-8 gap-1"
+              variant="destructive"
               onClick={handleSubmit}
               type="submit"
-              disabled={!uniqueId}
+              disabled={!uniqueId|| isLoading}
             >
               <span>{t("closeActiveRound.confirm")}</span>
             </Button>

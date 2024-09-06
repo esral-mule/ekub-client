@@ -3,33 +3,14 @@ import API from "../../../api/axios";
 import { useParams } from "react-router";
 import DemoPage from "../../tables/contributions/page";
 import StartNewRound from "../../dialogs/StartNewRound";
-import { useToast } from "../../ui/use-toast";
 import CloseActiveRound from "../../dialogs/CloseActiveRound";
 import { Loader2 } from "lucide-react";
 export default function ActiveEqubRound() {
   const { id } = useParams();
   const [selectedOption, setSelectedOption] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { toast } = useToast();
 
-  const handleStartRound = () => {
-    API.post("/round/start", {
-      equbType: id,
-    })
-      .then((data) => {
-        setSelectedOption(data.data.data);
-        toast({
-          title: "Start New Round",
-          description: "Started New Round successfuly",
-        });
-      })
-      .catch(
-        toast({
-          title: "Start New Round",
-          description: "Starting New Round Failed",
-        })
-      );
-  };
+
   useEffect(() => {
     const fetchContributions = async () => {
       try {
@@ -57,7 +38,7 @@ export default function ActiveEqubRound() {
               setSelectedOption={setSelectedOption}
             />
           ) : (
-            <StartNewRound handleStartRound={handleStartRound} />
+            <StartNewRound setSelectedOption={setSelectedOption} />
           ))}
       </div>
       {isLoading && (
@@ -68,7 +49,6 @@ export default function ActiveEqubRound() {
       {selectedOption && (
         <DemoPage
           RoundId={selectedOption._id}
-          handleStartRound={handleStartRound}
         />
       )}
     </div>

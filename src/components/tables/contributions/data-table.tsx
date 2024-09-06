@@ -39,7 +39,6 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
     columns,
     data,
-    handleStartRound
 }: DataTableProps<TData, TValue>) {
   const { t } = useTranslation("global");
 
