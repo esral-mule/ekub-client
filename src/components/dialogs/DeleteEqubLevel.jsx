@@ -24,7 +24,7 @@ import { useToast } from "../ui/use-toast";
 import { useParams } from "react-router";
 import { useTranslation } from "react-i18next";
 
-export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
+export default function DeleteEqubLevel({ equbLevel, getEqubLevels }) {
   let { id } = useParams();
   const { t } = useTranslation("global");
   const [contributions, setContributions] = useState(null);
@@ -66,9 +66,7 @@ export default function DeleteEqubLevel({ equbLevel, setEqubLevels }) {
         setOpenModal(false);
       })
       .then(() => {
-        API.get(`/equb-level/etype/${id}`).then((data) => {
-          setEqubLevels(data.data.data);
-        });
+        getEqubLevels();
       })
       .catch(() => {
         toast({
