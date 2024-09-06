@@ -77,7 +77,7 @@ export default function CreateEqubLevel({
           {t("addEqubLevel.name")}
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent className="sm:max-w-[425px]">
+      <AlertDialogContent className="max-w-[95%] sm:max-w-lg">
         <AlertDialogHeader className="mb-3">
           <AlertDialogTitle className="text-center">
             {t("addEqubLevel.title")}

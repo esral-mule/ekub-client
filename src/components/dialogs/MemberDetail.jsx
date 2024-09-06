@@ -29,7 +29,7 @@ export default function MemberDetail({ user }) {
           {t("memberDetail.detail")}
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent className="sm:max-w-[425px] p-6 rounded-md shadow-lg">
+      <AlertDialogContent className="max-w-[95%] sm:max-w-lg p-6 rounded-md shadow-lg">
         <AlertDialogHeader>
           <AlertDialogTitle className="text-lg font-semibold">
             {t("memberDetail.title")}

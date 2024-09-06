@@ -24,7 +24,7 @@ export default function updatePaymentStatus({ UpdatePaymentStatus }) {
           {t("updatePayment.name")}
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent>
+      <AlertDialogContent className="max-w-[95%] sm:max-w-lg">
         <AlertDialogHeader>
           <AlertDialogTitle>{t("updatePayment.title")}</AlertDialogTitle>
           <AlertDialogDescription>

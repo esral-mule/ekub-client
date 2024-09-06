@@ -110,7 +110,7 @@ export default function AddMember({
           {t("addMember.name")}
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent className="sm:max-w-[425px]">
+      <AlertDialogContent className="max-w-[95%] sm:max-w-lg">
         <AlertDialogHeader>
           <AlertDialogTitle>{t("addMember.title")}</AlertDialogTitle>
           <AlertDialogDescription>{t("addMember.des")}</AlertDialogDescription>

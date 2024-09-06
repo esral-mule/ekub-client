@@ -54,7 +54,7 @@ export default function StartNewRound({ setSelectedOption }) {
           {t("startRound.name")}
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent>
+      <AlertDialogContent className="max-w-[95%] sm:max-w-lg">
         <AlertDialogHeader>
           <AlertDialogTitle>{t("startRound.title")}</AlertDialogTitle>
           <AlertDialogDescription>{t("startRound.des")}</AlertDialogDescription>
