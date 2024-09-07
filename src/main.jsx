@@ -6,7 +6,6 @@ import global_en from "./translations/en/global.json"
 import global_tig from "./translations/tig/global.json"
 import global_am from "./translations/am/global.json"
 import i18next from "i18next"
-import { interpolate } from 'framer-motion'
 import { I18nextProvider } from 'react-i18next'
 
 i18next.init({
