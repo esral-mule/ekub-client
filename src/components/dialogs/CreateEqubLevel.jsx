@@ -19,7 +19,6 @@ import { useTranslation } from "react-i18next";
 
 export default function CreateEqubLevel({
   fromTab,
-  setEqubLevel,
   getEqubLevels,
 }) {
   let { id } = useParams();
@@ -40,15 +39,12 @@ export default function CreateEqubLevel({
       title,
       contribution,
     })
-      .then((data) => {
+      .then(() => {
         setIsLoading(false);
         setOpen(false);
 
         if (!fromTab) {
-          setEqubLevel({
-            label: data.data.data.title,
-            value: data.data.data._id,
-          });
+          getEqubLevels()
         }
         toast({
           description: "Equb level Added Successfully",

@@ -43,7 +43,7 @@ export default function EqubLevel() {
         <CardHeader>
           <CardTitle>{t("equbLevels.title")}</CardTitle>
           <CardDescription>{t("equbLevels.des")}</CardDescription>
-          <CreateEqubLevel fromTab={true} setEqubLevels={setEqubLevels} />
+          <CreateEqubLevel fromTab={true} getEqubLevels={getEqubLevels} />
         </CardHeader>
         <CardContent>
           {isLoading ? (
