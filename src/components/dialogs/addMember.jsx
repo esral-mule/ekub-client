@@ -48,7 +48,7 @@ export default function AddMember({
     );
   };
   const getUniqeIds = async () => {
-    const uniqueIdResponse = await API.get(`/uniqueid/etype/${equbId}`);
+    const uniqueIdResponse = await API.get(`/uniqueid/notfull/etype/${equbId}`);
     setUniqueIds(
       uniqueIdResponse.data.data.map(({ uniqueId, _id }) => ({
         label: uniqueId.toString(),
