@@ -39,7 +39,7 @@ export default function UniqueIdDetail({ uniqueID ,equbLevel,setIsFull}) {
         
         setEqubType(data.equbType)
         if(equbLevel){
-          const isFull = (CalculateTotla(data.members) + equbLevel.contribution) >= equbType.contribution;
+          const isFull = (CalculateTotla(data.members) + equbLevel.contribution) >= data.equbType.contribution;
           setIsFull(isFull)
         }
         setUniqueIdDetail(data);
