@@ -43,6 +43,8 @@ export default function CreateEqubLevel({
         setIsLoading(false);
         setOpen(false);
 
+        setTitle("")
+        setContribution("")
         if (!fromTab) {
           getEqubLevels()
         }
@@ -54,6 +56,7 @@ export default function CreateEqubLevel({
       .catch((error) => {
         setIsLoading(false);
         toast({
+          variant: "destructive",
           description:
             error.response?.data?.message || "Equb Level creation failed",
         });

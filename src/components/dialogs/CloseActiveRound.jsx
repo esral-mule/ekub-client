@@ -76,6 +76,7 @@ export default function CloseActiveRound({
       .catch(() => {
         setIsLoading(false)
         toast({
+          variant: "destructive",
           description: "Round close failed",
         });
       });

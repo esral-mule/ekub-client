@@ -33,6 +33,7 @@ export default function DeleteEqub({ equb, getEqubs }) {
       .catch(() => {
         toast({
           title: "Delete Equb",
+          variant: "destructive",
           description: "Deleted Equb successfuly",
         });
         setOpenModal(false);

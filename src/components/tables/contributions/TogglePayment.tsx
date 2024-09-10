@@ -23,6 +23,7 @@ export default function TogglePayment({ id, status, RoundId, setContributions })
     }).catch(e => {
       toast({
         title: "Payment status Update",
+        variant: "destructive",
         description: "Payment status Update failed",
       })
     })

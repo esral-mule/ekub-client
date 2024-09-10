@@ -70,6 +70,7 @@ export default function DeleteEqubLevel({ equbLevel, getEqubLevels }) {
       })
       .catch(() => {
         toast({
+          variant: "destructive",
           title: "Delete Equb level",
           description: "Delete Equb level Failed",
         });

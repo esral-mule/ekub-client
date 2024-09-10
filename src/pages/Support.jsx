@@ -79,6 +79,7 @@ export default function Support() {
           () => {
             setIsLoading(false);
             toast({
+              variant: "destructive",
               title: t("support.toastTitle"),
               description: t("support.toastError"),
             });

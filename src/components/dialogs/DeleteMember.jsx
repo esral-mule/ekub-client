@@ -32,6 +32,7 @@ export default function DeleteMember({ user, getMembers }) {
       })
       .catch((e) => {
         toast({
+          variant: "destructive",
           title: "Member Delete",
           description: "Member Delete failed",
         });

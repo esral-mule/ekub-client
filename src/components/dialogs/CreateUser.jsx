@@ -66,6 +66,7 @@ export default function CreateUser({
         setErrors({ ...tempErrors, global });
         setIsLoading(false);
         toast({
+          variant: "destructive",
           description: err.response?.data?.message || "User creation failed",
         });
       });

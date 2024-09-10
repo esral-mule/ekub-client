@@ -32,6 +32,7 @@ export default function ConfirmAddToActive({
         .catch((err) => {
 
           toast({
+            variant: "destructive",
             description: "user added to active round failed",
           });
         });

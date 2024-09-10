@@ -36,6 +36,7 @@ export default function StartNewRound({ setSelectedOption }) {
       })
       .catch(() => {
         toast({
+          variant: "destructive",
           title: "Start New Round",
           description: "Starting New Round Failed",
         });

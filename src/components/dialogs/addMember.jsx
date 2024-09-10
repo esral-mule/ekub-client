@@ -27,6 +27,7 @@ import CreateUser from "./CreateUser";
 import CreateEqubLevel from "./CreateEqubLevel";
 import UniqueIdDetail from "../tables/UniqueIdDetail";
 import { useTranslation } from "react-i18next";
+import { useToast } from "../ui/use-toast";
 
 export default function AddMember({
   getMembers,
@@ -45,6 +46,7 @@ export default function AddMember({
   const [isFull, setIsFull] = useState(false);
 
   const [openModal, setOpenModal] = useState(false);
+  const { toast } = useToast();
 
   const getEqubLevels = async () => {
     const equbLevelResponse = await API.get(`/equb-level/etype/${equbId}`);
@@ -99,10 +101,16 @@ export default function AddMember({
         getActiveRound();
       })
       .then(() => {
+        toast({
+          description: "Memeber added successfuly",
+        });
         getMembers();
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        toast({
+          variant: "destructive",
+          description: "Memeber adding failed",
+        });
       });
   };
 
