@@ -14,14 +14,17 @@ import {
 import { Button } from "../ui/button";
 import { useTranslation } from "react-i18next";
 
-export default function updatePaymentStatus({ UpdatePaymentStatus }) {
+export default function updatePaymentStatus({
+  UpdatePaymentStatus,
+  isloading,
+}) {
   const { t } = useTranslation("global");
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button size="xs" className="ml-auto print:hidden bg-primary">
           <SquarePen size={18} className="pr-1" />
-          {t("updatePayment.name")}
+          {isloading?t("updatePayment.updating"): t("updatePayment.name")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent className="max-w-[95%] sm:max-w-lg">

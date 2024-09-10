@@ -10,7 +10,7 @@ import { I18nextProvider } from 'react-i18next'
 
 i18next.init({
   interpolatation :{escapeValue:true},
-  lng:"en",
+  lng:"tig",
   resources:{
     en:{
       global:global_en

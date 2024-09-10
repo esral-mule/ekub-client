@@ -222,7 +222,8 @@
         "title":"Are you absolutely sure?",
         "des":"you are updating payment status",
         "cancel":"Cancel",
-        "confirm":"Continue"
+        "confirm":"Continue",
+        "updating":"Updating"
     },
     "closeActiveRound":{
         "name":"Close Round",

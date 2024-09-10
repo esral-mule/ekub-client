@@ -21,7 +21,7 @@ export type User = {
   updatedAt: Date;
 };
 
-export const columns = (RoundId, setContributions,t): ColumnDef<User>[] => [
+export const columns = (RoundId, getContributions,t): ColumnDef<User>[] => [
   {
     accessorFn: (row) => row.member.member.fullName,
     id: t("contributionTable.fullName"),
@@ -73,12 +73,12 @@ export const columns = (RoundId, setContributions,t): ColumnDef<User>[] => [
           {row.original.isPaid ? (
             <div className="flex justify-center gap-1">
               <CircleCheckBig className="mx-auto" size={20} />
-              <p className="hidden sm:flex">{t("contributionTable.paid")}</p>
+              <p className="flex">{t("contributionTable.paid")}</p>
             </div>
           ) : (
             <div className="flex justify-center gap-1">
               <CircleX size={20} />
-              <p className="hidden sm:flex">{t("contributionTable.unpaid")}</p>
+              <p className="flex">{t("contributionTable.unpaid")}</p>
             </div>
           )}
         </div>
@@ -89,7 +89,7 @@ export const columns = (RoundId, setContributions,t): ColumnDef<User>[] => [
     id: t("contributionTable.actions"),
     header: t("contributionTable.actions"),
     cell: ({ row }) => {
-      return <TogglePayment id={row.original._id} status={row.original.isPaid} RoundId={RoundId} setContributions={setContributions} />;
+      return <TogglePayment id={row.original._id} status={row.original.isPaid} RoundId={RoundId} getContributions={getContributions} />;
     },
   },
 ];

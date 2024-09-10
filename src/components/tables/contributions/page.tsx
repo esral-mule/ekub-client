@@ -11,8 +11,7 @@ export default function DemoPage({ RoundId, handleStartRound }) {
     const [contributions, setContributions] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        setIsLoading(true)
+    function getContributions() {
         API.get(`/contribution/round/${RoundId}`)
             .then((data) => {
                 setContributions(data.data.data);
@@ -21,6 +20,10 @@ export default function DemoPage({ RoundId, handleStartRound }) {
             .catch((err) => {
                 setIsLoading(false)
             });
+    }
+    useEffect(() => {
+        setIsLoading(true)
+        getContributions()
     }, [RoundId]);
 
     return (
@@ -36,7 +39,7 @@ export default function DemoPage({ RoundId, handleStartRound }) {
                             :
 
 
-                            <DataTable columns={columns(RoundId, setContributions, t)} data={contributions} />
+                            <DataTable columns={columns(RoundId, getContributions, t)} data={contributions} />
                     }
                 </div>
             </CardContent>
