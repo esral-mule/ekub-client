@@ -61,7 +61,11 @@
             "maxUniqueIds": "የዕጣ ብዛት ያስገቡ",
             "lotteryDay": "ዕጣ የሚወጣበት ቀን ያስገቡ",
             "contributionDay": "ክፍያ መሰብሰብያ ቀን ያስገቡ"
-        }
+        },
+        "more":"ተጨማሪ",
+        "daily":"የቀን",
+        "weekly":"ሳምንታዊ",
+        "monthly":"የወር"
     },
     "tabs": {
         "members": {

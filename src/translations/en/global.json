@@ -62,7 +62,11 @@
             "lotteryDay": "Lottery Day ...",
             "contribution": "Contribution ...",
             "maxUniqueIds": "Total UniqueIds ..."
-        }
+        },
+        "more":"More",
+        "daily":"Daily",
+        "weekly":"Weekly",
+        "monthly":"Monthly"
     },
     "tabs": {
         "members": {

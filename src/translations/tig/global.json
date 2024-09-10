@@ -61,7 +61,12 @@
             "maxUniqueIds": "በዝሒ ዕፃ የእትው",
             "lotteryDay": "ዕፃ ዝወድቀሉ መዓልቲ የእትው",
             "contributionDay": "ዝእከበሉ መዓልቲ የእትው"
-        }
+        },
+        "more":"ተወሳኺ",
+        "daily":"መዓልታዊ",
+        "weekly":"ሰሙናዊ",
+        "monthly":"ወርሓዊ"
+
     },
     "tabs": {
         "members": {

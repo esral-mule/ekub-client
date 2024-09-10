@@ -135,7 +135,7 @@ const CreateEqub = () => {
 
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
-                <AccordionTrigger>More</AccordionTrigger>
+                <AccordionTrigger>{t("createeqube.more")}</AccordionTrigger>
                 <AccordionContent>
                   <div className="space-y-1 text-left">
                     {errors.contributionDay && (
@@ -156,15 +156,15 @@ const CreateEqub = () => {
                       <Button type="button" variant="secondary" onClick={()=>{
                         setContributionDay(1)
                         
-                      }} size="xs">Daily</Button>
+                      }} size="xs">{t("createeqube.daily")}</Button>
                       <Button  type="button" variant="secondary" onClick={()=>{
                         setContributionDay(7)
                         
-                      }}size="xs">Weekly</Button>
+                      }}size="xs">{t("createeqube.weekly")}</Button>
                       <Button  type="button" variant="secondary" onClick={()=>{
                         setContributionDay(30)
                         
-                      }} size="xs">Monthly</Button>
+                      }} size="xs">{t("createeqube.monthly")}</Button>
                     </div>
                   </div>
 
