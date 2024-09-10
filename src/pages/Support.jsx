@@ -13,6 +13,7 @@ import {
 import Transition from "../components/Transition";
 import { useToast } from "../components/ui/use-toast";
 import { useTranslation } from "react-i18next";
+import FloatingContactUs from "../components/icons/FloatingContactUs";
 
 export default function Support() {
   const form = useRef();
@@ -155,6 +156,7 @@ export default function Support() {
           </CardContent>
         </Card>
       </form>
+      <FloatingContactUs/>
     </Transition>
   );
 }
