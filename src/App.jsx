@@ -34,7 +34,7 @@ function App() {
                       </ProtectedRoute>
                     }
                   />
-                                    <Route
+                  <Route
                     path="/home"
                     element={
                       <ProtectedRoute>
@@ -44,15 +44,64 @@ function App() {
                   />
                   <Route path="/signin" element={<Signin />} />
                   <Route path="/signout" element={<Logout />} />
-                  <Route path="/createuser" element={<CreateUser />} />
-                  <Route path="/equbes" element={<ListEqubes />} />
-                  <Route path="/createeqube" element={<CreateEqub />} />
-                  <Route path="/equbdetail/:id" element={<EqubDetail />} />
-                  <Route path="/userdetail/:id" element={<UserDetail />} />
-                  <Route path="/settings" element={<Settings />} />
-                  <Route path="/support" element={<Support/>} />
-                  <Route path="*" element={<NotFound/>} />
+                  <Route
+                    path="/createuser"
+                    element={
+                      <ProtectedRoute>
+                        <CreateUser />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/equbes"
+                    element={
+                      <ProtectedRoute>
+                        <ListEqubes />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/createeqube"
+                    element={
+                      <ProtectedRoute>
+                        <CreateEqub />
+                      </ProtectedRoute>
+                    }
+                  />
 
+                  <Route
+                    path="/equbdetail/:id"
+                    element={
+                      <ProtectedRoute>
+                        <EqubDetail />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/userdetail/:id"
+                    element={
+                      <ProtectedRoute>
+                        <UserDetail />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/settings"
+                    element={
+                      <ProtectedRoute>
+                        <Settings />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/support"
+                    element={
+                      <ProtectedRoute>
+                        <Support />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route path="*" element={<NotFound />} />
                 </Route>
               </Routes>
             </BrowserRouter>
