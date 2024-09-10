@@ -17,6 +17,8 @@ import { useNavigate } from "react-router";
 import Transition from "../components/Transition";
 import { useToast } from "../components/ui/use-toast";
 import { useTranslation } from "react-i18next";
+import ClosedEye from "../components/icons/ClosedEye";
+import OpenedEye from "../components/icons/OpenedEye";
 
 const CreateUser = () => {
   let navigate = useNavigate();
@@ -125,22 +127,23 @@ const CreateUser = () => {
                 <div className="text-red-600 mb-[10px]">{errors.password}</div>
               )}
               <Label htmlFor="password">{t("creatUser.password")}</Label>
-              <div className="flex items-center">
-                <Input
-                  id="password"
-                  type={passwordVisible ? "text" : "password"}
-                  placeholder={t("creatUser.placeHolder.password")}
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                />
-                <box-icon
-                  size="md"
-                  name={`toggle-${passwordVisible ? "right" : "left"}`}
-                  color={`${passwordVisible ? "#d2062a" : "#06d28c"}`}
-                  type="solid"
-                  onClick={togglePasswordVisibility}
-                ></box-icon>
+              <div className="flex items-center relative">
+              <Input
+                id="password"
+                type={passwordVisible ? "text" : "password"}
+                placeholder="Your password ..."
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
+              <div
+                className="absolute top-3 right-2"
+                onClick={() => {
+                  togglePasswordVisibility();
+                }}
+              >
+                {passwordVisible ? <ClosedEye/> : <OpenedEye/>}
               </div>
+            </div>
             </div>
           </CardContent>
           <CardFooter>
