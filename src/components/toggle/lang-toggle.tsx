@@ -1,26 +1,24 @@
-import { Button } from "../ui/button"
+import { Button } from "../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import * as React from "react"
+} from "@/components/ui/dropdown-menu";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Globe } from "lucide-react";
 
 export function LangToggle() {
-  const [t, i18n] = useTranslation("global");
+  const { t, i18n } = useTranslation("global");
 
-  // Load preferred language from localStorage when the component mounts
   React.useEffect(() => {
     const storedLang = localStorage.getItem("preferredLanguage");
-    if (storedLang) {
+    if (storedLang && storedLang !== i18n.language) {
       i18n.changeLanguage(storedLang);
     }
   }, [i18n]);
 
-  // Handle language change and store the preference in localStorage
   const handleChangeLanguage = (lang) => {
     i18n.changeLanguage(lang);
     localStorage.setItem("preferredLanguage", lang);
