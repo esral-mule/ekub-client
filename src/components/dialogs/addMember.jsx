@@ -8,6 +8,13 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "../../components/ui/alert-dialog";
+import { Checkbox } from "../../components/ui/checkbox";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../../components/ui/accordion";
 import { Label } from "@/components/ui/label";
 import SelectEqubLevel from "../select/SelectEqubLevel";
 import SelectUser from "../select/SelectUser";
@@ -35,15 +42,17 @@ export default function AddMember({
 
   const [uniqueId, setUniqueId] = useState("");
   const [uniqueIds, setUniqueIds] = useState([]);
+  const [isFull, setIsFull] = useState(false);
 
   const [openModal, setOpenModal] = useState(false);
 
   const getEqubLevels = async () => {
     const equbLevelResponse = await API.get(`/equb-level/etype/${equbId}`);
     setEqubLevels(
-      equbLevelResponse.data.data.map(({ title, _id }) => ({
+      equbLevelResponse.data.data.map(({ title, _id, contribution }) => ({
         label: title,
         value: _id,
+        contribution,
       }))
     );
   };
@@ -76,6 +85,7 @@ export default function AddMember({
       equbType: equbId,
       equbLevel: equbLevel.value,
       uniqueId: uniqueId.value,
+      isFull,
     })
       .then((data) => {
         setOpenModal(false);
@@ -151,8 +161,30 @@ export default function AddMember({
           </div>
           {uniqueId && (
             <div>
-              <UniqueIdDetail uniqueID={uniqueId.value} />
+              <UniqueIdDetail
+                uniqueID={uniqueId.value}
+                equbLevel={equbLevel}
+                setIsFull={setIsFull}
+              />
             </div>
+          )}
+
+          {uniqueId && equbLevel && (
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger>Is it Full?</AccordionTrigger>
+                <AccordionContent>
+                  <div>
+                    <Checkbox
+                      checked={isFull}
+                      onCheckedChange={() => {
+                        setIsFull(!isFull);
+                      }}
+                    />
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           )}
         </div>
         <AlertDialogFooter>

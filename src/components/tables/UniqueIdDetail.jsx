@@ -14,33 +14,42 @@ import { Loader2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 // Assume you have a Spinner component for loading state
 
-export default function UniqueIdDetail({ uniqueID }) {
+export default function UniqueIdDetail({ uniqueID ,equbLevel,setIsFull}) {
   const { t } = useTranslation("global");   
 
   const [uniqueIDDetail, setUniqueIdDetail] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [equbType ,setEqubType] = useState(null)
 
   const CalculateTotla = (members) => {
     let sum = 0;
     for (let index = 0; index < members.length; index++) {
-      sum = members[index].equbLevel.contribution;
+      sum =sum + members[index].equbLevel.contribution;
     }
     return sum;
   };
 
+  
   useEffect(() => {
     setLoading(true);
 
     API.get(`/uniqueid/${uniqueID}`)
-      .then((data) => {
-        setUniqueIdDetail(data.data.data);
+      .then((res) => {
+        const data = res.data.data
+        
+        setEqubType(data.equbType)
+        if(equbLevel){
+          const isFull = (CalculateTotla(data.members) + equbLevel.contribution) >= equbType.contribution;
+          setIsFull(isFull)
+        }
+        setUniqueIdDetail(data);
         setLoading(false);
       })
       .catch((err) => {
         console.log("Error fetching unique ID details:", err);
         setLoading(false);
       });
-  }, [uniqueID]);
+  }, [uniqueID,equbLevel]);
 
   return (
     <div>
@@ -77,7 +86,7 @@ export default function UniqueIdDetail({ uniqueID }) {
                   <TableRow>
                     <TableCell colSpan={2}>{t("uniqueIdDetail.total")}</TableCell>
                     <TableCell className="text-right">
-                      {CalculateTotla(uniqueIDDetail.members)}
+                      {CalculateTotla(uniqueIDDetail.members)} / {equbType.contribution}
                     </TableCell>
                   </TableRow>
                 </TableFooter>
