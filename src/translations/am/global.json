@@ -131,7 +131,9 @@
         "confirm": "የዕቁብ ኣባል መዝግብ",
         "selectUser": "ተጠቃሚ ይምረጡ",
         "selectEqubLevel": " የዕቁብ ደረጃ ይምረጡ",
-        "SelectUniqueId": "ዕጣ ቁጥር ይምረጡ"
+        "SelectUniqueId": "ዕጣ ቁጥር ይምረጡ",
+        "isFull":"ይህ ዕጣ ቁጥር ሞልታል?",
+        "oldMembers":"እዚ ዕጣ ቁጥር ላይ ተመዝግበው የነበሩ"
     },
     "creatNewUser": {
         "name": "ተጠቃሚ መዝግብ",
@@ -165,7 +167,8 @@
         "level": "ደረጃ",
         "amount": "የብር ብዛት",
         "total": "ኣጠቃላይ የብር ብዛት",
-        "noMember": "ይህ እጣ ቁጥር ኣልተያዘም"
+        "noMember": "ይህ እጣ ቁጥር ኣልተያዘም",
+        "title":"እዚ ዕጣ ቁጥር ላይ ተመዝግበው የነበሩ"
     },
     "equbLevels": {
         "title": "የዕቁብ ደረጃዎች",

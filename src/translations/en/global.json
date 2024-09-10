@@ -131,7 +131,9 @@
         "confirm": "Add Member",
         "selectUser": "Select User",
         "selectEqubLevel": "Select EqubLevel",
-        "SelectUniqueId": "Select UniqueId"
+        "SelectUniqueId": "Select UniqueId",
+        "isFull":"Is it Full?",
+        "oldMembers":" Members already in this uniqueid"
     },
     "creatNewUser": {
         "name": "Create New User",
@@ -165,7 +167,8 @@
         "level": "Level",
         "amount": "Amount",
         "total": "Total",
-        "noMember": "No Member is assigned to this UniqueId"
+        "noMember": "No Member is assigned to this UniqueId",
+        "title":"Members already in this uniqueId"
     },
     "equbLevels": {
         "title": "Equb Levels",

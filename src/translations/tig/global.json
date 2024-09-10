@@ -131,7 +131,9 @@
         "confirm": "ኣባል ዕቁብ መዝግብ",
         "selectUser": "ተጠቃሚ ይምረፁ",
         "selectEqubLevel": "ዕቁብ ደረጃ ይምረፁ",
-        "SelectUniqueId": "ዕፃ ቁፅሪ ይምረፁ"
+        "SelectUniqueId": "ዕፃ ቁፅሪ ይምረፁ",
+        "isFull":"እዚ ዕፃ ቁፅሪ መሊኡ ዶ?",
+        "oldMembers":"ኣብዚ ዕፃ ቁፅሪ ተመዝጊቦም ዝነበሩ"
     },
     "creatNewUser": {
         "name": "ተጠቃሚ መዝግብ",
@@ -165,7 +167,8 @@
         "level": "ደረጃ",
         "amount": "በዝሒ ብር",
         "total": "ጠቕላላ በዝሒ ብር",
-        "noMember": "እዚ ዕፃ ቁፅሪ ኣይተትሓዘን"
+        "noMember": "እዚ ዕፃ ቁፅሪ ኣይተትሓዘን",
+        "title":"ኣብዚ ዕፃ ቁፅሪ ተመዝጊቦም ዝነበሩ"
     },
     "equbLevels": {
         "title": "ናይ ዕቁብ ደረጃታት",

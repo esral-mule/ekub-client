@@ -180,7 +180,7 @@ export default function AddMember({
           {uniqueId && equbLevel && (
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
-                <AccordionTrigger>Is it Full?</AccordionTrigger>
+                <AccordionTrigger>{t("addMember.isFull")}</AccordionTrigger>
                 <AccordionContent>
                   <div>
                     <Checkbox
