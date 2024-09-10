@@ -17,6 +17,12 @@ import { useNavigate } from "react-router";
 import Transition from "../components/Transition";
 import { useToast } from "../components/ui/use-toast";
 import { useTranslation } from "react-i18next";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../components/ui/accordion";
 
 const CreateEqub = () => {
   const { t } = useTranslation("global");
@@ -26,6 +32,8 @@ const CreateEqub = () => {
   const [name, setName] = useState("");
   const [contribution, setContribution] = useState("");
   const [maxUniqueIds, setMaxUniqueIds] = useState("");
+  const [contributionDay, setContributionDay] = useState("");
+  const [lotteryDay, setLotteryDay] = useState("");
 
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -37,6 +45,8 @@ const CreateEqub = () => {
       name,
       contribution,
       maxUniqueIds,
+      contributionDay,
+      lotteryDay
     })
       .then(() => {
         setErrors({});
@@ -122,9 +132,65 @@ const CreateEqub = () => {
                 value={maxUniqueIds}
               />
             </div>
+
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger>More</AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-1 text-left">
+                    {errors.contributionDay && (
+                      <div className="text-red-600 mb-[10px]">
+                        {errors.contributionDay}
+                      </div>
+                    )}
+                    <Label htmlFor="contributionDay">
+                      {t("createeqube.contributionDay")}
+                    </Label>
+                    <Input
+                      id="contributionDay"
+                      placeholder={t("createeqube.placeHolder.contributionDay")}
+                      onChange={(e) => setContributionDay(e.target.value)}
+                      value={contributionDay}
+                    />
+                    <div className="flex justify-end gap-1">
+                      <Button type="button" variant="secondary" onClick={()=>{
+                        setContributionDay(1)
+                        
+                      }} size="xs">Daily</Button>
+                      <Button  type="button" variant="secondary" onClick={()=>{
+                        setContributionDay(7)
+                        
+                      }}size="xs">Weekly</Button>
+                      <Button  type="button" variant="secondary" onClick={()=>{
+                        setContributionDay(30)
+                        
+                      }} size="xs">Monthly</Button>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1 text-left mt-2">
+                    {errors.lotteryDay && (
+                      <div className="text-red-600 mb-[10px]">
+                        {errors.lotteryDay}
+                      </div>
+                    )}
+                    <Label htmlFor="lotteryDay">
+                      {t("createeqube.lotteryDay")}
+                    </Label>
+                    <Input
+                      id="lotteryDay"
+                      placeholder={t("createeqube.placeHolder.lotteryDay")}
+                      onChange={(e) => setLotteryDay(e.target.value)}
+                      value={lotteryDay}
+                    />
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </CardContent>
           <CardFooter>
             <Button
+             type="submit"
               disabled={
                 isLoading ||
                 name == "" ||
