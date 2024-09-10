@@ -44,7 +44,10 @@ export default function SelectEqubLevel({ data, name, setEqubLevel,equbLevel}) {
           aria-expanded={open}
           className="col-span-2 justify-between"
         >
-          {equbLevel ? equbLevel.label : name}
+          <div className="max-w-[100%] truncate">
+          {equbLevel ? `${equbLevel.label} / ${equbLevel.contribution}` : name}
+
+          </div>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -59,10 +62,11 @@ export default function SelectEqubLevel({ data, name, setEqubLevel,equbLevel}) {
             <CommandGroup>
               {filteredData.map((element) => (
                 <CommandItem
+                  className="text-ellipsis"
                   key={element.value}
                   onSelect={() => handleSelect(element)}
                 >
-                  {element.label}
+                  {`${element.label} / ${element.contribution}`}
                   <CheckIcon
                     className={cn(
                       "ml-auto h-4 w-4",
