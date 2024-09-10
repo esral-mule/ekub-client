@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import DemoPage from "../../tables/contributions/page";
 import SelectRound from "../../select/SelectRound";
 import { Loader2 } from "lucide-react";
+import WinnerDetail from "../../WinnerDetail";
 
 export default function EqubRounds() {
   const { id } = useParams();
@@ -42,6 +43,7 @@ export default function EqubRounds() {
           )}
 
           {selectedOption && <DemoPage RoundId={selectedOption._id} />}
+          {selectedOption && selectedOption.closed && <WinnerDetail round={selectedOption}/>}
         </div>
       )}
     </div>

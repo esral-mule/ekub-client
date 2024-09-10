@@ -269,5 +269,9 @@
         "toastTitle":"Email",
         "toastSuccess":"We have received your message",
         "toastError":"Email send failed"
+    },
+    "winner":{
+        "title":"Winner UniqueId",
+        "des":"The winner uniqueId is"        
     }
 }
