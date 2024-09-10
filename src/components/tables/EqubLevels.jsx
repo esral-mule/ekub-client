@@ -16,6 +16,7 @@ import { MoreHorizontal } from "lucide-react";
 import { Button } from "..//ui/button";
 import DeleteEqubLevel from "../dialogs/DeleteEqubLevel";
 import { useTranslation } from "react-i18next";
+import UpdateEqubLevel from "../dialogs/UpdateEqubLevel";
 export default function EqubLevels({equblevels,getEqubLevels}) {
   const { t } = useTranslation("global");
 
@@ -48,8 +49,8 @@ export default function EqubLevels({equblevels,getEqubLevels}) {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DeleteEqubLevel
-                    equbLevel={level._id}
+                  <UpdateEqubLevel
+                    equbLevel={level}
                     getEqubLevels={getEqubLevels}
                   />
                 </DropdownMenuContent>

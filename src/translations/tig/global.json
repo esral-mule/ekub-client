@@ -167,6 +167,15 @@
         "loading": "ኣብ ምምዝጋብ",
         "confirm": "መዝግብ"
     },
+    "updateEqubLevel":{
+        "name":"ኣዘምን",
+        "title":"ዕቁብ ደረጃ ኣዘምን",
+        "des":"ዝመረፅዎ ዕቁብ ደረጃ ኣብ ምዝማን",
+        "title-label":"ሽም",
+        "cancel": "መልሰኒ",
+        "loading": "ኣብ ምዝማን",
+        "confirm": "ኣዘምን"
+    },
     "uniqueIdDetail": {
         "fullName": "ሽም",
         "level": "ደረጃ",

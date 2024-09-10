@@ -166,6 +166,15 @@
         "loading": "Creating...",
         "confirm": "Create"
     },
+    "updateEqubLevel":{
+        "name":"Update",
+        "title":"Update Equb Level",
+        "des":"Updating the selected Equb level",
+        "title-label":"Title",
+        "cancel":"Cancel",
+        "loading":"Loading",
+        "confirm":"Confirm"
+    },
     "uniqueIdDetail": {
         "fullName": "Full Name",
         "level": "Level",

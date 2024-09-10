@@ -166,6 +166,15 @@
         "loading": "በመመዝገብ ላይ",
         "confirm": "መዝግብ"
     },
+    "updateEqubLevel":{
+        "name":"ኣዘምን",
+        "title":"የዕቁብ ደረጃ አዘምን",
+        "des":"የመረጡትን የዕቁብ ደረጃ በማዘመን ላይ",
+        "title-label":"ስም",
+        "cancel": "መልሰኝ",
+        "loading": "በማዘመን ላይ",
+        "confirm": "ኣዘምን"
+    },
     "uniqueIdDetail": {
         "fullName": "ስም",
         "level": "ደረጃ",
