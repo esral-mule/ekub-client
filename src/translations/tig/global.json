@@ -223,7 +223,9 @@
         "des": "ክፍሊት ኩነት ንምቅያር ርግፀኛ ድዮም?",
         "cancel": "መልሰኒ",
         "confirm": "ክፍሊት ኩነት ቀይር",
-        "updating":"ኣብ ምቕያር"
+        "updating":"ኣብ ምቕያር",
+        "punishment":"መቕጻዕቲ",
+        "placeholder":"ናይ መቕጻዕቲ መጠን የእትዉ"
     },
     "closeActiveRound": {
         "name": "ዙር ዛዝም",

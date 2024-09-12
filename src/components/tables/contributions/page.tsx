@@ -39,7 +39,7 @@ export default function DemoPage({ RoundId, handleStartRound }) {
                             :
 
 
-                            <DataTable columns={columns(RoundId, getContributions, t)} data={contributions} />
+                            <DataTable columns={columns(getContributions, t)} data={contributions} />
                     }
                 </div>
             </CardContent>

@@ -223,7 +223,9 @@
         "des":"you are updating payment status",
         "cancel":"Cancel",
         "confirm":"Continue",
-        "updating":"Updating"
+        "updating":"Updating",
+        "punishment":"Punishment",
+        "placeholder":"Inter punishment amount"
     },
     "closeActiveRound":{
         "name":"Close Round",

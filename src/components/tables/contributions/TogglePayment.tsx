@@ -3,13 +3,15 @@ import { useToast } from "../../ui/use-toast";
 import UpdatePaymentStatus from "../../dialogs/UpdatePaymentStatus";
 import API from "../../../api/axios";
 
-export default function TogglePayment({ id, status, RoundId, getContributions }) {
+export default function TogglePayment({ contribution, status, getContributions }) {
   const { toast } = useToast()
   const [isloading, setIsloading] = React.useState(false)
-  const handlePaymentStatusChange = () => {
+
+  const handlePaymentStatusChange = (punishment) => {
     setIsloading(true)
-    API.put(`/contribution/${id}/`, {
-      "isPaid": !status
+    API.put(`/contribution/${contribution._id}/`, {
+      "isPaid": !status,
+      punishment: punishment === "" ? 0 : punishment
     }).then(() => {
       getContributions()
     }).then(
@@ -22,6 +24,8 @@ export default function TogglePayment({ id, status, RoundId, getContributions })
         setIsloading(false)
       }
     ).catch(e => {
+      console.log(e);
+      
       setIsloading(false)
       toast({
         title: "Payment status Update",
@@ -34,6 +38,6 @@ export default function TogglePayment({ id, status, RoundId, getContributions })
 
   return (
 
-    <UpdatePaymentStatus UpdatePaymentStatus={handlePaymentStatusChange} isloading={isloading} />
+    <UpdatePaymentStatus contribution={contribution} UpdatePaymentStatus={handlePaymentStatusChange} isloading={isloading} />
   )
 }

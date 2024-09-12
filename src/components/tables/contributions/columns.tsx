@@ -11,8 +11,8 @@ export type User = {
       fullName: string;
       phoneNumber: string;
     };
-    equbLevel:{
-      contribution:number;
+    equbLevel: {
+      contribution: number;
     }
   };
   isPaid: boolean;
@@ -21,7 +21,7 @@ export type User = {
   updatedAt: Date;
 };
 
-export const columns = (RoundId, getContributions,t): ColumnDef<User>[] => [
+export const columns = (getContributions, t): ColumnDef<User>[] => [
   {
     accessorFn: (row) => row.member.member.fullName,
     id: t("contributionTable.fullName"),
@@ -59,13 +59,15 @@ export const columns = (RoundId, getContributions,t): ColumnDef<User>[] => [
       return <div>{t("contributionTable.contribution")}</div>;
     },
     cell: ({ row }) => {
-      return <div className="font-medium">{row.original.member.equbLevel.contribution}</div>;
+
+      return   <div className="font-medium whitespace-nowrap">{`${row.original.member.equbLevel.contribution} ${row.original.punishment !== 0 && row.original.punishment!==undefined  ? `+ ${row.original.punishment}` : ''}`}
+    </div>;
     },
   },
 
   {
     accessorKey: "isPaid",
-    id:t("contributionTable.status"),
+    id: t("contributionTable.status"),
     header: () => <div>{t("contributionTable.status")}</div>,
     cell: ({ row }) => {
       return (
@@ -89,7 +91,7 @@ export const columns = (RoundId, getContributions,t): ColumnDef<User>[] => [
     id: t("contributionTable.actions"),
     header: t("contributionTable.actions"),
     cell: ({ row }) => {
-      return <TogglePayment id={row.original._id} status={row.original.isPaid} RoundId={RoundId} getContributions={getContributions} />;
+      return <TogglePayment contribution={row.original} status={row.original.isPaid} getContributions={getContributions} />;
     },
   },
 ];

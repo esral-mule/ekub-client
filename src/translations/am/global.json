@@ -222,7 +222,9 @@
         "des": "የክፍያ ሁነት ለመቀየር እርግጠኛ ኖት?",
         "cancel": "መልሰኝ",
         "confirm": "የክፍያ ሁነት ቀይር",
-        "updating":"በመቀየር ላይ"
+        "updating":"በመቀየር ላይ",
+        "punishment":"ቅጣት",
+        "placeholder":"የቅጣት መጠን ያስገቡ"
     },
     "closeActiveRound": {
         "name": "ዙር ዝጋ",
