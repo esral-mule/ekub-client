@@ -1,7 +1,7 @@
 import * as React from "react";
 import { CheckIcon, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { Button } from "./../ui/button";
 import {
   Command,
   CommandEmpty,
@@ -14,7 +14,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "../ui/popover";
 
 // eslint-disable-next-line react/prop-types
 export default function SelectUniqueId({ data, name, setUniqueId,uniqueId}) {
@@ -25,10 +25,6 @@ export default function SelectUniqueId({ data, name, setUniqueId,uniqueId}) {
     element.label.toLowerCase().includes(search.toLowerCase())
   );
 
-  // useEffect(() => {
-  //   action(selectedValue);
-  // }, [selectedValue, action]);
-
   const handleSelect = (value) => {
     setUniqueId(value);
     setOpen(false);
@@ -36,7 +32,7 @@ export default function SelectUniqueId({ data, name, setUniqueId,uniqueId}) {
   };
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover open={open} onOpenChange={setOpen} modal={true}>
       <PopoverTrigger asChild>
         <Button
           variant="outline"
@@ -54,7 +50,7 @@ export default function SelectUniqueId({ data, name, setUniqueId,uniqueId}) {
             placeholder="Search..."
             onChange={(e) => setSearch(e.target.value)}
           />
-          <CommandEmpty>No {`${name}`} found.</CommandEmpty>
+          <CommandEmpty>Not found.</CommandEmpty>
           <CommandList>
             <CommandGroup>
               {filteredData.map((element) => (

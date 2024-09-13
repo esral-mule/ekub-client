@@ -1,7 +1,7 @@
 import * as React from "react";
 import { CheckIcon, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { Button } from "./../ui/button";
 import {
   Command,
   CommandEmpty,
@@ -14,7 +14,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "./../ui/popover";
 
 // eslint-disable-next-line react/prop-types
 export default function SelectEqubLevel({ data, name, setEqubLevel,equbLevel}) {
@@ -36,7 +36,7 @@ export default function SelectEqubLevel({ data, name, setEqubLevel,equbLevel}) {
   };
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover open={open} onOpenChange={setOpen} modal={true}>
       <PopoverTrigger asChild>
         <Button
           variant="outline"

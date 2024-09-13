@@ -4,7 +4,6 @@ import {
   Command,
   CommandEmpty,
   CommandGroup,
-  CommandInput,
   CommandItem,
   CommandList,
 } from "../ui/command";
@@ -94,7 +93,7 @@ export default function SelectUser({
             <input
               value={search}
               placeholder="Search..."
-              onChange={(e) => setSearch(e.target.value)} // Update search state on change
+              onChange={(e) => setSearch(e.target.value)}
               type="text"
               className="flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
             />
