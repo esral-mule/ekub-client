@@ -17,7 +17,7 @@ import { useParams } from "react-router";
 import { CirclePlus } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-export default function CreateEqubLevel({ fromTab, getEqubLevels }) {
+export default function CreateEqubLevel({ fromTab,setEqubLevel, getEqubLevels }) {
   let { id } = useParams();
   const { t } = useTranslation("global");
 
@@ -37,19 +37,19 @@ export default function CreateEqubLevel({ fromTab, getEqubLevels }) {
       title,
       contribution,
     })
-      .then(() => {
+      .then((res) => {
         setIsLoading(false);
         setOpen(false);
         setErrors({});
         setTitle("");
         setContribution("");
-        if (!fromTab) {
           getEqubLevels();
-        }
+          if (!fromTab) {
+            setEqubLevel({value:res.data.data._id,label:res.data.data.title,contribution:res.data.data.contribution})
+          }          
         toast({
           description: "Equb level Added Successfully",
         });
-        getEqubLevels();
       })
       .catch((err) => {
         const responseErrors = err.response?.data.errors || [];
