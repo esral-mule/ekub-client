@@ -40,7 +40,7 @@ export default function updatePaymentStatus({
           {isloading ? t("updatePayment.updating") : t("updatePayment.name")}
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent className="max-w-[95%] sm:max-w-lg">
+      <AlertDialogContent className="max-w-[95%] max-h-[80vh] overflow-y-auto sm:max-w-lg">
         <AlertDialogHeader>
           <AlertDialogTitle>{t("updatePayment.title")}</AlertDialogTitle>
           <AlertDialogDescription>

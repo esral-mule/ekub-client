@@ -25,7 +25,7 @@ const CreateUser = () => {
   const { toast } = useToast()
   const { t } = useTranslation("global");
   const [fullName, setFullName] = useState("");
-  const [username, setUsername] = useState("");
+  // const [username, setUsername] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -40,11 +40,13 @@ const CreateUser = () => {
     setIsLoading(true)
     API.post("/member", {
       fullName,
-      username,
       phoneNumber,
       password,
     })
       .then(() => {
+        setFullName("")
+        setPhoneNumber("")
+        setPassword("")
         setErrors({});
         toast({
           title: "User Create ",
@@ -91,7 +93,7 @@ const CreateUser = () => {
               />
             </div>
 
-            <div className="space-y-1 text-left">
+            {/* <div className="space-y-1 text-left">
               <Label htmlFor="username">{t("creatUser.username")}</Label>
               {errors.username && (
                 <div className="text-red-600 text-xs">{errors.username}</div>
@@ -102,7 +104,7 @@ const CreateUser = () => {
                 onChange={(e) => setUsername(e.target.value)}
                 value={username}
               />
-            </div>
+            </div> */}
             <div className="space-y-1 text-left">
               <Label htmlFor="phonenumber">{t("creatUser.phoneNumber")}</Label>
               {errors.phoneNumber && (
@@ -143,7 +145,7 @@ const CreateUser = () => {
             </div>
           </CardContent>
           <CardFooter>
-            <Button disabled={isLoading || fullName==""|| username == ""||phoneNumber=="" || password==""}> {isLoading? t("creatUser.loading"):t("creatUser.createEquber")}</Button>
+            <Button disabled={isLoading || fullName==""|| phoneNumber=="" || password==""}> {isLoading? t("creatUser.loading"):t("creatUser.createEquber")}</Button>
           </CardFooter>
         </Card>
       </form>

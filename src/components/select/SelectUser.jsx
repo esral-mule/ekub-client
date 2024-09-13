@@ -99,7 +99,7 @@ export default function SelectUser({
             />
           </div>
           <CommandEmpty>
-            {loading ? "Loading..." : `No ${t("addMember.selectUser")} found.`}
+            {loading ? "Loading..." : `Not found.`}
           </CommandEmpty>
           <CommandList>
             <CommandGroup>

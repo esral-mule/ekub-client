@@ -91,7 +91,7 @@ export default function DeleteEqubLevel({ equbLevel, getEqubLevels }) {
           {t("deleteEqubLevel.delete")}
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent className="max-w-[95%] sm:max-w-lg">
+      <AlertDialogContent className="max-w-[95%] max-h-[80vh] overflow-y-auto sm:max-w-lg">
         <AlertDialogHeader>
           <AlertDialogTitle className="flex items-center">
             <p className="pl-1">{t("deleteEqubLevel.title")}</p>

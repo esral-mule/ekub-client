@@ -42,7 +42,7 @@ export default function ConfirmAddToActive({
 
   return (
     <AlertDialog open={newMembership}>
-      <AlertDialogContent className="max-w-[95%] sm:max-w-lg">
+      <AlertDialogContent className="max-w-[95%] max-h-[80vh] overflow-y-auto sm:max-w-lg">
         <AlertDialogHeader>
           <AlertDialogTitle>
             you want to add this user to the active round?

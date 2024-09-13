@@ -69,7 +69,7 @@ export default function UpdateEqubLevel({
           <p className="px-1">{t("updateEqubLevel.name")}</p>
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent className="max-w-[95%] sm:max-w-lg">
+      <AlertDialogContent className="max-w-[95%] max-h-[80vh] overflow-y-auto sm:max-w-lg">
         <AlertDialogHeader className="mb-3">
           <AlertDialogTitle className="text-center">
             {t("updateEqubLevel.title")}

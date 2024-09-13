@@ -106,7 +106,9 @@ export default function AddMember({
         });
         getMembers();
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
+        
         toast({
           variant: "destructive",
           description: "Memeber adding failed",
@@ -128,7 +130,7 @@ export default function AddMember({
           {t("addMember.name")}
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent className="max-w-[95%] sm:max-w-lg">
+      <AlertDialogContent className="max-w-[95%] max-h-[80vh] overflow-y-auto sm:max-w-lg">
         <AlertDialogHeader>
           <AlertDialogTitle>{t("addMember.title")}</AlertDialogTitle>
           <AlertDialogDescription>{t("addMember.des")}</AlertDialogDescription>

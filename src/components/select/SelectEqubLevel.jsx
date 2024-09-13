@@ -57,7 +57,7 @@ export default function SelectEqubLevel({ data, name, setEqubLevel,equbLevel}) {
             placeholder="Search..."
             onChange={(e) => setSearch(e.target.value)}
           />
-          <CommandEmpty>No {`${name}`} found.</CommandEmpty>
+          <CommandEmpty>Not found.</CommandEmpty>
           <CommandList>
             <CommandGroup>
               {filteredData.map((element) => (
