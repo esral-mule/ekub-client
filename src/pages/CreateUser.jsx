@@ -53,18 +53,14 @@ const CreateUser = () => {
         setIsLoading(false)
         navigate("/");
       })
-      .catch((err) => {
-        const responseErrors = err.response?.data?.data?.errors || [];
-
-        const global =
-          err.response?.data?.code === 500 ? "Validation Error" : "";
-        let tempErrors = {};
-        Object.entries(responseErrors).forEach(([field, error]) => {
-          let errorMessage = error.message;
-          if (errorMessage.startsWith("Path")) {
-            errorMessage = errorMessage.replace(/^Path\s*/, "");
-          }
-          tempErrors[field] = errorMessage;
+      .catch((err) => {      
+        const responseErrors = err.response?.data.errors || [];
+        const global = err.response?.data?.message;
+        let tempErrors = {};       
+        responseErrors.forEach((errorObj) => {
+          let errorMessage = errorObj.messages;
+      
+          tempErrors[errorObj.field] = errorMessage;
         });
         setErrors({ ...tempErrors, global });
         setIsLoading(false);
@@ -83,10 +79,10 @@ const CreateUser = () => {
           )}
           <CardContent className="space-y-2">
             <div className="space-y-1 text-left">
-              {errors.fullName && (
-                <div className="text-red-600 mb-[10px]">{errors.fullName}</div>
-              )}
               <Label htmlFor="fullName">{t("creatUser.fullName")}</Label>
+              {errors.fullName && (
+                <div className="text-red-600 text-xs">{errors.fullName}</div>
+              )}
               <Input
                 id="fullName"
                 placeholder={t("creatUser.placeHolder.fullName")}
@@ -96,10 +92,10 @@ const CreateUser = () => {
             </div>
 
             <div className="space-y-1 text-left">
-              {errors.username && (
-                <div className="text-red-600 mb-[10px]">{errors.username}</div>
-              )}
               <Label htmlFor="username">{t("creatUser.username")}</Label>
+              {errors.username && (
+                <div className="text-red-600 text-xs">{errors.username}</div>
+              )}
               <Input
                 id="username"
                 placeholder={t("creatUser.placeHolder.username")}
@@ -108,12 +104,12 @@ const CreateUser = () => {
               />
             </div>
             <div className="space-y-1 text-left">
+              <Label htmlFor="phonenumber">{t("creatUser.phoneNumber")}</Label>
               {errors.phoneNumber && (
-                <div className="text-red-600 mb-[10px]">
+                <div className="text-red-600 text-xs">
                   {errors.phoneNumber}
                 </div>
               )}
-              <Label htmlFor="phonenumber">{t("creatUser.phoneNumber")}</Label>
               <Input
                 id="phonenumber"
                 placeholder={t("creatUser.placeHolder.phoneNumber")}
@@ -123,10 +119,10 @@ const CreateUser = () => {
             </div>
 
             <div className="space-y-1 text-left">
-              {errors.password && (
-                <div className="text-red-600 mb-[10px]">{errors.password}</div>
-              )}
               <Label htmlFor="password">{t("creatUser.password")}</Label>
+              {errors.password && (
+                <div className="text-red-600 text-xs">{errors.password}</div>
+              )}
               <div className="flex items-center relative">
               <Input
                 id="password"
