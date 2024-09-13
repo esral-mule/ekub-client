@@ -38,15 +38,15 @@ const CreateEqub = () => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => {    
     e.preventDefault();
     setIsLoading(true);
     API.post("/equb-type/", {
       name,
       contribution,
       maxUniqueIds,
-      contributionDay,
-      lotteryDay
+      contributionDay:contributionDay ? Number(contributionDay) : undefined,
+      lotteryDay: lotteryDay ? Number(lotteryDay) : undefined,
     })
       .then(() => {
         setErrors({});
@@ -58,17 +58,13 @@ const CreateEqub = () => {
         navigate("/equbes");
       })
       .catch((err) => {
-        const responseErrors = err.response?.data?.data?.errors || [];
-
-        const global =
-          err.response?.data?.code === 500 ? "Validation Error" : "";
-        let tempErrors = {};
-        Object.entries(responseErrors).forEach(([field, error]) => {
-          let errorMessage = error.message;
-          if (errorMessage.startsWith("Path")) {
-            errorMessage = errorMessage.replace(/^Path\s*/, "");
-          }
-          tempErrors[field] = errorMessage;
+        const responseErrors = err.response?.data.errors || [];
+        const global = err.response?.data?.message;
+        let tempErrors = {};       
+        responseErrors.forEach((errorObj) => {
+          let errorMessage = errorObj.messages;
+      
+          tempErrors[errorObj.field] = errorMessage;
         });
         setErrors({ ...tempErrors, global });
         setIsLoading(false);
@@ -88,7 +84,7 @@ const CreateEqub = () => {
           <CardContent className="space-y-2">
             <div className="space-y-1 text-left">
               {errors.name && (
-                <div className="text-red-600 mb-[10px]">{errors.name}</div>
+                <div className="text-red-600 text-xs">{errors.name}</div>
               )}
               <Label htmlFor="name">{t("createeqube.equbName")}</Label>
               <Input
@@ -101,7 +97,7 @@ const CreateEqub = () => {
 
             <div className="space-y-1 text-left">
               {errors.contribution && (
-                <div className="text-red-600 mb-[10px]">
+                <div className="text-red-600 text-xs">
                   {errors.contribution}
                 </div>
               )}
@@ -118,7 +114,7 @@ const CreateEqub = () => {
 
             <div className="space-y-1 text-left">
               {errors.maxUniqueIds && (
-                <div className="text-red-600 mb-[10px]">
+                <div className="text-red-600 text-xs">
                   {errors.maxUniqueIds}
                 </div>
               )}
@@ -137,9 +133,9 @@ const CreateEqub = () => {
               <AccordionItem value="item-1">
                 <AccordionTrigger>{t("createeqube.more")}</AccordionTrigger>
                 <AccordionContent>
-                  <div className="space-y-1 text-left">
+                  <div className="space-y-1 text-left mx-2">
                     {errors.contributionDay && (
-                      <div className="text-red-600 mb-[10px]">
+                      <div className="text-red-600 text-xs">
                         {errors.contributionDay}
                       </div>
                     )}
@@ -153,24 +149,42 @@ const CreateEqub = () => {
                       value={contributionDay}
                     />
                     <div className="flex justify-end gap-1">
-                      <Button type="button" variant="secondary" onClick={()=>{
-                        setContributionDay(1)
-                        
-                      }} size="xs">{t("createeqube.daily")}</Button>
-                      <Button  type="button" variant="secondary" onClick={()=>{
-                        setContributionDay(7)
-                        
-                      }}size="xs">{t("createeqube.weekly")}</Button>
-                      <Button  type="button" variant="secondary" onClick={()=>{
-                        setContributionDay(30)
-                        
-                      }} size="xs">{t("createeqube.monthly")}</Button>
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        onClick={() => {
+                          setContributionDay(1);
+                        }}
+                        size="xs"
+                      >
+                        {t("createeqube.daily")}
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        onClick={() => {
+                          setContributionDay(7);
+                        }}
+                        size="xs"
+                      >
+                        {t("createeqube.weekly")}
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        onClick={() => {
+                          setContributionDay(30);
+                        }}
+                        size="xs"
+                      >
+                        {t("createeqube.monthly")}
+                      </Button>
                     </div>
                   </div>
 
-                  <div className="space-y-1 text-left mt-2">
+                  <div className="space-y-1 text-left mt-2 mx-2">
                     {errors.lotteryDay && (
-                      <div className="text-red-600 mb-[10px]">
+                      <div className="text-red-600 text-xs">
                         {errors.lotteryDay}
                       </div>
                     )}
@@ -190,7 +204,7 @@ const CreateEqub = () => {
           </CardContent>
           <CardFooter>
             <Button
-             type="submit"
+              type="submit"
               disabled={
                 isLoading ||
                 name == "" ||
