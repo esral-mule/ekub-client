@@ -38,14 +38,14 @@ const CreateEqub = () => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e) => {    
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
     API.post("/equb-type/", {
       name,
       contribution,
       maxUniqueIds,
-      contributionDay:contributionDay ? Number(contributionDay) : undefined,
+      contributionDay: contributionDay ? Number(contributionDay) : undefined,
       lotteryDay: lotteryDay ? Number(lotteryDay) : undefined,
     })
       .then(() => {
@@ -60,10 +60,10 @@ const CreateEqub = () => {
       .catch((err) => {
         const responseErrors = err.response?.data.errors || [];
         const global = err.response?.data?.message;
-        let tempErrors = {};       
+        let tempErrors = {};
         responseErrors.forEach((errorObj) => {
           let errorMessage = errorObj.messages;
-      
+
           tempErrors[errorObj.field] = errorMessage;
         });
         setErrors({ ...tempErrors, global });
@@ -83,10 +83,10 @@ const CreateEqub = () => {
           )}
           <CardContent className="space-y-2">
             <div className="space-y-1 text-left">
+              <Label htmlFor="name">{t("createeqube.equbName")}</Label>
               {errors.name && (
                 <div className="text-red-600 text-xs">{errors.name}</div>
               )}
-              <Label htmlFor="name">{t("createeqube.equbName")}</Label>
               <Input
                 id="name"
                 placeholder={t("createeqube.placeHolder.equbName")}
@@ -96,14 +96,15 @@ const CreateEqub = () => {
             </div>
 
             <div className="space-y-1 text-left">
+              <Label htmlFor="contribution">
+                {t("createeqube.contribution")}
+              </Label>
               {errors.contribution && (
                 <div className="text-red-600 text-xs">
                   {errors.contribution}
                 </div>
               )}
-              <Label htmlFor="contribution">
-                {t("createeqube.contribution")}
-              </Label>
+
               <Input
                 id="contribution"
                 placeholder={t("createeqube.placeHolder.contribution")}
@@ -113,14 +114,14 @@ const CreateEqub = () => {
             </div>
 
             <div className="space-y-1 text-left">
+              <Label htmlFor="maxUniqueIds">
+                {t("createeqube.maxUniqueIds")}
+              </Label>
               {errors.maxUniqueIds && (
                 <div className="text-red-600 text-xs">
                   {errors.maxUniqueIds}
                 </div>
               )}
-              <Label htmlFor="maxUniqueIds">
-                {t("createeqube.maxUniqueIds")}
-              </Label>
               <Input
                 id="maxUniqueIds"
                 placeholder={t("createeqube.placeHolder.maxUniqueIds")}
@@ -134,14 +135,14 @@ const CreateEqub = () => {
                 <AccordionTrigger>{t("createeqube.more")}</AccordionTrigger>
                 <AccordionContent>
                   <div className="space-y-1 text-left mx-2">
+                    <Label htmlFor="contributionDay">
+                      {t("createeqube.contributionDay")}
+                    </Label>
                     {errors.contributionDay && (
                       <div className="text-red-600 text-xs">
                         {errors.contributionDay}
                       </div>
                     )}
-                    <Label htmlFor="contributionDay">
-                      {t("createeqube.contributionDay")}
-                    </Label>
                     <Input
                       id="contributionDay"
                       placeholder={t("createeqube.placeHolder.contributionDay")}
@@ -183,14 +184,14 @@ const CreateEqub = () => {
                   </div>
 
                   <div className="space-y-1 text-left mt-2 mx-2">
+                    <Label htmlFor="lotteryDay">
+                      {t("createeqube.lotteryDay")}
+                    </Label>
                     {errors.lotteryDay && (
                       <div className="text-red-600 text-xs">
                         {errors.lotteryDay}
                       </div>
                     )}
-                    <Label htmlFor="lotteryDay">
-                      {t("createeqube.lotteryDay")}
-                    </Label>
                     <Input
                       id="lotteryDay"
                       placeholder={t("createeqube.placeHolder.lotteryDay")}
