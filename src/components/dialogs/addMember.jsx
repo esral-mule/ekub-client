@@ -82,6 +82,7 @@ export default function AddMember({
   }, [equbId]);
 
   const handleSubmit = () => {
+    setOpenModal(false);
     API.post("/membership", {
       member: user._id,
       equbType: equbId,
@@ -90,7 +91,6 @@ export default function AddMember({
       isFull,
     })
       .then((data) => {
-        setOpenModal(false);
         setNewMembership(data.data.data._id);
         setUser("");
         setEqubLevel("");

@@ -43,7 +43,7 @@ API.interceptors.response.use(
   },
   (error) => {
     // Handle errors here
-    if (error.response && error.response.status === 401) {
+    if (error.response && error.response.status >= 401) {
       if (logoutFunction) {
         logoutFunction(); // Trigger the logout function when token is expired
       }
