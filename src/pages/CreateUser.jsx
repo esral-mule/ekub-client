@@ -22,46 +22,48 @@ import OpenedEye from "../components/icons/OpenedEye";
 
 const CreateUser = () => {
   let navigate = useNavigate();
-  const { toast } = useToast()
+  const { toast } = useToast();
   const { t } = useTranslation("global");
   const [fullName, setFullName] = useState("");
-  // const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [isLoading,setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsLoading(true)
+    setIsLoading(true);
     API.post("/member", {
       fullName,
       phoneNumber,
+      username,
       password,
     })
       .then(() => {
-        setFullName("")
-        setPhoneNumber("")
-        setPassword("")
+        setFullName("");
+        setPhoneNumber("");
+        setUsername("");
+        setPassword("");
         setErrors({});
         toast({
           title: "User Create ",
           description: "User Created successfuly",
-        })
-        setIsLoading(false)
+        });
+        setIsLoading(false);
         navigate("/");
       })
-      .catch((err) => {      
+      .catch((err) => {
         const responseErrors = err.response?.data.errors || [];
         const global = err.response?.data?.message;
-        let tempErrors = {};       
+        let tempErrors = {};
         responseErrors.forEach((errorObj) => {
           let errorMessage = errorObj.messages;
-      
+
           tempErrors[errorObj.field] = errorMessage;
         });
         setErrors({ ...tempErrors, global });
@@ -93,8 +95,9 @@ const CreateUser = () => {
               />
             </div>
 
-            {/* <div className="space-y-1 text-left">
+            <div className="space-y-1 text-left">
               <Label htmlFor="username">{t("creatUser.username")}</Label>
+
               {errors.username && (
                 <div className="text-red-600 text-xs">{errors.username}</div>
               )}
@@ -104,13 +107,12 @@ const CreateUser = () => {
                 onChange={(e) => setUsername(e.target.value)}
                 value={username}
               />
-            </div> */}
+            </div>
+
             <div className="space-y-1 text-left">
               <Label htmlFor="phonenumber">{t("creatUser.phoneNumber")}</Label>
               {errors.phoneNumber && (
-                <div className="text-red-600 text-xs">
-                  {errors.phoneNumber}
-                </div>
+                <div className="text-red-600 text-xs">{errors.phoneNumber}</div>
               )}
               <Input
                 id="phonenumber"
@@ -126,26 +128,36 @@ const CreateUser = () => {
                 <div className="text-red-600 text-xs">{errors.password}</div>
               )}
               <div className="flex items-center relative">
-              <Input
-                id="password"
-                type={passwordVisible ? "text" : "password"}
-                placeholder="Your password ..."
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-              />
-              <div
-                className="absolute top-3 right-2"
-                onClick={() => {
-                  togglePasswordVisibility();
-                }}
-              >
-                {passwordVisible ? <ClosedEye/> : <OpenedEye/>}
+                <Input
+                  id="password"
+                  type={passwordVisible ? "text" : "password"}
+                  placeholder="Your password ..."
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                />
+                <div
+                  className="absolute top-3 right-2"
+                  onClick={() => {
+                    togglePasswordVisibility();
+                  }}
+                >
+                  {passwordVisible ? <ClosedEye /> : <OpenedEye />}
+                </div>
               </div>
-            </div>
             </div>
           </CardContent>
           <CardFooter>
-            <Button disabled={isLoading || fullName==""|| phoneNumber=="" || password==""}> {isLoading? t("creatUser.loading"):t("creatUser.createEquber")}</Button>
+            <Button
+              disabled={
+                isLoading ||
+                fullName == "" ||
+                phoneNumber == "" ||
+                password == ""
+              }
+            >
+              {" "}
+              {isLoading ? t("creatUser.loading") : t("creatUser.createEquber")}
+            </Button>
           </CardFooter>
         </Card>
       </form>

@@ -22,7 +22,7 @@ export default function CreateUser({ setUser }) {
 
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  // const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -34,12 +34,14 @@ export default function CreateUser({ setUser }) {
     API.post("/member", {
       fullName,
       phoneNumber,
+      username,
       password,
     })
       .then((data) => {
         setFullName("");
         setPhoneNumber("");
         setPassword("");
+        setUsername("");
         setErrors({});
         setIsLoading(false);
         setUser(data.data.data);
@@ -50,6 +52,8 @@ export default function CreateUser({ setUser }) {
         });
       })
       .catch((err) => {
+        console.log(err);
+
         const responseErrors = err.response?.data.errors || [];
         const global = err.response?.data?.message;
         let tempErrors = {};
@@ -131,20 +135,27 @@ export default function CreateUser({ setUser }) {
             </div>
           </div>
 
-          {/* <div className="grid grid-cols-4 items-center gap-4">
+          <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="username" className="text-right">
               {t("creatNewUser.username")}
             </Label>
-            <Input
-              id="username"
-              placeholder={t("creatNewUser.placeholders.username")}
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className={`col-span-3 ${
-                errors.username ? "outline outline-red-700" : ""
-              }`}
-            />
-          </div> */}
+            <div className="col-span-3">
+              <span className="block mb-1">
+                {errors.username && (
+                  <div className="text-red-600 text-xs">{errors.username}</div>
+                )}
+              </span>
+              <Input
+                id="username"
+                placeholder={t("creatNewUser.placeholders.username")}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className={`col-span-3 ${
+                  errors.username ? "outline outline-red-700" : ""
+                }`}
+              />
+            </div>
+          </div>
 
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="password" className="text-right">
