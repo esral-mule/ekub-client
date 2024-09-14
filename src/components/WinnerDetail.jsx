@@ -59,7 +59,7 @@ export default function WinnerDetail({ round }) {
       </CardDescription>
 
       {isLoading ? (
-        <Loader2 className="mx-auto h-4 w-4 animate-spin" />
+        <Loader2 className="mx-auto h-4 w-4 animate-spin pb-5" />
       ) : (
         benefficiary &&
         benefficiary.uniqueId.members &&

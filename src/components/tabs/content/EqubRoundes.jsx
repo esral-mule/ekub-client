@@ -31,7 +31,7 @@ export default function EqubRounds() {
   return (
     <div>
       {isLoading ? (
-        <Loader2 className="mx-auto h-4 w-4 animate-spin" />
+        <Loader2 className="mx-auto h-4 w-4 animate-spin pb-5" />
       ) : (
         <div>
           {options.length > 0 && (
