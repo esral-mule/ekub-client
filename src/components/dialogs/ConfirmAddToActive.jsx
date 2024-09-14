@@ -11,26 +11,25 @@ import {
 
 import API from "../../api/axios";
 import { useToast } from "../ui/use-toast";
+import { useParams } from "react-router";
 
 export default function ConfirmAddToActive({
   newMembership,
   setNewMembership,
 }) {
   const { toast } = useToast();
-
+  const { id } = useParams();
   const handleSubmit = (addToAcive) => {
     if (addToAcive) {
-      API.post("/round/add-to-round", {
+      API.post(`/round/add-to-round/${id}`, {
         member: newMembership,
       })
-        .then((res) => {
-
+        .then(() => {
           toast({
             description: "user added to active round",
           });
         })
-        .catch((err) => {
-
+        .catch(() => {
           toast({
             variant: "destructive",
             description: "user added to active round failed",
