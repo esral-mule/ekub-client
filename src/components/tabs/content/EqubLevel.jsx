@@ -12,7 +12,6 @@ import { useParams } from "react-router";
 import CreateEqubLevel from "../../dialogs/CreateEqubLevel";
 import EqubLevels from "../../tables/EqubLevels";
 import { useTranslation } from "react-i18next";
-import { TabsContent } from "../../ui/tabs";
 import { Loader2 } from "lucide-react";
 
 export default function EqubLevel() {
@@ -38,7 +37,6 @@ export default function EqubLevel() {
   }, []);
 
   return (
-    <TabsContent value="equblevels">
       <Card x-chunk="dashboard-06-chunk-0">
         <CardHeader>
           <CardTitle>{t("equbLevels.title")}</CardTitle>
@@ -65,6 +63,5 @@ export default function EqubLevel() {
           )}
         </CardFooter>
       </Card>
-    </TabsContent>
   );
 }
