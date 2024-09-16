@@ -8,7 +8,7 @@ export const setLogoutFunction = (logout) => {
 
 const API = axios.create({
   // TODO: replace URL value from env
-  baseURL: "http://www.equb.kisu-makeup.com/api/v1",
+  baseURL: "https://ekub-backend-pws7.onrender.com/api/v1",
 });
 
 // Request interceptor
