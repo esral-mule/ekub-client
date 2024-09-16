@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import API from "../../api/axios";
 import { useToast } from "../ui/use-toast";
 import { UserPlus } from "lucide-react";
@@ -15,8 +15,10 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "../ui/alert-dialog";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function CreateUser({ setUser }) {
+  const {state} = useContext(AuthContext);
   const { toast } = useToast();
   const { t } = useTranslation("global");
 
@@ -36,6 +38,7 @@ export default function CreateUser({ setUser }) {
       phoneNumber,
       username,
       password,
+      house:state.user.id
     })
       .then((data) => {
         setFullName("");

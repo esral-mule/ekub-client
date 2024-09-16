@@ -16,7 +16,7 @@ import { useNavigate } from "react-router";
 import { Button } from "../components/ui/button";
 import API from "../api/axios";
 import { AuthContext } from "../context/AuthContext";
-import { useToast } from "../components/ui/use-toast";
+import { useToast } from "../components/ui/hooks/use-toast";
 import ClosedEye from "../components/icons/ClosedEye";
 import OpenedEye from "../components/icons/OpenedEye";
 
@@ -46,7 +46,7 @@ export default function Signin() {
         const { accessToken, refreshToken } = res.data.data.tokens;
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("refreshToken", refreshToken);
-        login(res.data.user);
+        login(res.data.data.user);
         setError("");
         toast({
           description: "Logged in Successfuly",

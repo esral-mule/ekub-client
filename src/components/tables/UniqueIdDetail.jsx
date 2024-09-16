@@ -60,7 +60,7 @@ export default function UniqueIdDetail({ uniqueID, equbLevel, setIsFull }) {
         </div>
       ) : (
         uniqueIDDetail && (
-          <Card className="max-h-[calc(100vh-30rem)] overflow-y-scroll">
+          <Card className="max-h-[calc(100vh-30rem)] overflow-y-auto">
             {uniqueIDDetail.members.length > 0 ? (
               <div>
                 <p className="p-3 border border-b-1">{t("uniqueIdDetail.title")}</p>

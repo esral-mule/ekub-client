@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useToast } from "../../ui/use-toast";
+import { useToast } from "../../ui/hooks/use-toast";
 import UpdatePaymentStatus from "../../dialogs/UpdatePaymentStatus";
 import API from "../../../api/axios";
 

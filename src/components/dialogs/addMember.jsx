@@ -179,7 +179,7 @@ export default function AddMember({
             </div>
           )}
 
-          {uniqueId && equbLevel && (
+          {/* {uniqueId && equbLevel && (
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
                 <AccordionTrigger>{t("addMember.isFull")}</AccordionTrigger>
@@ -195,7 +195,7 @@ export default function AddMember({
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-          )}
+          )} */}
         </div>
         <AlertDialogFooter>
           <div className="flex gap-x-1 justify-end">

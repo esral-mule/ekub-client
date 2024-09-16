@@ -9,18 +9,20 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import { Button } from "../components/ui/button";
 import API from "../api/axios";
 import { useNavigate } from "react-router";
 import Transition from "../components/Transition";
-import { useToast } from "../components/ui/use-toast";
+import { useToast } from "../components/ui/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 import ClosedEye from "../components/icons/ClosedEye";
 import OpenedEye from "../components/icons/OpenedEye";
+import { AuthContext } from "../context/AuthContext";
 
 const CreateUser = () => {
+  const {state} = useContext(AuthContext);
   let navigate = useNavigate();
   const { toast } = useToast();
   const { t } = useTranslation("global");
@@ -43,6 +45,7 @@ const CreateUser = () => {
       phoneNumber,
       username,
       password,
+      house:state.user.id
     })
       .then(() => {
         setFullName("");

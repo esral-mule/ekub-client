@@ -12,14 +12,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useContext } from "react";
 import API from "../../api/axios";
 import { useTranslation } from "react-i18next";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function SelectUser({
   action,
   user,
 }) {
+  const {state} = useContext(AuthContext);
   const { t } = useTranslation("global");
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState(""); // Controlled input state
@@ -30,7 +32,7 @@ export default function SelectUser({
   const fetchFilteredData = useCallback(async (query) => {
     try {
       setLoading(true);
-      const response = await API.get("/member/", {
+      const response = await API.get(`/member/house/${state.user.id}`, {
         params: { searchQuery: query,queryName:"username" },
       });
       setFilteredData(response.data.data);
